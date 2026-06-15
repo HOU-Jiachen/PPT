@@ -1,0 +1,72 @@
+# Release Audit
+
+- Errors: 64
+- Warnings: 0
+- Release ready: False
+
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 2, "evidence_id": "LEGACY-P002"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 5, "evidence_id": "LEGACY-P005"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 6, "evidence_id": "LEGACY-P006"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 7, "evidence_id": "LEGACY-P007"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 8, "evidence_id": "LEGACY-P008"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 9, "evidence_id": "LEGACY-P009"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 11, "evidence_id": "LEGACY-P011"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 12, "evidence_id": "LEGACY-P012"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 13, "evidence_id": "LEGACY-P013"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 14, "evidence_id": "LEGACY-P014"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 15, "evidence_id": "LEGACY-P015"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 17, "evidence_id": "LEGACY-P017"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 18, "evidence_id": "LEGACY-P018"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 19, "evidence_id": "LEGACY-P019"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 20, "evidence_id": "LEGACY-P020"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 21, "evidence_id": "LEGACY-P021"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 22, "evidence_id": "LEGACY-P022"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 23, "evidence_id": "LEGACY-P023"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 24, "evidence_id": "LEGACY-P024"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 25, "evidence_id": "LEGACY-P025"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 26, "evidence_id": "LEGACY-P026"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 27, "evidence_id": "LEGACY-P027"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 28, "evidence_id": "LEGACY-P028"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 30, "evidence_id": "LEGACY-P030"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 31, "evidence_id": "LEGACY-P031"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 32, "evidence_id": "LEGACY-P032"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 33, "evidence_id": "LEGACY-P033"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 34, "evidence_id": "LEGACY-P034"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 35, "evidence_id": "LEGACY-P035"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 36, "evidence_id": "LEGACY-P036"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 37, "evidence_id": "LEGACY-P037"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 38, "evidence_id": "LEGACY-P038"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 39, "evidence_id": "LEGACY-P039"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 40, "evidence_id": "LEGACY-P040"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 41, "evidence_id": "LEGACY-P041"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 42, "evidence_id": "LEGACY-P042"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 43, "evidence_id": "LEGACY-P043"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 44, "evidence_id": "LEGACY-P044"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 45, "evidence_id": "LEGACY-P045"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 47, "evidence_id": "LEGACY-P047"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 48, "evidence_id": "LEGACY-P048"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 49, "evidence_id": "LEGACY-P049"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 50, "evidence_id": "LEGACY-P050"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 51, "evidence_id": "LEGACY-P051"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 52, "evidence_id": "LEGACY-P052"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 53, "evidence_id": "LEGACY-P053"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 55, "evidence_id": "LEGACY-P055"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 57, "evidence_id": "LEGACY-P057"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 58, "evidence_id": "LEGACY-P058"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 59, "evidence_id": "LEGACY-P059"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 61, "evidence_id": "LEGACY-P061"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 62, "evidence_id": "LEGACY-P062"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 63, "evidence_id": "LEGACY-P063"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 65, "evidence_id": "LEGACY-P065"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 66, "evidence_id": "LEGACY-P066"}`
+- **ERROR unverified-evidence**: Evidence must be verified against the original source. `{"page": 67, "evidence_id": "LEGACY-P067"}`
+- **INFO svg-directory**: Auditing SVG directory. `{"path": "C:\\Gemini cli\\gemini-ppt\\projects\\当阳玉泉水库\\source_faithful_deck\\svg_final", "slides": 67}`
+- **ERROR unsupported-number**: Visible number was not found in the normalized source corpus. `{"page": 8, "numbers": ["10%", "24.3%", "30%"]}`
+- **ERROR unsupported-number**: Visible number was not found in the normalized source corpus. `{"page": 19, "numbers": ["108.5", "2%", "3.29%", "3.92%", "4.18%"]}`
+- **ERROR unsupported-number**: Visible number was not found in the normalized source corpus. `{"page": 26, "numbers": ["74.06%"]}`
+- **ERROR unsupported-number**: Visible number was not found in the normalized source corpus. `{"page": 28, "numbers": ["100%", "98.39%"]}`
+- **ERROR unsupported-number**: Visible number was not found in the normalized source corpus. `{"page": 35, "numbers": ["0.65"]}`
+- **ERROR unsupported-number**: Visible number was not found in the normalized source corpus. `{"page": 43, "numbers": ["20%"]}`
+- **ERROR unsupported-number**: Visible number was not found in the normalized source corpus. `{"page": 44, "numbers": ["0.65"]}`
+- **ERROR unsupported-number**: Visible number was not found in the normalized source corpus. `{"page": 59, "numbers": ["20%"]}`
+- **INFO pptx-valid**: PPTX package, XML, media, and parser checks passed. `{"slides": 67}`

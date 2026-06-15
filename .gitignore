@@ -1,0 +1,42 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# ppt-master runtime output
+projects/**/.preview/
+projects/**/.review/
+projects/**/svg_output/
+projects/**/svg_final/
+projects/**/backup/
+projects/**/.live_preview.lock
+projects/**/preview-server*.log
+projects/**/~$*
+projects/**/debug_*
+projects/**/full_deck/
+projects/**/notes/
+projects/**/exports/
+projects/**/qa/report-docx.zip
+projects/**/qa/report-docx-package/
+projects/**/qa/package-current*
+projects/**/qa/contact-sheet.png
+projects/**/qa/conversion-trace.json
+projects/**/source_faithful_deck/.preview_server_pid
+projects/**/source_faithful_deck/qa/
+projects/*/*.pptx
+tmp_*/
+tmp_ppt_*/
+
+# local scratch/test files
+test.txt
+test.zip
+test_dir/
+test_fix.cjs
+list_tags.cjs
+ppt/
+
+# keep the latest curated export under projects/*/exports/, but avoid Office lock files
+projects/**/exports/~$*
+
+# Keep deliverables and project source artifacts trackable.

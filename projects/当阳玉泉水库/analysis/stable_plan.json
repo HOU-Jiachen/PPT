@@ -1,0 +1,83 @@
+{
+  "schema": "template_fill_pptx_plan.v1",
+  "source_pptx": "templates/模板_tagged.pptx",
+  "output_pptx": "projects/当阳玉泉水库/玉泉水库_稳定修复版_V8.pptx",
+  "slides": [
+    {
+      "source_slide": 1,
+      "replacements": [
+        { "tag": "S1_Org", "text": "当阳市惠清水环境治理有限责任公司" },
+        { "tag": "S1_Title", "text": "玉泉水库水资源论证报告" },
+        { "tag": "S1_Subtitle", "text": "保障农业灌溉安全 · 助力粮食稳产保供" },
+        { "tag": "S1_Author", "text": "项目专家组" }
+      ],
+      "media": {
+        "image1.png": "projects/当阳玉泉水库/extracted_media/word/media/image19.png",
+        "image2.png": "projects/当阳玉泉水库/extracted_media/word/media/image9.jpeg"
+      }
+    },
+    {
+      "source_slide": 2,
+      "replacements": [
+        { "tag": "C1_Title", "text": "项目背景" },
+        { "tag": "C2_Title", "text": "用水合理性" },
+        { "tag": "C3_Title", "text": "水源可靠性" },
+        { "tag": "C4_Title", "text": "节水措施" }
+      ]
+    },
+    {
+      "source_slide": 3,
+      "replacements": [
+        { "tag": "C1_Title", "text": "项目概况与总论" }
+      ]
+    },
+    {
+      "source_slide": 4,
+      "replacements": [
+        { "tag": "S4_Desc_Start", "text": "【项目区位】当阳市玉泉办事处。\n【灌溉面积】1.76 万亩。\n【论证级别】二级论证。" },
+        { "tag": "S4_Val", "text": "750 万 m³" },
+        { "tag": "C1_Title", "text": "区域地理位置" }
+      ],
+      "media": {
+        "image3.png": "projects/当阳玉泉水库/extracted_media/word/media/image16.png"
+      }
+    },
+    {
+      "source_slide": 5,
+      "replacements": [
+        { "tag": "S5_Task_Text", "text": "本工程旨在通过水库、渠道联合调度，保障子龙、合意、玉泉三村农田灌溉，提升区域水资源利用效率。" },
+        { "tag": "C1_Title", "text": "核心任务" }
+      ]
+    },
+    {
+      "source_slide": 6,
+      "replacements": [
+        { "tag": "C1_Title", "text": "灌溉定额核定" },
+        { "tag": "S4_Val", "text": "中稻: 584 m³/亩\n油菜: 87 m³/亩\n小麦: 66 m³/亩" }
+      ],
+      "media": {
+        "image5.jpeg": "projects/当阳玉泉 media/word/media/image24.jpeg"
+      }
+    },
+    {
+      "source_slide": 7,
+      "replacements": [
+        { "tag": "C1_Title", "text": "水资源供需平衡" },
+        { "tag": "T1_R1_C1", "text": "P=90% 可供水量" },
+        { "tag": "T1_R1_C2", "text": "112.57 万 m³" }
+      ]
+    },
+    {
+      "source_slide": 8,
+      "replacements": [
+        { "tag": "C2_Title", "text": "节水与保护结论" }
+      ]
+    },
+    {
+      "source_slide": 9,
+      "replacements": [
+        { "tag": "S9_Speaker", "text": "当阳项目组" }
+      ]
+    }
+  ]
+}

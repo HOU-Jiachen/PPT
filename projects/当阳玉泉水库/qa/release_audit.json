@@ -1,0 +1,633 @@
+{
+  "summary": {
+    "errors": 64,
+    "warnings": 0,
+    "info": 2,
+    "release_ready": false
+  },
+  "metadata": {
+    "project": "C:\\Gemini cli\\gemini-ppt\\projects\\当阳玉泉水库",
+    "strict": true,
+    "planned_slides": 67,
+    "svg_slides": 67,
+    "pptx": "C:\\Gemini cli\\gemini-ppt\\projects\\当阳玉泉水库\\exports\\玉泉水库水资源论证_原文忠实修订版_67页_Office2021.pptx"
+  },
+  "findings": [
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 2,
+        "evidence_id": "LEGACY-P002"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 5,
+        "evidence_id": "LEGACY-P005"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 6,
+        "evidence_id": "LEGACY-P006"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 7,
+        "evidence_id": "LEGACY-P007"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 8,
+        "evidence_id": "LEGACY-P008"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 9,
+        "evidence_id": "LEGACY-P009"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 11,
+        "evidence_id": "LEGACY-P011"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 12,
+        "evidence_id": "LEGACY-P012"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 13,
+        "evidence_id": "LEGACY-P013"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 14,
+        "evidence_id": "LEGACY-P014"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 15,
+        "evidence_id": "LEGACY-P015"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 17,
+        "evidence_id": "LEGACY-P017"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 18,
+        "evidence_id": "LEGACY-P018"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 19,
+        "evidence_id": "LEGACY-P019"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 20,
+        "evidence_id": "LEGACY-P020"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 21,
+        "evidence_id": "LEGACY-P021"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 22,
+        "evidence_id": "LEGACY-P022"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 23,
+        "evidence_id": "LEGACY-P023"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 24,
+        "evidence_id": "LEGACY-P024"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 25,
+        "evidence_id": "LEGACY-P025"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 26,
+        "evidence_id": "LEGACY-P026"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 27,
+        "evidence_id": "LEGACY-P027"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 28,
+        "evidence_id": "LEGACY-P028"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 30,
+        "evidence_id": "LEGACY-P030"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 31,
+        "evidence_id": "LEGACY-P031"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 32,
+        "evidence_id": "LEGACY-P032"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 33,
+        "evidence_id": "LEGACY-P033"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 34,
+        "evidence_id": "LEGACY-P034"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 35,
+        "evidence_id": "LEGACY-P035"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 36,
+        "evidence_id": "LEGACY-P036"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 37,
+        "evidence_id": "LEGACY-P037"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 38,
+        "evidence_id": "LEGACY-P038"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 39,
+        "evidence_id": "LEGACY-P039"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 40,
+        "evidence_id": "LEGACY-P040"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 41,
+        "evidence_id": "LEGACY-P041"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 42,
+        "evidence_id": "LEGACY-P042"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 43,
+        "evidence_id": "LEGACY-P043"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 44,
+        "evidence_id": "LEGACY-P044"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 45,
+        "evidence_id": "LEGACY-P045"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 47,
+        "evidence_id": "LEGACY-P047"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 48,
+        "evidence_id": "LEGACY-P048"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 49,
+        "evidence_id": "LEGACY-P049"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 50,
+        "evidence_id": "LEGACY-P050"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 51,
+        "evidence_id": "LEGACY-P051"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 52,
+        "evidence_id": "LEGACY-P052"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 53,
+        "evidence_id": "LEGACY-P053"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 55,
+        "evidence_id": "LEGACY-P055"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 57,
+        "evidence_id": "LEGACY-P057"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 58,
+        "evidence_id": "LEGACY-P058"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 59,
+        "evidence_id": "LEGACY-P059"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 61,
+        "evidence_id": "LEGACY-P061"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 62,
+        "evidence_id": "LEGACY-P062"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 63,
+        "evidence_id": "LEGACY-P063"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 65,
+        "evidence_id": "LEGACY-P065"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 66,
+        "evidence_id": "LEGACY-P066"
+      }
+    },
+    {
+      "level": "error",
+      "code": "unverified-evidence",
+      "message": "Evidence must be verified against the original source.",
+      "context": {
+        "page": 67,
+        "evidence_id": "LEGACY-P067"
+      }
+    },
+    {
+      "level": "info",
+      "code": "svg-directory",
+      "message": "Auditing SVG directory.",
+      "context": {
+        "path": "C:\\Gemini cli\\gemini-ppt\\projects\\当阳玉泉水库\\source_faithful_deck\\svg_final",
+        "slides": 67
+      }
+    },
+    {
+      "level": "error",
+      "code": "unsupported-number",
+      "message": "Visible number was not found in the normalized source corpus.",
+      "context": {
+        "page": 8,
+        "numbers": [
+          "10%",
+          "24.3%",
+          "30%"
+        ]
+      }
+    },
+    {
+      "level": "error",
+      "code": "unsupported-number",
+      "message": "Visible number was not found in the normalized source corpus.",
+      "context": {
+        "page": 19,
+        "numbers": [
+          "108.5",
+          "2%",
+          "3.29%",
+          "3.92%",
+          "4.18%"
+        ]
+      }
+    },
+    {
+      "level": "error",
+      "code": "unsupported-number",
+      "message": "Visible number was not found in the normalized source corpus.",
+      "context": {
+        "page": 26,
+        "numbers": [
+          "74.06%"
+        ]
+      }
+    },
+    {
+      "level": "error",
+      "code": "unsupported-number",
+      "message": "Visible number was not found in the normalized source corpus.",
+      "context": {
+        "page": 28,
+        "numbers": [
+          "100%",
+          "98.39%"
+        ]
+      }
+    },
+    {
+      "level": "error",
+      "code": "unsupported-number",
+      "message": "Visible number was not found in the normalized source corpus.",
+      "context": {
+        "page": 35,
+        "numbers": [
+          "0.65"
+        ]
+      }
+    },
+    {
+      "level": "error",
+      "code": "unsupported-number",
+      "message": "Visible number was not found in the normalized source corpus.",
+      "context": {
+        "page": 43,
+        "numbers": [
+          "20%"
+        ]
+      }
+    },
+    {
+      "level": "error",
+      "code": "unsupported-number",
+      "message": "Visible number was not found in the normalized source corpus.",
+      "context": {
+        "page": 44,
+        "numbers": [
+          "0.65"
+        ]
+      }
+    },
+    {
+      "level": "error",
+      "code": "unsupported-number",
+      "message": "Visible number was not found in the normalized source corpus.",
+      "context": {
+        "page": 59,
+        "numbers": [
+          "20%"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "code": "pptx-valid",
+      "message": "PPTX package, XML, media, and parser checks passed.",
+      "context": {
+        "slides": 67
+      }
+    }
+  ]
+}

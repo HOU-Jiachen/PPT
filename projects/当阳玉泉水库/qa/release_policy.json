@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "minimum_font_px": {
+    "title": 30,
+    "body": 18,
+    "chart_label": 14,
+    "source": 10
+  },
+  "forbidden_visible_phrases": [
+    "报告原文摘录",
+    "工程原文摘录",
+    "表中缺失项沿用报告提取状态",
+    "不做补造",
+    "不作补造",
+    "审查提示",
+    "数据提示",
+    "口径A",
+    "口径B",
+    "本次审查",
+    "静态余量"
+  ],
+  "original_source_modes": [
+    "ORIGINAL_TEXT",
+    "ORIGINAL_TABLE",
+    "ORIGINAL_FIGURE",
+    "CALCULATION"
+  ],
+  "structural_slide_types": [
+    "cover",
+    "agenda",
+    "section",
+    "closing"
+  ],
+  "sparse_page": {
+    "minimum_visible_characters_without_visual": 70,
+    "minimum_visual_objects": 1
+  }
+}

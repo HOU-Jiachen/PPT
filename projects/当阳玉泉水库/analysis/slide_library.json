@@ -1,0 +1,268 @@
+{
+  "template": "C:\\Gemini cli\\gemini-ppt\\templates\\模板_tagged.pptx",
+  "slides": [
+    {
+      "source_slide": 1,
+      "xml_file": "slide1.xml",
+      "text_summary": "{{S1_Org}} {{S1_Title}} {{S1_Subtitle}} {{S1_Author}}",
+      "slots": [
+        {
+          "tag": "S1_Org",
+          "capacity": "short",
+          "role": "label"
+        },
+        {
+          "tag": "S1_Title",
+          "capacity": "short",
+          "role": "title"
+        },
+        {
+          "tag": "S1_Subtitle",
+          "capacity": "short",
+          "role": "body"
+        },
+        {
+          "tag": "S1_Author",
+          "capacity": "short",
+          "role": "body"
+        }
+      ]
+    },
+    {
+      "source_slide": 2,
+      "xml_file": "slide2.xml",
+      "text_summary": "目录 contents {{C1_Title}} 01 {{C2_Title}} 02 {{C3_Title}} 04 {{C4_Title}} 03 矿段涌突水影响因素评价 05 矿坑涌水量预测 0",
+      "slots": [
+        {
+          "tag": "C1_Title",
+          "capacity": "medium",
+          "role": "title"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "C2_Title",
+          "capacity": "medium",
+          "role": "title"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "C3_Title",
+          "capacity": "medium",
+          "role": "title"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "C4_Title",
+          "capacity": "medium",
+          "role": "title"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        }
+      ]
+    },
+    {
+      "source_slide": 3,
+      "xml_file": "slide3.xml",
+      "text_summary": "{{C1_Title}} 01",
+      "slots": [
+        {
+          "tag": "C1_Title",
+          "capacity": "medium",
+          "role": "title"
+        }
+      ]
+    },
+    {
+      "source_slide": 4,
+      "xml_file": "slide4.xml",
+      "text_summary": "矿区交通位置 {{S4_Desc_Start}} {{S4_Val}} ° 方位，直距约 33km ，行政区划属封开县河儿口镇管辖。现采矿权许可证。中心点坐标：东经 111 ° 48′10″ ，北纬 ",
+      "slots": [
+        {
+          "tag": "S4_Val",
+          "capacity": "short",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Desc_Start",
+          "capacity": "short",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "short",
+          "role": "body"
+        },
+        {
+          "tag": "C1_Title",
+          "capacity": "short",
+          "role": "title"
+        }
+      ]
+    },
+    {
+      "source_slide": 5,
+      "xml_file": "slide5.xml",
+      "text_summary": "工作任务           {{S5_Task_Text}} +50 （现地面）至 +5 米标高范围内的水文地质条件，重点查明岩溶发育特征、富水性、导水性及隔水层分布，评估地下水动力条件变化对岩溶结",
+      "slots": [
+        {
+          "tag": "S5_Task_Text",
+          "capacity": "short",
+          "role": "body"
+        },
+        {
+          "tag": "C1_Title",
+          "capacity": "short",
+          "role": "title"
+        }
+      ]
+    },
+    {
+      "source_slide": 6,
+      "xml_file": "slide6.xml",
+      "text_summary": "{{C1_Title}} 矿区现状 根据封开县自然资源局的规划，拟设置采矿权范围面积 0.7900km 2 ，开采标高 +236.0m ～ +5.0m ，拟开采矿种为：水泥用石灰岩矿，拟开采方式：露天",
+      "slots": [
+        {
+          "tag": "C1_Title",
+          "capacity": "medium",
+          "role": "title"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        }
+      ]
+    },
+    {
+      "source_slide": 7,
+      "xml_file": "slide7.xml",
+      "text_summary": "{{C1_Title}} 工作量 单位 设计工作量 未完成工作量 {{T1_R1_C1}} 点 {{T1_R1_C2}}  区域水文地质 km2 50.00  矿区水文地质调查 1/2000 km2 ",
+      "slots": [
+        {
+          "tag": "C1_Title",
+          "capacity": "medium",
+          "role": "title"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "T1_R1_C1",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "T1_R1_C2",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        }
+      ]
+    },
+    {
+      "source_slide": 8,
+      "xml_file": "slide8.xml",
+      "text_summary": "{{C2_Title}} 02",
+      "slots": [
+        {
+          "tag": "C2_Title",
+          "capacity": "medium",
+          "role": "title"
+        }
+      ]
+    },
+    {
+      "source_slide": 9,
+      "xml_file": "slide9.xml",
+      "text_summary": "汇报完毕，谢谢观看 演讲人：{{S9_Speaker}}",
+      "slots": [
+        {
+          "tag": "S4_Val",
+          "capacity": "medium",
+          "role": "body"
+        },
+        {
+          "tag": "S9_Speaker",
+          "capacity": "short",
+          "role": "body"
+        }
+      ]
+    }
+  ]
+}

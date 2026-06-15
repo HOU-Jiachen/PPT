@@ -1,0 +1,23 @@
+{
+    "S1_Org": "当阳市惠清水环境治理有限责任公司",
+    "S1_Title": "玉泉水库水资源论证报告",
+    "S1_Subtitle": "保障农业灌溉安全，助力乡村振兴与粮食稳产",
+    "S1_Author": "武汉中地环科水工环科技咨询有限责任公司\n二〇二六年六月",
+    "C1_Title": "项目概况与水资源条件",
+    "C2_Title": "用水合理性及可供水量分析",
+    "C3_Title": "取退水影响与保护措施",
+    "C4_Title": "综合评价与论证结论",
+    "S4_Desc_Start": "【项目范围】子龙村、合意村、玉泉村，灌溉面积 17,621.55 亩。\n【论证基础】二级论证等级。现状水平年 2024，规划水平年 2034。\n【区域背景】地处沮漳河流域，属于亚热带大陆性气候区，雨量充沛但分配不均。",
+    "S4_Val": "750 万 m³",
+    "S5_Task_Text": "1. 规划符合性：项目属于鼓励类水利工程，符合《当阳市国土空间总体规划(2021-2035)》及流域治理规划。\n2. 水源可靠性：P=90% 特枯年径流量 112.57 万 m³。缺口部分通过东风渠三干渠引水及水库调蓄实现联合保供。\n3. 用水合理性：中稻灌溉定额 584m³/亩，油菜 87m³/亩。符合《湖北省农业用水定额》先进值要求。\n4. 节水减排：规划利用系数达 0.650。退水 150 万 m³ 主要是农业回归水，通过绿色种植减少面源污染，对环境影响极微。",
+    "T1_R1_C1": "典型年 (P=90%) 径流量",
+    "T1_R1_C2": "112.57 万 m³",
+    "S9_Speaker": "汇报人：当阳项目组",
+    "media": {
+        "image1.png": "projects/当阳玉泉水库/extracted_media/word/media/image19.png",
+        "image2.png": "projects/当阳玉泉水库/extracted_media/word/media/image9.jpeg",
+        "image3.png": "projects/当阳玉泉水库/extracted_media/word/media/image16.png",
+        "image4.jpeg": "projects/当阳玉泉水库/extracted_media/word/media/image24.jpeg",
+        "image5.jpeg": "projects/当阳玉泉水库/extracted_media/word/media/image21.jpeg"
+    }
+}

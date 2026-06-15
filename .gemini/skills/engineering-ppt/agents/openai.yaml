@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engineering PPT"
+  short_description: "Build source-faithful, review-safe engineering PPTs"
+  default_prompt: "Use $engineering-ppt to build an editable engineering report deck with verified evidence, complete chapter coverage, readable source figures and tables, strict text-fit QA, and Office-compatible PPTX validation."
