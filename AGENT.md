@@ -5,7 +5,7 @@
 
 ## 核心内核
 
-- 核心 skill：`.gemini/skills/engineering-ppt/SKILL.md`
+- 核心 skill：`.codex/skills/engineering-ppt/SKILL.md`
 - 上游执行内核：`.vendor/ppt-master/skills/ppt-master/`
 - 上游版本锁：`.vendor/ppt-master` 当前 Git commit
 - Windows 入口：`scripts/ppt-agent.ps1`
@@ -93,4 +93,4 @@
 - 禁止让自动换行依赖 PowerPoint 猜测；在生成阶段显式计算行数和容器高度。
 - 禁止为了“好看”虚构图表数据、客户标识、项目照片或官方 Logo。
 - 禁止跳过渲染审查，只因为脚本成功退出。
-- 禁止直接修改 `.vendor/ppt-master`；本地扩展放在 `.gemini/skills/engineering-ppt/`。
+- 禁止直接修改 `.vendor/ppt-master`；本地扩展放在 `.codex/skills/engineering-ppt/`。

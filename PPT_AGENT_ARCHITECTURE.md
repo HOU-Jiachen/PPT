@@ -5,7 +5,7 @@
 This repository uses a two-layer model:
 
 1. `.vendor/ppt-master/skills/ppt-master/` is the pinned upstream execution kernel.
-2. `.gemini/skills/engineering-ppt/` is the local engineering-report orchestration layer.
+2. `.codex/skills/engineering-ppt/` is the local engineering-report orchestration layer.
 
 The local layer adds source traceability, claim-first story design, Chinese engineering
 defaults, project routing, Windows commands, and mandatory visual QA. It does not fork

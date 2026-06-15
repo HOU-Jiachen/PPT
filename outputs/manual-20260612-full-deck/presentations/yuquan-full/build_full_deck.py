@@ -5,7 +5,7 @@ import textwrap
 from pathlib import Path
 
 
-ROOT = Path(r"C:\Gemini cli\gemini-ppt")
+ROOT = Path(__file__).resolve().parents[4]
 PROJECT = ROOT / "projects" / "当阳玉泉水库"
 OUT = PROJECT / "full_deck" / "svg_final"
 MEDIA = PROJECT / "qa" / "report-docx-package" / "word" / "media"

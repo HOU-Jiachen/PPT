@@ -17,7 +17,7 @@ REPO_ROOT=<workspace root>
 CORE_DIR=<REPO_ROOT>/.vendor/ppt-master/skills/ppt-master
 PROJECT_NAME=<explicit user project, otherwise CURRENT_PROJECT.txt>
 PROJECT_DIR=<REPO_ROOT>/projects/<PROJECT_NAME>
-LOCAL_SKILL=<REPO_ROOT>/.gemini/skills/engineering-ppt
+LOCAL_SKILL=<REPO_ROOT>/.codex/skills/engineering-ppt
 ```
 
 Read `<REPO_ROOT>/AGENT.md`, this file, and `<CORE_DIR>/SKILL.md`. Run:

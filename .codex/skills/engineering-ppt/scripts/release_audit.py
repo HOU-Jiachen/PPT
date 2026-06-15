@@ -23,6 +23,18 @@ STRUCTURAL_DEFAULT = {"cover", "agenda", "section", "closing"}
 ORIGINAL_MODES_DEFAULT = {"ORIGINAL_TEXT", "ORIGINAL_TABLE", "ORIGINAL_FIGURE", "CALCULATION"}
 
 
+def display_path(path: Path, base: Path | None = None) -> str:
+    resolved = path.resolve()
+    roots = [base.resolve()] if base else []
+    roots.append(Path.cwd().resolve())
+    for root in roots:
+        try:
+            return resolved.relative_to(root).as_posix()
+        except ValueError:
+            continue
+    return resolved.name
+
+
 class Audit:
     def __init__(self) -> None:
         self.items: list[dict] = []
@@ -291,7 +303,7 @@ def audit_svgs(
     if not files:
         audit.warning("no-svg", "No SVG output found; visual-content checks were skipped.")
         return 0
-    audit.info("svg-directory", "Auditing SVG directory.", path=str(svg_dir), slides=len(files))
+    audit.info("svg-directory", "Auditing SVG directory.", path=display_path(svg_dir), slides=len(files))
 
     phrases = policy.get("forbidden_visible_phrases", [])
     sparse = policy.get("sparse_page", {})
@@ -358,7 +370,7 @@ def pptx_text(archive: zipfile.ZipFile) -> str:
 
 def audit_pptx(path: Path, expected_slides: int, policy: dict, audit: Audit) -> None:
     if not path.exists():
-        audit.error("missing-pptx", "Requested PPTX does not exist.", path=str(path))
+        audit.error("missing-pptx", "Requested PPTX does not exist.", path=display_path(path))
         return
     try:
         with zipfile.ZipFile(path) as archive:
@@ -439,11 +451,11 @@ def main() -> None:
     if args.pptx:
         audit_pptx(args.pptx.resolve(), len(pages) or svg_count, policy, audit)
     metadata = {
-        "project": str(project),
+        "project": display_path(project),
         "strict": args.strict,
         "planned_slides": len(pages),
         "svg_slides": svg_count,
-        "pptx": str(args.pptx.resolve()) if args.pptx else None,
+        "pptx": display_path(args.pptx) if args.pptx else None,
     }
     write_reports(project, audit, metadata)
     print(json.dumps({"summary": audit.summary(), **metadata}, ensure_ascii=False))

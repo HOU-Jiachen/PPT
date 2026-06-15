@@ -1,14 +1,15 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const workspace = path.resolve(
-  "C:/Gemini cli/gemini-ppt/outputs/manual-20260612-office2021/presentations/yuquan-office2021",
-);
+const workspace = path.dirname(fileURLToPath(import.meta.url));
 const source = path.resolve(
-  "C:/Gemini cli/gemini-ppt/projects/当阳玉泉水库/exports/玉泉水库水资源论证_专家审查汇报_20260612.pptx",
+  workspace,
+  "../../../../projects/当阳玉泉水库/exports/玉泉水库水资源论证_专家审查汇报_20260612.pptx",
 );
 const output = path.resolve(
-  "C:/Gemini cli/gemini-ppt/projects/当阳玉泉水库/exports/玉泉水库水资源论证_专家审查汇报_Office2021兼容版.pptx",
+  workspace,
+  "../../../../projects/当阳玉泉水库/exports/玉泉水库水资源论证_专家审查汇报_Office2021兼容版.pptx",
 );
 
 await fs.mkdir(workspace, { recursive: true });

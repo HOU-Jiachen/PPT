@@ -3,7 +3,7 @@
 工程汇报 PPT agent 项目。
 
 本仓库以 `hugohe3/ppt-master` 作为核心渲染与导出内核，在本地
-`.gemini/skills/engineering-ppt` 增加工程报告专用的证据、章节覆盖、页面规划、
+`.codex/skills/engineering-ppt` 增加工程报告专用的证据、章节覆盖、页面规划、
 文本适配和发布审计流程。
 
 ## 常用命令

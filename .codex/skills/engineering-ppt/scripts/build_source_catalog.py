@@ -30,6 +30,18 @@ WORD_NS = {
 }
 
 
+def display_path(path: Path, base: Path | None = None) -> str:
+    resolved = path.resolve()
+    roots = [base.resolve()] if base else []
+    roots.append(Path.cwd().resolve())
+    for root in roots:
+        try:
+            return resolved.relative_to(root).as_posix()
+        except ValueError:
+            continue
+    return resolved.name
+
+
 def clean_text(value: str) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
 
@@ -48,7 +60,7 @@ def entry(source: Path, locator: str, kind: str, text: str, **extra: object) -> 
     item = {
         "id": f"{short_hash(source)}:{locator}",
         "source": source.name,
-        "source_path": str(source.resolve()),
+        "source_path": display_path(source),
         "locator": locator,
         "kind": kind,
         "text": cleaned,
@@ -241,7 +253,7 @@ def write_inventory(project: Path, sources: Iterable[Path], catalog: list[dict])
         inventory.append(
             {
                 "name": source.name,
-                "path": str(source),
+                "path": display_path(source, project),
                 "size": source.stat().st_size,
                 "modified": source.stat().st_mtime,
             }
@@ -260,7 +272,7 @@ def write_inventory(project: Path, sources: Iterable[Path], catalog: list[dict])
 
     lines = ["# Source Inventory", "", "| File | Size | Catalog entries |", "|---|---:|---:|"]
     for source in sources:
-        count = sum(1 for item in catalog if item["source_path"] == str(source))
+        count = sum(1 for item in catalog if item["source_path"] == display_path(source))
         lines.append(f"| {source.name} | {source.stat().st_size} | {count} |")
     lines.extend(
         [

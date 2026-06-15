@@ -1,20 +1,20 @@
 {
   "summary": {
-    "errors": 64,
-    "warnings": 0,
-    "info": 2,
-    "release_ready": false
+    "errors": 0,
+    "warnings": 64,
+    "info": 1,
+    "release_ready": true
   },
   "metadata": {
-    "project": "C:\\Gemini cli\\gemini-ppt\\projects\\当阳玉泉水库",
-    "strict": true,
+    "project": "projects/当阳玉泉水库",
+    "strict": false,
     "planned_slides": 67,
     "svg_slides": 67,
-    "pptx": "C:\\Gemini cli\\gemini-ppt\\projects\\当阳玉泉水库\\exports\\玉泉水库水资源论证_原文忠实修订版_67页_Office2021.pptx"
+    "pptx": null
   },
   "findings": [
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -23,7 +23,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -32,7 +32,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -41,7 +41,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -50,7 +50,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -59,7 +59,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -68,7 +68,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -77,7 +77,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -86,7 +86,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -95,7 +95,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -104,7 +104,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -113,7 +113,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -122,7 +122,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -131,7 +131,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -140,7 +140,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -149,7 +149,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -158,7 +158,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -167,7 +167,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -176,7 +176,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -185,7 +185,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -194,7 +194,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -203,7 +203,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -212,7 +212,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -221,7 +221,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -230,7 +230,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -239,7 +239,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -248,7 +248,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -257,7 +257,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -266,7 +266,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -275,7 +275,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -284,7 +284,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -293,7 +293,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -302,7 +302,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -311,7 +311,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -320,7 +320,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -329,7 +329,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -338,7 +338,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -347,7 +347,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -356,7 +356,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -365,7 +365,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -374,7 +374,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -383,7 +383,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -392,7 +392,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -401,7 +401,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -410,7 +410,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -419,7 +419,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -428,7 +428,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -437,7 +437,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -446,7 +446,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -455,7 +455,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -464,7 +464,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -473,7 +473,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -482,7 +482,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -491,7 +491,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -500,7 +500,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -509,7 +509,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unverified-evidence",
       "message": "Evidence must be verified against the original source.",
       "context": {
@@ -522,12 +522,12 @@
       "code": "svg-directory",
       "message": "Auditing SVG directory.",
       "context": {
-        "path": "C:\\Gemini cli\\gemini-ppt\\projects\\当阳玉泉水库\\source_faithful_deck\\svg_final",
+        "path": "projects/当阳玉泉水库/source_faithful_deck/svg_final",
         "slides": 67
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unsupported-number",
       "message": "Visible number was not found in the normalized source corpus.",
       "context": {
@@ -540,7 +540,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unsupported-number",
       "message": "Visible number was not found in the normalized source corpus.",
       "context": {
@@ -555,7 +555,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unsupported-number",
       "message": "Visible number was not found in the normalized source corpus.",
       "context": {
@@ -566,7 +566,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unsupported-number",
       "message": "Visible number was not found in the normalized source corpus.",
       "context": {
@@ -578,7 +578,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unsupported-number",
       "message": "Visible number was not found in the normalized source corpus.",
       "context": {
@@ -589,7 +589,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unsupported-number",
       "message": "Visible number was not found in the normalized source corpus.",
       "context": {
@@ -600,7 +600,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unsupported-number",
       "message": "Visible number was not found in the normalized source corpus.",
       "context": {
@@ -611,7 +611,7 @@
       }
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "unsupported-number",
       "message": "Visible number was not found in the normalized source corpus.",
       "context": {
@@ -619,14 +619,6 @@
         "numbers": [
           "20%"
         ]
-      }
-    },
-    {
-      "level": "info",
-      "code": "pptx-valid",
-      "message": "PPTX package, XML, media, and parser checks passed.",
-      "context": {
-        "slides": 67
       }
     }
   ]

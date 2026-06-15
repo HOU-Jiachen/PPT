@@ -1,11 +1,15 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
+const workspace = path.dirname(fileURLToPath(import.meta.url));
 const source = path.resolve(
-  "C:/Gemini cli/gemini-ppt/projects/当阳玉泉水库/exports/玉泉水库水资源论证_完整章节汇报_49页_Office2021.pptx",
+  workspace,
+  "../../../../projects/当阳玉泉水库/exports/玉泉水库水资源论证_完整章节汇报_49页_Office2021.pptx",
 );
 const output = path.resolve(
-  "C:/Gemini cli/gemini-ppt/projects/当阳玉泉水库/exports/玉泉水库水资源论证_完整章节汇报_49页_标准化.pptx",
+  workspace,
+  "../../../../projects/当阳玉泉水库/exports/玉泉水库水资源论证_完整章节汇报_49页_标准化.pptx",
 );
 
 const { FileBlob, PresentationFile } = await import(

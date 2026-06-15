@@ -13,7 +13,7 @@ This skill enables you to act as an "Annotation Framework Agent" to automate the
 2.  **Extract Data**: Read the project report. Identify key information like Project Name, Summary, Milestones, Risks, etc.
 3.  **Map to Template**: Identify placeholders in the PPT template (typically in `{{VariableName}}` format).
 4.  **Prepare JSON**: Create a JSON file containing the mapping of tags to extracted content.
-    *   Example: `{"ProjectName": "Gemini PPT", "Summary": "Automated PPT generation."}`
+    *   Example: `{"ProjectName": "Codex PPT", "Summary": "Automated PPT generation."}`
 5.  **Generate PPT**: Execute the `generate_ppt.cjs` script bundled with this skill.
 
 ## Usage Guide
