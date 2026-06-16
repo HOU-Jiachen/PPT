@@ -3,14 +3,15 @@
 - format: PPT 16:9
 
 ## colors
-- bg: #F7F9F9
+- bg: #F7F9FC
 - paper: #FFFFFF
-- primary: #0E5E6F
-- accent: #B65A24
-- secondary_accent: #DCE8E8
-- text: #1B2A2F
-- text_secondary: #5E6B70
-- border: #C7D3D4
+- primary: #01203C
+- accent: #4489C8
+- warning: #A33A2B
+- secondary_accent: #EAF2F8
+- text: #01203C
+- text_secondary: #566B7F
+- border: #CCD8E2
 
 ## typography
 - font_family: "Microsoft YaHei", Arial, sans-serif

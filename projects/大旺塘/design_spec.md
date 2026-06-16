@@ -7,7 +7,7 @@
 | **Project Name** | 大旺塘矿山地下水治理专项水文地质勘察工程评审汇报 |
 | **Canvas Format** | PPT 16:9 (1280x720) |
 | **Page Count** | 74 |
-| **Design Style** | General Consulting + 政府/工程咨询评审详版 |
+| **Design Style** | 参考既有最终评审PPT的深蓝工程评审风格 |
 | **Target Audience** | 业主单位、矿山安全与水文地质评审专家、设计及治理实施相关方 |
 | **Use Case** | 专项勘察工程评审汇报 |
 | **Created Date** | 2026-06-16 |
@@ -30,13 +30,14 @@
 
 | Role | HEX | Purpose |
 | ---- | --- | ------- |
-| **Background** | `#F7F9F9` | Page background |
-| **Secondary bg** | `#EEF3F3` | Technical bands and table surfaces |
-| **Primary** | `#0E5E6F` | Chapter headers and emphasis |
-| **Accent** | `#B65A24` | Key engineering warnings and control values |
-| **Body text** | `#1B2A2F` | Main body text |
-| **Secondary text** | `#5E6B70` | Captions, source notes |
-| **Border/divider** | `#C7D3D4` | Table and figure frames |
+| **Background** | `#F7F9FC` | Page background |
+| **Secondary bg** | `#F1F6FA` | Technical bands and table surfaces |
+| **Primary** | `#01203C` | Chapter headers and emphasis |
+| **Accent** | `#4489C8` | Section labels and engineering highlights |
+| **Warning** | `#A33A2B` | High-risk values and limitations |
+| **Body text** | `#01203C` | Main body text |
+| **Secondary text** | `#566B7F` | Captions, source notes |
+| **Border/divider** | `#CCD8E2` | Table and figure frames |
 
 ## IV. Typography System
 
@@ -63,6 +64,8 @@
 - Footer area: 30px, concise source note.
 - Layouts: left_text_right_figure, top_figure_bottom_text, left_table_right_text, top_text_bottom_table, evidence_chain, decision_matrix.
 - Dense technical pages avoid decorative cards; tables and figures use framed source panels.
+- Visible copy uses report-facing language: `报告阐述`, `报告对图件的说明`, `报告对表格的说明`, `报告计算口径`.
+- Internal planning metadata, evidence IDs, asset filenames and row/column diagnostics remain only in backend contracts/QA.
 
 ## VI. Icon Usage Specification
 
@@ -83,6 +86,15 @@ Runners-up considered:
 - `bar_chart` | rejected: most numeric pages require precise source tables rather than simplified bars.
 - `process_flow` | rejected:防治水措施使用报告原文和证据链矩阵，不替代为流程模板。
 - `timeline_horizontal` | rejected:工作经过页保留报告原文时间节点即可。
+
+## VII-A. Template Learning Profile
+
+- Template file: `template\大旺塘水文地质勘查报告-1.pptx`
+- Template slides: 56
+- Canvas inches: [13.333, 7.5]
+- Dominant fonts: [('思源黑体 CN Medium', 516), ('思源黑体 CN Bold', 116), ('Times New Roman', 113), ('黑体', 76), ('+mn-ea', 6), ('仿宋', 5)]
+- Dominant text colors: [('4489C8', 20), ('000000', 15), ('00B0F0', 13), ('01203C', 1), ('FF0000', 1)]
+- Adopted rules: 16:9 canvas, deep-blue technical review identity; large chapter/section titles with restrained body text; source figures shown without asset filenames or extraction IDs; tables are simplified to readable key rows rather than dense dumps
 
 ## VIII. Image Resource List
 

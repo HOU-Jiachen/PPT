@@ -21,6 +21,36 @@ NUMBER_RE = re.compile(r"(?<![\w.])[-+]?\d+(?:\.\d+)?%?(?![\w.])")
 SVG_NS = {"svg": "http://www.w3.org/2000/svg"}
 STRUCTURAL_DEFAULT = {"cover", "agenda", "section", "closing"}
 ORIGINAL_MODES_DEFAULT = {"ORIGINAL_TEXT", "ORIGINAL_TABLE", "ORIGINAL_FIGURE", "CALCULATION"}
+DEFAULT_FORBIDDEN_VISIBLE_PHRASES = [
+    "报告原文摘录",
+    "工程原文摘录",
+    "缺失项沿用提取状态",
+    "不做补造",
+    "不作补造",
+    "审查提示",
+    "数据提示",
+    "口径A",
+    "口径B",
+    "来源模式",
+    "证据编号",
+    "本页用于",
+    "证据解读",
+    "原表定位",
+    "行列规模",
+    "密集表按重点行重排",
+    "完整数据回看报告原表",
+    "source_mode",
+    "evidence_ids",
+    "visual_proof",
+    "layout_pattern",
+    "source_note",
+    "Source mode",
+]
+DEFAULT_FORBIDDEN_VISIBLE_REGEXES = [
+    re.compile(r"\bE-\d(?:-[A-Z0-9]+)+\b"),
+    re.compile(r"\bimage_\d+\.(?:png|jpe?g|wmf|emf)\b", re.IGNORECASE),
+    re.compile(r"\b(?:ORIGINAL_TEXT|ORIGINAL_TABLE|ORIGINAL_FIGURE|CALCULATION|INTERPRETATION|CONCLUSION|MANAGEMENT_ACTION)\b"),
+]
 
 
 def display_path(path: Path, base: Path | None = None) -> str:
@@ -424,6 +454,12 @@ def audit_plan(
     return pages
 
 
+def visible_forbidden_phrases(policy: dict) -> list[str]:
+    phrases = list(DEFAULT_FORBIDDEN_VISIBLE_PHRASES)
+    phrases.extend(str(item) for item in policy.get("forbidden_visible_phrases", []))
+    return list(dict.fromkeys(item for item in phrases if item))
+
+
 def scan_forbidden(text: str, phrases: list[str], audit: Audit, artifact: str) -> None:
     for phrase in phrases:
         if phrase and phrase in text:
@@ -431,6 +467,16 @@ def scan_forbidden(text: str, phrases: list[str], audit: Audit, artifact: str) -
                 "forbidden-visible-phrase",
                 "Internal workflow wording is visible in the deck.",
                 phrase=phrase,
+                artifact=artifact,
+            )
+    for pattern in DEFAULT_FORBIDDEN_VISIBLE_REGEXES:
+        match = pattern.search(text)
+        if match:
+            audit.error(
+                "forbidden-visible-pattern",
+                "Internal identifiers or asset filenames are visible in the deck.",
+                pattern=pattern.pattern,
+                match=match.group(0),
                 artifact=artifact,
             )
 
@@ -515,7 +561,7 @@ def audit_svgs(
         return 0
     audit.info("svg-directory", "Auditing SVG directory.", path=display_path(svg_dir), slides=len(files))
 
-    phrases = policy.get("forbidden_visible_phrases", [])
+    phrases = visible_forbidden_phrases(policy)
     sparse = policy.get("sparse_page", {})
     min_chars = int(sparse.get("minimum_visible_characters_without_visual", 70))
     for path in files:
@@ -629,7 +675,7 @@ def audit_pptx(path: Path, expected_slides: int, policy: dict, audit: Audit) -> 
                     audit.error("empty-media", "PPTX contains an empty media file.", entry=name)
             scan_forbidden(
                 pptx_text(archive),
-                policy.get("forbidden_visible_phrases", []),
+                visible_forbidden_phrases(policy),
                 audit,
                 path.name,
             )

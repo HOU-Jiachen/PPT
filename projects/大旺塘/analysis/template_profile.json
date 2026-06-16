@@ -1,0 +1,197 @@
+{
+  "available": true,
+  "path": "template\\大旺塘水文地质勘查报告-1.pptx",
+  "slide_count": 56,
+  "canvas_inches": [
+    13.333,
+    7.5
+  ],
+  "dominant_fonts": [
+    [
+      "思源黑体 CN Medium",
+      516
+    ],
+    [
+      "思源黑体 CN Bold",
+      116
+    ],
+    [
+      "Times New Roman",
+      113
+    ],
+    [
+      "黑体",
+      76
+    ],
+    [
+      "+mn-ea",
+      6
+    ],
+    [
+      "仿宋",
+      5
+    ]
+  ],
+  "dominant_font_sizes": [
+    [
+      16.0,
+      475
+    ],
+    [
+      24.0,
+      81
+    ],
+    [
+      28.0,
+      78
+    ],
+    [
+      18.0,
+      74
+    ],
+    [
+      32.0,
+      47
+    ],
+    [
+      54.0,
+      11
+    ],
+    [
+      48.0,
+      11
+    ],
+    [
+      20.0,
+      10
+    ]
+  ],
+  "dominant_text_colors": [
+    [
+      "4489C8",
+      20
+    ],
+    [
+      "000000",
+      15
+    ],
+    [
+      "00B0F0",
+      13
+    ],
+    [
+      "01203C",
+      1
+    ],
+    [
+      "FF0000",
+      1
+    ]
+  ],
+  "dominant_fill_colors": [
+    [
+      "4489C8",
+      29
+    ],
+    [
+      "01203C",
+      4
+    ],
+    [
+      "478CC5",
+      1
+    ]
+  ],
+  "layout_observations": [
+    {
+      "slide": 1,
+      "pictures": 2,
+      "tables": 0,
+      "sample_text": [
+        "华润水泥（封开）有限公司 | 大旺塘矿山地下水治理 | 专项水文地质勘察报告",
+        "中南勘基"
+      ]
+    },
+    {
+      "slide": 2,
+      "pictures": 2,
+      "tables": 0,
+      "sample_text": [
+        "目录",
+        "contents",
+        "项目概况",
+        "01"
+      ]
+    },
+    {
+      "slide": 3,
+      "pictures": 0,
+      "tables": 0,
+      "sample_text": [
+        "项目概况",
+        "01"
+      ]
+    },
+    {
+      "slide": 4,
+      "pictures": 1,
+      "tables": 0,
+      "sample_text": [
+        "矿区交通位置 | 矿区位于封开县城区北东74°方位，直距约33km，行政区划属封开县河儿口镇管辖。现采矿权许可证。中心点坐标：东经111°48′10″，北纬23°31′51″。 | 矿区西侧有S266省道通过，至怀阳高速约7km，至321国",
+        "项目概况",
+        "矿区位置"
+      ]
+    },
+    {
+      "slide": 5,
+      "pictures": 0,
+      "tables": 0,
+      "sample_text": [
+        "工作任务 |  |          为详细查明矿区+50（现地面）至+5米标高范围内的水文地质条件，重点查明岩溶发育特征、富水性、导水性及隔水层分布，评估地下水动力条件变化对岩溶结构的潜在影响；同时，重点分析在矿床开拓及探矿过程中可能诱发",
+        "项目概况"
+      ]
+    },
+    {
+      "slide": 6,
+      "pictures": 1,
+      "tables": 0,
+      "sample_text": [
+        "项目概况",
+        "矿区现状 | 根据封开县自然资源局的规划，拟设置采矿权范围面积0.7900km2，开采标高+236.0m～+5.0m，拟开采矿种为：水泥用石灰岩矿，拟开采方式：露天开采。矿区共由18个拐点圈定。"
+      ]
+    },
+    {
+      "slide": 7,
+      "pictures": 0,
+      "tables": 1,
+      "sample_text": [
+        "项目概况",
+        "工作设计与完成情况一览表"
+      ]
+    },
+    {
+      "slide": 8,
+      "pictures": 0,
+      "tables": 0,
+      "sample_text": [
+        "区域概况",
+        "02"
+      ]
+    },
+    {
+      "slide": 9,
+      "pictures": 1,
+      "tables": 0,
+      "sample_text": [
+        "自然地理",
+        "本区属丘陵山区，地势自东、西两侧向中部倾斜，形成狭长槽形地带。矿区位于狭长槽形地带的北段，附近为丘陵及山间盆地。矿区范围标高最低为50.07m，最高为236.20m，最大相对高差186.13m。矿体出露地表，开采平台平整，四周多见开采遗留下"
+      ]
+    }
+  ],
+  "adopted_rules": [
+    "16:9 canvas, deep-blue technical review identity",
+    "large chapter/section titles with restrained body text",
+    "source figures shown without asset filenames or extraction IDs",
+    "tables are simplified to readable key rows rather than dense dumps"
+  ]
+}

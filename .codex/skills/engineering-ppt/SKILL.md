@@ -201,6 +201,21 @@ Never show internal labels such as:
 不做补造 | 审查提示 | 数据提示 | 口径A | 口径B
 ```
 
+Never show planning or extraction metadata such as:
+
+```text
+来源模式 | 证据编号 | 本页用于 | 证据解读 | 原表定位 |
+行列规模 | 密集表按重点行重排 | 完整数据回看报告原表 |
+source_mode | evidence_ids | visual_proof | layout_pattern | source_note |
+image_003.png | E-1-OBJECTIVE
+```
+
+Visible slide text must be audience-facing report language: use the report's original
+wording or a faithful, layout-shortened paraphrase of what the report says about the
+current text, table, figure, formula, conclusion, or recommendation. Keep extraction
+IDs, asset filenames, row/column counts, and workflow rationale in backend contracts,
+speaker notes, or QA records only.
+
 Communicate source conflicts with neutral report language, not Agent-process language.
 
 ## 9. Enforce Text Fit And Page Fulness

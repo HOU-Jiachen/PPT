@@ -1,0 +1,821 @@
+{
+  "rendered_pngs": 74,
+  "blank_like_slides": [],
+  "contact_sheet": "projects\\大旺塘\\qa\\contact_sheet_153703.png",
+  "slides": [
+    {
+      "slide": 1,
+      "file": "幻灯片1.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 35.63,
+      "non_bg_ratio_sample": 1.0,
+      "blank_like": false
+    },
+    {
+      "slide": 2,
+      "file": "幻灯片2.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 7.14,
+      "non_bg_ratio_sample": 0.0893,
+      "blank_like": false
+    },
+    {
+      "slide": 3,
+      "file": "幻灯片3.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 14.32,
+      "non_bg_ratio_sample": 0.2528,
+      "blank_like": false
+    },
+    {
+      "slide": 4,
+      "file": "幻灯片4.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 7.49,
+      "non_bg_ratio_sample": 0.1081,
+      "blank_like": false
+    },
+    {
+      "slide": 5,
+      "file": "幻灯片5.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 9.97,
+      "non_bg_ratio_sample": 0.2385,
+      "blank_like": false
+    },
+    {
+      "slide": 6,
+      "file": "幻灯片6.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 43.07,
+      "non_bg_ratio_sample": 0.4769,
+      "blank_like": false
+    },
+    {
+      "slide": 7,
+      "file": "幻灯片7.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 9.17,
+      "non_bg_ratio_sample": 0.1312,
+      "blank_like": false
+    },
+    {
+      "slide": 8,
+      "file": "幻灯片8.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 8.49,
+      "non_bg_ratio_sample": 0.1255,
+      "blank_like": false
+    },
+    {
+      "slide": 9,
+      "file": "幻灯片9.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 9.14,
+      "non_bg_ratio_sample": 0.1367,
+      "blank_like": false
+    },
+    {
+      "slide": 10,
+      "file": "幻灯片10.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 8.8,
+      "non_bg_ratio_sample": 0.1321,
+      "blank_like": false
+    },
+    {
+      "slide": 11,
+      "file": "幻灯片11.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 27.49,
+      "non_bg_ratio_sample": 0.3329,
+      "blank_like": false
+    },
+    {
+      "slide": 12,
+      "file": "幻灯片12.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 10.67,
+      "non_bg_ratio_sample": 0.1676,
+      "blank_like": false
+    },
+    {
+      "slide": 13,
+      "file": "幻灯片13.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 18.99,
+      "non_bg_ratio_sample": 0.2652,
+      "blank_like": false
+    },
+    {
+      "slide": 14,
+      "file": "幻灯片14.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 14.04,
+      "non_bg_ratio_sample": 0.2428,
+      "blank_like": false
+    },
+    {
+      "slide": 15,
+      "file": "幻灯片15.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 16.55,
+      "non_bg_ratio_sample": 0.281,
+      "blank_like": false
+    },
+    {
+      "slide": 16,
+      "file": "幻灯片16.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 28.08,
+      "non_bg_ratio_sample": 0.4077,
+      "blank_like": false
+    },
+    {
+      "slide": 17,
+      "file": "幻灯片17.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 25.66,
+      "non_bg_ratio_sample": 0.3386,
+      "blank_like": false
+    },
+    {
+      "slide": 18,
+      "file": "幻灯片18.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 8.2,
+      "non_bg_ratio_sample": 0.1062,
+      "blank_like": false
+    },
+    {
+      "slide": 19,
+      "file": "幻灯片19.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 41.29,
+      "non_bg_ratio_sample": 0.5266,
+      "blank_like": false
+    },
+    {
+      "slide": 20,
+      "file": "幻灯片20.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 57.83,
+      "non_bg_ratio_sample": 0.545,
+      "blank_like": false
+    },
+    {
+      "slide": 21,
+      "file": "幻灯片21.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 22.03,
+      "non_bg_ratio_sample": 0.359,
+      "blank_like": false
+    },
+    {
+      "slide": 22,
+      "file": "幻灯片22.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 19.5,
+      "non_bg_ratio_sample": 0.3187,
+      "blank_like": false
+    },
+    {
+      "slide": 23,
+      "file": "幻灯片23.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 18.14,
+      "non_bg_ratio_sample": 0.2999,
+      "blank_like": false
+    },
+    {
+      "slide": 24,
+      "file": "幻灯片24.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 34.09,
+      "non_bg_ratio_sample": 0.4044,
+      "blank_like": false
+    },
+    {
+      "slide": 25,
+      "file": "幻灯片25.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 9.35,
+      "non_bg_ratio_sample": 0.1363,
+      "blank_like": false
+    },
+    {
+      "slide": 26,
+      "file": "幻灯片26.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 13.94,
+      "non_bg_ratio_sample": 0.3367,
+      "blank_like": false
+    },
+    {
+      "slide": 27,
+      "file": "幻灯片27.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 12.61,
+      "non_bg_ratio_sample": 0.2272,
+      "blank_like": false
+    },
+    {
+      "slide": 28,
+      "file": "幻灯片28.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 12.91,
+      "non_bg_ratio_sample": 0.2296,
+      "blank_like": false
+    },
+    {
+      "slide": 29,
+      "file": "幻灯片29.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 8.95,
+      "non_bg_ratio_sample": 0.1156,
+      "blank_like": false
+    },
+    {
+      "slide": 30,
+      "file": "幻灯片30.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 19.54,
+      "non_bg_ratio_sample": 0.4513,
+      "blank_like": false
+    },
+    {
+      "slide": 31,
+      "file": "幻灯片31.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 9.48,
+      "non_bg_ratio_sample": 0.1306,
+      "blank_like": false
+    },
+    {
+      "slide": 32,
+      "file": "幻灯片32.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 8.45,
+      "non_bg_ratio_sample": 0.1233,
+      "blank_like": false
+    },
+    {
+      "slide": 33,
+      "file": "幻灯片33.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 7.83,
+      "non_bg_ratio_sample": 0.1078,
+      "blank_like": false
+    },
+    {
+      "slide": 34,
+      "file": "幻灯片34.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 9.65,
+      "non_bg_ratio_sample": 0.1504,
+      "blank_like": false
+    },
+    {
+      "slide": 35,
+      "file": "幻灯片35.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 13.26,
+      "non_bg_ratio_sample": 0.2312,
+      "blank_like": false
+    },
+    {
+      "slide": 36,
+      "file": "幻灯片36.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 15.51,
+      "non_bg_ratio_sample": 0.2883,
+      "blank_like": false
+    },
+    {
+      "slide": 37,
+      "file": "幻灯片37.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 7.62,
+      "non_bg_ratio_sample": 0.1116,
+      "blank_like": false
+    },
+    {
+      "slide": 38,
+      "file": "幻灯片38.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 10.54,
+      "non_bg_ratio_sample": 0.1548,
+      "blank_like": false
+    },
+    {
+      "slide": 39,
+      "file": "幻灯片39.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 39.58,
+      "non_bg_ratio_sample": 0.368,
+      "blank_like": false
+    },
+    {
+      "slide": 40,
+      "file": "幻灯片40.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 8.23,
+      "non_bg_ratio_sample": 0.1134,
+      "blank_like": false
+    },
+    {
+      "slide": 41,
+      "file": "幻灯片41.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 8.98,
+      "non_bg_ratio_sample": 0.2017,
+      "blank_like": false
+    },
+    {
+      "slide": 42,
+      "file": "幻灯片42.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 8.7,
+      "non_bg_ratio_sample": 0.1586,
+      "blank_like": false
+    },
+    {
+      "slide": 43,
+      "file": "幻灯片43.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 7.61,
+      "non_bg_ratio_sample": 0.1083,
+      "blank_like": false
+    },
+    {
+      "slide": 44,
+      "file": "幻灯片44.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 12.19,
+      "non_bg_ratio_sample": 0.2051,
+      "blank_like": false
+    },
+    {
+      "slide": 45,
+      "file": "幻灯片45.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 9.26,
+      "non_bg_ratio_sample": 0.1951,
+      "blank_like": false
+    },
+    {
+      "slide": 46,
+      "file": "幻灯片46.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 11.69,
+      "non_bg_ratio_sample": 0.2401,
+      "blank_like": false
+    },
+    {
+      "slide": 47,
+      "file": "幻灯片47.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 12.92,
+      "non_bg_ratio_sample": 0.2923,
+      "blank_like": false
+    },
+    {
+      "slide": 48,
+      "file": "幻灯片48.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 39.7,
+      "non_bg_ratio_sample": 0.4233,
+      "blank_like": false
+    },
+    {
+      "slide": 49,
+      "file": "幻灯片49.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 24.53,
+      "non_bg_ratio_sample": 0.3456,
+      "blank_like": false
+    },
+    {
+      "slide": 50,
+      "file": "幻灯片50.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 16.55,
+      "non_bg_ratio_sample": 0.3136,
+      "blank_like": false
+    },
+    {
+      "slide": 51,
+      "file": "幻灯片51.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 14.27,
+      "non_bg_ratio_sample": 0.3072,
+      "blank_like": false
+    },
+    {
+      "slide": 52,
+      "file": "幻灯片52.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 15.91,
+      "non_bg_ratio_sample": 0.2572,
+      "blank_like": false
+    },
+    {
+      "slide": 53,
+      "file": "幻灯片53.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 14.4,
+      "non_bg_ratio_sample": 0.2706,
+      "blank_like": false
+    },
+    {
+      "slide": 54,
+      "file": "幻灯片54.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 10.17,
+      "non_bg_ratio_sample": 0.1606,
+      "blank_like": false
+    },
+    {
+      "slide": 55,
+      "file": "幻灯片55.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 11.7,
+      "non_bg_ratio_sample": 0.3309,
+      "blank_like": false
+    },
+    {
+      "slide": 56,
+      "file": "幻灯片56.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 11.53,
+      "non_bg_ratio_sample": 0.1958,
+      "blank_like": false
+    },
+    {
+      "slide": 57,
+      "file": "幻灯片57.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 9.36,
+      "non_bg_ratio_sample": 0.1474,
+      "blank_like": false
+    },
+    {
+      "slide": 58,
+      "file": "幻灯片58.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 11.3,
+      "non_bg_ratio_sample": 0.1924,
+      "blank_like": false
+    },
+    {
+      "slide": 59,
+      "file": "幻灯片59.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 10.65,
+      "non_bg_ratio_sample": 0.178,
+      "blank_like": false
+    },
+    {
+      "slide": 60,
+      "file": "幻灯片60.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 11.47,
+      "non_bg_ratio_sample": 0.1977,
+      "blank_like": false
+    },
+    {
+      "slide": 61,
+      "file": "幻灯片61.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 16.86,
+      "non_bg_ratio_sample": 0.2405,
+      "blank_like": false
+    },
+    {
+      "slide": 62,
+      "file": "幻灯片62.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 12.09,
+      "non_bg_ratio_sample": 0.2223,
+      "blank_like": false
+    },
+    {
+      "slide": 63,
+      "file": "幻灯片63.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 8.74,
+      "non_bg_ratio_sample": 0.1219,
+      "blank_like": false
+    },
+    {
+      "slide": 64,
+      "file": "幻灯片64.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 8.46,
+      "non_bg_ratio_sample": 0.1111,
+      "blank_like": false
+    },
+    {
+      "slide": 65,
+      "file": "幻灯片65.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 11.87,
+      "non_bg_ratio_sample": 0.2915,
+      "blank_like": false
+    },
+    {
+      "slide": 66,
+      "file": "幻灯片66.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 8.93,
+      "non_bg_ratio_sample": 0.1247,
+      "blank_like": false
+    },
+    {
+      "slide": 67,
+      "file": "幻灯片67.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 9.02,
+      "non_bg_ratio_sample": 0.1199,
+      "blank_like": false
+    },
+    {
+      "slide": 68,
+      "file": "幻灯片68.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 9.03,
+      "non_bg_ratio_sample": 0.1263,
+      "blank_like": false
+    },
+    {
+      "slide": 69,
+      "file": "幻灯片69.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 20.75,
+      "non_bg_ratio_sample": 0.394,
+      "blank_like": false
+    },
+    {
+      "slide": 70,
+      "file": "幻灯片70.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 47.89,
+      "non_bg_ratio_sample": 0.5906,
+      "blank_like": false
+    },
+    {
+      "slide": 71,
+      "file": "幻灯片71.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 9.76,
+      "non_bg_ratio_sample": 0.1401,
+      "blank_like": false
+    },
+    {
+      "slide": 72,
+      "file": "幻灯片72.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 31.94,
+      "non_bg_ratio_sample": 0.4818,
+      "blank_like": false
+    },
+    {
+      "slide": 73,
+      "file": "幻灯片73.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 10.6,
+      "non_bg_ratio_sample": 0.153,
+      "blank_like": false
+    },
+    {
+      "slide": 74,
+      "file": "幻灯片74.PNG",
+      "size": [
+        1280,
+        720
+      ],
+      "diff_mean": 32.01,
+      "non_bg_ratio_sample": 0.4865,
+      "blank_like": false
+    }
+  ]
+}
