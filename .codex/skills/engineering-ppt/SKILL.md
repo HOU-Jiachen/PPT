@@ -219,6 +219,10 @@ Do not rely on PowerPoint auto-fit. Do not let text cross a border or overlap an
 Do not reduce key body text below 18 pt merely to preserve decoration.
 Apart from template/meta text such as page numbers, page footers, and source notes, visible
 PPT body text, table text, and chart labels must never be below 14 pt.
+The strict audit must check text fit geometrically: text cannot cross the slide safe frame,
+visible body text boxes cannot overlap each other, and body text cannot cover large source
+images or figures. Treat any such collision as a blocking layout defect, then fix by
+shortening, moving, widening, or splitting the page.
 
 For a sparse page, add the next relevant source-backed object:
 

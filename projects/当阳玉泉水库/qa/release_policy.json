@@ -16,6 +16,13 @@
     ],
     "page_number_regex": "^\\d{1,3}$"
   },
+  "layout_collision": {
+    "enabled": true,
+    "canvas_margin_px": 2,
+    "text_overlap_min_ratio": 0.35,
+    "text_image_overlap_min_ratio": 0.15,
+    "image_min_area_ratio": 0.03
+  },
   "content_richness": {
     "minimum_original_source_ratio": 0.55,
     "max_consecutive_interpretation_slides": 2,

@@ -133,6 +133,69 @@ def estimated_text_overflow(node: dict, width: float, height: float) -> bool:
     return left < -2 or right > width + 2 or y - size < -2 or y > height + 2
 
 
+def text_bbox(node: dict) -> tuple[float, float, float, float] | None:
+    try:
+        x = float(node["x"])
+        y = float(node["y"])
+        size = float(node["font_size"])
+    except (TypeError, ValueError):
+        return None
+    text = str(node.get("text", ""))
+    if not text:
+        return None
+    width = sum(1.0 if ord(ch) > 127 else 0.56 for ch in text) * size
+    anchor = node.get("anchor", "start")
+    left = x if anchor == "start" else x - width if anchor == "end" else x - width / 2
+    top = y - size * 0.90
+    return (left, top, left + width, y + size * 0.30)
+
+
+def parse_svg_length(value: object, default: float = 0) -> float:
+    if value is None:
+        return default
+    match = re.search(r"[-+]?\d+(?:\.\d+)?", str(value))
+    if not match:
+        return default
+    return float(match.group(0))
+
+
+def image_boxes(root: ET.Element, width: float, height: float, policy: dict) -> list[dict]:
+    collision = policy.get("layout_collision", {})
+    min_area_ratio = float(collision.get("image_min_area_ratio", 0.03))
+    min_area = width * height * min_area_ratio
+    boxes: list[dict] = []
+    for index, node in enumerate(root.findall(".//svg:image", SVG_NS), start=1):
+        x = parse_svg_length(node.attrib.get("x"))
+        y = parse_svg_length(node.attrib.get("y"))
+        w = parse_svg_length(node.attrib.get("width"))
+        h = parse_svg_length(node.attrib.get("height"))
+        if w <= 0 or h <= 0 or w * h < min_area:
+            continue
+        boxes.append({"id": f"image-{index}", "bbox": (x, y, x + w, y + h)})
+    return boxes
+
+
+def intersection_area(
+    a: tuple[float, float, float, float], b: tuple[float, float, float, float]
+) -> float:
+    left = max(a[0], b[0])
+    top = max(a[1], b[1])
+    right = min(a[2], b[2])
+    bottom = min(a[3], b[3])
+    if right <= left or bottom <= top:
+        return 0
+    return (right - left) * (bottom - top)
+
+
+def box_area(box: tuple[float, float, float, float]) -> float:
+    return max(0, box[2] - box[0]) * max(0, box[3] - box[1])
+
+
+def compact_text(value: str, limit: int = 54) -> str:
+    value = re.sub(r"\s+", " ", value).strip()
+    return value if len(value) <= limit else value[: limit - 1] + "…"
+
+
 def parse_font_size(value: object) -> float | None:
     if value is None:
         return None
@@ -165,6 +228,77 @@ def is_template_or_meta_text(node: dict, width: float, height: float, policy: di
         return x <= width * 0.08 or x >= width * 0.92 or y >= footer_y_min
 
     return False
+
+
+def audit_layout_collisions(
+    page_number: int,
+    nodes: list[dict],
+    image_items: list[dict],
+    width: float,
+    height: float,
+    policy: dict,
+    strict: bool,
+    audit: Audit,
+) -> None:
+    if not strict or not policy.get("layout_collision", {}).get("enabled", True):
+        return
+    collision = policy.get("layout_collision", {})
+    margin = float(collision.get("canvas_margin_px", 2))
+    text_overlap_min = float(collision.get("text_overlap_min_ratio", 0.35))
+    text_image_overlap_min = float(collision.get("text_image_overlap_min_ratio", 0.15))
+
+    text_items: list[dict] = []
+    for index, node in enumerate(nodes, start=1):
+        if is_template_or_meta_text(node, width, height, policy):
+            continue
+        bbox = text_bbox(node)
+        if bbox is None:
+            continue
+        text_items.append({"index": index, "node": node, "bbox": bbox})
+        if bbox[0] < margin or bbox[1] < margin or bbox[2] > width - margin or bbox[3] > height - margin:
+            audit.error(
+                "text-outside-safe-frame",
+                "Visible text probably crosses the slide safe frame.",
+                page=page_number,
+                text=compact_text(str(node.get("text", ""))),
+                bbox=[round(value, 1) for value in bbox],
+                frame=[margin, margin, width - margin, height - margin],
+            )
+
+    for left_index, left_item in enumerate(text_items):
+        for right_item in text_items[left_index + 1 :]:
+            left_box = left_item["bbox"]
+            right_box = right_item["bbox"]
+            overlap = intersection_area(left_box, right_box)
+            if not overlap:
+                continue
+            denominator = min(box_area(left_box), box_area(right_box))
+            if denominator and overlap / denominator >= text_overlap_min:
+                audit.error(
+                    "probable-text-overlap",
+                    "Two visible text boxes probably overlap or cover each other.",
+                    page=page_number,
+                    text_a=compact_text(str(left_item["node"].get("text", ""))),
+                    text_b=compact_text(str(right_item["node"].get("text", ""))),
+                    overlap_ratio=round(overlap / denominator, 3),
+                )
+
+    for text_item in text_items:
+        text_box = text_item["bbox"]
+        text_area = box_area(text_box)
+        if not text_area:
+            continue
+        for image_item in image_items:
+            overlap = intersection_area(text_box, image_item["bbox"])
+            if overlap / text_area >= text_image_overlap_min:
+                audit.error(
+                    "text-overlaps-image",
+                    "Visible text probably overlaps a source image or figure.",
+                    page=page_number,
+                    text=compact_text(str(text_item["node"].get("text", ""))),
+                    image=image_item["id"],
+                    overlap_ratio=round(overlap / text_area, 3),
+                )
 
 
 def audit_plan(
@@ -396,6 +530,7 @@ def audit_svgs(
         root = tree.getroot()
         viewbox = [float(value) for value in root.attrib.get("viewBox", "0 0 1280 720").split()]
         width, height = viewbox[2], viewbox[3]
+        image_items = image_boxes(root, width, height, policy)
         for node in nodes:
             if estimated_text_overflow(node, width, height):
                 audit.error(
@@ -424,6 +559,17 @@ def audit_svgs(
                     font_size=size,
                     minimum=float(min_font),
                 )
+
+        audit_layout_collisions(
+            page_number,
+            nodes,
+            image_items,
+            width,
+            height,
+            policy,
+            strict,
+            audit,
+        )
 
         if slide_type not in STRUCTURAL_DEFAULT and not slide.get("density_exempt_reason"):
             visible_chars = len(re.sub(r"\s+", "", text))
