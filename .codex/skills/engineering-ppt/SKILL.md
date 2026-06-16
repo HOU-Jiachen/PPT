@@ -218,6 +218,31 @@ speaker notes, or QA records only.
 
 Communicate source conflicts with neutral report language, not Agent-process language.
 
+### Keep Project Builders Thin
+
+Do not let per-project `.py` builders become the permanent home for reusable agent logic.
+Project scripts should mostly orchestrate:
+
+- project paths and source filenames
+- project-specific cover text, anchor pages, and special slide choices
+- calls into shared skill helpers
+- output, notes, and QA artifact paths
+
+Reusable behavior belongs under `<LOCAL_SKILL>/scripts/` or skill references, including:
+
+- template PPTX profiling and learned style rules
+- visible-text hygiene and forbidden metadata scrubbing
+- evidence-ledger lookup and report-language extraction
+- figure/table matching, image panel layout, and table simplification
+- design/spec-lock generation and repeatable QA helpers
+
+When a user supplies or replaces a reference PPTX under `projects/<project>/template`,
+run a template profile pass and write the result to `analysis/template_profile.json`.
+Use that profile as backend design guidance only; never make the reference PPT a new
+source of engineering facts unless the user explicitly says it is authoritative source
+material. The visible deck should still cite the report, source figures, source tables,
+or faithful report-language paraphrases.
+
 ## 9. Enforce Text Fit And Page Fulness
 
 Every text container must have explicit width, height, font size, and line plan.

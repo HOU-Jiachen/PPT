@@ -1,0 +1,20 @@
+{
+  "pptx": "projects\\大旺塘\\exports\\大旺塘工程评审汇报_20260616_155924.pptx",
+  "counts": {
+    "source_mode_cn": 0,
+    "evidence_id_cn": 0,
+    "page_purpose_cn": 0,
+    "evidence_interpret_cn": 0,
+    "table_locator_cn": 0,
+    "row_col_scale_cn": 0,
+    "dense_table_cn": 0,
+    "full_table_review_cn": 0,
+    "visible_image_file_refs": 0,
+    "visible_evidence_id_refs": 0,
+    "visible_source_mode_enum_refs": 0,
+    "slides_xml_checked": 74,
+    "visible_text_nodes": 963
+  },
+  "examples": [],
+  "pass": true
+}

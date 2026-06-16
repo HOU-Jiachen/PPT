@@ -1,0 +1,820 @@
+{
+  "slides_rendered": 74,
+  "blank_like_count": 0,
+  "records": [
+    {
+      "slide": 1,
+      "file": "幻灯片1.PNG",
+      "mean": 32.12,
+      "stddev": 28.62,
+      "extrema": [
+        6,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 2,
+      "file": "幻灯片2.PNG",
+      "mean": 248.64,
+      "stddev": 26.13,
+      "extrema": [
+        23,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 3,
+      "file": "幻灯片3.PNG",
+      "mean": 240.86,
+      "stddev": 28.78,
+      "extrema": [
+        19,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 4,
+      "file": "幻灯片4.PNG",
+      "mean": 245.63,
+      "stddev": 21.92,
+      "extrema": [
+        22,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 5,
+      "file": "幻灯片5.PNG",
+      "mean": 243.14,
+      "stddev": 23.65,
+      "extrema": [
+        24,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 6,
+      "file": "幻灯片6.PNG",
+      "mean": 206.5,
+      "stddev": 54.32,
+      "extrema": [
+        26,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 7,
+      "file": "幻灯片7.PNG",
+      "mean": 246.59,
+      "stddev": 23.88,
+      "extrema": [
+        18,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 8,
+      "file": "幻灯片8.PNG",
+      "mean": 247.27,
+      "stddev": 21.94,
+      "extrema": [
+        27,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 9,
+      "file": "幻灯片9.PNG",
+      "mean": 243.87,
+      "stddev": 24.81,
+      "extrema": [
+        19,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 10,
+      "file": "幻灯片10.PNG",
+      "mean": 244.2,
+      "stddev": 23.94,
+      "extrema": [
+        29,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 11,
+      "file": "幻灯片11.PNG",
+      "mean": 223.76,
+      "stddev": 46.9,
+      "extrema": [
+        21,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 12,
+      "file": "幻灯片12.PNG",
+      "mean": 244.89,
+      "stddev": 25.58,
+      "extrema": [
+        30,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 13,
+      "file": "幻灯片13.PNG",
+      "mean": 232.99,
+      "stddev": 38.96,
+      "extrema": [
+        15,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 14,
+      "file": "幻灯片14.PNG",
+      "mean": 238.63,
+      "stddev": 30.4,
+      "extrema": [
+        24,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 15,
+      "file": "幻灯片15.PNG",
+      "mean": 235.35,
+      "stddev": 32.13,
+      "extrema": [
+        25,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 16,
+      "file": "幻灯片16.PNG",
+      "mean": 222.61,
+      "stddev": 42.71,
+      "extrema": [
+        26,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 17,
+      "file": "幻灯片17.PNG",
+      "mean": 226.03,
+      "stddev": 48.63,
+      "extrema": [
+        21,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 18,
+      "file": "幻灯片18.PNG",
+      "mean": 247.66,
+      "stddev": 22.4,
+      "extrema": [
+        29,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 19,
+      "file": "幻灯片19.PNG",
+      "mean": 207.83,
+      "stddev": 54.61,
+      "extrema": [
+        19,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 20,
+      "file": "幻灯片20.PNG",
+      "mean": 192.42,
+      "stddev": 72.53,
+      "extrema": [
+        0,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 21,
+      "file": "幻灯片21.PNG",
+      "mean": 230.13,
+      "stddev": 42.83,
+      "extrema": [
+        31,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 22,
+      "file": "幻灯片22.PNG",
+      "mean": 233.03,
+      "stddev": 41.98,
+      "extrema": [
+        26,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 23,
+      "file": "幻灯片23.PNG",
+      "mean": 234.49,
+      "stddev": 39.95,
+      "extrema": [
+        32,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 24,
+      "file": "幻灯片24.PNG",
+      "mean": 217.33,
+      "stddev": 58.26,
+      "extrema": [
+        21,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 25,
+      "file": "幻灯片25.PNG",
+      "mean": 243.79,
+      "stddev": 25.13,
+      "extrema": [
+        19,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 26,
+      "file": "幻灯片26.PNG",
+      "mean": 239.08,
+      "stddev": 28.95,
+      "extrema": [
+        24,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 27,
+      "file": "幻灯片27.PNG",
+      "mean": 240.77,
+      "stddev": 27.11,
+      "extrema": [
+        19,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 28,
+      "file": "幻灯片28.PNG",
+      "mean": 240.48,
+      "stddev": 27.85,
+      "extrema": [
+        19,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 29,
+      "file": "幻灯片29.PNG",
+      "mean": 246.89,
+      "stddev": 24.19,
+      "extrema": [
+        19,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 30,
+      "file": "幻灯片30.PNG",
+      "mean": 233.45,
+      "stddev": 33.34,
+      "extrema": [
+        19,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 31,
+      "file": "幻灯片31.PNG",
+      "mean": 246.27,
+      "stddev": 24.66,
+      "extrema": [
+        26,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 32,
+      "file": "幻灯片32.PNG",
+      "mean": 244.65,
+      "stddev": 23.68,
+      "extrema": [
+        19,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 33,
+      "file": "幻灯片33.PNG",
+      "mean": 245.3,
+      "stddev": 23.13,
+      "extrema": [
+        20,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 34,
+      "file": "幻灯片34.PNG",
+      "mean": 245.21,
+      "stddev": 24.03,
+      "extrema": [
+        27,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 35,
+      "file": "幻灯片35.PNG",
+      "mean": 239.8,
+      "stddev": 28.71,
+      "extrema": [
+        23,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 36,
+      "file": "幻灯片36.PNG",
+      "mean": 239.49,
+      "stddev": 29.82,
+      "extrema": [
+        27,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 37,
+      "file": "幻灯片37.PNG",
+      "mean": 245.5,
+      "stddev": 21.88,
+      "extrema": [
+        20,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 38,
+      "file": "幻灯片38.PNG",
+      "mean": 242.26,
+      "stddev": 26.6,
+      "extrema": [
+        33,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 39,
+      "file": "幻灯片39.PNG",
+      "mean": 211.33,
+      "stddev": 62.7,
+      "extrema": [
+        20,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 40,
+      "file": "幻灯片40.PNG",
+      "mean": 244.88,
+      "stddev": 23.74,
+      "extrema": [
+        20,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 41,
+      "file": "幻灯片41.PNG",
+      "mean": 244.34,
+      "stddev": 22.92,
+      "extrema": [
+        19,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 42,
+      "file": "幻灯片42.PNG",
+      "mean": 244.51,
+      "stddev": 24.5,
+      "extrema": [
+        22,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 43,
+      "file": "幻灯片43.PNG",
+      "mean": 245.5,
+      "stddev": 22.03,
+      "extrema": [
+        26,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 44,
+      "file": "幻灯片44.PNG",
+      "mean": 240.93,
+      "stddev": 30.82,
+      "extrema": [
+        27,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 45,
+      "file": "幻灯片45.PNG",
+      "mean": 243.88,
+      "stddev": 23.96,
+      "extrema": [
+        25,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 46,
+      "file": "幻灯片46.PNG",
+      "mean": 241.15,
+      "stddev": 26.75,
+      "extrema": [
+        34,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 47,
+      "file": "幻灯片47.PNG",
+      "mean": 238.13,
+      "stddev": 28.01,
+      "extrema": [
+        19,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 48,
+      "file": "幻灯片48.PNG",
+      "mean": 210.84,
+      "stddev": 58.74,
+      "extrema": [
+        26,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 49,
+      "file": "幻灯片49.PNG",
+      "mean": 226.67,
+      "stddev": 46.35,
+      "extrema": [
+        15,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 50,
+      "file": "幻灯片50.PNG",
+      "mean": 236.22,
+      "stddev": 31.92,
+      "extrema": [
+        24,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 51,
+      "file": "幻灯片51.PNG",
+      "mean": 238.91,
+      "stddev": 29.25,
+      "extrema": [
+        24,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 52,
+      "file": "幻灯片52.PNG",
+      "mean": 236.82,
+      "stddev": 34.5,
+      "extrema": [
+        24,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 53,
+      "file": "幻灯片53.PNG",
+      "mean": 238.13,
+      "stddev": 30.13,
+      "extrema": [
+        24,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 54,
+      "file": "幻灯片54.PNG",
+      "mean": 244.45,
+      "stddev": 25.03,
+      "extrema": [
+        29,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 55,
+      "file": "幻灯片55.PNG",
+      "mean": 241.17,
+      "stddev": 25.85,
+      "extrema": [
+        24,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 56,
+      "file": "幻灯片56.PNG",
+      "mean": 243.21,
+      "stddev": 26.89,
+      "extrema": [
+        26,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 57,
+      "file": "幻灯片57.PNG",
+      "mean": 243.67,
+      "stddev": 25.28,
+      "extrema": [
+        29,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 58,
+      "file": "幻灯片58.PNG",
+      "mean": 243.43,
+      "stddev": 26.36,
+      "extrema": [
+        27,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 59,
+      "file": "幻灯片59.PNG",
+      "mean": 242.37,
+      "stddev": 26.35,
+      "extrema": [
+        33,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 60,
+      "file": "幻灯片60.PNG",
+      "mean": 241.59,
+      "stddev": 28.3,
+      "extrema": [
+        31,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 61,
+      "file": "幻灯片61.PNG",
+      "mean": 235.6,
+      "stddev": 35.61,
+      "extrema": [
+        27,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 62,
+      "file": "幻灯片62.PNG",
+      "mean": 240.78,
+      "stddev": 28.43,
+      "extrema": [
+        28,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 63,
+      "file": "幻灯片63.PNG",
+      "mean": 247.07,
+      "stddev": 23.1,
+      "extrema": [
+        29,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 64,
+      "file": "幻灯片64.PNG",
+      "mean": 244.37,
+      "stddev": 24.79,
+      "extrema": [
+        23,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 65,
+      "file": "幻灯片65.PNG",
+      "mean": 240.54,
+      "stddev": 25.98,
+      "extrema": [
+        22,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 66,
+      "file": "幻灯片66.PNG",
+      "mean": 246.87,
+      "stddev": 23.63,
+      "extrema": [
+        22,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 67,
+      "file": "幻灯片67.PNG",
+      "mean": 243.56,
+      "stddev": 25.54,
+      "extrema": [
+        24,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 68,
+      "file": "幻灯片68.PNG",
+      "mean": 246.76,
+      "stddev": 23.61,
+      "extrema": [
+        29,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 69,
+      "file": "幻灯片69.PNG",
+      "mean": 233.75,
+      "stddev": 33.33,
+      "extrema": [
+        21,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 70,
+      "file": "幻灯片70.PNG",
+      "mean": 202.61,
+      "stddev": 57.76,
+      "extrema": [
+        23,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 71,
+      "file": "幻灯片71.PNG",
+      "mean": 245.94,
+      "stddev": 24.76,
+      "extrema": [
+        25,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 72,
+      "file": "幻灯片72.PNG",
+      "mean": 219.97,
+      "stddev": 47.65,
+      "extrema": [
+        26,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 73,
+      "file": "幻灯片73.PNG",
+      "mean": 245.07,
+      "stddev": 26.58,
+      "extrema": [
+        21,
+        255
+      ],
+      "blank_like": false
+    },
+    {
+      "slide": 74,
+      "file": "幻灯片74.PNG",
+      "mean": 219.89,
+      "stddev": 47.46,
+      "extrema": [
+        26,
+        255
+      ],
+      "blank_like": false
+    }
+  ]
+}

@@ -25,226 +25,221 @@
 - annotation: 14
 - footer: 10
 
-## icons
-- library: tabler-outline
-- stroke_width: 2
-- inventory: target, chart-bar, shield, map, droplet, table, alert-triangle
-
 ## images
-- image_001: sources/大旺塘水文地质勘察报告_files/image_001.png | no-crop
-- image_002: sources/大旺塘水文地质勘察报告_files/image_002.jpeg | no-crop
-- image_003: sources/大旺塘水文地质勘察报告_files/image_003.jpeg | no-crop
-- image_004: sources/大旺塘水文地质勘察报告_files/image_004.jpeg | no-crop
-- image_005: sources/大旺塘水文地质勘察报告_files/image_005.jpeg | no-crop
-- image_006: sources/大旺塘水文地质勘察报告_files/image_006.jpeg | no-crop
-- image_007: sources/大旺塘水文地质勘察报告_files/image_007.jpeg | no-crop
-- image_008: sources/大旺塘水文地质勘察报告_files/image_008.jpeg | no-crop
-- image_009: sources/大旺塘水文地质勘察报告_files/image_009.png | no-crop
-- image_010: sources/大旺塘水文地质勘察报告_files/image_010.jpeg | no-crop
-- image_011: sources/大旺塘水文地质勘察报告_files/image_011.jpeg | no-crop
-- image_012: sources/大旺塘水文地质勘察报告_files/image_012.png | no-crop
-- image_013: sources/大旺塘水文地质勘察报告_files/image_013.png | no-crop
-- image_014: sources/大旺塘水文地质勘察报告_files/image_014.jpeg | no-crop
-- image_015: sources/大旺塘水文地质勘察报告_files/image_015.jpeg | no-crop
-- image_016: sources/大旺塘水文地质勘察报告_files/image_016.jpeg | no-crop
-- image_017: sources/大旺塘水文地质勘察报告_files/image_017.jpeg | no-crop
-- image_018: sources/大旺塘水文地质勘察报告_files/image_018.jpeg | no-crop
-- image_019: sources/大旺塘水文地质勘察报告_files/image_019.jpeg | no-crop
-- image_020: sources/大旺塘水文地质勘察报告_files/image_020.jpeg | no-crop
-- image_021: sources/大旺塘水文地质勘察报告_files/image_021.jpeg | no-crop
-- image_022: sources/大旺塘水文地质勘察报告_files/image_022.jpeg | no-crop
-- image_023: sources/大旺塘水文地质勘察报告_files/image_023.jpeg | no-crop
-- image_024: sources/大旺塘水文地质勘察报告_files/image_024.jpeg | no-crop
-- image_025: sources/大旺塘水文地质勘察报告_files/image_025.jpeg | no-crop
-- image_026: sources/大旺塘水文地质勘察报告_files/image_026.png | no-crop
-- image_027: sources/大旺塘水文地质勘察报告_files/image_027.png | no-crop
-- image_028: sources/大旺塘水文地质勘察报告_files/image_028.jpeg | no-crop
-- image_029: sources/大旺塘水文地质勘察报告_files/image_029.jpeg | no-crop
-- image_030: sources/大旺塘水文地质勘察报告_files/image_030.jpeg | no-crop
-- image_031: sources/大旺塘水文地质勘察报告_files/image_031.jpeg | no-crop
-- image_032: sources/大旺塘水文地质勘察报告_files/image_032.jpeg | no-crop
-- image_033: sources/大旺塘水文地质勘察报告_files/image_033.jpeg | no-crop
-- image_034: sources/大旺塘水文地质勘察报告_files/image_034.png | no-crop
-- image_035: sources/大旺塘水文地质勘察报告_files/image_035.png | no-crop
-- image_036: sources/大旺塘水文地质勘察报告_files/image_036.jpeg | no-crop
-- image_037: sources/大旺塘水文地质勘察报告_files/image_037.png | no-crop
-- image_038: sources/大旺塘水文地质勘察报告_files/image_038.png | no-crop
-- image_039: sources/大旺塘水文地质勘察报告_files/image_039.png | no-crop
-- image_040: sources/大旺塘水文地质勘察报告_files/image_040.png | no-crop
-- image_041: sources/大旺塘水文地质勘察报告_files/image_041.png | no-crop
-- image_042: sources/大旺塘水文地质勘察报告_files/image_042.png | no-crop
-- image_043: sources/大旺塘水文地质勘察报告_files/image_043.png | no-crop
-- image_044: sources/大旺塘水文地质勘察报告_files/image_044.png | no-crop
-- image_045: sources/大旺塘水文地质勘察报告_files/image_045.png | no-crop
-- image_046: sources/大旺塘水文地质勘察报告_files/image_046.png | no-crop
-- image_047: sources/大旺塘水文地质勘察报告_files/image_047.png | no-crop
-- image_048: sources/大旺塘水文地质勘察报告_files/image_048.png | no-crop
-- image_049: sources/大旺塘水文地质勘察报告_files/image_049.png | no-crop
-- image_050: sources/大旺塘水文地质勘察报告_files/image_050.png | no-crop
-- image_051: sources/大旺塘水文地质勘察报告_files/image_051.png | no-crop
-- image_052: sources/大旺塘水文地质勘察报告_files/image_052.png | no-crop
-- image_053: sources/大旺塘水文地质勘察报告_files/image_053.png | no-crop
-- image_054: sources/大旺塘水文地质勘察报告_files/image_054.png | no-crop
-- image_055: sources/大旺塘水文地质勘察报告_files/image_055.png | no-crop
-- image_056: sources/大旺塘水文地质勘察报告_files/image_056.png | no-crop
-- image_057: sources/大旺塘水文地质勘察报告_files/image_057.png | no-crop
-- image_058: sources/大旺塘水文地质勘察报告_files/image_058.png | no-crop
-- image_059: sources/大旺塘水文地质勘察报告_files/image_059.png | no-crop
-- image_060: sources/大旺塘水文地质勘察报告_files/image_060.png | no-crop
-- image_061: sources/大旺塘水文地质勘察报告_files/image_061.png | no-crop
-- image_062: sources/大旺塘水文地质勘察报告_files/image_062.jpeg | no-crop
-- image_063: sources/大旺塘水文地质勘察报告_files/image_063.png | no-crop
-- image_064: sources/大旺塘水文地质勘察报告_files/image_064.png | no-crop
-- image_065: sources/大旺塘水文地质勘察报告_files/image_065.png | no-crop
-- image_066: sources/大旺塘水文地质勘察报告_files/image_066.png | no-crop
-- image_067: sources/大旺塘水文地质勘察报告_files/image_067.png | no-crop
-- image_068: sources/大旺塘水文地质勘察报告_files/image_068.png | no-crop
-- image_069: sources/大旺塘水文地质勘察报告_files/image_069.png | no-crop
-- image_070: sources/大旺塘水文地质勘察报告_files/image_070.png | no-crop
-- image_071: sources/大旺塘水文地质勘察报告_files/image_071.png | no-crop
-- image_072: sources/大旺塘水文地质勘察报告_files/image_072.png | no-crop
-- image_073: sources/大旺塘水文地质勘察报告_files/image_073.png | no-crop
-- image_074: sources/大旺塘水文地质勘察报告_files/image_074.png | no-crop
-- image_075: sources/大旺塘水文地质勘察报告_files/image_075.png | no-crop
-- image_076: sources/大旺塘水文地质勘察报告_files/image_076.png | no-crop
-- image_077: sources/大旺塘水文地质勘察报告_files/image_077.png | no-crop
-- image_078: sources/大旺塘水文地质勘察报告_files/image_078.png | no-crop
-- image_079: sources/大旺塘水文地质勘察报告_files/image_079.png | no-crop
-- image_082: sources/大旺塘水文地质勘察报告_files/image_082.png | no-crop
-- image_083: sources/大旺塘水文地质勘察报告_files/image_083.png | no-crop
-- image_084: sources/大旺塘水文地质勘察报告_files/image_084.png | no-crop
-- image_085: sources/大旺塘水文地质勘察报告_files/image_085.png | no-crop
-- image_086: sources/大旺塘水文地质勘察报告_files/image_086.png | no-crop
-- image_087: sources/大旺塘水文地质勘察报告_files/image_087.png | no-crop
-- image_088: sources/大旺塘水文地质勘察报告_files/image_088.png | no-crop
-- image_089: sources/大旺塘水文地质勘察报告_files/image_089.png | no-crop
-- image_090: sources/大旺塘水文地质勘察报告_files/image_090.png | no-crop
-- image_091: sources/大旺塘水文地质勘察报告_files/image_091.png | no-crop
-- image_092: sources/大旺塘水文地质勘察报告_files/image_092.jpeg | no-crop
-- image_093: sources/大旺塘水文地质勘察报告_files/image_093.png | no-crop
-- image_094: sources/大旺塘水文地质勘察报告_files/image_094.jpeg | no-crop
-- image_095: sources/大旺塘水文地质勘察报告_files/image_095.jpeg | no-crop
-- image_096: sources/大旺塘水文地质勘察报告_files/image_096.jpeg | no-crop
-- image_097: sources/大旺塘水文地质勘察报告_files/image_097.jpeg | no-crop
-- image_098: sources/大旺塘水文地质勘察报告_files/image_098.jpeg | no-crop
-- image_099: sources/大旺塘水文地质勘察报告_files/image_099.jpeg | no-crop
-- image_100: sources/大旺塘水文地质勘察报告_files/image_100.png | no-crop
-- image_101: sources/大旺塘水文地质勘察报告_files/image_101.jpeg | no-crop
-- image_102: sources/大旺塘水文地质勘察报告_files/image_102.jpeg | no-crop
-- image_103: sources/大旺塘水文地质勘察报告_files/image_103.jpeg | no-crop
-- image_104: sources/大旺塘水文地质勘察报告_files/image_104.jpeg | no-crop
-- image_105: sources/大旺塘水文地质勘察报告_files/image_105.jpeg | no-crop
-- image_106: sources/大旺塘水文地质勘察报告_files/image_106.jpeg | no-crop
-- image_107: sources/大旺塘水文地质勘察报告_files/image_107.jpeg | no-crop
-- image_108: sources/大旺塘水文地质勘察报告_files/image_108.jpeg | no-crop
-- image_109: sources/大旺塘水文地质勘察报告_files/image_109.jpeg | no-crop
-- image_110: sources/大旺塘水文地质勘察报告_files/image_110.jpeg | no-crop
-- image_111: sources/大旺塘水文地质勘察报告_files/image_111.png | no-crop
-- image_112: sources/大旺塘水文地质勘察报告_files/image_112.jpeg | no-crop
-- image_113: sources/大旺塘水文地质勘察报告_files/image_113.jpeg | no-crop
-- image_114: sources/大旺塘水文地质勘察报告_files/image_114.jpeg | no-crop
-- image_115: sources/大旺塘水文地质勘察报告_files/image_115.jpeg | no-crop
-- image_116: sources/大旺塘水文地质勘察报告_files/image_116.jpeg | no-crop
-- image_117: sources/大旺塘水文地质勘察报告_files/image_117.jpeg | no-crop
-- image_118: sources/大旺塘水文地质勘察报告_files/image_118.jpeg | no-crop
-- image_119: sources/大旺塘水文地质勘察报告_files/image_119.jpeg | no-crop
-- image_120: sources/大旺塘水文地质勘察报告_files/image_120.jpeg | no-crop
-- image_121: sources/大旺塘水文地质勘察报告_files/image_121.jpeg | no-crop
-- image_122: sources/大旺塘水文地质勘察报告_files/image_122.jpeg | no-crop
-- image_123: sources/大旺塘水文地质勘察报告_files/image_123.jpeg | no-crop
-- image_124: sources/大旺塘水文地质勘察报告_files/image_124.jpeg | no-crop
-- image_125: sources/大旺塘水文地质勘察报告_files/image_125.jpeg | no-crop
-- image_126: sources/大旺塘水文地质勘察报告_files/image_126.jpeg | no-crop
-- image_127: sources/大旺塘水文地质勘察报告_files/image_127.jpeg | no-crop
-- image_128: sources/大旺塘水文地质勘察报告_files/image_128.jpeg | no-crop
-- image_129: sources/大旺塘水文地质勘察报告_files/image_129.jpeg | no-crop
-- image_130: sources/大旺塘水文地质勘察报告_files/image_130.jpeg | no-crop
-- image_131: sources/大旺塘水文地质勘察报告_files/image_131.jpeg | no-crop
-- image_132: sources/大旺塘水文地质勘察报告_files/image_132.jpeg | no-crop
-- image_133: sources/大旺塘水文地质勘察报告_files/image_133.jpeg | no-crop
-- image_134: sources/大旺塘水文地质勘察报告_files/image_134.jpeg | no-crop
-- image_135: sources/大旺塘水文地质勘察报告_files/image_135.jpeg | no-crop
-- image_136: sources/大旺塘水文地质勘察报告_files/image_136.png | no-crop
-- image_137: sources/大旺塘水文地质勘察报告_files/image_137.png | no-crop
-- image_138: sources/大旺塘水文地质勘察报告_files/image_138.png | no-crop
-- image_139: sources/大旺塘水文地质勘察报告_files/image_139.png | no-crop
-- image_140: sources/大旺塘水文地质勘察报告_files/image_140.png | no-crop
-- image_141: sources/大旺塘水文地质勘察报告_files/image_141.png | no-crop
-- image_142: sources/大旺塘水文地质勘察报告_files/image_142.png | no-crop
-- image_143: sources/大旺塘水文地质勘察报告_files/image_143.jpeg | no-crop
-- image_144: sources/大旺塘水文地质勘察报告_files/image_144.jpeg | no-crop
-- image_145: sources/大旺塘水文地质勘察报告_files/image_145.png | no-crop
-- image_146: sources/大旺塘水文地质勘察报告_files/image_146.jpeg | no-crop
-- image_147: sources/大旺塘水文地质勘察报告_files/image_147.jpeg | no-crop
-- image_148: sources/大旺塘水文地质勘察报告_files/image_148.jpeg | no-crop
-- image_149: sources/大旺塘水文地质勘察报告_files/image_149.jpeg | no-crop
-- image_150: sources/大旺塘水文地质勘察报告_files/image_150.jpeg | no-crop
-- image_151: sources/大旺塘水文地质勘察报告_files/image_151.jpeg | no-crop
-- image_152: sources/大旺塘水文地质勘察报告_files/image_152.jpeg | no-crop
-- image_153: sources/大旺塘水文地质勘察报告_files/image_153.jpeg | no-crop
-- image_154: sources/大旺塘水文地质勘察报告_files/image_154.jpeg | no-crop
-- image_155: sources/大旺塘水文地质勘察报告_files/image_155.jpeg | no-crop
-- image_156: sources/大旺塘水文地质勘察报告_files/image_156.jpeg | no-crop
-- image_157: sources/大旺塘水文地质勘察报告_files/image_157.jpeg | no-crop
-- image_158: sources/大旺塘水文地质勘察报告_files/image_158.jpeg | no-crop
-- image_159: sources/大旺塘水文地质勘察报告_files/image_159.jpeg | no-crop
-- image_160: sources/大旺塘水文地质勘察报告_files/image_160.jpeg | no-crop
-- image_161: sources/大旺塘水文地质勘察报告_files/image_161.jpeg | no-crop
-- image_162: sources/大旺塘水文地质勘察报告_files/image_162.jpeg | no-crop
-- image_163: sources/大旺塘水文地质勘察报告_files/image_163.jpeg | no-crop
-- image_164: sources/大旺塘水文地质勘察报告_files/image_164.jpeg | no-crop
-- image_165: sources/大旺塘水文地质勘察报告_files/image_165.jpeg | no-crop
-- image_166: sources/大旺塘水文地质勘察报告_files/image_166.jpeg | no-crop
-- image_167: sources/大旺塘水文地质勘察报告_files/image_167.jpeg | no-crop
-- image_168: sources/大旺塘水文地质勘察报告_files/image_168.jpeg | no-crop
-- image_169: sources/大旺塘水文地质勘察报告_files/image_169.jpeg | no-crop
-- image_170: sources/大旺塘水文地质勘察报告_files/image_170.jpeg | no-crop
-- image_171: sources/大旺塘水文地质勘察报告_files/image_171.jpeg | no-crop
-- image_172: sources/大旺塘水文地质勘察报告_files/image_172.jpeg | no-crop
-- image_173: sources/大旺塘水文地质勘察报告_files/image_173.jpeg | no-crop
-- image_174: sources/大旺塘水文地质勘察报告_files/image_174.jpeg | no-crop
-- image_175: sources/大旺塘水文地质勘察报告_files/image_175.jpeg | no-crop
-- image_176: sources/大旺塘水文地质勘察报告_files/image_176.jpeg | no-crop
-- image_177: sources/大旺塘水文地质勘察报告_files/image_177.jpeg | no-crop
-- image_178: sources/大旺塘水文地质勘察报告_files/image_178.jpeg | no-crop
-- image_179: sources/大旺塘水文地质勘察报告_files/image_179.jpeg | no-crop
-- image_180: sources/大旺塘水文地质勘察报告_files/image_180.jpeg | no-crop
-- image_181: sources/大旺塘水文地质勘察报告_files/image_181.jpeg | no-crop
-- image_182: sources/大旺塘水文地质勘察报告_files/image_182.jpeg | no-crop
-- image_183: sources/大旺塘水文地质勘察报告_files/image_183.jpeg | no-crop
-- image_184: sources/大旺塘水文地质勘察报告_files/image_184.jpeg | no-crop
-- image_185: sources/大旺塘水文地质勘察报告_files/image_185.jpeg | no-crop
-- image_186: sources/大旺塘水文地质勘察报告_files/image_186.jpeg | no-crop
-- image_187: sources/大旺塘水文地质勘察报告_files/image_187.jpeg | no-crop
-- image_188: sources/大旺塘水文地质勘察报告_files/image_188.jpeg | no-crop
-- image_189: sources/大旺塘水文地质勘察报告_files/image_189.jpeg | no-crop
-- image_190: sources/大旺塘水文地质勘察报告_files/image_190.jpeg | no-crop
-- image_194: sources/大旺塘水文地质勘察报告_files/image_194.jpeg | no-crop
-- image_195: sources/大旺塘水文地质勘察报告_files/image_195.jpeg | no-crop
-- image_196: sources/大旺塘水文地质勘察报告_files/image_196.jpeg | no-crop
-- image_197: sources/大旺塘水文地质勘察报告_files/image_197.jpeg | no-crop
-- image_198: sources/大旺塘水文地质勘察报告_files/image_198.png | no-crop
-- image_207: sources/大旺塘水文地质勘察报告_files/image_207.png | no-crop
-- image_208: sources/大旺塘水文地质勘察报告_files/image_208.png | no-crop
-- image_209: sources/大旺塘水文地质勘察报告_files/image_209.jpeg | no-crop
-- image_210: sources/大旺塘水文地质勘察报告_files/image_210.png | no-crop
-- image_211: sources/大旺塘水文地质勘察报告_files/image_211.png | no-crop
-- image_212: sources/大旺塘水文地质勘察报告_files/image_212.png | no-crop
-- image_213: sources/大旺塘水文地质勘察报告_files/image_213.png | no-crop
-- image_214: sources/大旺塘水文地质勘察报告_files/image_214.png | no-crop
-- image_215: sources/大旺塘水文地质勘察报告_files/image_215.png | no-crop
-- image_216: sources/大旺塘水文地质勘察报告_files/image_216.png | no-crop
-- image_217: sources/大旺塘水文地质勘察报告_files/image_217.png | no-crop
-- image_218: sources/大旺塘水文地质勘察报告_files/image_218.png | no-crop
-- image_219: sources/大旺塘水文地质勘察报告_files/image_219.png | no-crop
-- image_220: sources/大旺塘水文地质勘察报告_files/image_220.png | no-crop
-- image_221: sources/大旺塘水文地质勘察报告_files/image_221.png | no-crop
-- image_222: sources/大旺塘水文地质勘察报告_files/image_222.png | no-crop
-- image_223: sources/大旺塘水文地质勘察报告_files/image_223.png | no-crop
-- image_224: sources/大旺塘水文地质勘察报告_files/image_224.png | no-crop
-- image_225: sources/大旺塘水文地质勘察报告_files/image_225.jpeg | no-crop
-- image_226: sources/大旺塘水文地质勘察报告_files/image_226.jpeg | no-crop
-- image_227: sources/大旺塘水文地质勘察报告_files/image_227.jpeg | no-crop
+- image_001: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_001.png | no-crop
+- image_002: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_002.jpeg | no-crop
+- image_003: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_003.jpeg | no-crop
+- image_004: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_004.jpeg | no-crop
+- image_005: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_005.jpeg | no-crop
+- image_006: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_006.jpeg | no-crop
+- image_007: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_007.jpeg | no-crop
+- image_008: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_008.jpeg | no-crop
+- image_009: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_009.png | no-crop
+- image_010: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_010.jpeg | no-crop
+- image_011: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_011.jpeg | no-crop
+- image_012: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_012.png | no-crop
+- image_013: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_013.png | no-crop
+- image_014: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_014.jpeg | no-crop
+- image_015: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_015.jpeg | no-crop
+- image_016: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_016.jpeg | no-crop
+- image_017: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_017.jpeg | no-crop
+- image_018: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_018.jpeg | no-crop
+- image_019: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_019.jpeg | no-crop
+- image_020: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_020.jpeg | no-crop
+- image_021: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_021.jpeg | no-crop
+- image_022: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_022.jpeg | no-crop
+- image_023: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_023.jpeg | no-crop
+- image_024: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_024.jpeg | no-crop
+- image_025: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_025.jpeg | no-crop
+- image_026: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_026.png | no-crop
+- image_027: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_027.png | no-crop
+- image_028: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_028.jpeg | no-crop
+- image_029: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_029.jpeg | no-crop
+- image_030: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_030.jpeg | no-crop
+- image_031: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_031.jpeg | no-crop
+- image_032: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_032.jpeg | no-crop
+- image_033: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_033.jpeg | no-crop
+- image_034: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_034.png | no-crop
+- image_035: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_035.png | no-crop
+- image_036: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_036.jpeg | no-crop
+- image_037: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_037.png | no-crop
+- image_038: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_038.png | no-crop
+- image_039: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_039.png | no-crop
+- image_040: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_040.png | no-crop
+- image_041: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_041.png | no-crop
+- image_042: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_042.png | no-crop
+- image_043: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_043.png | no-crop
+- image_044: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_044.png | no-crop
+- image_045: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_045.png | no-crop
+- image_046: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_046.png | no-crop
+- image_047: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_047.png | no-crop
+- image_048: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_048.png | no-crop
+- image_049: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_049.png | no-crop
+- image_050: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_050.png | no-crop
+- image_051: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_051.png | no-crop
+- image_052: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_052.png | no-crop
+- image_053: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_053.png | no-crop
+- image_054: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_054.png | no-crop
+- image_055: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_055.png | no-crop
+- image_056: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_056.png | no-crop
+- image_057: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_057.png | no-crop
+- image_058: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_058.png | no-crop
+- image_059: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_059.png | no-crop
+- image_060: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_060.png | no-crop
+- image_061: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_061.png | no-crop
+- image_062: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_062.jpeg | no-crop
+- image_063: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_063.png | no-crop
+- image_064: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_064.png | no-crop
+- image_065: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_065.png | no-crop
+- image_066: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_066.png | no-crop
+- image_067: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_067.png | no-crop
+- image_068: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_068.png | no-crop
+- image_069: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_069.png | no-crop
+- image_070: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_070.png | no-crop
+- image_071: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_071.png | no-crop
+- image_072: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_072.png | no-crop
+- image_073: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_073.png | no-crop
+- image_074: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_074.png | no-crop
+- image_075: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_075.png | no-crop
+- image_076: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_076.png | no-crop
+- image_077: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_077.png | no-crop
+- image_078: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_078.png | no-crop
+- image_079: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_079.png | no-crop
+- image_082: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_082.png | no-crop
+- image_083: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_083.png | no-crop
+- image_084: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_084.png | no-crop
+- image_085: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_085.png | no-crop
+- image_086: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_086.png | no-crop
+- image_087: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_087.png | no-crop
+- image_088: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_088.png | no-crop
+- image_089: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_089.png | no-crop
+- image_090: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_090.png | no-crop
+- image_091: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_091.png | no-crop
+- image_092: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_092.jpeg | no-crop
+- image_093: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_093.png | no-crop
+- image_094: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_094.jpeg | no-crop
+- image_095: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_095.jpeg | no-crop
+- image_096: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_096.jpeg | no-crop
+- image_097: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_097.jpeg | no-crop
+- image_098: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_098.jpeg | no-crop
+- image_099: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_099.jpeg | no-crop
+- image_100: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_100.png | no-crop
+- image_101: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_101.jpeg | no-crop
+- image_102: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_102.jpeg | no-crop
+- image_103: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_103.jpeg | no-crop
+- image_104: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_104.jpeg | no-crop
+- image_105: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_105.jpeg | no-crop
+- image_106: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_106.jpeg | no-crop
+- image_107: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_107.jpeg | no-crop
+- image_108: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_108.jpeg | no-crop
+- image_109: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_109.jpeg | no-crop
+- image_110: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_110.jpeg | no-crop
+- image_111: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_111.png | no-crop
+- image_112: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_112.jpeg | no-crop
+- image_113: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_113.jpeg | no-crop
+- image_114: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_114.jpeg | no-crop
+- image_115: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_115.jpeg | no-crop
+- image_116: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_116.jpeg | no-crop
+- image_117: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_117.jpeg | no-crop
+- image_118: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_118.jpeg | no-crop
+- image_119: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_119.jpeg | no-crop
+- image_120: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_120.jpeg | no-crop
+- image_121: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_121.jpeg | no-crop
+- image_122: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_122.jpeg | no-crop
+- image_123: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_123.jpeg | no-crop
+- image_124: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_124.jpeg | no-crop
+- image_125: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_125.jpeg | no-crop
+- image_126: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_126.jpeg | no-crop
+- image_127: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_127.jpeg | no-crop
+- image_128: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_128.jpeg | no-crop
+- image_129: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_129.jpeg | no-crop
+- image_130: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_130.jpeg | no-crop
+- image_131: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_131.jpeg | no-crop
+- image_132: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_132.jpeg | no-crop
+- image_133: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_133.jpeg | no-crop
+- image_134: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_134.jpeg | no-crop
+- image_135: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_135.jpeg | no-crop
+- image_136: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_136.png | no-crop
+- image_137: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_137.png | no-crop
+- image_138: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_138.png | no-crop
+- image_139: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_139.png | no-crop
+- image_140: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_140.png | no-crop
+- image_141: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_141.png | no-crop
+- image_142: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_142.png | no-crop
+- image_143: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_143.jpeg | no-crop
+- image_144: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_144.jpeg | no-crop
+- image_145: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_145.png | no-crop
+- image_146: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_146.jpeg | no-crop
+- image_147: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_147.jpeg | no-crop
+- image_148: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_148.jpeg | no-crop
+- image_149: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_149.jpeg | no-crop
+- image_150: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_150.jpeg | no-crop
+- image_151: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_151.jpeg | no-crop
+- image_152: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_152.jpeg | no-crop
+- image_153: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_153.jpeg | no-crop
+- image_154: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_154.jpeg | no-crop
+- image_155: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_155.jpeg | no-crop
+- image_156: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_156.jpeg | no-crop
+- image_157: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_157.jpeg | no-crop
+- image_158: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_158.jpeg | no-crop
+- image_159: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_159.jpeg | no-crop
+- image_160: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_160.jpeg | no-crop
+- image_161: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_161.jpeg | no-crop
+- image_162: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_162.jpeg | no-crop
+- image_163: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_163.jpeg | no-crop
+- image_164: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_164.jpeg | no-crop
+- image_165: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_165.jpeg | no-crop
+- image_166: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_166.jpeg | no-crop
+- image_167: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_167.jpeg | no-crop
+- image_168: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_168.jpeg | no-crop
+- image_169: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_169.jpeg | no-crop
+- image_170: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_170.jpeg | no-crop
+- image_171: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_171.jpeg | no-crop
+- image_172: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_172.jpeg | no-crop
+- image_173: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_173.jpeg | no-crop
+- image_174: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_174.jpeg | no-crop
+- image_175: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_175.jpeg | no-crop
+- image_176: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_176.jpeg | no-crop
+- image_177: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_177.jpeg | no-crop
+- image_178: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_178.jpeg | no-crop
+- image_179: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_179.jpeg | no-crop
+- image_180: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_180.jpeg | no-crop
+- image_181: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_181.jpeg | no-crop
+- image_182: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_182.jpeg | no-crop
+- image_183: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_183.jpeg | no-crop
+- image_184: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_184.jpeg | no-crop
+- image_185: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_185.jpeg | no-crop
+- image_186: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_186.jpeg | no-crop
+- image_187: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_187.jpeg | no-crop
+- image_188: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_188.jpeg | no-crop
+- image_189: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_189.jpeg | no-crop
+- image_190: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_190.jpeg | no-crop
+- image_194: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_194.jpeg | no-crop
+- image_195: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_195.jpeg | no-crop
+- image_196: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_196.jpeg | no-crop
+- image_197: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_197.jpeg | no-crop
+- image_198: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_198.png | no-crop
+- image_207: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_207.png | no-crop
+- image_208: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_208.png | no-crop
+- image_209: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_209.jpeg | no-crop
+- image_210: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_210.png | no-crop
+- image_211: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_211.png | no-crop
+- image_212: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_212.png | no-crop
+- image_213: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_213.png | no-crop
+- image_214: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_214.png | no-crop
+- image_215: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_215.png | no-crop
+- image_216: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_216.png | no-crop
+- image_217: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_217.png | no-crop
+- image_218: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_218.png | no-crop
+- image_219: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_219.png | no-crop
+- image_220: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_220.png | no-crop
+- image_221: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_221.png | no-crop
+- image_222: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_222.png | no-crop
+- image_223: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_223.png | no-crop
+- image_224: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_224.png | no-crop
+- image_225: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_225.jpeg | no-crop
+- image_226: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_226.jpeg | no-crop
+- image_227: C:/Gemini cli/gemini-ppt/projects/大旺塘/sources/大旺塘水文地质勘察报告_files/image_227.jpeg | no-crop
 
 ## page_rhythm
 - P01: anchor
@@ -327,3 +322,4 @@
 - `<style>`, `class`, `<foreignObject>`, `textPath`, `@font-face`, `<animate*>`, `<script>`, `<iframe>`
 - `<g opacity>`
 - HTML named entities in visible text
+- Visible internal metadata labels such as 来源模式, 证据编号, 本页用于, 原表定位, image_*.png, or E-* evidence IDs

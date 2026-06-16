@@ -7,7 +7,7 @@
 | **Project Name** | 大旺塘矿山地下水治理专项水文地质勘察工程评审汇报 |
 | **Canvas Format** | PPT 16:9 (1280x720) |
 | **Page Count** | 74 |
-| **Design Style** | 参考既有最终评审PPT的深蓝工程评审风格 |
+| **Design Style** | 学习完整版评审PPT的深蓝工程评审风格，保持源证据优先和专家评审可读性 |
 | **Target Audience** | 业主单位、矿山安全与水文地质评审专家、设计及治理实施相关方 |
 | **Use Case** | 专项勘察工程评审汇报 |
 | **Created Date** | 2026-06-16 |
@@ -24,9 +24,9 @@
 
 ## III. Visual Theme
 
-- **Style**: General Consulting + restrained government engineering review
-- **Theme**: Light theme
-- **Tone**: evidence-first, source-faithful, technical, restrained
+- **Style**: source-faithful Chinese engineering review presentation
+- **Theme**: light technical pages with deep-blue section rhythm
+- **Tone**: evidence-first, technical, restrained
 
 | Role | HEX | Purpose |
 | ---- | --- | ------- |
@@ -41,7 +41,7 @@
 
 ## IV. Typography System
 
-**Typography direction**: CJK-primary professional sans with serif emphasis for report quotations.
+**Typography direction**: CJK-primary professional sans with serif fallback for report quotations.
 
 | Role | Chinese | English | Fallback tail |
 | ---- | ------- | ------- | ------------- |
@@ -50,42 +50,24 @@
 | **Emphasis** | `SimSun` | `Georgia` | `serif` |
 | **Code** | — | `Consolas, "Courier New"` | `monospace` |
 
-- Title: `"Microsoft YaHei", Arial, sans-serif`
-- Body: `"Microsoft YaHei", Arial, sans-serif`
-- Emphasis: `Georgia, SimSun, serif`
-- Code: `Consolas, "Courier New", monospace`
-
 **Baseline**: Body font size = 18px.
 
 ## V. Layout Principles
 
-- Header area: 90px, title + chapter + page number.
-- Content area: 560px, prioritizing original figure/table readability.
-- Footer area: 30px, concise source note.
-- Layouts: left_text_right_figure, top_figure_bottom_text, left_table_right_text, top_text_bottom_table, evidence_chain, decision_matrix.
+- Header area: title + chapter + page number.
+- Content area prioritizes original figure/table readability.
+- Footer area contains concise source note only.
 - Dense technical pages avoid decorative cards; tables and figures use framed source panels.
-- Visible copy uses report-facing language: `报告阐述`, `报告对图件的说明`, `报告对表格的说明`, `报告计算口径`.
+- Visible copy uses report-facing language such as `报告阐述`, `报告对图件的说明`, `报告对表格的说明`, `报告计算口径`.
 - Internal planning metadata, evidence IDs, asset filenames and row/column diagnostics remain only in backend contracts/QA.
 
 ## VI. Icon Usage Specification
 
-- Built-in icon library: `tabler-outline`
-- Usage is sparse; icons only support agenda, chain and decision pages.
-
-| Purpose | Icon Path | Page |
-| ------- | --------- | ---- |
-| Objective | `tabler-outline/target` | P02 |
-| Evidence | `tabler-outline/chart-bar` | P12 |
-| Safety | `tabler-outline/shield` | P72 |
+- Icons are sparse; source figures and tables carry most visual meaning.
 
 ## VII. Visualization Reference List
 
-Catalog read: no chart templates used. The deck uses report-native tables, maps, figures and formulas because source fidelity is more important than restyling source data.
-
-Runners-up considered:
-- `bar_chart` | rejected: most numeric pages require precise source tables rather than simplified bars.
-- `process_flow` | rejected:防治水措施使用报告原文和证据链矩阵，不替代为流程模板。
-- `timeline_horizontal` | rejected:工作经过页保留报告原文时间节点即可。
+The deck uses report-native tables, maps, figures and formulas because source fidelity is more important than restyling source data.
 
 ## VII-A. Template Learning Profile
 
@@ -94,20 +76,22 @@ Runners-up considered:
 - Canvas inches: [13.333, 7.5]
 - Dominant fonts: [('思源黑体 CN Medium', 516), ('思源黑体 CN Bold', 116), ('Times New Roman', 113), ('黑体', 76), ('+mn-ea', 6), ('仿宋', 5)]
 - Dominant text colors: [('4489C8', 20), ('000000', 15), ('00B0F0', 13), ('01203C', 1), ('FF0000', 1)]
-- Adopted rules: 16:9 canvas, deep-blue technical review identity; large chapter/section titles with restrained body text; source figures shown without asset filenames or extraction IDs; tables are simplified to readable key rows rather than dense dumps
+- Picture distribution: [(0, 25), (1, 22), (2, 4), (4, 3), (6, 2)]
+- Layout keys: [{'pictures': 0, 'tables': 0, 'text_boxes': 2, 'count': 18}, {'pictures': 1, 'tables': 0, 'text_boxes': 3, 'count': 14}, {'pictures': 1, 'tables': 0, 'text_boxes': 2, 'count': 7}, {'pictures': 0, 'tables': 1, 'text_boxes': 2, 'count': 3}, {'pictures': 2, 'tables': 0, 'text_boxes': 2, 'count': 2}, {'pictures': 0, 'tables': 1, 'text_boxes': 3, 'count': 2}, {'pictures': 2, 'tables': 0, 'text_boxes': 8, 'count': 1}, {'pictures': 2, 'tables': 0, 'text_boxes': 1, 'count': 1}, {'pictures': 1, 'tables': 0, 'text_boxes': 1, 'count': 1}, {'pictures': 4, 'tables': 0, 'text_boxes': 1, 'count': 1}, {'pictures': 4, 'tables': 1, 'text_boxes': 2, 'count': 1}, {'pictures': 4, 'tables': 0, 'text_boxes': 6, 'count': 1}, {'pictures': 4, 'tables': 0, 'text_boxes': 5, 'count': 1}, {'pictures': 4, 'tables': 0, 'text_boxes': 3, 'count': 1}, {'pictures': 0, 'tables': 1, 'text_boxes': 1, 'count': 1}, {'pictures': 0, 'tables': 2, 'text_boxes': 1, 'count': 1}]
+- Adopted rules: 16:9 canvas, deep-blue technical review identity; large section titles and restrained body text; source figures shown without asset filenames or extraction IDs; dense tables are split or simplified into readable key rows; engineering report pages pair original evidence with report-facing explanation
 
 ## VIII. Image Resource List
 
 | Filename | Dimensions | Ratio | Purpose | Type | Layout pattern | Acquire Via | Status | Reference | text_policy | page_role |
 | -------- | ---------- | ----- | ------- | ---- | -------------- | ----------- | ------ | --------- | ----------- | --------- |
-| image_003.jpeg | 1255x1038 | 1.21 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from DOCX | none | local |
-| image_034.png | 881x802 | 1.10 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from DOCX | none | local |
-| image_060.png | 1002x1060 | 0.95 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from DOCX | none | local |
-| image_143.jpeg | 1268x1141 | 1.11 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from DOCX | none | local |
-| image_194.jpeg | 1213x970 | 1.25 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from DOCX | none | local |
-| image_195.jpeg | 1213x970 | 1.25 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from DOCX | none | local |
-| image_207.png | 488x464 | 1.05 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from DOCX | none | local |
-| image_216.png | 709x608 | 1.17 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from DOCX | none | local |
+| image_003.jpeg | 1255x1038 | 1.21 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from source | none | local |
+| image_034.png | 881x802 | 1.10 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from source | none | local |
+| image_060.png | 1002x1060 | 0.95 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from source | none | local |
+| image_143.jpeg | 1268x1141 | 1.11 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from source | none | local |
+| image_194.jpeg | 1213x970 | 1.25 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from source | none | local |
+| image_195.jpeg | 1213x970 | 1.25 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from source | none | local |
+| image_207.png | 488x464 | 1.05 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from source | none | local |
+| image_216.png | 709x608 | 1.17 | Key report source figure | Source figure | source-faithful figure panel | user | Existing | Extracted from source | none | local |
 
 ## IX. Content Outline
 
@@ -577,7 +561,6 @@ Runners-up considered:
 
 - One notes file per slide under `notes/`.
 - Notes use formal engineering review language and cite source notes.
-- Target duration: 55-70 minutes for 74 slides.
 
 ## XI. Technical Constraints Reminder
 

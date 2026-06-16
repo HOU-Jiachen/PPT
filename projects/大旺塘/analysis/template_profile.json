@@ -64,6 +64,18 @@
     [
       20.0,
       10
+    ],
+    [
+      22.0,
+      6
+    ],
+    [
+      44.0,
+      1
+    ],
+    [
+      66.0,
+      1
     ]
   ],
   "dominant_text_colors": [
@@ -102,7 +114,141 @@
       1
     ]
   ],
-  "layout_observations": [
+  "picture_count_distribution": [
+    [
+      0,
+      25
+    ],
+    [
+      1,
+      22
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      6,
+      2
+    ]
+  ],
+  "table_count_distribution": [
+    [
+      0,
+      48
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "layout_keys": [
+    {
+      "pictures": 0,
+      "tables": 0,
+      "text_boxes": 2,
+      "count": 18
+    },
+    {
+      "pictures": 1,
+      "tables": 0,
+      "text_boxes": 3,
+      "count": 14
+    },
+    {
+      "pictures": 1,
+      "tables": 0,
+      "text_boxes": 2,
+      "count": 7
+    },
+    {
+      "pictures": 0,
+      "tables": 1,
+      "text_boxes": 2,
+      "count": 3
+    },
+    {
+      "pictures": 2,
+      "tables": 0,
+      "text_boxes": 2,
+      "count": 2
+    },
+    {
+      "pictures": 0,
+      "tables": 1,
+      "text_boxes": 3,
+      "count": 2
+    },
+    {
+      "pictures": 2,
+      "tables": 0,
+      "text_boxes": 8,
+      "count": 1
+    },
+    {
+      "pictures": 2,
+      "tables": 0,
+      "text_boxes": 1,
+      "count": 1
+    },
+    {
+      "pictures": 1,
+      "tables": 0,
+      "text_boxes": 1,
+      "count": 1
+    },
+    {
+      "pictures": 4,
+      "tables": 0,
+      "text_boxes": 1,
+      "count": 1
+    },
+    {
+      "pictures": 4,
+      "tables": 1,
+      "text_boxes": 2,
+      "count": 1
+    },
+    {
+      "pictures": 4,
+      "tables": 0,
+      "text_boxes": 6,
+      "count": 1
+    },
+    {
+      "pictures": 4,
+      "tables": 0,
+      "text_boxes": 5,
+      "count": 1
+    },
+    {
+      "pictures": 4,
+      "tables": 0,
+      "text_boxes": 3,
+      "count": 1
+    },
+    {
+      "pictures": 0,
+      "tables": 1,
+      "text_boxes": 1,
+      "count": 1
+    },
+    {
+      "pictures": 0,
+      "tables": 2,
+      "text_boxes": 1,
+      "count": 1
+    }
+  ],
+  "sample_slides": [
     {
       "slide": 1,
       "pictures": 2,
@@ -120,7 +266,8 @@
         "目录",
         "contents",
         "项目概况",
-        "01"
+        "01",
+        "区域概况"
       ]
     },
     {
@@ -186,12 +333,48 @@
         "自然地理",
         "本区属丘陵山区，地势自东、西两侧向中部倾斜，形成狭长槽形地带。矿区位于狭长槽形地带的北段，附近为丘陵及山间盆地。矿区范围标高最低为50.07m，最高为236.20m，最大相对高差186.13m。矿体出露地表，开采平台平整，四周多见开采遗留下"
       ]
+    },
+    {
+      "slide": 10,
+      "pictures": 1,
+      "tables": 0,
+      "sample_text": [
+        "气象水文",
+        "矿区西南侧发育一条溪沟，水流方向为自北东向西南，矿区抽排水出水口布设于该溪沟中段，该溪沟最终与矿区西侧自然小河流汇合，向南径流汇入渔捞河。在矿区南侧附近有几个小鱼塘，无大的地表水体，地下水主要补给来源为大气降水。"
+      ]
+    },
+    {
+      "slide": 11,
+      "pictures": 2,
+      "tables": 0,
+      "sample_text": [
+        "区域地质"
+      ]
+    },
+    {
+      "slide": 12,
+      "pictures": 0,
+      "tables": 0,
+      "sample_text": [
+        "区域水文地质",
+        "03"
+      ]
+    },
+    {
+      "slide": 56,
+      "pictures": 2,
+      "tables": 0,
+      "sample_text": [
+        "汇报完毕，谢谢观看",
+        "演讲人：孟小军"
+      ]
     }
   ],
   "adopted_rules": [
     "16:9 canvas, deep-blue technical review identity",
-    "large chapter/section titles with restrained body text",
+    "large section titles and restrained body text",
     "source figures shown without asset filenames or extraction IDs",
-    "tables are simplified to readable key rows rather than dense dumps"
+    "dense tables are split or simplified into readable key rows",
+    "engineering report pages pair original evidence with report-facing explanation"
   ]
 }
