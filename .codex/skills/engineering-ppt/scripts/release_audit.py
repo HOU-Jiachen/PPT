@@ -133,6 +133,40 @@ def estimated_text_overflow(node: dict, width: float, height: float) -> bool:
     return left < -2 or right > width + 2 or y - size < -2 or y > height + 2
 
 
+def parse_font_size(value: object) -> float | None:
+    if value is None:
+        return None
+    match = re.search(r"[-+]?\d+(?:\.\d+)?", str(value))
+    if not match:
+        return None
+    return float(match.group(0))
+
+
+def is_template_or_meta_text(node: dict, width: float, height: float, policy: dict) -> bool:
+    exemptions = policy.get("font_exemptions", {})
+    text = str(node.get("text", "")).strip()
+    try:
+        x = float(node.get("x") or 0)
+        y = float(node.get("y") or 0)
+    except (TypeError, ValueError):
+        return False
+
+    footer_y_min = float(exemptions.get("footer_y_min_ratio", 0.90)) * height
+    header_y_max = float(exemptions.get("header_y_max_ratio", 0.12)) * height
+    if y >= footer_y_min or y <= header_y_max:
+        return True
+
+    for phrase in exemptions.get("phrases", ["来源：", "Source:"]):
+        if phrase and text.startswith(str(phrase)):
+            return True
+
+    page_number_regex = exemptions.get("page_number_regex")
+    if page_number_regex and re.fullmatch(str(page_number_regex), text):
+        return x <= width * 0.08 or x >= width * 0.92 or y >= footer_y_min
+
+    return False
+
+
 def audit_plan(
     project: Path,
     plan: dict,
@@ -211,6 +245,48 @@ def audit_plan(
                 chapter=chapter,
                 modes=sorted(modes),
             )
+
+    richness = policy.get("content_richness", {})
+    substantive = [
+        slide for slide in slides if str(slide.get("type", "")).lower() not in structural
+    ]
+    if substantive:
+        original_count = sum(
+            1
+            for slide in substantive
+            if str(slide.get("source_mode", "")).upper() in original_modes
+        )
+        ratio = original_count / len(substantive)
+        minimum_ratio = float(richness.get("minimum_original_source_ratio", 0))
+        if strict and minimum_ratio and ratio < minimum_ratio:
+            audit.error(
+                "insufficient-original-source-coverage",
+                "Substantive slides do not preserve enough original text, tables, figures, or calculations.",
+                original_slides=original_count,
+                substantive_slides=len(substantive),
+                ratio=round(ratio, 3),
+                minimum_ratio=minimum_ratio,
+            )
+
+        max_consecutive = int(richness.get("max_consecutive_interpretation_slides", 0))
+        if strict and max_consecutive:
+            run: list[int] = []
+            for slide in slides:
+                slide_type = str(slide.get("type", "")).lower()
+                source_mode = str(slide.get("source_mode", "")).upper()
+                if slide_type in structural or source_mode in original_modes:
+                    run = []
+                    continue
+                if source_mode:
+                    run.append(slide.get("page"))
+                    if len(run) > max_consecutive:
+                        audit.error(
+                            "too-many-consecutive-summary-slides",
+                            "Too many consecutive non-original-evidence slides.",
+                            pages=run,
+                            max_consecutive=max_consecutive,
+                        )
+                        run = run[-max_consecutive:]
     return pages
 
 
@@ -327,6 +403,26 @@ def audit_svgs(
                     "A single SVG text line probably crosses the canvas boundary.",
                     page=page_number,
                     text=node["text"],
+                )
+            min_font = (
+                policy.get("minimum_font_px", {}).get("body_absolute")
+                or policy.get("minimum_font_px", {}).get("body_minimum")
+                or 14
+            )
+            size = parse_font_size(node.get("font_size"))
+            if (
+                strict
+                and size is not None
+                and size < float(min_font)
+                and not is_template_or_meta_text(node, width, height, policy)
+            ):
+                audit.error(
+                    "body-font-too-small",
+                    "Visible PPT body text is below the absolute minimum font size.",
+                    page=page_number,
+                    text=node["text"],
+                    font_size=size,
+                    minimum=float(min_font),
                 )
 
         if slide_type not in STRUCTURAL_DEFAULT and not slide.get("density_exempt_reason"):

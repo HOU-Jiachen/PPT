@@ -19,6 +19,8 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
+$env:PYTHONIOENCODING = "utf-8"
 $RepoRoot = Split-Path -Parent $PSScriptRoot
 $VendorRoot = Join-Path $RepoRoot ".vendor\ppt-master"
 $CoreDir = Join-Path $VendorRoot "skills\ppt-master"
@@ -150,8 +152,12 @@ switch ($Command) {
         $projectPath = Resolve-ProjectPath
         Invoke-CheckedPython -Python $python -Arguments @($ProjectContract, $projectPath)
         $arguments = @($SourceCatalog, $projectPath)
-        foreach ($sourcePath in @($Source)) {
-            $arguments += @("--source", $sourcePath)
+        if ($Source) {
+            foreach ($sourcePath in $Source) {
+                if ($sourcePath) {
+                    $arguments += @("--source", $sourcePath)
+                }
+            }
         }
         Invoke-CheckedPython -Python $python -Arguments $arguments
     }

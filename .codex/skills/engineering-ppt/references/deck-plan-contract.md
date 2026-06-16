@@ -13,6 +13,7 @@ Each slide must declare:
   "source_mode": "ORIGINAL_TABLE",
   "evidence_ids": ["E-3.2-T01"],
   "visual_proof": "Recreated source table split across two readable pages",
+  "layout_pattern": "left_text_right_table",
   "source_note": "报告表3.2-1",
   "density": "dense",
   "density_exempt_reason": ""
@@ -37,6 +38,26 @@ INTERPRETATION | CONCLUSION | MANAGEMENT_ACTION
 - Split dense tables, maps, formulas, and long quotations instead of shrinking them.
 - Do not use conclusion cards as a substitute for a chapter's technical process.
 - Use three to five stable layout families. Do not add decorative components merely to fill space.
+- At least 55% of substantive slides should be `ORIGINAL_TEXT`, `ORIGINAL_TABLE`,
+  `ORIGINAL_FIGURE`, or `CALCULATION`; use interpretation slides to connect evidence,
+  not to replace it.
+- Do not place more than two interpretation / conclusion / management-action slides in
+  a row unless a chapter has no extractable source figure, table, or calculation and the
+  exemption is recorded.
+- For original figures and tables, prefer mixed evidence layouts over standalone summary
+  cards. Declare one of:
+
+```text
+left_text_right_figure | left_figure_right_text |
+top_text_bottom_figure | top_figure_bottom_text |
+left_text_right_table | left_table_right_text |
+top_text_bottom_table | top_table_bottom_text
+```
+
+- Use a full-bleed or figure-only page only when the original map, drawing, chart, or
+  table must be inspected at large scale; follow it with an explanatory text page if needed.
+- `visual_proof` must identify the actual preserved object, not only say `table` or
+  `figure`; for example, `original figure + right-side source explanation`.
 
 ## Page Fulness
 
@@ -47,6 +68,11 @@ Fill unused space with the next most relevant source-backed object:
 3. formula or calculation sequence
 4. exact project parameters
 5. faithful explanatory text
+
+Default fill pattern for engineering review pages is evidence pairing: put original
+text/table/figure next to the explanation using the declared `layout_pattern`. A page
+that contains only generated summary statements is not considered full unless it is a
+chapter opener, agenda, or final decision page.
 
 Do not fill space with invented KPIs, decorative dashboards, unsupported comparisons, or
 internal labels such as "报告原文摘录".

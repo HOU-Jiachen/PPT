@@ -73,8 +73,29 @@ def init_project(
             "minimum_font_px": {
                 "title": 30,
                 "body": 18,
+                "body_absolute": 14,
                 "chart_label": 14,
                 "source": 10,
+            },
+            "font_exemptions": {
+                "footer_y_min_ratio": 0.90,
+                "header_y_max_ratio": 0.12,
+                "phrases": ["来源：", "Source:"],
+                "page_number_regex": "^\\d{1,3}$",
+            },
+            "content_richness": {
+                "minimum_original_source_ratio": 0.55,
+                "max_consecutive_interpretation_slides": 2,
+                "preferred_mixed_layouts": [
+                    "left_text_right_figure",
+                    "left_figure_right_text",
+                    "top_text_bottom_figure",
+                    "top_figure_bottom_text",
+                    "left_text_right_table",
+                    "left_table_right_text",
+                    "top_text_bottom_table",
+                    "top_table_bottom_text",
+                ],
             },
             "forbidden_visible_phrases": [
                 "报告原文摘录",
