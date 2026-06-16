@@ -1,0 +1,328 @@
+## canvas
+- viewBox: 0 0 1280 720
+- format: PPT 16:9
+
+## colors
+- bg: #F7F9F9
+- paper: #FFFFFF
+- primary: #0E5E6F
+- accent: #B65A24
+- secondary_accent: #DCE8E8
+- text: #1B2A2F
+- text_secondary: #5E6B70
+- border: #C7D3D4
+
+## typography
+- font_family: "Microsoft YaHei", Arial, sans-serif
+- title_family: "Microsoft YaHei", Arial, sans-serif
+- body_family: "Microsoft YaHei", Arial, sans-serif
+- emphasis_family: Georgia, SimSun, serif
+- code_family: Consolas, "Courier New", monospace
+- body: 18
+- title: 32
+- subtitle: 24
+- annotation: 14
+- footer: 10
+
+## icons
+- library: tabler-outline
+- stroke_width: 2
+- inventory: target, chart-bar, shield, map, droplet, table, alert-triangle
+
+## images
+- image_001: sources/大旺塘水文地质勘察报告_files/image_001.png | no-crop
+- image_002: sources/大旺塘水文地质勘察报告_files/image_002.jpeg | no-crop
+- image_003: sources/大旺塘水文地质勘察报告_files/image_003.jpeg | no-crop
+- image_004: sources/大旺塘水文地质勘察报告_files/image_004.jpeg | no-crop
+- image_005: sources/大旺塘水文地质勘察报告_files/image_005.jpeg | no-crop
+- image_006: sources/大旺塘水文地质勘察报告_files/image_006.jpeg | no-crop
+- image_007: sources/大旺塘水文地质勘察报告_files/image_007.jpeg | no-crop
+- image_008: sources/大旺塘水文地质勘察报告_files/image_008.jpeg | no-crop
+- image_009: sources/大旺塘水文地质勘察报告_files/image_009.png | no-crop
+- image_010: sources/大旺塘水文地质勘察报告_files/image_010.jpeg | no-crop
+- image_011: sources/大旺塘水文地质勘察报告_files/image_011.jpeg | no-crop
+- image_012: sources/大旺塘水文地质勘察报告_files/image_012.png | no-crop
+- image_013: sources/大旺塘水文地质勘察报告_files/image_013.png | no-crop
+- image_014: sources/大旺塘水文地质勘察报告_files/image_014.jpeg | no-crop
+- image_015: sources/大旺塘水文地质勘察报告_files/image_015.jpeg | no-crop
+- image_016: sources/大旺塘水文地质勘察报告_files/image_016.jpeg | no-crop
+- image_017: sources/大旺塘水文地质勘察报告_files/image_017.jpeg | no-crop
+- image_018: sources/大旺塘水文地质勘察报告_files/image_018.jpeg | no-crop
+- image_019: sources/大旺塘水文地质勘察报告_files/image_019.jpeg | no-crop
+- image_020: sources/大旺塘水文地质勘察报告_files/image_020.jpeg | no-crop
+- image_021: sources/大旺塘水文地质勘察报告_files/image_021.jpeg | no-crop
+- image_022: sources/大旺塘水文地质勘察报告_files/image_022.jpeg | no-crop
+- image_023: sources/大旺塘水文地质勘察报告_files/image_023.jpeg | no-crop
+- image_024: sources/大旺塘水文地质勘察报告_files/image_024.jpeg | no-crop
+- image_025: sources/大旺塘水文地质勘察报告_files/image_025.jpeg | no-crop
+- image_026: sources/大旺塘水文地质勘察报告_files/image_026.png | no-crop
+- image_027: sources/大旺塘水文地质勘察报告_files/image_027.png | no-crop
+- image_028: sources/大旺塘水文地质勘察报告_files/image_028.jpeg | no-crop
+- image_029: sources/大旺塘水文地质勘察报告_files/image_029.jpeg | no-crop
+- image_030: sources/大旺塘水文地质勘察报告_files/image_030.jpeg | no-crop
+- image_031: sources/大旺塘水文地质勘察报告_files/image_031.jpeg | no-crop
+- image_032: sources/大旺塘水文地质勘察报告_files/image_032.jpeg | no-crop
+- image_033: sources/大旺塘水文地质勘察报告_files/image_033.jpeg | no-crop
+- image_034: sources/大旺塘水文地质勘察报告_files/image_034.png | no-crop
+- image_035: sources/大旺塘水文地质勘察报告_files/image_035.png | no-crop
+- image_036: sources/大旺塘水文地质勘察报告_files/image_036.jpeg | no-crop
+- image_037: sources/大旺塘水文地质勘察报告_files/image_037.png | no-crop
+- image_038: sources/大旺塘水文地质勘察报告_files/image_038.png | no-crop
+- image_039: sources/大旺塘水文地质勘察报告_files/image_039.png | no-crop
+- image_040: sources/大旺塘水文地质勘察报告_files/image_040.png | no-crop
+- image_041: sources/大旺塘水文地质勘察报告_files/image_041.png | no-crop
+- image_042: sources/大旺塘水文地质勘察报告_files/image_042.png | no-crop
+- image_043: sources/大旺塘水文地质勘察报告_files/image_043.png | no-crop
+- image_044: sources/大旺塘水文地质勘察报告_files/image_044.png | no-crop
+- image_045: sources/大旺塘水文地质勘察报告_files/image_045.png | no-crop
+- image_046: sources/大旺塘水文地质勘察报告_files/image_046.png | no-crop
+- image_047: sources/大旺塘水文地质勘察报告_files/image_047.png | no-crop
+- image_048: sources/大旺塘水文地质勘察报告_files/image_048.png | no-crop
+- image_049: sources/大旺塘水文地质勘察报告_files/image_049.png | no-crop
+- image_050: sources/大旺塘水文地质勘察报告_files/image_050.png | no-crop
+- image_051: sources/大旺塘水文地质勘察报告_files/image_051.png | no-crop
+- image_052: sources/大旺塘水文地质勘察报告_files/image_052.png | no-crop
+- image_053: sources/大旺塘水文地质勘察报告_files/image_053.png | no-crop
+- image_054: sources/大旺塘水文地质勘察报告_files/image_054.png | no-crop
+- image_055: sources/大旺塘水文地质勘察报告_files/image_055.png | no-crop
+- image_056: sources/大旺塘水文地质勘察报告_files/image_056.png | no-crop
+- image_057: sources/大旺塘水文地质勘察报告_files/image_057.png | no-crop
+- image_058: sources/大旺塘水文地质勘察报告_files/image_058.png | no-crop
+- image_059: sources/大旺塘水文地质勘察报告_files/image_059.png | no-crop
+- image_060: sources/大旺塘水文地质勘察报告_files/image_060.png | no-crop
+- image_061: sources/大旺塘水文地质勘察报告_files/image_061.png | no-crop
+- image_062: sources/大旺塘水文地质勘察报告_files/image_062.jpeg | no-crop
+- image_063: sources/大旺塘水文地质勘察报告_files/image_063.png | no-crop
+- image_064: sources/大旺塘水文地质勘察报告_files/image_064.png | no-crop
+- image_065: sources/大旺塘水文地质勘察报告_files/image_065.png | no-crop
+- image_066: sources/大旺塘水文地质勘察报告_files/image_066.png | no-crop
+- image_067: sources/大旺塘水文地质勘察报告_files/image_067.png | no-crop
+- image_068: sources/大旺塘水文地质勘察报告_files/image_068.png | no-crop
+- image_069: sources/大旺塘水文地质勘察报告_files/image_069.png | no-crop
+- image_070: sources/大旺塘水文地质勘察报告_files/image_070.png | no-crop
+- image_071: sources/大旺塘水文地质勘察报告_files/image_071.png | no-crop
+- image_072: sources/大旺塘水文地质勘察报告_files/image_072.png | no-crop
+- image_073: sources/大旺塘水文地质勘察报告_files/image_073.png | no-crop
+- image_074: sources/大旺塘水文地质勘察报告_files/image_074.png | no-crop
+- image_075: sources/大旺塘水文地质勘察报告_files/image_075.png | no-crop
+- image_076: sources/大旺塘水文地质勘察报告_files/image_076.png | no-crop
+- image_077: sources/大旺塘水文地质勘察报告_files/image_077.png | no-crop
+- image_078: sources/大旺塘水文地质勘察报告_files/image_078.png | no-crop
+- image_079: sources/大旺塘水文地质勘察报告_files/image_079.png | no-crop
+- image_082: sources/大旺塘水文地质勘察报告_files/image_082.png | no-crop
+- image_083: sources/大旺塘水文地质勘察报告_files/image_083.png | no-crop
+- image_084: sources/大旺塘水文地质勘察报告_files/image_084.png | no-crop
+- image_085: sources/大旺塘水文地质勘察报告_files/image_085.png | no-crop
+- image_086: sources/大旺塘水文地质勘察报告_files/image_086.png | no-crop
+- image_087: sources/大旺塘水文地质勘察报告_files/image_087.png | no-crop
+- image_088: sources/大旺塘水文地质勘察报告_files/image_088.png | no-crop
+- image_089: sources/大旺塘水文地质勘察报告_files/image_089.png | no-crop
+- image_090: sources/大旺塘水文地质勘察报告_files/image_090.png | no-crop
+- image_091: sources/大旺塘水文地质勘察报告_files/image_091.png | no-crop
+- image_092: sources/大旺塘水文地质勘察报告_files/image_092.jpeg | no-crop
+- image_093: sources/大旺塘水文地质勘察报告_files/image_093.png | no-crop
+- image_094: sources/大旺塘水文地质勘察报告_files/image_094.jpeg | no-crop
+- image_095: sources/大旺塘水文地质勘察报告_files/image_095.jpeg | no-crop
+- image_096: sources/大旺塘水文地质勘察报告_files/image_096.jpeg | no-crop
+- image_097: sources/大旺塘水文地质勘察报告_files/image_097.jpeg | no-crop
+- image_098: sources/大旺塘水文地质勘察报告_files/image_098.jpeg | no-crop
+- image_099: sources/大旺塘水文地质勘察报告_files/image_099.jpeg | no-crop
+- image_100: sources/大旺塘水文地质勘察报告_files/image_100.png | no-crop
+- image_101: sources/大旺塘水文地质勘察报告_files/image_101.jpeg | no-crop
+- image_102: sources/大旺塘水文地质勘察报告_files/image_102.jpeg | no-crop
+- image_103: sources/大旺塘水文地质勘察报告_files/image_103.jpeg | no-crop
+- image_104: sources/大旺塘水文地质勘察报告_files/image_104.jpeg | no-crop
+- image_105: sources/大旺塘水文地质勘察报告_files/image_105.jpeg | no-crop
+- image_106: sources/大旺塘水文地质勘察报告_files/image_106.jpeg | no-crop
+- image_107: sources/大旺塘水文地质勘察报告_files/image_107.jpeg | no-crop
+- image_108: sources/大旺塘水文地质勘察报告_files/image_108.jpeg | no-crop
+- image_109: sources/大旺塘水文地质勘察报告_files/image_109.jpeg | no-crop
+- image_110: sources/大旺塘水文地质勘察报告_files/image_110.jpeg | no-crop
+- image_111: sources/大旺塘水文地质勘察报告_files/image_111.png | no-crop
+- image_112: sources/大旺塘水文地质勘察报告_files/image_112.jpeg | no-crop
+- image_113: sources/大旺塘水文地质勘察报告_files/image_113.jpeg | no-crop
+- image_114: sources/大旺塘水文地质勘察报告_files/image_114.jpeg | no-crop
+- image_115: sources/大旺塘水文地质勘察报告_files/image_115.jpeg | no-crop
+- image_116: sources/大旺塘水文地质勘察报告_files/image_116.jpeg | no-crop
+- image_117: sources/大旺塘水文地质勘察报告_files/image_117.jpeg | no-crop
+- image_118: sources/大旺塘水文地质勘察报告_files/image_118.jpeg | no-crop
+- image_119: sources/大旺塘水文地质勘察报告_files/image_119.jpeg | no-crop
+- image_120: sources/大旺塘水文地质勘察报告_files/image_120.jpeg | no-crop
+- image_121: sources/大旺塘水文地质勘察报告_files/image_121.jpeg | no-crop
+- image_122: sources/大旺塘水文地质勘察报告_files/image_122.jpeg | no-crop
+- image_123: sources/大旺塘水文地质勘察报告_files/image_123.jpeg | no-crop
+- image_124: sources/大旺塘水文地质勘察报告_files/image_124.jpeg | no-crop
+- image_125: sources/大旺塘水文地质勘察报告_files/image_125.jpeg | no-crop
+- image_126: sources/大旺塘水文地质勘察报告_files/image_126.jpeg | no-crop
+- image_127: sources/大旺塘水文地质勘察报告_files/image_127.jpeg | no-crop
+- image_128: sources/大旺塘水文地质勘察报告_files/image_128.jpeg | no-crop
+- image_129: sources/大旺塘水文地质勘察报告_files/image_129.jpeg | no-crop
+- image_130: sources/大旺塘水文地质勘察报告_files/image_130.jpeg | no-crop
+- image_131: sources/大旺塘水文地质勘察报告_files/image_131.jpeg | no-crop
+- image_132: sources/大旺塘水文地质勘察报告_files/image_132.jpeg | no-crop
+- image_133: sources/大旺塘水文地质勘察报告_files/image_133.jpeg | no-crop
+- image_134: sources/大旺塘水文地质勘察报告_files/image_134.jpeg | no-crop
+- image_135: sources/大旺塘水文地质勘察报告_files/image_135.jpeg | no-crop
+- image_136: sources/大旺塘水文地质勘察报告_files/image_136.png | no-crop
+- image_137: sources/大旺塘水文地质勘察报告_files/image_137.png | no-crop
+- image_138: sources/大旺塘水文地质勘察报告_files/image_138.png | no-crop
+- image_139: sources/大旺塘水文地质勘察报告_files/image_139.png | no-crop
+- image_140: sources/大旺塘水文地质勘察报告_files/image_140.png | no-crop
+- image_141: sources/大旺塘水文地质勘察报告_files/image_141.png | no-crop
+- image_142: sources/大旺塘水文地质勘察报告_files/image_142.png | no-crop
+- image_143: sources/大旺塘水文地质勘察报告_files/image_143.jpeg | no-crop
+- image_144: sources/大旺塘水文地质勘察报告_files/image_144.jpeg | no-crop
+- image_145: sources/大旺塘水文地质勘察报告_files/image_145.png | no-crop
+- image_146: sources/大旺塘水文地质勘察报告_files/image_146.jpeg | no-crop
+- image_147: sources/大旺塘水文地质勘察报告_files/image_147.jpeg | no-crop
+- image_148: sources/大旺塘水文地质勘察报告_files/image_148.jpeg | no-crop
+- image_149: sources/大旺塘水文地质勘察报告_files/image_149.jpeg | no-crop
+- image_150: sources/大旺塘水文地质勘察报告_files/image_150.jpeg | no-crop
+- image_151: sources/大旺塘水文地质勘察报告_files/image_151.jpeg | no-crop
+- image_152: sources/大旺塘水文地质勘察报告_files/image_152.jpeg | no-crop
+- image_153: sources/大旺塘水文地质勘察报告_files/image_153.jpeg | no-crop
+- image_154: sources/大旺塘水文地质勘察报告_files/image_154.jpeg | no-crop
+- image_155: sources/大旺塘水文地质勘察报告_files/image_155.jpeg | no-crop
+- image_156: sources/大旺塘水文地质勘察报告_files/image_156.jpeg | no-crop
+- image_157: sources/大旺塘水文地质勘察报告_files/image_157.jpeg | no-crop
+- image_158: sources/大旺塘水文地质勘察报告_files/image_158.jpeg | no-crop
+- image_159: sources/大旺塘水文地质勘察报告_files/image_159.jpeg | no-crop
+- image_160: sources/大旺塘水文地质勘察报告_files/image_160.jpeg | no-crop
+- image_161: sources/大旺塘水文地质勘察报告_files/image_161.jpeg | no-crop
+- image_162: sources/大旺塘水文地质勘察报告_files/image_162.jpeg | no-crop
+- image_163: sources/大旺塘水文地质勘察报告_files/image_163.jpeg | no-crop
+- image_164: sources/大旺塘水文地质勘察报告_files/image_164.jpeg | no-crop
+- image_165: sources/大旺塘水文地质勘察报告_files/image_165.jpeg | no-crop
+- image_166: sources/大旺塘水文地质勘察报告_files/image_166.jpeg | no-crop
+- image_167: sources/大旺塘水文地质勘察报告_files/image_167.jpeg | no-crop
+- image_168: sources/大旺塘水文地质勘察报告_files/image_168.jpeg | no-crop
+- image_169: sources/大旺塘水文地质勘察报告_files/image_169.jpeg | no-crop
+- image_170: sources/大旺塘水文地质勘察报告_files/image_170.jpeg | no-crop
+- image_171: sources/大旺塘水文地质勘察报告_files/image_171.jpeg | no-crop
+- image_172: sources/大旺塘水文地质勘察报告_files/image_172.jpeg | no-crop
+- image_173: sources/大旺塘水文地质勘察报告_files/image_173.jpeg | no-crop
+- image_174: sources/大旺塘水文地质勘察报告_files/image_174.jpeg | no-crop
+- image_175: sources/大旺塘水文地质勘察报告_files/image_175.jpeg | no-crop
+- image_176: sources/大旺塘水文地质勘察报告_files/image_176.jpeg | no-crop
+- image_177: sources/大旺塘水文地质勘察报告_files/image_177.jpeg | no-crop
+- image_178: sources/大旺塘水文地质勘察报告_files/image_178.jpeg | no-crop
+- image_179: sources/大旺塘水文地质勘察报告_files/image_179.jpeg | no-crop
+- image_180: sources/大旺塘水文地质勘察报告_files/image_180.jpeg | no-crop
+- image_181: sources/大旺塘水文地质勘察报告_files/image_181.jpeg | no-crop
+- image_182: sources/大旺塘水文地质勘察报告_files/image_182.jpeg | no-crop
+- image_183: sources/大旺塘水文地质勘察报告_files/image_183.jpeg | no-crop
+- image_184: sources/大旺塘水文地质勘察报告_files/image_184.jpeg | no-crop
+- image_185: sources/大旺塘水文地质勘察报告_files/image_185.jpeg | no-crop
+- image_186: sources/大旺塘水文地质勘察报告_files/image_186.jpeg | no-crop
+- image_187: sources/大旺塘水文地质勘察报告_files/image_187.jpeg | no-crop
+- image_188: sources/大旺塘水文地质勘察报告_files/image_188.jpeg | no-crop
+- image_189: sources/大旺塘水文地质勘察报告_files/image_189.jpeg | no-crop
+- image_190: sources/大旺塘水文地质勘察报告_files/image_190.jpeg | no-crop
+- image_194: sources/大旺塘水文地质勘察报告_files/image_194.jpeg | no-crop
+- image_195: sources/大旺塘水文地质勘察报告_files/image_195.jpeg | no-crop
+- image_196: sources/大旺塘水文地质勘察报告_files/image_196.jpeg | no-crop
+- image_197: sources/大旺塘水文地质勘察报告_files/image_197.jpeg | no-crop
+- image_198: sources/大旺塘水文地质勘察报告_files/image_198.png | no-crop
+- image_207: sources/大旺塘水文地质勘察报告_files/image_207.png | no-crop
+- image_208: sources/大旺塘水文地质勘察报告_files/image_208.png | no-crop
+- image_209: sources/大旺塘水文地质勘察报告_files/image_209.jpeg | no-crop
+- image_210: sources/大旺塘水文地质勘察报告_files/image_210.png | no-crop
+- image_211: sources/大旺塘水文地质勘察报告_files/image_211.png | no-crop
+- image_212: sources/大旺塘水文地质勘察报告_files/image_212.png | no-crop
+- image_213: sources/大旺塘水文地质勘察报告_files/image_213.png | no-crop
+- image_214: sources/大旺塘水文地质勘察报告_files/image_214.png | no-crop
+- image_215: sources/大旺塘水文地质勘察报告_files/image_215.png | no-crop
+- image_216: sources/大旺塘水文地质勘察报告_files/image_216.png | no-crop
+- image_217: sources/大旺塘水文地质勘察报告_files/image_217.png | no-crop
+- image_218: sources/大旺塘水文地质勘察报告_files/image_218.png | no-crop
+- image_219: sources/大旺塘水文地质勘察报告_files/image_219.png | no-crop
+- image_220: sources/大旺塘水文地质勘察报告_files/image_220.png | no-crop
+- image_221: sources/大旺塘水文地质勘察报告_files/image_221.png | no-crop
+- image_222: sources/大旺塘水文地质勘察报告_files/image_222.png | no-crop
+- image_223: sources/大旺塘水文地质勘察报告_files/image_223.png | no-crop
+- image_224: sources/大旺塘水文地质勘察报告_files/image_224.png | no-crop
+- image_225: sources/大旺塘水文地质勘察报告_files/image_225.jpeg | no-crop
+- image_226: sources/大旺塘水文地质勘察报告_files/image_226.jpeg | no-crop
+- image_227: sources/大旺塘水文地质勘察报告_files/image_227.jpeg | no-crop
+
+## page_rhythm
+- P01: anchor
+- P02: anchor
+- P03: dense
+- P04: dense
+- P05: dense
+- P06: dense
+- P07: anchor
+- P08: dense
+- P09: dense
+- P10: dense
+- P11: dense
+- P12: dense
+- P13: anchor
+- P14: dense
+- P15: dense
+- P16: dense
+- P17: dense
+- P18: dense
+- P19: anchor
+- P20: dense
+- P21: dense
+- P22: dense
+- P23: dense
+- P24: dense
+- P25: dense
+- P26: dense
+- P27: dense
+- P28: dense
+- P29: dense
+- P30: breathing
+- P31: anchor
+- P32: dense
+- P33: dense
+- P34: dense
+- P35: dense
+- P36: dense
+- P37: dense
+- P38: dense
+- P39: dense
+- P40: dense
+- P41: anchor
+- P42: dense
+- P43: dense
+- P44: dense
+- P45: dense
+- P46: dense
+- P47: dense
+- P48: dense
+- P49: dense
+- P50: dense
+- P51: dense
+- P52: dense
+- P53: anchor
+- P54: dense
+- P55: dense
+- P56: dense
+- P57: dense
+- P58: dense
+- P59: dense
+- P60: dense
+- P61: dense
+- P62: dense
+- P63: anchor
+- P64: dense
+- P65: dense
+- P66: dense
+- P67: dense
+- P68: dense
+- P69: anchor
+- P70: dense
+- P71: dense
+- P72: dense
+- P73: dense
+- P74: anchor
+
+## forbidden
+- rgba()
+- `<style>`, `class`, `<foreignObject>`, `textPath`, `@font-face`, `<animate*>`, `<script>`, `<iframe>`
+- `<g opacity>`
+- HTML named entities in visible text

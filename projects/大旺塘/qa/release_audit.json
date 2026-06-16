@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "errors": 0,
+    "warnings": 1,
+    "info": 1,
+    "release_ready": true
+  },
+  "metadata": {
+    "project": "projects/大旺塘",
+    "strict": true,
+    "planned_slides": 74,
+    "svg_slides": 0,
+    "pptx": "projects/大旺塘/exports/大旺塘工程评审汇报_20260616_104040.pptx"
+  },
+  "findings": [
+    {
+      "level": "warning",
+      "code": "no-svg",
+      "message": "No SVG output found; visual-content checks were skipped.",
+      "context": {}
+    },
+    {
+      "level": "info",
+      "code": "pptx-valid",
+      "message": "PPTX package, XML, media, and parser checks passed.",
+      "context": {
+        "slides": 74
+      }
+    }
+  ]
+}
