@@ -10,7 +10,7 @@
 | **Design Style** | 学习完整版评审PPT的深蓝工程评审风格，保持源证据优先和专家评审可读性 |
 | **Target Audience** | 业主单位、矿山安全与水文地质评审专家、设计及治理实施相关方 |
 | **Use Case** | 专项勘察工程评审汇报 |
-| **Created Date** | 2026-06-16 |
+| **Created Date** | 2026-06-17 |
 
 ## II. Canvas Specification
 
@@ -58,7 +58,8 @@
 - Content area prioritizes original figure/table readability.
 - Footer area contains concise source note only.
 - Dense technical pages avoid decorative cards; tables and figures use framed source panels.
-- Visible copy uses report-facing language such as `报告阐述`, `报告对图件的说明`, `报告对表格的说明`, `报告计算口径`.
+- Visible panel headings must be content-specific, such as `图件重点：矿区强径流带分布` or `表格重点：涌水量预测结果`.
+- Generic workflow labels such as `报告对图件的说明`, `报告对表格的说明`, `报告计算口径`, and `报告阐述` are forbidden in visible slides.
 - Internal planning metadata, evidence IDs, asset filenames and row/column diagnostics remain only in backend contracts/QA.
 
 ## VI. Icon Usage Specification
