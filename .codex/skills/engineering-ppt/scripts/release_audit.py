@@ -545,6 +545,53 @@ def audit_ledger(ledger: dict, catalog: dict, strict: bool, audit: Audit) -> Non
             )
 
 
+def audit_content_analysis(project: Path, strict: bool, audit: Audit) -> dict:
+    inventory_path = project / "analysis" / "report_content_inventory.json"
+    blueprint_path = project / "analysis" / "ppt_content_blueprint.md"
+    inventory = load_json(inventory_path, audit, required=strict)
+
+    if strict and not blueprint_path.exists():
+        audit.error(
+            "missing-file",
+            "Required file is missing: ppt_content_blueprint.md",
+            path=str(blueprint_path),
+        )
+    elif blueprint_path.exists():
+        text = blueprint_path.read_text(encoding="utf-8", errors="replace")
+        if strict and len(text.strip()) < 800:
+            audit.error(
+                "content-blueprint-too-thin",
+                "PPT content blueprint is too thin to support slide planning.",
+                characters=len(text.strip()),
+            )
+
+    if not inventory:
+        return {}
+
+    summary = inventory.get("summary", {})
+    if strict and int(summary.get("sections", 0) or 0) == 0:
+        audit.error("empty-content-inventory", "Report content inventory has no sections.")
+    if strict and int(summary.get("content_units", 0) or 0) == 0:
+        audit.error("empty-content-units", "Report content inventory has no PPT content units.")
+
+    for unit in inventory.get("content_units", []):
+        if not unit.get("id"):
+            audit.error("content-unit-without-id", "PPT content unit has no ID.")
+        if not unit.get("catalog_ids"):
+            audit.error(
+                "content-unit-without-source",
+                "PPT content unit has no source catalog IDs.",
+                unit=unit.get("id", ""),
+            )
+        if not unit.get("layout_hint") and strict:
+            audit.error(
+                "content-unit-without-layout",
+                "PPT content unit has no layout recommendation.",
+                unit=unit.get("id", ""),
+            )
+    return inventory
+
+
 def audit_svgs(
     project: Path,
     pages: dict[int, dict],
@@ -822,6 +869,7 @@ def main() -> None:
     plan = load_json(project / "deck_plan.json", audit, required=args.strict)
     ledger = load_json(project / "evidence_ledger.json", audit, required=args.strict)
     catalog = load_json(project / "analysis" / "source_catalog.json", audit, required=args.strict)
+    content_inventory = audit_content_analysis(project, args.strict, audit)
     audit_ledger(ledger, catalog, args.strict, audit)
     source_text = "\n".join(item.get("text", "") for item in catalog.get("entries", []))
     source_numbers = collect_numbers(source_text)
@@ -834,6 +882,7 @@ def main() -> None:
         "strict": args.strict,
         "planned_slides": len(pages),
         "svg_slides": svg_count,
+        "content_units": content_inventory.get("summary", {}).get("content_units", 0) if content_inventory else 0,
         "pptx": display_path(args.pptx) if args.pptx else None,
     }
     write_reports(project, audit, metadata)

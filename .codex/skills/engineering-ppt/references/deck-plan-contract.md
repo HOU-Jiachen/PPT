@@ -12,6 +12,7 @@ Each slide must declare:
   "title": "2015—2024年水资源量年际波动明显",
   "source_mode": "ORIGINAL_TABLE",
   "evidence_ids": ["E-3.2-T01"],
+  "content_unit_ids": ["UNIT-0042"],
   "visual_proof": "Recreated source table split across two readable pages",
   "layout_pattern": "left_text_right_table",
   "source_note": "报告表3.2-1",
@@ -32,6 +33,9 @@ INTERPRETATION | CONCLUSION | MANAGEMENT_ACTION
 - Preserve the report's top-level chapter order for full-report briefings.
 - Allocate pages from evidence volume and readability, never from a fixed quota.
 - Give every substantive slide one or more evidence IDs.
+- Derive every substantive slide from `analysis/report_content_inventory.json` or
+  `analysis/ppt_content_blueprint.md`; keep `content_unit_ids` in the backend plan
+  whenever possible.
 - Give each chapter at least one original text, table, figure, or calculation slide.
 - Present original evidence before interpretation or conclusion when review accuracy matters.
 - Preserve significant original wording for legal, regulatory, technical, and conclusion text.
@@ -58,6 +62,8 @@ top_text_bottom_table | top_table_bottom_text
   table must be inspected at large scale; follow it with an explanatory text page if needed.
 - `visual_proof` must identify the actual preserved object, not only say `table` or
   `figure`; for example, `original figure + right-side source explanation`.
+- Visible small titles should prefer report headings, table captions, or figure captions
+  from the content inventory. Do not invent generic labels for source panels.
 
 ## Page Fulness
 

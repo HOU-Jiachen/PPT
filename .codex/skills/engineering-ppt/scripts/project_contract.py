@@ -74,6 +74,7 @@ def init_project(
                 "title": 30,
                 "body": 18,
                 "body_absolute": 14,
+                "table_absolute": 12,
                 "chart_label": 14,
                 "source": 10,
             },
@@ -129,6 +130,7 @@ def init_project(
                 "visual_proof",
                 "layout_pattern",
                 "source_note",
+                "资料来源：",
                 "Source mode",
             ],
             "original_source_modes": [

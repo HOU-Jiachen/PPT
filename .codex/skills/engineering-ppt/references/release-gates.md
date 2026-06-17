@@ -4,21 +4,22 @@ Run the following gates in order. A later success never cancels an earlier failu
 
 1. `project_contract.py`: required project directories and contracts exist.
 2. `build_source_catalog.py`: source inventory and addressable source catalog exist.
-3. Evidence review: all used evidence has `verification_status: verified`.
-4. Deck-plan audit: every content page has chapter, source mode, evidence IDs, and proof object.
-5. Content-richness audit: original text/table/figure/calculation slides meet the configured
+3. `build_ppt_content_blueprint.py`: report-content inventory and PPT content blueprint exist.
+4. Evidence review: all used evidence has `verification_status: verified`.
+5. Deck-plan audit: every content page has chapter, source mode, evidence IDs, and proof object.
+6. Content-richness audit: original text/table/figure/calculation slides meet the configured
    minimum ratio, and interpretation-only runs do not replace the report's technical process.
-6. `svg_quality_checker.py`: zero errors.
-7. Font audit: non-template PPT body text, table text, and chart labels are at least 14 pt.
-8. Layout-collision audit: visible text stays inside the safe frame, text boxes do not
+7. `svg_quality_checker.py`: zero errors.
+8. Font audit: non-template PPT body text, table text, and chart labels are at least 14 pt.
+9. Layout-collision audit: visible text stays inside the safe frame, text boxes do not
    overlap each other, and body text does not cover large source images or figures.
-9. Chart verification: required for every data-driven chart.
-10. Full render: inspect every page at full size and as a contact sheet.
-11. `release_audit.py --strict`: zero errors.
-12. PPTX export: native DrawingML, with no empty media.
-13. `release_audit.py --strict --pptx <file>`: package, XML, slide count, aspect ratio,
+10. Chart verification: required for every data-driven chart.
+11. Full render: inspect every page at full size and as a contact sheet.
+12. `release_audit.py --strict`: zero errors.
+13. PPTX export: native DrawingML, with no empty media.
+14. `release_audit.py --strict --pptx <file>`: package, XML, slide count, aspect ratio,
    forbidden wording, and parser checks pass.
-14. GitHub upload: commit and push this run's relevant artifacts, contracts, QA records,
+15. GitHub upload: commit and push this run's relevant artifacts, contracts, QA records,
     exports, and local agent-rule changes to `origin`.
 
 ## Blocking Defects

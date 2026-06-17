@@ -6,6 +6,10 @@ Maintain two machine-readable files before slide authoring:
 
 - `analysis/source_catalog.json`: deterministic extraction output. Its IDs address source
   paragraphs, tables, figures, pages, worksheets, and source slides.
+- `analysis/report_content_inventory.json`: report-title hierarchy, important paragraphs,
+  table/figure captions, and PPT candidate content units derived from the source catalog.
+- `analysis/ppt_content_blueprint.md`: agent-facing thinking workspace for selecting and
+  pairing source objects before deck planning.
 - `evidence_ledger.json`: reviewed evidence selected for the presentation.
 
 Each evidence record must contain:
@@ -42,3 +46,5 @@ CALCULATION | INTERPRETATION | RECOMMENDATION
 - Keep Agent reasoning as `INTERPRETATION`; do not relabel it as `FACT`.
 - Keep internal workflow notes in the ledger, never in visible slide text.
 - Use source files as the authority. Previous PPT decks and old outlines are leads, not facts.
+- Select evidence through the content inventory/blueprint so source headings, captions, and
+  dense objects are considered before slide titles and layouts are invented.

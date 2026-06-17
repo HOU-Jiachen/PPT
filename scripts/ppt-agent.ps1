@@ -1,6 +1,6 @@
 param(
     [Parameter(Position = 0)]
-    [ValidateSet("doctor", "init", "prepare", "catalog", "migrate", "audit", "status", "update")]
+    [ValidateSet("doctor", "init", "prepare", "catalog", "analyze", "migrate", "audit", "status", "update")]
     [string]$Command = "status",
 
     [Parameter(Position = 1)]
@@ -29,6 +29,7 @@ $CurrentProjectFile = Join-Path $RepoRoot "CURRENT_PROJECT.txt"
 $LocalSkill = Join-Path $RepoRoot ".codex\skills\engineering-ppt"
 $ProjectContract = Join-Path $LocalSkill "scripts\project_contract.py"
 $SourceCatalog = Join-Path $LocalSkill "scripts\build_source_catalog.py"
+$ContentBlueprint = Join-Path $LocalSkill "scripts\build_ppt_content_blueprint.py"
 $ReleaseAudit = Join-Path $LocalSkill "scripts\release_audit.py"
 $LegacyMigration = Join-Path $LocalSkill "scripts\migrate_legacy_manifest.py"
 
@@ -104,6 +105,7 @@ switch ($Command) {
             (Join-Path $CoreDir "scripts\svg_to_pptx.py"),
             $ProjectContract,
             $SourceCatalog,
+            $ContentBlueprint,
             $ReleaseAudit,
             $LegacyMigration
         )
@@ -162,6 +164,16 @@ switch ($Command) {
         Invoke-CheckedPython -Python $python -Arguments $arguments
     }
 
+    "analyze" {
+        $python = Resolve-Python
+        $projectPath = Resolve-ProjectPath
+        Invoke-CheckedPython -Python $python -Arguments @($ProjectContract, $projectPath)
+        if (-not (Test-Path -LiteralPath (Join-Path $projectPath "analysis\source_catalog.json"))) {
+            throw "Run catalog before analyze: scripts\ppt-agent.cmd catalog `"$((Resolve-ProjectName))`""
+        }
+        Invoke-CheckedPython -Python $python -Arguments @($ContentBlueprint, $projectPath)
+    }
+
     "migrate" {
         $python = Resolve-Python
         $projectPath = Resolve-ProjectPath
@@ -196,6 +208,8 @@ switch ($Command) {
 
         foreach ($item in @(
             "analysis\source_catalog.json",
+            "analysis\report_content_inventory.json",
+            "analysis\ppt_content_blueprint.md",
             "project_config.json",
             "evidence_ledger.json",
             "deck_plan.json",

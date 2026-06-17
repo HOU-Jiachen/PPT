@@ -81,7 +81,49 @@ Read [evidence-contract.md](references/evidence-contract.md). Review the origina
 object before marking evidence `verified`; extracted text alone is not authoritative when it is
 damaged, merged, or incomplete.
 
-## 5. Build The Evidence Ledger
+## 5. Build The Report Content Inventory And PPT Blueprint
+
+Run:
+
+```powershell
+scripts\ppt-agent.cmd analyze "<project>"
+```
+
+This creates:
+
+```text
+analysis/report_content_inventory.json
+analysis/ppt_content_blueprint.md
+```
+
+This stage is mandatory before `evidence_ledger.json`, `chapter_coverage.md`,
+`deck_plan.json`, `design_spec.md`, or any slide authoring is completed.
+
+The inventory must preserve the report's material before presentation shaping:
+
+- all available heading levels and parent-child title paths
+- important original paragraphs and their source locators
+- original tables with captions/titles, row/column scale, units, and split hints
+- original figures/maps/charts with captions/titles, asset links, and source locators
+- formula/calculation-bearing paragraphs and parameter/result tables
+- candidate PPT content units with catalog IDs, source modes, layout hints, and split hints
+
+Then read `analysis/ppt_content_blueprint.md` and think through the PPT content before
+planning pages. For every report chapter or dense subsection, decide:
+
+- what the audience needs to understand or decide
+- which exact original text/table/figure/formula must remain visible
+- which source objects should be paired on the same slide
+- which dense objects should be split across multiple slides
+- what the visible small title should be, preferring the report heading or table/figure caption
+- what interpretation is needed beside the source evidence, without replacing it
+
+Do not treat the generated blueprint as final thinking. It is the structured workspace.
+The agent must refine it mentally or in writing before `deck_plan.json`, and each
+substantive planned page should be traceable to one or more content-unit IDs or to a
+recorded reason that no suitable source object exists.
+
+## 6. Build The Evidence Ledger
 
 Select source-catalog entries into `evidence_ledger.json`.
 
@@ -100,8 +142,11 @@ Mandatory rules:
 - Keep interpretation as interpretation. Never promote it to fact.
 - Treat old PPT decks and outlines as leads, not authoritative sources.
 - Keep workflow notes and extraction warnings out of visible slides.
+- Use `analysis/report_content_inventory.json` and `analysis/ppt_content_blueprint.md`
+  as the primary selection workspace; do not select evidence only from memory or from
+  an old deck outline.
 
-## 6. Build Chapter Coverage And Deck Plan
+## 7. Build Chapter Coverage And Deck Plan
 
 Create `chapter_coverage.md`, then read
 [deck-plan-contract.md](references/deck-plan-contract.md) and complete `deck_plan.json`.
@@ -129,6 +174,10 @@ Each substantive slide must declare:
 chapter | source_mode | evidence_ids | visual_proof | layout_pattern | source_note | density
 ```
 
+In the backend plan or notes, also keep the selected content-unit IDs from
+`analysis/report_content_inventory.json` whenever possible. These IDs do not belong in
+visible slide text.
+
 Original-source modes must form a meaningful part of technical chapters. Do not make the deck
 a sequence of Agent-generated summary cards.
 
@@ -150,17 +199,18 @@ Use standalone summary cards sparingly: primarily for cover/agenda/chapter opene
 summaries, and final conclusions. Technical process pages should pair original evidence with
 faithful explanation.
 
-## 7. Confirm Design Once
+## 8. Confirm Design Once
 
 Present one concise confirmation bundle:
 
 1. canvas and evidence-derived page estimate
 2. audience and decision objective
 3. report chapter flow
-4. source-preservation plan
-5. visual system and typography
-6. image, table, and chart policy
-7. source-rich layout mix and minimum original table/figure/text coverage
+4. report-content inventory and PPT blueprint summary
+5. source-preservation plan
+6. visual system and typography
+7. image, table, and chart policy
+8. source-rich layout mix and minimum original table/figure/text coverage
 
 Wait once for explicit confirmation. Then write `design_spec.md` and `spec_lock.md` and continue
 automatically.
@@ -175,9 +225,11 @@ Default Chinese engineering choices:
 - no decorative pseudo-data
 - no progress bars, badges, ribbons, or repeated framing unless meaningful
 
-## 8. Author With The Upstream Kernel
+## 9. Author With The Upstream Kernel
 
 Follow the serial upstream pipeline. Re-read `spec_lock.md` before every page.
+Also keep `analysis/ppt_content_blueprint.md` open as the content authority for
+chapter order, small titles, source pairings, and split decisions.
 
 Local source-preservation overrides:
 
@@ -192,6 +244,7 @@ Local source-preservation overrides:
 - Retain units, time basis, footnotes, and uncertainty notes.
 - Put interpretation beside or after original evidence, never in its place.
 - Use topic titles for faithful source pages; do not force every title into a new conclusion.
+- Prefer report headings and table/figure captions for visible small titles.
 - Keep visible source notes concise and professional.
 
 Never show internal labels such as:
@@ -209,6 +262,17 @@ Never show planning or extraction metadata such as:
 source_mode | evidence_ids | visual_proof | layout_pattern | source_note |
 image_003.png | E-1-OBJECTIVE
 ```
+
+Never show generic panel headings such as:
+
+```text
+报告对图件的说明 | 报告对表格的说明 | 报告计算口径 | 报告阐述
+```
+
+Small titles beside figures, tables, formulas, and source text must name the
+specific engineering content being shown, for example `图件重点：矿区强径流带分布`
+or `表格重点：不同标高涌水量预测结果`. Treat a generic label as a content defect,
+not a style preference.
 
 Visible slide text must be audience-facing report language: use the report's original
 wording or a faithful, layout-shortened paraphrase of what the report says about the
@@ -243,7 +307,7 @@ source of engineering facts unless the user explicitly says it is authoritative 
 material. The visible deck should still cite the report, source figures, source tables,
 or faithful report-language paraphrases.
 
-## 9. Enforce Text Fit And Page Fulness
+## 10. Enforce Text Fit And Page Fulness
 
 Every text container must have explicit width, height, font size, and line plan.
 
@@ -274,7 +338,7 @@ For a sparse page, add the next relevant source-backed object:
 
 Do not fill space with invented metrics or decorative cards.
 
-## 10. Run Release Gates
+## 11. Run Release Gates
 
 Read [release-gates.md](references/release-gates.md). Run:
 
@@ -299,7 +363,7 @@ Do not call the run complete if GitHub upload has not succeeded, unless the fina
 clearly reports the upload blocker (missing remote, authentication failure, network failure,
 or permission failure) and lists what remains local-only.
 
-## 11. Deliver
+## 12. Deliver
 
 Deliver the native editable PPTX from `exports/` and report:
 
