@@ -139,6 +139,7 @@ def init_project(
                 "layout_pattern",
                 "source_note",
                 "资料来源：",
+                "按照报告章节顺序进入",
                 "Source mode",
             ],
             "original_source_modes": [

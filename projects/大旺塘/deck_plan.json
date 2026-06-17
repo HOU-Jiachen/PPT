@@ -5,7 +5,7 @@
     "title": "大旺塘矿山地下水治理专项水文地质勘察工程评审汇报",
     "audience": "业主单位、矿山安全与水文地质专业评审专家、设计及治理实施相关方",
     "objective": "以评审级技术深度呈现253页专项勘察报告的证据链，说明地下水治理边界、关键水文地质条件、涌水量控制工况、防治水措施与后续决策事项。",
-    "page_count_logic": "按章节信息量、原图原表数量、计算链完整性和可读性分配页数；执行版74页，低于60页会牺牲关键图表和计算链。",
+    "page_count_logic": "按章节信息量、原图原表数量、计算链完整性和可读性分配页数；执行版72页，低于60页会牺牲关键图表和计算链。",
     "chapter_order": [
       "项目背景、采矿权与评审目标",
       "以往工作、本次工作量与成果基础",
@@ -26,13 +26,10 @@
     {"page":5,"type":"source_figure","chapter":"项目背景、采矿权与评审目标","title":"分割保留区叠合图显示现拟设采矿权边界","source_mode":"ORIGINAL_FIGURE","evidence_ids":["E-1-MINING-RIGHT"],"visual_proof":"现有采矿证、原核实拟设采矿权及保留区范围叠合图 image_003.jpeg","layout_pattern":"top_figure_bottom_text","source_note":"图1.2-2","density":"normal","density_exempt_reason":""},
     {"page":6,"type":"source_figure","chapter":"项目背景、采矿权与评审目标","title":"现状采场与开发规划形成由+50m向+5m推进的治理场景","source_mode":"ORIGINAL_FIGURE","evidence_ids":["E-1-MINING-RIGHT"],"visual_proof":"矿区开采现状图 image_004.jpeg 与开发规划原文","layout_pattern":"left_figure_right_text","source_note":"图1.2-3、矿山开发规划","density":"normal","density_exempt_reason":""},
 
-    {"page":7,"type":"source_text","chapter":"以往工作、本次工作量与成果基础","title":"以往地质、水文地质和资源核实工作构成本次勘察基础","source_mode":"ORIGINAL_TEXT","evidence_ids":["E-1-WORKLOAD"],"visual_proof":"以往工作简述原文时间线","layout_pattern":"timeline_with_source_text","source_note":"以往工作评述","density":"dense","density_exempt_reason":""},
-    {"page":8,"type":"source_text","chapter":"以往工作、本次工作量与成果基础","title":"2026年2月9日至3月31日完成51天综合勘察","source_mode":"ORIGINAL_TEXT","evidence_ids":["E-1-WORKLOAD"],"visual_proof":"工作时间、工作方法、简要经过原文","layout_pattern":"left_text_right_sequence","source_note":"P0136-P0139","density":"normal","density_exempt_reason":""},
+    {"page":7,"type":"source_text","chapter":"以往工作、本次工作量与成果基础","title":"2026年2月9日至3月31日完成51天综合勘察并形成完整工作量","source_mode":"ORIGINAL_TEXT","evidence_ids":["E-1-WORKLOAD"],"visual_proof":"工作时间、工作方法、简要经过和主要实物工作量归并说明","layout_pattern":"two_column_keypoints","source_note":"P0136-P0139、表1.4-1","density":"normal","density_exempt_reason":""},
     {"page":9,"type":"source_table","chapter":"以往工作、本次工作量与成果基础","title":"本次工作量覆盖调查、物探、钻探、试验、监测和模拟","source_mode":"ORIGINAL_TABLE","evidence_ids":["E-1-WORKLOAD"],"visual_proof":"表1.4-1完成主要实物工作量重点行重排","layout_pattern":"top_text_bottom_table","source_note":"表1.4-1","density":"dense","density_exempt_reason":""},
     {"page":10,"type":"source_table","chapter":"以往工作、本次工作量与成果基础","title":"成果资料包括报告、附图、附表和附件四类","source_mode":"ORIGINAL_TABLE","evidence_ids":["E-1-WORKLOAD"],"visual_proof":"表1.4-2取得成果一览表","layout_pattern":"left_table_right_text","source_note":"表1.4-2","density":"normal","density_exempt_reason":""},
     {"page":11,"type":"source_table","chapter":"以往工作、本次工作量与成果基础","title":"现场调查控制50km2并覆盖关键岩溶和水文点","source_mode":"ORIGINAL_TABLE","evidence_ids":["E-3-SURVEY"],"visual_proof":"表3.1-1调查工作量与现场照片组合","layout_pattern":"left_table_right_figure","source_note":"表3.1-1、图3.1-1至图3.1-10","density":"normal","density_exempt_reason":""},
-    {"page":12,"type":"interpretation","chapter":"以往工作、本次工作量与成果基础","title":"证据链从地面调查延伸到预测模型和防治水建议","source_mode":"INTERPRETATION","evidence_ids":["E-1-WORKLOAD","E-3-GEOPHYSICS-RESULT","E-6-WATER-INFLOW-COMPARE","E-9-WATER-CONTROL"],"visual_proof":"工作量、物探成果、涌水量预测、防治水建议的证据关系图","layout_pattern":"evidence_chain","source_note":"表1.4-1、表3.2-1、表6.2-10、第九章","density":"normal","density_exempt_reason":""},
-
     {"page":13,"type":"source_figure","chapter":"区域与矿区水文地质背景","title":"地理位置和交通条件限定调查与治理组织边界","source_mode":"ORIGINAL_FIGURE","evidence_ids":["E-2-REGIONAL"],"visual_proof":"地理位置图 image_007.jpeg","layout_pattern":"left_figure_right_text","source_note":"图2.1-1","density":"normal","density_exempt_reason":""},
     {"page":14,"type":"source_figure","chapter":"区域与矿区水文地质背景","title":"地形地貌与降雨条件共同塑造汇水和补给格局","source_mode":"ORIGINAL_FIGURE","evidence_ids":["E-2-REGIONAL","E-6-RAINFALL-RUNOFF"],"visual_proof":"地形地貌图 image_008.jpeg、多年平均降雨柱状图 image_009.png","layout_pattern":"top_figure_bottom_text","source_note":"图2.2-1、图2.3-1","density":"normal","density_exempt_reason":""},
     {"page":15,"type":"source_figure","chapter":"区域与矿区水文地质背景","title":"项目区水系和矿区周边水系支撑地表水关系判断","source_mode":"ORIGINAL_FIGURE","evidence_ids":["E-2-REGIONAL"],"visual_proof":"项目区水系图 image_010.jpeg、矿区周边水系图 image_011.jpeg","layout_pattern":"top_figure_bottom_text","source_note":"图2.3-2、图2.3-3","density":"normal","density_exempt_reason":""},
@@ -103,13 +100,13 @@
     {"page":74,"type":"conclusion","chapter":"防治水建议、问题披露与评审决策","title":"评审确认事项：控制工况、治理边界、监测闭环和设计输入","source_mode":"CONCLUSION","evidence_ids":["E-1-OBJECTIVE","E-4-RUNOFF-BELTS","E-5-RISK-ZONING","E-6-WATER-INFLOW-COMPARE","E-9-WATER-CONTROL","E-10-LIMITATIONS"],"visual_proof":"目的任务、强径流带、危险性分区、涌水量总表、防治水措施和问题披露综合","layout_pattern":"decision_summary","source_note":"报告目的任务、图4.2-15、图5.2-3、表6.2-10、第九章、第十章","density":"normal","density_exempt_reason":""}
   ],
   "coverage": {
-    "planned_slides": 74,
-    "substantive_slides": 72,
-    "original_source_or_calculation_slides": 60,
-    "original_source_ratio": 0.83,
+    "planned_slides": 72,
+    "substantive_slides": 70,
+    "original_source_or_calculation_slides": 59,
+    "original_source_ratio": 0.84,
     "chapter_allocation": {
       "项目背景、采矿权与评审目标": 6,
-      "以往工作、本次工作量与成果基础": 6,
+      "以往工作、本次工作量与成果基础": 4,
       "区域与矿区水文地质背景": 6,
       "水文地质勘探方法与物探成果": 12,
       "钻探、孔内成像与水文地质试验": 10,
@@ -118,6 +115,6 @@
       "工程地质、地质环境与水资源利用": 6,
       "防治水建议、问题披露与评审决策": 6
     },
-    "notes": "执行版74页用于工程评审详版；若需逐图展开所有物探剖面、203行压水试验和全部边界剖面，可扩展至约90页。"
+    "notes": "执行版72页用于工程评审详版；若需逐图展开所有物探剖面、203行压水试验和全部边界剖面，可扩展至约90页。"
   }
 }

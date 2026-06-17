@@ -84,15 +84,46 @@ def sanitize_visible_text(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip(" ，,;；")
 
 
-def text_preview(text: str, max_len: int = 480) -> str:
-    text = sanitize_visible_text(text)
-    if len(text) <= max_len:
+def ensure_sentence_end(text: str) -> str:
+    text = (text or "").strip(" ，,;；")
+    if text.endswith(("：", ":")):
+        return text[:-1].rstrip(" ，,;；") + "。"
+    if text and text[-1] not in "。；;！!？?：:）】》”’0123456789%":
+        text += "。"
+    return text
+
+
+def remove_orphan_list_fragment(text: str) -> str:
+    """Drop a partial numbered-list tail when only item (1) is visible."""
+
+    value = text or ""
+    fullwidth_1 = chr(0xFF08) + "1" + chr(0xFF09)
+    fullwidth_2 = chr(0xFF08) + "2" + chr(0xFF09)
+    marker_positions = [pos for pos in [value.find(fullwidth_1), value.find("(1)")] if pos >= 0]
+    if not marker_positions or fullwidth_2 in value or "(2)" in value:
         return text
+    marker_position = min(marker_positions)
+    if marker_position < 20:
+        return text
+    return text[:marker_position].strip(" ，,;；。")
+
+
+def text_preview(text: str, max_len: int = 480, complete_sentence: bool = False) -> str:
+    text = sanitize_visible_text(text)
+    if complete_sentence:
+        text = remove_orphan_list_fragment(text)
+    if len(text) <= max_len:
+        return ensure_sentence_end(text) if complete_sentence else text
     clipped = text[:max_len]
-    boundary = max(clipped.rfind(mark) for mark in ("。", "；", ";", "，", ",", "、", " "))
+    sentence_boundary = max(clipped.rfind(mark) for mark in ("。", "；", ";", "！", "？"))
+    phrase_boundary = max(clipped.rfind(mark) for mark in ("，", ",", "、", " "))
+    boundary = sentence_boundary if sentence_boundary >= max_len * 0.45 else phrase_boundary
     if boundary >= max_len * 0.58:
-        clipped = clipped[:boundary]
-    return clipped.strip(" ，,;；。")
+        clipped = clipped[: boundary + (1 if sentence_boundary == boundary else 0)]
+    clipped = clipped.strip(" ，,;；")
+    if complete_sentence:
+        clipped = remove_orphan_list_fragment(clipped)
+    return ensure_sentence_end(clipped) if complete_sentence else clipped
 
 
 def catalog_locator_number(entry: dict[str, Any]) -> int | None:
@@ -231,7 +262,7 @@ def source_topic_heading(
         for figure_id in figure_ids:
             for entry in catalog_entries:
                 text = sanitize_visible_text(entry.get("text", ""))
-                if figure_id in text:
+                if figure_id in text and (str(entry.get("style")) == "图名" or text.startswith("图")):
                     candidates.append(strip_figure_table_label(text))
                     break
 
@@ -298,6 +329,7 @@ def join_short_titles(titles: list[str], limit: int = 32) -> str:
 
 def split_report_points(text: str, max_points: int = 5, max_len: int = 130) -> list[str]:
     text = sanitize_visible_text(text)
+    text = remove_orphan_list_fragment(text)
     if not text:
         return []
     sentences = [item.strip(" ；;。") for item in re.split(r"[。；;]\s*", text) if item.strip()]
@@ -312,13 +344,13 @@ def split_report_points(text: str, max_points: int = 5, max_len: int = 130) -> l
             current = candidate
             continue
         if current:
-            points.append(text_preview(current, max_len))
+            points.append(text_preview(current, max_len, complete_sentence=True))
         current = sentence
         if len(points) >= max_points:
             break
     if current and len(points) < max_points:
-        points.append(text_preview(current, max_len))
-    return points[:max_points] or [text_preview(text, max_len)]
+        points.append(text_preview(current, max_len, complete_sentence=True))
+    return points[:max_points] or [text_preview(text, max_len, complete_sentence=True)]
 
 
 def report_heading(source_mode: str) -> str:
@@ -529,6 +561,23 @@ def source_text_for_refs(
         text = sanitize_visible_text(entry.get("text", ""))
         if not text or not any(ref in text for ref in refs):
             continue
+        if str(entry.get("kind")) == "table":
+            continue
+        is_caption = str(entry.get("style")) in {"图名", "表名"} or text.startswith(("图", "表"))
+        if not is_caption:
+            caption_indices = [
+                candidate_index
+                for candidate_index, candidate in enumerate(catalog_entries)
+                if candidate.get("source") == entry.get("source")
+                and str(candidate.get("kind")) != "table"
+                and any(ref in sanitize_visible_text(candidate.get("text", "")) for ref in refs)
+                and (
+                    str(candidate.get("style")) in {"图名", "表名"}
+                    or sanitize_visible_text(candidate.get("text", "")).startswith(("图", "表"))
+                )
+            ]
+            if caption_indices and index != caption_indices[0]:
+                continue
         for candidate in [strip_figure_table_label(text)]:
             if candidate and candidate not in seen:
                 seen.add(candidate)
@@ -538,7 +587,7 @@ def source_text_for_refs(
             value = sanitize_visible_text(candidate_entry.get("text", ""))
             if not value:
                 return ""
-            if str(candidate_entry.get("kind")) in {"heading", "figure", "image"}:
+            if str(candidate_entry.get("kind")) in {"heading", "figure", "image", "table"}:
                 return ""
             if value.startswith(("图名", "表名", "图", "表")):
                 return ""
@@ -551,6 +600,8 @@ def source_text_for_refs(
                 if neighbor.get("source") != entry.get("source"):
                     continue
                 neighbor_text = usable_neighbor(neighbor)
+                if not any(ref in neighbor_text for ref in refs):
+                    continue
                 if neighbor_text and neighbor_text not in seen:
                     seen.add(neighbor_text)
                     parts.append(neighbor_text)
@@ -558,6 +609,8 @@ def source_text_for_refs(
                         break
         for follower in catalog_entries[index + 1 : index + 8]:
             if follower.get("source") != entry.get("source"):
+                break
+            if str(follower.get("kind")) == "heading":
                 break
             follower_text = usable_neighbor(follower)
             if not follower_text:
@@ -569,7 +622,7 @@ def source_text_for_refs(
                 break
         if parts:
             break
-    return text_preview(" ".join(parts), max_len)
+    return text_preview(" ".join(parts), max_len, complete_sentence=True)
 
 
 def source_text_for_note_heading(
@@ -609,7 +662,7 @@ def source_text_for_note_heading(
             if len("".join(parts)) >= max_len:
                 break
         if parts:
-            return text_preview(" ".join(parts), max_len)
+            return text_preview(" ".join(parts), max_len, complete_sentence=True)
     return ""
 
 
@@ -695,7 +748,7 @@ def report_text_from_evidence(
     for ev in evidence:
         add(ev.get("summary"))
 
-    return text_preview(" ".join(parts), max_len)
+    return text_preview(" ".join(parts), max_len, complete_sentence=True)
 
 
 def report_text_from_page(
@@ -717,12 +770,9 @@ def report_text_from_page(
         seen.add(value)
         parts.append(value)
 
-    base = report_text_from_evidence(evidence, catalog_entries_by_id, max_len=max_len)
-    add(base)
-
     for entry in locator_range_entries(page, catalog_entries):
         kind = str(entry.get("kind") or "")
-        if kind == "heading":
+        if kind in {"heading", "table", "figure", "image"}:
             continue
         text = sanitize_visible_text(entry.get("text", ""))
         if not text or text.startswith(("图", "表")):
@@ -731,10 +781,13 @@ def report_text_from_page(
         if len("".join(parts)) >= max_len:
             break
 
+    base = report_text_from_evidence(evidence, catalog_entries_by_id, max_len=max_len)
+    add(base)
+
     if len("".join(parts)) < max_len * 0.45:
         add(source_text_for_note_heading(page, catalog_entries, max_len=max_len))
 
-    return text_preview(" ".join(parts), max_len)
+    return text_preview(" ".join(parts), max_len, complete_sentence=True)
 
 
 def report_points_from_evidence(
@@ -763,7 +816,7 @@ def report_points_from_evidence(
                     if len(points) >= max_points:
                         return points
             else:
-                points.append(text_preview(value, 112))
+                points.append(text_preview(value, 112, complete_sentence=True))
         if len(points) >= max_points:
             return points
 
@@ -775,7 +828,7 @@ def report_points_from_evidence(
             point = f"{basis}：{value}{unit}" if basis else f"{value}{unit}"
             if point and point not in seen:
                 seen.add(point)
-                points.append(text_preview(point, 90))
+                points.append(text_preview(point, 90, complete_sentence=True))
             if len(points) >= max_points:
                 return points
 
@@ -1146,6 +1199,7 @@ def add_section_divider_slide(
     chapter_index: int,
     chapter: str,
     total_chapters: int,
+    subtitle: str | None = None,
     colors: dict[str, str] | None = None,
 ) -> None:
     palette = colors or DEFAULT_COLORS
@@ -1171,7 +1225,7 @@ def add_section_divider_slide(
         3.24,
         9.0,
         0.36,
-        "按照报告章节顺序进入本章证据、图表、计算与评审要点",
+        subtitle or f"本章围绕{chapter}展开，提炼关键源证据、计算口径和评审判断。",
         15,
         "secondary",
         colors=palette,

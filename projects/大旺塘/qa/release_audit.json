@@ -8,11 +8,11 @@
   "metadata": {
     "project": "projects/大旺塘",
     "strict": true,
-    "planned_slides": 74,
-    "expected_pptx_slides": 83,
+    "planned_slides": 72,
+    "expected_pptx_slides": 81,
     "svg_slides": 0,
     "content_units": 5383,
-    "pptx": "projects/大旺塘/exports/大旺塘工程评审汇报_20260617_154158.pptx"
+    "pptx": "projects/大旺塘/exports/大旺塘工程评审汇报_20260617_163357.pptx"
   },
   "findings": [
     {
@@ -26,7 +26,7 @@
       "code": "pptx-valid",
       "message": "PPTX package, XML, media, and parser checks passed.",
       "context": {
-        "slides": 83
+        "slides": 81
       }
     }
   ]

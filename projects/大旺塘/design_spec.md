@@ -6,7 +6,7 @@
 | ---- | ----- |
 | **Project Name** | 大旺塘矿山地下水治理专项水文地质勘察工程评审汇报 |
 | **Canvas Format** | PPT 16:9 (1280x720) |
-| **Page Count** | 83 |
+| **Page Count** | 81 |
 | **Design Style** | 学习完整版评审PPT的深蓝工程评审风格，保持源证据优先和专家评审可读性 |
 | **Target Audience** | 业主单位、矿山安全与水文地质评审专家、设计及治理实施相关方 |
 | **Use Case** | 专项勘察工程评审汇报 |
@@ -138,19 +138,13 @@ The deck uses report-native tables, maps, figures and formulas because source fi
 - **Evidence**: E-1-MINING-RIGHT
 - **Source note**: 图1.2-3、矿山开发规划
 
-### 以往工作、本次工作量与成果基础 (6 pages)
-#### Slide 07 - 以往地质、水文地质和资源核实工作构成本次勘察基础
-- **Layout**: timeline_with_source_text
-- **Core message**: 以往地质、水文地质和资源核实工作构成本次勘察基础
+### 以往工作、本次工作量与成果基础 (4 pages)
+#### Slide 07 - 2026年2月9日至3月31日完成51天综合勘察并形成完整工作量
+- **Layout**: two_column_keypoints
+- **Core message**: 2026年2月9日至3月31日完成51天综合勘察并形成完整工作量
 - **Source mode**: ORIGINAL_TEXT
 - **Evidence**: E-1-WORKLOAD
-- **Source note**: 以往工作评述
-#### Slide 08 - 2026年2月9日至3月31日完成51天综合勘察
-- **Layout**: left_text_right_sequence
-- **Core message**: 2026年2月9日至3月31日完成51天综合勘察
-- **Source mode**: ORIGINAL_TEXT
-- **Evidence**: E-1-WORKLOAD
-- **Source note**: P0136-P0139
+- **Source note**: P0136-P0139、表1.4-1
 #### Slide 09 - 本次工作量覆盖调查、物探、钻探、试验、监测和模拟
 - **Layout**: top_text_bottom_table
 - **Core message**: 本次工作量覆盖调查、物探、钻探、试验、监测和模拟
@@ -169,12 +163,6 @@ The deck uses report-native tables, maps, figures and formulas because source fi
 - **Source mode**: ORIGINAL_TABLE
 - **Evidence**: E-3-SURVEY
 - **Source note**: 表3.1-1、图3.1-1至图3.1-10
-#### Slide 12 - 证据链从地面调查延伸到预测模型和防治水建议
-- **Layout**: evidence_chain
-- **Core message**: 证据链从地面调查延伸到预测模型和防治水建议
-- **Source mode**: INTERPRETATION
-- **Evidence**: E-1-WORKLOAD, E-3-GEOPHYSICS-RESULT, E-6-WATER-INFLOW-COMPARE, E-9-WATER-CONTROL
-- **Source note**: 表1.4-1、表3.2-1、表6.2-10、第九章
 
 ### 区域与矿区水文地质背景 (6 pages)
 #### Slide 13 - 地理位置和交通条件限定调查与治理组织边界

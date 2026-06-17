@@ -55,6 +55,7 @@ DEFAULT_FORBIDDEN_VISIBLE_PHRASES = [
     "原始对象",
     "必讲内容",
     "保留理由",
+    "按照报告章节顺序进入",
 ]
 DEFAULT_FORBIDDEN_VISIBLE_REGEXES = [
     re.compile(r"\bE-\d(?:-[A-Z0-9]+)+\b"),
@@ -931,6 +932,12 @@ def audit_pptx_layout_geometry(
     for slide_index, slide in enumerate(presentation.slides, start=1):
         object_items = pptx_large_object_boxes(presentation, slide)
         text_items: list[dict] = []
+        slide_full_text = " ".join(
+            re.sub(r"\s+", " ", getattr(shape, "text", "") or "").strip()
+            for shape in iter_pptx_shapes(slide.shapes)
+            if getattr(shape, "has_text_frame", False)
+        )
+        slide_has_marker_2 = (chr(0xFF08) + "2" + chr(0xFF09)) in slide_full_text or "(2)" in slide_full_text
         for shape_index, shape in enumerate(iter_pptx_shapes(slide.shapes), start=1):
             if getattr(shape, "has_table", False) or not getattr(shape, "has_text_frame", False):
                 continue
@@ -954,6 +961,42 @@ def audit_pptx_layout_geometry(
                     min(sizes),
                     policy,
                     audit,
+                )
+            fullwidth_1 = chr(0xFF08) + "1" + chr(0xFF09)
+            fullwidth_2 = chr(0xFF08) + "2" + chr(0xFF09)
+            marker_positions = [pos for pos in [text.find(fullwidth_1), text.find("(1)")] if pos >= 0]
+            marker_position = min(marker_positions) if marker_positions else -1
+            if (
+                marker_position >= 0
+                and fullwidth_2 not in text
+                and "(2)" not in text
+                and not slide_has_marker_2
+                and (
+                    marker_position > len(text) * 0.55
+                    or text.rstrip().endswith(fullwidth_1)
+                    or text.rstrip().endswith("(1)")
+                    or len(text[marker_position:]) <= 90
+                )
+            ):
+                audit.error(
+                    "pptx-orphan-list-marker",
+                    "Visible text contains an isolated Chinese list marker without the next item.",
+                    page=slide_index,
+                    text=compact_text(text),
+                )
+            if re.search(r"(?:；(?:份|幅|个|单位|数量)；\d|单位；数量|取得成果；单位；数量)", text):
+                audit.error(
+                    "pptx-table-row-leaked-into-body",
+                    "Table-like row text appears in a narrative text box.",
+                    page=slide_index,
+                    text=compact_text(text),
+                )
+            if len(text) >= 45 and (text[-1] in "，,、；;：" or re.search(r"(?:与|和|及|至|为|在|位于)$", text)):
+                audit.error(
+                    "pptx-probable-incomplete-sentence",
+                    "Visible paragraph appears to end before the sentence is complete.",
+                    page=slide_index,
+                    text=compact_text(text),
                 )
             if (
                 bbox[0] < margin
