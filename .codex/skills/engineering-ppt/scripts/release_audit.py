@@ -15,6 +15,7 @@ from xml.etree import ElementTree as ET
 
 from lxml import etree
 from pptx import Presentation
+from pptx.enum.shapes import MSO_SHAPE_TYPE
 
 
 NUMBER_RE = re.compile(r"(?<![\w.])[-+]?\d+(?:\.\d+)?%?(?![\w.])")
@@ -45,6 +46,11 @@ DEFAULT_FORBIDDEN_VISIBLE_PHRASES = [
     "layout_pattern",
     "source_note",
     "Source mode",
+    "报告对图件的说明",
+    "报告对表格的说明",
+    "报告计算口径",
+    "报告阐述",
+    "资料来源：",
 ]
 DEFAULT_FORBIDDEN_VISIBLE_REGEXES = [
     re.compile(r"\bE-\d(?:-[A-Z0-9]+)+\b"),
@@ -656,6 +662,90 @@ def pptx_text(archive: zipfile.ZipFile) -> str:
     return "\n".join(values)
 
 
+def iter_pptx_shapes(shapes):
+    for shape in shapes:
+        yield shape
+        if getattr(shape, "shape_type", None) == MSO_SHAPE_TYPE.GROUP and hasattr(shape, "shapes"):
+            yield from iter_pptx_shapes(shape.shapes)
+
+
+def pptx_paragraph_font_size(paragraph) -> float | None:
+    if paragraph.font.size:
+        return round(paragraph.font.size.pt, 2)
+    sizes = [run.font.size.pt for run in paragraph.runs if run.font.size]
+    return round(min(sizes), 2) if sizes else None
+
+
+def is_pptx_meta_text(text: str, shape, slide_width: int, slide_height: int, policy: dict) -> bool:
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if not text:
+        return True
+    exemptions = policy.get("font_exemptions", {})
+    y = int(getattr(shape, "top", 0) or 0)
+    x = int(getattr(shape, "left", 0) or 0)
+    footer_y_min = float(exemptions.get("footer_y_min_ratio", 0.90)) * slide_height
+    header_y_max = float(exemptions.get("header_y_max_ratio", 0.12)) * slide_height
+    if y >= footer_y_min or y <= header_y_max:
+        return True
+    page_number_regex = exemptions.get("page_number_regex")
+    if page_number_regex and re.fullmatch(str(page_number_regex), text):
+        return x <= slide_width * 0.10 or x >= slide_width * 0.85
+    if text in {"CONTENTS", "目录"}:
+        return True
+    return False
+
+
+def audit_pptx_font_sizes(presentation: Presentation, policy: dict, audit: Audit) -> None:
+    minimums = policy.get("minimum_font_px", {})
+    body_min = float(minimums.get("body_absolute", 14))
+    table_min = float(minimums.get("table_absolute", 12))
+    if table_min <= 0:
+        table_min = 12
+
+    slide_width = int(presentation.slide_width)
+    slide_height = int(presentation.slide_height)
+    for slide_index, slide in enumerate(presentation.slides, start=1):
+        for shape in iter_pptx_shapes(slide.shapes):
+            if getattr(shape, "has_table", False):
+                for row_index, row in enumerate(shape.table.rows, start=1):
+                    for col_index, cell in enumerate(row.cells, start=1):
+                        for paragraph in cell.text_frame.paragraphs:
+                            text = paragraph.text.strip()
+                            size = pptx_paragraph_font_size(paragraph)
+                            if text and size is not None and size < table_min:
+                                audit.error(
+                                    "pptx-table-font-too-small",
+                                    "PPTX table text is below the minimum font size.",
+                                    page=slide_index,
+                                    row=row_index,
+                                    column=col_index,
+                                    text=compact_text(text),
+                                    font_size=size,
+                                    minimum=table_min,
+                                )
+                continue
+
+            if not getattr(shape, "has_text_frame", False):
+                continue
+            for paragraph in shape.text_frame.paragraphs:
+                text = paragraph.text.strip()
+                size = pptx_paragraph_font_size(paragraph)
+                if (
+                    text
+                    and size is not None
+                    and size < body_min
+                    and not is_pptx_meta_text(text, shape, slide_width, slide_height, policy)
+                ):
+                    audit.error(
+                        "pptx-body-font-too-small",
+                        "PPTX body text is below the minimum font size.",
+                        page=slide_index,
+                        text=compact_text(text),
+                        font_size=size,
+                        minimum=body_min,
+                    )
+
+
 def audit_pptx(path: Path, expected_slides: int, policy: dict, audit: Audit) -> None:
     if not path.exists():
         audit.error("missing-pptx", "Requested PPTX does not exist.", path=display_path(path))
@@ -681,6 +771,7 @@ def audit_pptx(path: Path, expected_slides: int, policy: dict, audit: Audit) -> 
             )
         presentation = Presentation(path)
         actual = len(presentation.slides)
+        audit_pptx_font_sizes(presentation, policy, audit)
         if expected_slides and actual != expected_slides:
             audit.error(
                 "slide-count-mismatch",

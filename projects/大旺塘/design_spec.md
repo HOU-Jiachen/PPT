@@ -56,7 +56,7 @@
 
 - Header area: title + chapter + page number.
 - Content area prioritizes original figure/table readability.
-- Footer area contains concise source note only.
+- Visible slides do not show bottom-left source footers; source notes stay in backend records and speaker notes.
 - Dense technical pages avoid decorative cards; tables and figures use framed source panels.
 - Visible panel headings must be content-specific, such as `图件重点：矿区强径流带分布` or `表格重点：涌水量预测结果`.
 - Generic workflow labels such as `报告对图件的说明`, `报告对表格的说明`, `报告计算口径`, and `报告阐述` are forbidden in visible slides.
