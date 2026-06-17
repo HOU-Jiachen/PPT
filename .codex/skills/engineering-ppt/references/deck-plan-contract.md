@@ -31,6 +31,8 @@ INTERPRETATION | CONCLUSION | MANAGEMENT_ACTION
 ## Planning Rules
 
 - Preserve the report's top-level chapter order for full-report briefings.
+- Insert a structural divider page before each substantive report chapter, carrying the
+  chapter sequence number and the report chapter name.
 - Allocate pages from evidence volume and readability, never from a fixed quota.
 - Give every substantive slide one or more evidence IDs.
 - Derive every substantive slide from `analysis/report_content_inventory.json` or

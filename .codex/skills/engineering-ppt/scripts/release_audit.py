@@ -742,6 +742,126 @@ def is_pptx_meta_text(text: str, shape, slide_width: int, slide_height: int, pol
     return False
 
 
+def is_pptx_layout_meta_text(text: str, shape, slide_width: int, slide_height: int, policy: dict) -> bool:
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if not text:
+        return True
+    exemptions = policy.get("font_exemptions", {})
+    y = int(getattr(shape, "top", 0) or 0)
+    x = int(getattr(shape, "left", 0) or 0)
+    footer_y_min = float(exemptions.get("footer_y_min_ratio", 0.90)) * slide_height
+    if y >= footer_y_min:
+        return True
+    page_number_regex = exemptions.get("page_number_regex")
+    if page_number_regex and re.fullmatch(str(page_number_regex), text):
+        return x <= slide_width * 0.10 or x >= slide_width * 0.85 or y >= footer_y_min
+    return False
+
+
+def pptx_shape_bbox(shape) -> tuple[int, int, int, int] | None:
+    try:
+        left = int(shape.left)
+        top = int(shape.top)
+        width = int(shape.width)
+        height = int(shape.height)
+    except Exception:
+        return None
+    if width <= 0 or height <= 0:
+        return None
+    return (left, top, left + width, top + height)
+
+
+def pptx_large_object_boxes(presentation: Presentation, slide) -> list[dict]:
+    slide_area = int(presentation.slide_width) * int(presentation.slide_height)
+    items: list[dict] = []
+    for index, shape in enumerate(iter_pptx_shapes(slide.shapes), start=1):
+        bbox = pptx_shape_bbox(shape)
+        if bbox is None:
+            continue
+        area = box_area(bbox)
+        if getattr(shape, "has_table", False):
+            items.append({"id": f"table-{index}", "bbox": bbox})
+        elif getattr(shape, "shape_type", None) == MSO_SHAPE_TYPE.PICTURE and area >= slide_area * 0.03:
+            items.append({"id": f"picture-{index}", "bbox": bbox})
+    return items
+
+
+def audit_pptx_layout_geometry(
+    presentation: Presentation,
+    policy: dict,
+    strict: bool,
+    audit: Audit,
+) -> None:
+    if not strict or not policy.get("layout_collision", {}).get("enabled", True):
+        return
+    collision = policy.get("layout_collision", {})
+    slide_width = int(presentation.slide_width)
+    slide_height = int(presentation.slide_height)
+    margin_px = float(collision.get("canvas_margin_px", 2))
+    margin = int(round(slide_width / 1280 * margin_px))
+    text_overlap_min = float(collision.get("text_overlap_min_ratio", 0.35))
+    text_object_overlap_min = float(collision.get("text_image_overlap_min_ratio", 0.15))
+
+    for slide_index, slide in enumerate(presentation.slides, start=1):
+        object_items = pptx_large_object_boxes(presentation, slide)
+        text_items: list[dict] = []
+        for shape_index, shape in enumerate(iter_pptx_shapes(slide.shapes), start=1):
+            if getattr(shape, "has_table", False) or not getattr(shape, "has_text_frame", False):
+                continue
+            text = re.sub(r"\s+", " ", getattr(shape, "text", "") or "").strip()
+            if is_pptx_layout_meta_text(text, shape, slide_width, slide_height, policy):
+                continue
+            bbox = pptx_shape_bbox(shape)
+            if bbox is None:
+                continue
+            text_items.append({"index": shape_index, "text": text, "bbox": bbox})
+            if (
+                bbox[0] < margin
+                or bbox[1] < margin
+                or bbox[2] > slide_width - margin
+                or bbox[3] > slide_height - margin
+            ):
+                audit.error(
+                    "pptx-text-outside-safe-frame",
+                    "PPTX text box crosses the slide safe frame after final font/layout adjustments.",
+                    page=slide_index,
+                    text=compact_text(text),
+                    bbox=list(bbox),
+                )
+
+        for left_index, left_item in enumerate(text_items):
+            for right_item in text_items[left_index + 1 :]:
+                overlap = intersection_area(left_item["bbox"], right_item["bbox"])
+                if not overlap:
+                    continue
+                denominator = min(box_area(left_item["bbox"]), box_area(right_item["bbox"]))
+                if denominator and overlap / denominator >= text_overlap_min:
+                    audit.error(
+                        "pptx-probable-text-overlap",
+                        "Two PPTX text boxes overlap after final font/layout adjustments.",
+                        page=slide_index,
+                        text_a=compact_text(left_item["text"]),
+                        text_b=compact_text(right_item["text"]),
+                        overlap_ratio=round(overlap / denominator, 3),
+                    )
+
+        for text_item in text_items:
+            text_area = box_area(text_item["bbox"])
+            if not text_area:
+                continue
+            for object_item in object_items:
+                overlap = intersection_area(text_item["bbox"], object_item["bbox"])
+                if overlap / text_area >= text_object_overlap_min:
+                    audit.error(
+                        "pptx-text-overlaps-object",
+                        "PPTX text box overlaps a source figure/table after final font/layout adjustments.",
+                        page=slide_index,
+                        text=compact_text(text_item["text"]),
+                        object=object_item["id"],
+                        overlap_ratio=round(overlap / text_area, 3),
+                    )
+
+
 def audit_pptx_font_sizes(presentation: Presentation, policy: dict, audit: Audit) -> None:
     minimums = policy.get("minimum_font_px", {})
     body_min = float(minimums.get("body_absolute", 14))
@@ -793,7 +913,41 @@ def audit_pptx_font_sizes(presentation: Presentation, policy: dict, audit: Audit
                     )
 
 
-def audit_pptx(path: Path, expected_slides: int, policy: dict, audit: Audit) -> None:
+def planned_section_divider_count(plan: dict, policy: dict) -> int:
+    settings = policy.get("section_dividers", {})
+    if settings.get("required", True) is False:
+        return 0
+    structural = set(policy.get("structural_slide_types", STRUCTURAL_DEFAULT))
+    structural.update({"cover", "agenda", "section", "closing"})
+    content_chapters: list[str] = []
+
+    def add_once(chapter: str) -> None:
+        chapter = re.sub(r"\s+", " ", chapter or "").strip()
+        if chapter and chapter not in content_chapters:
+            content_chapters.append(chapter)
+
+    for slide in plan.get("slides", []):
+        if str(slide.get("type", "")).lower() not in structural:
+            add_once(str(slide.get("chapter", "")))
+    ordered: list[str] = []
+    for chapter in plan.get("deck", {}).get("chapter_order", []) or []:
+        chapter = re.sub(r"\s+", " ", str(chapter)).strip()
+        if chapter in content_chapters and chapter not in ordered:
+            ordered.append(chapter)
+    for chapter in content_chapters:
+        if chapter not in ordered:
+            ordered.append(chapter)
+    return len(ordered)
+
+
+def expected_pptx_slide_count(plan: dict, pages: dict[int, dict], svg_count: int, policy: dict) -> int:
+    base = len(pages) or svg_count
+    if not base:
+        return 0
+    return base + planned_section_divider_count(plan, policy)
+
+
+def audit_pptx(path: Path, expected_slides: int, policy: dict, audit: Audit, strict: bool) -> None:
     if not path.exists():
         audit.error("missing-pptx", "Requested PPTX does not exist.", path=display_path(path))
         return
@@ -819,6 +973,7 @@ def audit_pptx(path: Path, expected_slides: int, policy: dict, audit: Audit) -> 
         presentation = Presentation(path)
         actual = len(presentation.slides)
         audit_pptx_font_sizes(presentation, policy, audit)
+        audit_pptx_layout_geometry(presentation, policy, strict, audit)
         if expected_slides and actual != expected_slides:
             audit.error(
                 "slide-count-mismatch",
@@ -875,12 +1030,14 @@ def main() -> None:
     source_numbers = collect_numbers(source_text)
     pages = audit_plan(project, plan, ledger, policy, args.strict, audit)
     svg_count = audit_svgs(project, pages, policy, source_numbers, args.strict, audit)
+    expected_pptx_slides = expected_pptx_slide_count(plan, pages, svg_count, policy)
     if args.pptx:
-        audit_pptx(args.pptx.resolve(), len(pages) or svg_count, policy, audit)
+        audit_pptx(args.pptx.resolve(), expected_pptx_slides, policy, audit, args.strict)
     metadata = {
         "project": display_path(project),
         "strict": args.strict,
         "planned_slides": len(pages),
+        "expected_pptx_slides": expected_pptx_slides,
         "svg_slides": svg_count,
         "content_units": content_inventory.get("summary", {}).get("content_units", 0) if content_inventory else 0,
         "pptx": display_path(args.pptx) if args.pptx else None,

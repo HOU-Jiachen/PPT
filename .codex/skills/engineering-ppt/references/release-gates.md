@@ -11,8 +11,9 @@ Run the following gates in order. A later success never cancels an earlier failu
    minimum ratio, and interpretation-only runs do not replace the report's technical process.
 7. `svg_quality_checker.py`: zero errors.
 8. Font audit: non-template PPT body text, table text, and chart labels are at least 14 pt.
-9. Layout-collision audit: visible text stays inside the safe frame, text boxes do not
-   overlap each other, and body text does not cover large source images or figures.
+9. Layout-collision audit after final font sizing and PPTX export: visible text stays
+   inside the safe frame, text boxes do not overlap each other, and body text does not
+   cover large source images, figures, or tables.
 10. Chart verification: required for every data-driven chart.
 11. Full render: inspect every page at full size and as a contact sheet.
 12. `release_audit.py --strict`: zero errors.

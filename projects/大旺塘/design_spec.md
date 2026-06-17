@@ -6,7 +6,7 @@
 | ---- | ----- |
 | **Project Name** | 大旺塘矿山地下水治理专项水文地质勘察工程评审汇报 |
 | **Canvas Format** | PPT 16:9 (1280x720) |
-| **Page Count** | 74 |
+| **Page Count** | 83 |
 | **Design Style** | 学习完整版评审PPT的深蓝工程评审风格，保持源证据优先和专家评审可读性 |
 | **Target Audience** | 业主单位、矿山安全与水文地质评审专家、设计及治理实施相关方 |
 | **Use Case** | 专项勘察工程评审汇报 |
@@ -27,6 +27,7 @@
 - **Style**: source-faithful Chinese engineering review presentation
 - **Theme**: light technical pages with deep-blue section rhythm
 - **Tone**: evidence-first, technical, restrained
+- **Chapter rhythm**: each report chapter starts with a section divider slide carrying the chapter number and name.
 
 | Role | HEX | Purpose |
 | ---- | --- | ------- |

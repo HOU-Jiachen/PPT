@@ -157,6 +157,10 @@ Preserve the report's major chapter order. Within each chapter prefer:
 source context -> original text/table/figure/calculation -> explanation -> chapter conclusion
 ```
 
+Insert a chapter divider page before each substantive report chapter. The divider must show
+the chapter sequence number and the report chapter name; it is a structural slide and does
+not replace the chapter's source evidence pages.
+
 No major chapter may be represented only by a conclusion slide.
 
 Allocate slides from evidence volume and readability:
@@ -323,10 +327,11 @@ Do not rely on PowerPoint auto-fit. Do not let text cross a border or overlap an
 Do not reduce key body text below 18 pt merely to preserve decoration.
 Apart from template/meta text such as page numbers, page footers, and source notes, visible
 PPT body text, table text, and chart labels must never be below 14 pt.
-The strict audit must check text fit geometrically: text cannot cross the slide safe frame,
-visible body text boxes cannot overlap each other, and body text cannot cover large source
-images or figures. Treat any such collision as a blocking layout defect, then fix by
-shortening, moving, widening, or splitting the page.
+The strict audit must check text fit geometrically after final font sizing and final PPTX
+export: text cannot cross the slide safe frame, visible text boxes cannot overlap each
+other, and body text cannot cover large source images, figures, or tables. Treat any such
+collision as a blocking layout defect, then fix by shortening, moving, widening, or
+splitting the page.
 
 For a sparse page, add the next relevant source-backed object:
 

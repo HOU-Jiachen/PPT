@@ -91,6 +91,11 @@ def init_project(
                 "text_image_overlap_min_ratio": 0.15,
                 "image_min_area_ratio": 0.03,
             },
+            "section_dividers": {
+                "required": True,
+                "before_first_content_chapter": True,
+                "label": "chapter_number_and_name",
+            },
             "content_richness": {
                 "minimum_original_source_ratio": 0.55,
                 "max_consecutive_interpretation_slides": 2,

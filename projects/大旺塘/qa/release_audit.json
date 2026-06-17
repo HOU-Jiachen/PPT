@@ -9,9 +9,10 @@
     "project": "projects/大旺塘",
     "strict": true,
     "planned_slides": 74,
+    "expected_pptx_slides": 83,
     "svg_slides": 0,
-    "content_units": 853,
-    "pptx": "projects/大旺塘/exports/大旺塘工程评审汇报_20260617_100137.pptx"
+    "content_units": 5418,
+    "pptx": "projects/大旺塘/exports/大旺塘工程评审汇报_20260617_103228.pptx"
   },
   "findings": [
     {
@@ -25,7 +26,7 @@
       "code": "pptx-valid",
       "message": "PPTX package, XML, media, and parser checks passed.",
       "context": {
-        "slides": 74
+        "slides": 83
       }
     }
   ]

@@ -20,10 +20,12 @@ from engineering_deck_runtime import (  # noqa: E402
     add_bullets,
     add_fill,
     add_image_panel,
+    add_section_divider_slide,
     add_table,
     add_textbox,
     add_title,
     catalog_title_context,
+    chapter_order_from_plan,
     collect_template_profile,
     create_engineering_design_spec,
     create_engineering_spec_lock,
@@ -203,7 +205,22 @@ def add_source_slide(
 def write_notes(plan: dict[str, Any]) -> None:
     NOTES_DIR.mkdir(exist_ok=True)
     total: list[str] = []
+    chapters = chapter_order_from_plan(plan)
+    chapter_numbers = {chapter: index for index, chapter in enumerate(chapters, start=1)}
+    section_notes_written: set[str] = set()
     for page in plan["slides"]:
+        slide_type = str(page.get("type", "")).lower()
+        chapter = sanitize_visible_text(page.get("chapter", ""))
+        if slide_type not in {"cover", "agenda", "section", "closing"} and chapter not in section_notes_written:
+            section_notes_written.add(chapter)
+            chapter_index = chapter_numbers.get(chapter, len(section_notes_written))
+            note = (
+                f"Section {chapter_index:02d} - {chapter}\n\n"
+                f"讲解要点：进入第{chapter_index:02d}章“{chapter}”，"
+                "提示听众本章将按报告章节顺序呈现原文、图表、计算和评审判断。\n"
+            )
+            (NOTES_DIR / f"section_{chapter_index:02d}.md").write_text(note, encoding="utf-8")
+            total.append(note)
         note = (
             f"Slide {page['page']:02d} - {sanitize_visible_text(page['title'])}\n\n"
             f"讲解要点：围绕“{sanitize_visible_text(page['title'])}”展开，"
@@ -232,17 +249,39 @@ def build_deck() -> Path:
     prs.slide_width = Inches(13.333333)
     prs.slide_height = Inches(7.5)
     blank = prs.slide_layouts[6]
+    chapters = chapter_order_from_plan(plan)
+    chapter_numbers = {chapter: index for index, chapter in enumerate(chapters, start=1)}
+    section_slides_written: set[str] = set()
 
     for page in plan["slides"]:
-        slide = prs.slides.add_slide(blank)
-        slide.background.fill.solid()
-        slide.background.fill.fore_color.rgb = rgb(COLORS["bg"])
-
         if page["page"] == 1:
+            slide = prs.slides.add_slide(blank)
+            slide.background.fill.solid()
+            slide.background.fill.fore_color.rgb = rgb(COLORS["bg"])
             add_cover_slide(slide)
         elif page["type"] == "agenda":
+            slide = prs.slides.add_slide(blank)
+            slide.background.fill.solid()
+            slide.background.fill.fore_color.rgb = rgb(COLORS["bg"])
             add_agenda_slide(slide, plan, page, colors=COLORS)
         else:
+            chapter = sanitize_visible_text(page.get("chapter", ""))
+            if chapter and chapter not in section_slides_written:
+                section_slides_written.add(chapter)
+                section_slide = prs.slides.add_slide(blank)
+                section_slide.background.fill.solid()
+                section_slide.background.fill.fore_color.rgb = rgb(COLORS["primary"])
+                add_section_divider_slide(
+                    section_slide,
+                    chapter_numbers.get(chapter, len(section_slides_written)),
+                    chapter,
+                    len(chapters),
+                    colors=COLORS,
+                )
+
+            slide = prs.slides.add_slide(blank)
+            slide.background.fill.solid()
+            slide.background.fill.fore_color.rgb = rgb(COLORS["bg"])
             evidence = slide_evidence(page, evidence_by_id)
             add_source_slide(slide, page, evidence, catalog_entries, catalog_entry_list, title_context, figure_index)
 

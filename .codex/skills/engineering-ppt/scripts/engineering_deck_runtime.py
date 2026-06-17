@@ -870,7 +870,7 @@ def add_agenda_slide(
     palette = colors or DEFAULT_COLORS
     add_fill(slide, 0, 0, 13.333, 7.5, "paper", "paper", colors=palette)
     add_textbox(slide, 0.75, 0.62, 5.8, 0.62, "目录", 30, "primary", True, colors=palette)
-    add_textbox(slide, 0.78, 1.15, 4.0, 0.25, "CONTENTS", 10, "accent", colors=palette)
+    add_textbox(slide, 0.78, 1.30, 4.0, 0.25, "CONTENTS", 10, "accent", colors=palette)
     chapters = list(plan["coverage"]["chapter_allocation"].keys())
     for idx, chapter in enumerate(chapters, start=1):
         col = 0 if idx <= 5 else 1
@@ -904,6 +904,72 @@ def add_agenda_slide(
     )
 
 
+def chapter_order_from_plan(plan: dict[str, Any]) -> list[str]:
+    """Return substantive report chapters in the intended deck order."""
+
+    structural = {"cover", "agenda", "section", "closing"}
+    slide_chapters: list[str] = []
+
+    def add_once(chapter: str) -> None:
+        chapter = sanitize_visible_text(chapter)
+        if chapter and chapter not in slide_chapters:
+            slide_chapters.append(chapter)
+
+    for chapter in plan.get("deck", {}).get("chapter_order", []) or []:
+        add_once(str(chapter))
+    for page in plan.get("slides", []):
+        slide_type = str(page.get("type", "")).lower()
+        if slide_type not in structural:
+            add_once(str(page.get("chapter", "")))
+    return slide_chapters
+
+
+def section_divider_count(plan: dict[str, Any]) -> int:
+    return len(chapter_order_from_plan(plan))
+
+
+def engineering_page_count(plan: dict[str, Any]) -> int:
+    return len(plan.get("slides", [])) + section_divider_count(plan)
+
+
+def add_section_divider_slide(
+    slide,
+    chapter_index: int,
+    chapter: str,
+    total_chapters: int,
+    colors: dict[str, str] | None = None,
+) -> None:
+    palette = colors or DEFAULT_COLORS
+    add_fill(slide, 0, 0, 13.333, 7.5, "primary", "primary", colors=palette)
+    add_fill(slide, 0.72, 1.05, 0.08, 5.18, "accent", "accent", colors=palette)
+    add_textbox(
+        slide,
+        0.82,
+        0.70,
+        4.6,
+        0.35,
+        f"第{chapter_index:02d}章 / 共{total_chapters:02d}章",
+        16,
+        "secondary",
+        True,
+        colors=palette,
+    )
+    add_textbox(slide, 0.82, 2.08, 1.42, 0.88, f"{chapter_index:02d}", 54, "paper", True, colors=palette)
+    add_textbox(slide, 2.38, 2.20, 9.8, 0.82, chapter, 30, "paper", True, colors=palette)
+    add_textbox(
+        slide,
+        2.42,
+        3.24,
+        9.0,
+        0.36,
+        "按照报告章节顺序进入本章证据、图表、计算与评审要点",
+        15,
+        "secondary",
+        colors=palette,
+    )
+    add_fill(slide, 2.42, 4.10, 7.0, 0.02, "accent", "accent", colors=palette)
+
+
 def create_engineering_design_spec(
     plan: dict[str, Any],
     media_dir: Path,
@@ -924,7 +990,7 @@ def create_engineering_design_spec(
         "| ---- | ----- |",
         f"| **Project Name** | {project_title} |",
         "| **Canvas Format** | PPT 16:9 (1280x720) |",
-        f"| **Page Count** | {len(plan.get('slides', []))} |",
+        f"| **Page Count** | {engineering_page_count(plan)} |",
         f"| **Design Style** | {design_style} |",
         f"| **Target Audience** | {audience} |",
         f"| **Use Case** | {use_case} |",
@@ -945,6 +1011,7 @@ def create_engineering_design_spec(
         "- **Style**: source-faithful Chinese engineering review presentation",
         "- **Theme**: light technical pages with deep-blue section rhythm",
         "- **Tone**: evidence-first, technical, restrained",
+        "- **Chapter rhythm**: each report chapter starts with a section divider slide carrying the chapter number and name.",
         "",
         "| Role | HEX | Purpose |",
         "| ---- | --- | ------- |",
