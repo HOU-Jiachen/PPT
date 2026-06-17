@@ -66,6 +66,15 @@ top_text_bottom_table | top_table_bottom_text
   `figure`; for example, `original figure + right-side source explanation`.
 - Visible small titles should prefer report headings, table captions, or figure captions
   from the content inventory. Do not invent generic labels for source panels.
+- Never use backend-analysis phrases such as `原始对象`, `必讲内容`, `保留理由`, `证据`,
+  source-mode names, evidence IDs, or asset filenames as visible titles or body text.
+- Never place visible ellipses (`...`, `…`, `……`) in titles, captions, bullets, table
+  summaries, or source explanations. Shorten to a complete sentence/phrase or split the slide.
+- Choose figure layout from source aspect ratio: paired horizontal figures, maps, profiles,
+  and wide charts should normally use `top_figure_bottom_text` or `top_text_bottom_figure`
+  instead of narrow side-by-side figure panels.
+- Consecutive pages may share a chapter theme, but their body text must not be near-identical;
+  different figures/tables need object-specific explanation.
 
 ## Page Fulness
 

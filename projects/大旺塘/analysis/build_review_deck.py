@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -30,6 +31,8 @@ from engineering_deck_runtime import (  # noqa: E402
     create_engineering_design_spec,
     create_engineering_spec_lock,
     evidence_lookup,
+    extract_figure_ids,
+    extract_table_refs,
     figure_image_index,
     image_paths_from_text,
     load_json,
@@ -39,7 +42,8 @@ from engineering_deck_runtime import (  # noqa: E402
     sanitize_visible_text,
     slide_evidence,
     source_topic_heading,
-    table_from_catalog,
+    source_text_for_refs,
+    table_from_page,
     text_preview,
 )
 
@@ -125,6 +129,58 @@ def figure_paths_for_page(page: dict[str, Any], figure_index: dict[str, list[str
     return image_paths_from_text(MEDIA_DIR, source_text, figure_index)
 
 
+def use_top_figure_layout(paths: list[Path]) -> bool:
+    if not paths or len(paths) > 2:
+        return False
+    ratios: list[float] = []
+    from PIL import Image
+
+    for path in paths:
+        try:
+            with Image.open(path) as im:
+                ratios.append(im.size[0] / max(1, im.size[1]))
+        except Exception:
+            return False
+    return bool(ratios) and min(ratios) >= 1.35
+
+
+def add_two_column_bullets(slide, points: list[str]) -> None:
+    points = [text_preview(point, 92) for point in points if sanitize_visible_text(point)]
+    if len(points) <= 3:
+        add_bullets(slide, 0.95, 2.0, 10.95, 3.72, points, 15, colors=COLORS)
+        return
+    split = (len(points) + 1) // 2
+    add_bullets(slide, 0.95, 2.0, 5.25, 3.72, points[:split], 14, colors=COLORS)
+    add_bullets(slide, 6.65, 2.0, 5.25, 3.72, points[split:], 14, colors=COLORS)
+
+
+def focused_table_entry(table_entry: dict[str, Any], page: dict[str, Any], max_rows: int = 6) -> dict[str, Any]:
+    rows = table_entry.get("rows") or []
+    if len(rows) <= max_rows:
+        return table_entry
+    proof_text = " ".join([page.get("visual_proof", ""), page.get("title", ""), page.get("source_note", "")])
+    tokens = []
+    for token in re.findall(r"\b[A-Z]{1,4}\d{1,2}-\d+\b", proof_text, flags=re.I):
+        if token not in tokens:
+            tokens.append(token)
+    if not tokens:
+        return table_entry
+    selected = [rows[0]]
+    for row in rows[1:]:
+        row_text = " ".join(str(cell) for cell in row)
+        if any(token in row_text for token in tokens):
+            selected.append(row)
+        if len(selected) >= max_rows:
+            break
+    if len(selected) <= 1:
+        return table_entry
+    focused = dict(table_entry)
+    focused["rows"] = selected
+    focused["row_count"] = len(selected)
+    focused["text"] = "\n".join(" | ".join(str(cell) for cell in row) for row in selected)
+    return focused
+
+
 def add_calculation_slide(
     slide,
     page: dict[str, Any],
@@ -139,14 +195,31 @@ def add_calculation_slide(
     for ev in evidence:
         inputs.extend(ev.get("inputs", []) or [])
 
-    add_textbox(slide, 0.85, 1.45, 4.9, 0.3, topic_heading, 16, "accent", True, colors=COLORS)
+    add_textbox(slide, 0.85, 1.40, 4.9, 0.48, topic_heading, 16, "accent", True, colors=COLORS)
+    summary_text = text_preview(
+        "；".join(sanitize_visible_text(ev.get("summary", "")) for ev in evidence if ev.get("summary"))
+        or "；".join(formulas)
+        or body_text
+        or "报告按公式、参数表和结果表列示计算过程。",
+        125,
+    )
+    value_points: list[str] = []
+    for ev in evidence:
+        for item in ev.get("values", []) or []:
+            basis = sanitize_visible_text(str(item.get("time_basis", "")))
+            value = sanitize_visible_text(str(item.get("value", "")))
+            unit = sanitize_visible_text(str(item.get("unit", "")))
+            point = f"{basis}：{value}{unit}" if basis else f"{value}{unit}"
+            if point:
+                value_points.append(text_preview(point, 72))
+
     add_textbox(
         slide,
         0.85,
-        1.9,
+        2.02,
         4.9,
-        1.25,
-        text_preview("；".join(formulas) or body_text or "报告按公式、参数表和结果表列示计算过程。", 240),
+        1.05,
+        summary_text,
         14,
         "ink",
         colors=COLORS,
@@ -157,7 +230,9 @@ def add_calculation_slide(
         3.35,
         4.9,
         2.0,
-        [text_preview(item, 130) for item in inputs[:4]] or [text_preview(body_text, 130)],
+        [text_preview(item, 70) for item in inputs[:3]]
+        or value_points[:3]
+        or [summary_text],
         14,
         colors=COLORS,
     )
@@ -180,26 +255,64 @@ def add_source_slide(
     body_text = report_text_from_page(page, evidence, catalog_entries, catalog_entry_list)
     topic_heading = source_topic_heading(page, evidence, title_context, catalog_entry_list)
     image_paths = figure_paths_for_page(page, figure_index)
-    table_entry = table_from_catalog(catalog_entries, evidence)
+    table_entry = table_from_page(page, catalog_entries, catalog_entry_list, evidence)
 
     if page["source_mode"] == "ORIGINAL_FIGURE" or image_paths:
-        add_image_panel(slide, image_paths, 0.55, 1.10, 7.5, 5.55, colors=COLORS)
-        add_textbox(slide, 8.35, 1.18, 4.25, 0.32, topic_heading, 15, "accent", True, colors=COLORS)
-        add_textbox(slide, 8.35, 1.58, 4.15, 3.75, text_preview(body_text or page["title"], 420), 14, "ink", colors=COLORS)
+        figure_text = source_text_for_refs(
+            catalog_entry_list,
+            extract_figure_ids(
+                " ".join([page.get("source_note", ""), page.get("visual_proof", ""), page.get("title", "")])
+            ),
+            max_len=360,
+        ) or body_text
+        if use_top_figure_layout(image_paths):
+            add_image_panel(slide, image_paths, 0.55, 1.10, 12.1, 3.85, colors=COLORS)
+            add_textbox(slide, 0.75, 5.10, 4.9, 0.46, topic_heading, 15, "accent", True, colors=COLORS)
+            add_textbox(slide, 0.75, 5.62, 11.4, 1.02, text_preview(figure_text or page["title"], 220), 14, "ink", colors=COLORS)
+        else:
+            add_image_panel(slide, image_paths, 0.55, 1.10, 7.5, 5.55, colors=COLORS)
+            add_textbox(slide, 8.35, 1.16, 4.25, 0.50, topic_heading, 15, "accent", True, colors=COLORS)
+            add_textbox(slide, 8.35, 1.76, 4.15, 3.55, text_preview(figure_text or page["title"], 230), 14, "ink", colors=COLORS)
     elif page["source_mode"] == "ORIGINAL_TABLE" and table_entry:
-        add_table(slide, table_entry, 0.55, 1.18, 8.35, 4.95, max_rows=7, max_cols=4, colors=COLORS)
-        add_textbox(slide, 9.25, 1.25, 3.2, 0.32, topic_heading, 15, "accent", True, colors=COLORS)
-        add_textbox(slide, 9.25, 1.65, 3.1, 3.45, text_preview(body_text or table_entry.get("text", ""), 360), 14, "ink", colors=COLORS)
+        add_table(
+            slide,
+            focused_table_entry(table_entry, page, max_rows=6),
+            0.55,
+            1.18,
+            8.35,
+            4.95,
+            max_rows=6,
+            max_cols=4,
+            colors=COLORS,
+        )
+        add_textbox(slide, 9.25, 1.20, 3.2, 0.55, topic_heading, 15, "accent", True, colors=COLORS)
+        table_source_text = source_text_for_refs(
+            catalog_entry_list,
+            extract_table_refs(
+                " ".join([page.get("source_note", ""), page.get("visual_proof", ""), page.get("title", "")])
+            ),
+            max_len=300,
+        )
+        table_source_points = [
+            text_preview(point, 76)
+            for point in table_source_text.split("。")
+            if sanitize_visible_text(point)
+        ][:3]
+        table_points = [
+            text_preview(point, 76)
+            for point in report_points_from_page(page, evidence, catalog_entries, catalog_entry_list, max_points=3)
+        ]
+        add_bullets(slide, 9.25, 1.85, 3.1, 3.25, table_source_points or table_points, 14, colors=COLORS)
     elif page["source_mode"] == "CALCULATION":
         add_calculation_slide(slide, page, evidence, body_text, table_entry, topic_heading)
     else:
         add_fill(slide, 0.65, 1.25, 12.0, 4.9, "paper", colors=COLORS)
         add_textbox(slide, 0.95, 1.55, 11.35, 0.35, topic_heading, 16, "accent", True, colors=COLORS)
-        points = report_points_from_page(page, evidence, catalog_entries, catalog_entry_list, max_points=5)
+        points = report_points_from_page(page, evidence, catalog_entries, catalog_entry_list, max_points=6)
         if len(points) >= 2:
-            add_bullets(slide, 0.95, 2.08, 10.95, 3.30, points, 14, colors=COLORS)
+            add_two_column_bullets(slide, points)
         else:
-            add_textbox(slide, 0.95, 2.08, 11.1, 3.15, text_preview(body_text or page["title"], 760), 15, "ink", colors=COLORS)
+            add_textbox(slide, 0.95, 2.08, 11.1, 3.15, text_preview(body_text or page["title"], 520), 15, "ink", colors=COLORS)
 
 
 def write_notes(plan: dict[str, Any]) -> None:
@@ -263,7 +376,9 @@ def build_deck() -> Path:
             slide = prs.slides.add_slide(blank)
             slide.background.fill.solid()
             slide.background.fill.fore_color.rgb = rgb(COLORS["bg"])
-            add_agenda_slide(slide, plan, page, colors=COLORS)
+            render_page = dict(page)
+            render_page["display_page"] = len(prs.slides)
+            add_agenda_slide(slide, plan, render_page, colors=COLORS)
         else:
             chapter = sanitize_visible_text(page.get("chapter", ""))
             if chapter and chapter not in section_slides_written:
@@ -282,8 +397,10 @@ def build_deck() -> Path:
             slide = prs.slides.add_slide(blank)
             slide.background.fill.solid()
             slide.background.fill.fore_color.rgb = rgb(COLORS["bg"])
+            render_page = dict(page)
+            render_page["display_page"] = len(prs.slides)
             evidence = slide_evidence(page, evidence_by_id)
-            add_source_slide(slide, page, evidence, catalog_entries, catalog_entry_list, title_context, figure_index)
+            add_source_slide(slide, render_page, evidence, catalog_entries, catalog_entry_list, title_context, figure_index)
 
     EXPORTS_DIR.mkdir(exist_ok=True)
     out = EXPORTS_DIR / f"大旺塘工程评审汇报_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pptx"

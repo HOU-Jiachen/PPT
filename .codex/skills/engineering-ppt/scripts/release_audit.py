@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import difflib
 import json
 import math
 import re
@@ -51,11 +52,15 @@ DEFAULT_FORBIDDEN_VISIBLE_PHRASES = [
     "报告计算口径",
     "报告阐述",
     "资料来源：",
+    "原始对象",
+    "必讲内容",
+    "保留理由",
 ]
 DEFAULT_FORBIDDEN_VISIBLE_REGEXES = [
     re.compile(r"\bE-\d(?:-[A-Z0-9]+)+\b"),
     re.compile(r"\bimage_\d+\.(?:png|jpe?g|wmf|emf)\b", re.IGNORECASE),
     re.compile(r"\b(?:ORIGINAL_TEXT|ORIGINAL_TABLE|ORIGINAL_FIGURE|CALCULATION|INTERPRETATION|CONCLUSION|MANAGEMENT_ACTION)\b"),
+    re.compile(r"(?:\.{3,}|…|……)"),
 ]
 
 
@@ -229,7 +234,7 @@ def box_area(box: tuple[float, float, float, float]) -> float:
 
 def compact_text(value: str, limit: int = 54) -> str:
     value = re.sub(r"\s+", " ", value).strip()
-    return value if len(value) <= limit else value[: limit - 1] + "…"
+    return value if len(value) <= limit else value[:limit].rstrip()
 
 
 def parse_font_size(value: object) -> float | None:
@@ -771,6 +776,127 @@ def pptx_shape_bbox(shape) -> tuple[int, int, int, int] | None:
     return (left, top, left + width, top + height)
 
 
+def emu_to_pt(value: int | float) -> float:
+    return float(value) / 914400 * 72
+
+
+def visible_text_units(text: str) -> float:
+    units = 0.0
+    for char in text:
+        if char.isspace():
+            units += 0.28
+        elif ord(char) > 127:
+            units += 1.0
+        else:
+            units += 0.56
+    return units
+
+
+def estimate_text_lines(text: str, width_pt: float, font_size: float) -> int:
+    text = re.sub(r"[ \t]+", " ", text or "").strip()
+    if not text:
+        return 0
+    max_units = max(4.0, width_pt / max(font_size * 0.88, 1))
+    lines = 0
+    for paragraph in re.split(r"\n+", text):
+        paragraph = paragraph.strip()
+        if not paragraph:
+            continue
+        lines += max(1, math.ceil(visible_text_units(paragraph) / max_units))
+    return lines
+
+
+def paragraph_size_or_default(paragraph, default: float) -> float:
+    size = pptx_paragraph_font_size(paragraph)
+    return float(size or default)
+
+
+def audit_pptx_text_capacity(
+    slide_index: int,
+    text: str,
+    shape,
+    font_size: float,
+    policy: dict,
+    audit: Audit,
+    code: str = "pptx-text-overflows-box",
+) -> None:
+    if not text.strip():
+        return
+    settings = policy.get("text_fit", {})
+    if settings.get("enabled", True) is False:
+        return
+    width_pt = emu_to_pt(int(getattr(shape, "width", 0) or 0))
+    height_pt = emu_to_pt(int(getattr(shape, "height", 0) or 0))
+    if width_pt <= 0 or height_pt <= 0:
+        return
+    line_height = font_size * float(settings.get("line_height_ratio", 1.24))
+    available = max(1.0, height_pt / max(line_height, 1))
+    required = estimate_text_lines(text, width_pt, font_size)
+    tolerance = float(settings.get("overflow_tolerance_lines", 0.35))
+    if required > available + tolerance:
+        audit.error(
+            code,
+            "Visible PPTX text needs more lines than the textbox/table cell can hold.",
+            page=slide_index,
+            text=compact_text(text),
+            required_lines=required,
+            available_lines=round(available, 2),
+            font_size=font_size,
+        )
+
+
+def slide_text_payload(slide, presentation: Presentation, policy: dict) -> tuple[str, str, int, float]:
+    slide_width = int(presentation.slide_width)
+    slide_height = int(presentation.slide_height)
+    all_texts: list[str] = []
+    body_texts: list[str] = []
+    visual_area = 0.0
+    slide_area = max(1, slide_width * slide_height)
+    for shape in iter_pptx_shapes(slide.shapes):
+        bbox = pptx_shape_bbox(shape)
+        if getattr(shape, "has_table", False):
+            if bbox:
+                visual_area += box_area(bbox) / slide_area
+            for row in shape.table.rows:
+                for cell in row.cells:
+                    text = re.sub(r"\s+", " ", cell.text or "").strip()
+                    if text:
+                        all_texts.append(text)
+                        body_texts.append(text)
+            continue
+        if getattr(shape, "shape_type", None) == MSO_SHAPE_TYPE.PICTURE:
+            if bbox:
+                visual_area += box_area(bbox) / slide_area
+            continue
+        if getattr(shape, "has_text_frame", False):
+            text = re.sub(r"\s+", " ", getattr(shape, "text", "") or "").strip()
+            if text:
+                all_texts.append(text)
+                if not is_pptx_layout_meta_text(text, shape, slide_width, slide_height, policy):
+                    body_texts.append(text)
+    return "\n".join(all_texts), "\n".join(body_texts), len(re.sub(r"\s+", "", "\n".join(body_texts))), visual_area
+
+
+def is_structural_pptx_slide(all_text: str) -> bool:
+    text = re.sub(r"\s+", " ", all_text or "").strip()
+    if not text:
+        return True
+    if "CONTENTS" in text or text == "目录" or text.startswith("目录 "):
+        return True
+    if re.search(r"第\s*\d+\s*章\s*/\s*共\s*\d+\s*章", text):
+        return True
+    if "工程评审汇报" in text and "专项勘察" in text and "依据报告章节" in text:
+        return True
+    return False
+
+
+def normalized_body_for_duplicate(text: str) -> str:
+    text = re.sub(r"\b\d{1,3}\b", " ", text or "")
+    text = re.sub(r"第\s*\d+\s*章\s*/\s*共\s*\d+\s*章", " ", text)
+    text = re.sub(r"\s+", "", text)
+    return text
+
+
 def pptx_large_object_boxes(presentation: Presentation, slide) -> list[dict]:
     slide_area = int(presentation.slide_width) * int(presentation.slide_height)
     items: list[dict] = []
@@ -815,6 +941,20 @@ def audit_pptx_layout_geometry(
             if bbox is None:
                 continue
             text_items.append({"index": shape_index, "text": text, "bbox": bbox})
+            sizes = [
+                paragraph_size_or_default(paragraph, float(policy.get("minimum_font_px", {}).get("body_absolute", 14)))
+                for paragraph in shape.text_frame.paragraphs
+                if paragraph.text.strip()
+            ]
+            if sizes:
+                audit_pptx_text_capacity(
+                    slide_index,
+                    getattr(shape, "text", "") or "",
+                    shape,
+                    min(sizes),
+                    policy,
+                    audit,
+                )
             if (
                 bbox[0] < margin
                 or bbox[1] < margin
@@ -874,11 +1014,25 @@ def audit_pptx_font_sizes(presentation: Presentation, policy: dict, audit: Audit
     for slide_index, slide in enumerate(presentation.slides, start=1):
         for shape in iter_pptx_shapes(slide.shapes):
             if getattr(shape, "has_table", False):
+                row_count = max(1, len(shape.table.rows))
+                col_count = max(1, len(shape.table.columns))
                 for row_index, row in enumerate(shape.table.rows, start=1):
                     for col_index, cell in enumerate(row.cells, start=1):
+                        pseudo_cell = type(
+                            "CellBox",
+                            (),
+                            {
+                                "width": int(getattr(shape, "width", 0) or 0) / col_count,
+                                "height": int(getattr(row, "height", 0) or 0)
+                                or int(getattr(shape, "height", 0) or 0) / row_count,
+                            },
+                        )()
+                        cell_sizes: list[float] = []
                         for paragraph in cell.text_frame.paragraphs:
                             text = paragraph.text.strip()
                             size = pptx_paragraph_font_size(paragraph)
+                            if text:
+                                cell_sizes.append(float(size or table_min))
                             if text and size is not None and size < table_min:
                                 audit.error(
                                     "pptx-table-font-too-small",
@@ -890,6 +1044,16 @@ def audit_pptx_font_sizes(presentation: Presentation, policy: dict, audit: Audit
                                     font_size=size,
                                     minimum=table_min,
                                 )
+                        if cell.text.strip() and cell_sizes:
+                            audit_pptx_text_capacity(
+                                slide_index,
+                                cell.text,
+                                pseudo_cell,
+                                min(cell_sizes),
+                                policy,
+                                audit,
+                                code="pptx-table-cell-overflow",
+                            )
                 continue
 
             if not getattr(shape, "has_text_frame", False):
@@ -911,6 +1075,70 @@ def audit_pptx_font_sizes(presentation: Presentation, policy: dict, audit: Audit
                         font_size=size,
                         minimum=body_min,
                     )
+
+
+def audit_pptx_density_and_duplicates(
+    presentation: Presentation,
+    policy: dict,
+    strict: bool,
+    audit: Audit,
+) -> None:
+    if not strict:
+        return
+    sparse = policy.get("sparse_page", {})
+    min_chars_without_visual = int(
+        sparse.get(
+            "minimum_visible_characters_without_visual",
+            sparse.get("minimum_visible_characters_native_no_visual", 160),
+        )
+    )
+    min_chars_with_visual = int(sparse.get("minimum_visible_characters_with_visual", 70))
+    min_visual_area = float(sparse.get("minimum_visual_area_ratio", 0.18))
+    duplicate_policy = policy.get("duplicate_content", {})
+    duplicate_enabled = duplicate_policy.get("enabled", True) is not False
+    duplicate_ratio = float(duplicate_policy.get("max_consecutive_body_similarity", 0.90))
+    min_duplicate_chars = int(duplicate_policy.get("minimum_body_characters", 80))
+
+    previous_body = ""
+    previous_index = 0
+    for slide_index, slide in enumerate(presentation.slides, start=1):
+        all_text, body_text, visible_chars, visual_area = slide_text_payload(slide, presentation, policy)
+        structural = is_structural_pptx_slide(all_text)
+        if not structural:
+            minimum = min_chars_with_visual if visual_area >= min_visual_area else min_chars_without_visual
+            if visible_chars < minimum:
+                audit.error(
+                    "pptx-sparse-page",
+                    "Content slide has too little visible material for its visual area.",
+                    page=slide_index,
+                    visible_characters=visible_chars,
+                    visual_area_ratio=round(visual_area, 3),
+                    minimum=minimum,
+                )
+
+        normalized = normalized_body_for_duplicate(body_text)
+        if (
+            duplicate_enabled
+            and not structural
+            and previous_body
+            and len(normalized) >= min_duplicate_chars
+            and len(previous_body) >= min_duplicate_chars
+        ):
+            ratio = difflib.SequenceMatcher(None, previous_body, normalized).ratio()
+            if ratio >= duplicate_ratio:
+                audit.error(
+                    "pptx-duplicate-consecutive-content",
+                    "Two consecutive content slides have near-identical body text.",
+                    page=slide_index,
+                    previous_page=previous_index,
+                    similarity=round(ratio, 3),
+                )
+        if structural:
+            previous_body = ""
+            previous_index = 0
+        else:
+            previous_body = normalized
+            previous_index = slide_index
 
 
 def planned_section_divider_count(plan: dict, policy: dict) -> int:
@@ -974,6 +1202,7 @@ def audit_pptx(path: Path, expected_slides: int, policy: dict, audit: Audit, str
         actual = len(presentation.slides)
         audit_pptx_font_sizes(presentation, policy, audit)
         audit_pptx_layout_geometry(presentation, policy, strict, audit)
+        audit_pptx_density_and_duplicates(presentation, policy, strict, audit)
         if expected_slides and actual != expected_slides:
             audit.error(
                 "slide-count-mismatch",

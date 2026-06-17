@@ -10,22 +10,25 @@ Run the following gates in order. A later success never cancels an earlier failu
 6. Content-richness audit: original text/table/figure/calculation slides meet the configured
    minimum ratio, and interpretation-only runs do not replace the report's technical process.
 7. `svg_quality_checker.py`: zero errors.
-8. Font audit: non-template PPT body text, table text, and chart labels are at least 14 pt.
-9. Layout-collision audit after final font sizing and PPTX export: visible text stays
-   inside the safe frame, text boxes do not overlap each other, and body text does not
-   cover large source images, figures, or tables.
+8. Font audit: non-template PPT body text, table text, and chart labels are at least 14 pt,
+   with table text at least 12 pt when the project policy distinguishes table minimums.
+9. Layout-collision and capacity audit after final font sizing and PPTX export: visible
+   text stays inside the safe frame, text boxes do not overlap each other, body text does
+   not cover large source images/figures/tables, and text boxes/table cells have enough
+   line capacity for their content.
 10. Chart verification: required for every data-driven chart.
 11. Full render: inspect every page at full size and as a contact sheet.
 12. `release_audit.py --strict`: zero errors.
 13. PPTX export: native DrawingML, with no empty media.
 14. `release_audit.py --strict --pptx <file>`: package, XML, slide count, aspect ratio,
-   forbidden wording, and parser checks pass.
+   forbidden wording, sparse-page checks, consecutive-duplicate checks, and parser checks pass.
 15. GitHub upload: commit and push this run's relevant artifacts, contracts, QA records,
     exports, and local agent-rule changes to `origin`.
 
 ## Blocking Defects
 
 - visible internal workflow labels or caveats
+- visible ellipses used as incomplete wording or source-text replacement
 - unsupported or newly calculated values not declared as verified calculations
 - source conflicts hidden from the audience
 - major chapter represented only by Agent conclusions
@@ -35,6 +38,7 @@ Run the following gates in order. A later success never cancels an earlier failu
 - text reduced below the readability floor to preserve decoration
 - key source table, map, or figure too small to inspect
 - sparse page containing neither adequate explanation nor substantive source evidence
+- consecutive content pages whose body text is near-identical while only the title or figure changes
 - technical chapters reduced to summary cards without enough original text, tables, figures,
   formulas, or source-backed mixed layouts
 - non-template body/table/chart text smaller than 14 pt

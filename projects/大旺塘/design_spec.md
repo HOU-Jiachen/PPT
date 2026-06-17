@@ -61,6 +61,9 @@
 - Dense technical pages avoid decorative cards; tables and figures use framed source panels.
 - Visible panel headings must be content-specific, such as `图件重点：矿区强径流带分布` or `表格重点：涌水量预测结果`.
 - Generic workflow labels such as `报告对图件的说明`, `报告对表格的说明`, `报告计算口径`, and `报告阐述` are forbidden in visible slides.
+- Report section headings, figure captions, table captions and corresponding subsection titles take priority over agent-generated topic labels.
+- Visible ellipses are forbidden; long report text must be shortened to complete, source-faithful sentences or split across slides.
+- Horizontal report maps/profiles/charts should use top-figure/bottom-text layouts when side-by-side placement would make the figure too small.
 - Internal planning metadata, evidence IDs, asset filenames and row/column diagnostics remain only in backend contracts/QA.
 
 ## VI. Icon Usage Specification

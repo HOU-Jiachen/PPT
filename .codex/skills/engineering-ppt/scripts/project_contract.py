@@ -130,6 +130,9 @@ def init_project(
                 "行列规模",
                 "密集表按重点行重排",
                 "完整数据回看报告原表",
+                "原始对象",
+                "必讲内容",
+                "保留理由",
                 "source_mode",
                 "evidence_ids",
                 "visual_proof",
@@ -147,8 +150,20 @@ def init_project(
             "chapter_original_evidence_exemptions": ["项目总览"],
             "structural_slide_types": ["cover", "agenda", "section", "closing"],
             "sparse_page": {
-                "minimum_visible_characters_without_visual": 70,
+                "minimum_visible_characters_without_visual": 120,
+                "minimum_visible_characters_with_visual": 70,
+                "minimum_visual_area_ratio": 0.18,
                 "minimum_visual_objects": 1,
+            },
+            "text_fit": {
+                "enabled": True,
+                "line_height_ratio": 1.24,
+                "overflow_tolerance_lines": 0.35,
+            },
+            "duplicate_content": {
+                "enabled": True,
+                "max_consecutive_body_similarity": 0.9,
+                "minimum_body_characters": 80,
             },
         },
     }

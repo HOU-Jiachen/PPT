@@ -22,6 +22,15 @@ except ImportError:  # pragma: no cover
 
 
 SUPPORTED = {".docx", ".pdf", ".txt", ".md", ".markdown", ".xlsx", ".xlsm", ".pptx"}
+GENERATED_SOURCE_NAMES = {
+    "chapter_coverage.md",
+    "deck_plan.json",
+    "design_spec.md",
+    "evidence_ledger.json",
+    "project_config.json",
+    "spec_lock.md",
+}
+ROOT_SOURCE_SUFFIXES = {".docx", ".pdf", ".xlsx", ".xlsm", ".pptx"}
 NUMBER_RE = re.compile(r"(?<![\w.])[-+]?\d+(?:\.\d+)?%?(?![\w.])")
 WORD_NS = {
     "w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main",
@@ -218,14 +227,27 @@ def discover_sources(project: Path, explicit: list[Path]) -> list[Path]:
         candidates = explicit
     else:
         candidates = []
-        roots = [project / "sources", project]
-        for root in roots:
-            if root.exists():
-                candidates.extend(root.glob("*"))
+        sources_root = project / "sources"
+        if sources_root.exists():
+            candidates.extend(sources_root.glob("*"))
+        if project.exists():
+            candidates.extend(
+                path
+                for path in project.glob("*")
+                if path.suffix.lower() in ROOT_SOURCE_SUFFIXES
+            )
     unique: dict[Path, Path] = {}
     for candidate in candidates:
         path = candidate.resolve()
-        if path.is_file() and path.suffix.lower() in SUPPORTED and not path.name.startswith("~$"):
+        if (
+            path.is_file()
+            and path.suffix.lower() in SUPPORTED
+            and not path.name.startswith("~$")
+            and path.name not in GENERATED_SOURCE_NAMES
+            and "analysis" not in path.parts
+            and "qa" not in path.parts
+            and "exports" not in path.parts
+        ):
             unique[path] = path
     return sorted(unique.values(), key=lambda value: value.name.lower())
 

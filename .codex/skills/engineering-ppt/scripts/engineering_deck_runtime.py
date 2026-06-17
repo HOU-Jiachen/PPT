@@ -44,6 +44,7 @@ INTERNAL_VISIBLE_PATTERNS = [
     r"来源模式[:：]?\s*\S+",
     r"证据编号[:：]?\s*\S+",
     r"本页用于[:：]?.*",
+    r"(?:^|[。；;]\s*)[-•]?\s*(?:原始对象|必讲内容|保留理由|证据)[:：][^。；;]*",
     r"原表定位[:：]?.*",
     r"行列规模[:：]?.*",
     r"密集表按重点行重排.*",
@@ -76,6 +77,7 @@ def load_json(path: Path) -> Any:
 def sanitize_visible_text(text: str) -> str:
     text = re.sub(r"\s+", " ", text or "").strip()
     text = re.sub(r"\s*\|\s*", "；", text)
+    text = text.replace("……", "").replace("...", "").replace("…", "")
     for pattern in INTERNAL_VISIBLE_PATTERNS:
         text = re.sub(pattern, "", text, flags=re.I)
     text = text.replace("证据解读", "报告说明")
@@ -84,7 +86,13 @@ def sanitize_visible_text(text: str) -> str:
 
 def text_preview(text: str, max_len: int = 480) -> str:
     text = sanitize_visible_text(text)
-    return text if len(text) <= max_len else text[: max_len - 1] + "…"
+    if len(text) <= max_len:
+        return text
+    clipped = text[:max_len]
+    boundary = max(clipped.rfind(mark) for mark in ("。", "；", ";", "，", ",", "、", " "))
+    if boundary >= max_len * 0.58:
+        clipped = clipped[:boundary]
+    return clipped.strip(" ，,;；。")
 
 
 def catalog_locator_number(entry: dict[str, Any]) -> int | None:
@@ -224,6 +232,17 @@ def source_topic_heading(
             for entry in catalog_entries:
                 text = sanitize_visible_text(entry.get("text", ""))
                 if figure_id in text:
+                    candidates.append(strip_figure_table_label(text))
+                    break
+
+    if mode == "ORIGINAL_TABLE" and catalog_entries:
+        table_refs = extract_table_refs(
+            " ".join([str(page.get("source_note", "")), str(page.get("visual_proof", "")), str(page.get("title", ""))])
+        )
+        for table_ref in table_refs:
+            for entry in catalog_entries:
+                text = sanitize_visible_text(entry.get("text", ""))
+                if table_ref in text and (str(entry.get("style")) == "表名" or text.startswith("表")):
                     candidates.append(strip_figure_table_label(text))
                     break
 
@@ -433,7 +452,27 @@ def collect_template_profile(project_dir: Path) -> dict[str, Any]:
 
 def extract_figure_ids(text: str) -> list[str]:
     normalized = (text or "").replace("\\", "")
-    return re.findall(r"图\s*\d+(?:\.\d+)?-\d+", normalized)
+    figure_ids = re.findall(r"图\s*\d+(?:\.\d+)?-\d+", normalized)
+    for prefix, start, end in re.findall(
+        r"图\s*(\d+(?:\.\d+)?)-(\d+)\s*(?:至|到|~|—|-)\s*(?:图\s*)?(?:\d+(?:\.\d+)?-)?(\d+)",
+        normalized,
+    ):
+        for number in range(int(start), int(end) + 1):
+            figure_ids.append(f"图{prefix}-{number}")
+    return list(dict.fromkeys(item.replace(" ", "") for item in figure_ids))
+
+
+def extract_table_refs(text: str) -> list[str]:
+    normalized = (text or "").replace("\\", "")
+    refs = re.findall(r"表\s*\d+(?:\.\d+)?-\d+", normalized)
+    for prefix, start, end in re.findall(
+        r"表\s*(\d+(?:\.\d+)?)-(\d+)\s*(?:至|到|~|—|-)\s*(?:表\s*)?(?:\d+(?:\.\d+)?-)?(\d+)",
+        normalized,
+    ):
+        for number in range(int(start), int(end) + 1):
+            refs.append(f"表{prefix}-{number}")
+    refs.extend(re.findall(r"\bT\d{3}\b", normalized, flags=re.I))
+    return list(dict.fromkeys(item.replace(" ", "") for item in refs))
 
 
 def figure_image_index(markdown_path: Path) -> dict[str, list[str]]:
@@ -477,6 +516,103 @@ def image_paths_from_text(
     return paths
 
 
+def source_text_for_refs(
+    catalog_entries: list[dict[str, Any]],
+    refs: list[str],
+    max_len: int = 520,
+) -> str:
+    parts: list[str] = []
+    seen: set[str] = set()
+    if not refs:
+        return ""
+    for index, entry in enumerate(catalog_entries):
+        text = sanitize_visible_text(entry.get("text", ""))
+        if not text or not any(ref in text for ref in refs):
+            continue
+        for candidate in [strip_figure_table_label(text)]:
+            if candidate and candidate not in seen:
+                seen.add(candidate)
+                parts.append(candidate)
+
+        def usable_neighbor(candidate_entry: dict[str, Any]) -> str:
+            value = sanitize_visible_text(candidate_entry.get("text", ""))
+            if not value:
+                return ""
+            if str(candidate_entry.get("kind")) in {"heading", "figure", "image"}:
+                return ""
+            if value.startswith(("图名", "表名", "图", "表")):
+                return ""
+            if re.search(r"\bimage_\d+\.(?:png|jpe?g|wmf|emf)\b", value, re.I):
+                return ""
+            return value
+
+        if len("".join(parts)) < max_len * 0.35:
+            for neighbor in reversed(catalog_entries[max(0, index - 5) : index]):
+                if neighbor.get("source") != entry.get("source"):
+                    continue
+                neighbor_text = usable_neighbor(neighbor)
+                if neighbor_text and neighbor_text not in seen:
+                    seen.add(neighbor_text)
+                    parts.append(neighbor_text)
+                    if len("".join(parts)) >= max_len * 0.55:
+                        break
+        for follower in catalog_entries[index + 1 : index + 8]:
+            if follower.get("source") != entry.get("source"):
+                break
+            follower_text = usable_neighbor(follower)
+            if not follower_text:
+                continue
+            if follower_text not in seen:
+                seen.add(follower_text)
+                parts.append(follower_text)
+            if len("".join(parts)) >= max_len:
+                break
+        if parts:
+            break
+    return text_preview(" ".join(parts), max_len)
+
+
+def source_text_for_note_heading(
+    page: dict[str, Any],
+    catalog_entries: list[dict[str, Any]],
+    max_len: int = 560,
+) -> str:
+    note = sanitize_visible_text(page.get("source_note", ""))
+    title = sanitize_visible_text(page.get("title", ""))
+    probes = []
+    for value in [note, title, page.get("chapter", "")]:
+        clean = sanitize_visible_text(value)
+        clean = re.sub(r"(章节|小节|图|表|P\d+|T\d+)", "", clean)
+        for token in re.split(r"[、，,；;\s]+", clean):
+            token = token.strip()
+            if len(token) >= 4 and token not in probes:
+                probes.append(token)
+    if not probes:
+        return ""
+    for index, entry in enumerate(catalog_entries):
+        if str(entry.get("kind")) != "heading":
+            continue
+        heading = sanitize_visible_text(entry.get("text", ""))
+        if not any(probe in heading or heading in probe for probe in probes):
+            continue
+        parts = []
+        for follower in catalog_entries[index + 1 :]:
+            if follower.get("source") != entry.get("source"):
+                break
+            if str(follower.get("kind")) == "heading":
+                if parts:
+                    break
+                continue
+            text = sanitize_visible_text(follower.get("text", ""))
+            if text and not text.startswith(("图名", "表名", "图", "表")):
+                parts.append(text)
+            if len("".join(parts)) >= max_len:
+                break
+        if parts:
+            return text_preview(" ".join(parts), max_len)
+    return ""
+
+
 def evidence_lookup(ledger: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return {item["id"]: item for item in ledger["evidence"]}
 
@@ -495,6 +631,43 @@ def table_from_catalog(
             if entry and entry.get("kind") == "table" and entry.get("rows"):
                 return entry
     return None
+
+
+def table_from_page(
+    page: dict[str, Any],
+    catalog_entries_by_id: dict[str, dict[str, Any]],
+    catalog_entries: list[dict[str, Any]],
+    evidence: list[dict[str, Any]],
+) -> dict[str, Any] | None:
+    refs = extract_table_refs(
+        " ".join(
+            [
+                str(page.get("source_note", "")),
+                str(page.get("visual_proof", "")),
+                str(page.get("title", "")),
+            ]
+        )
+    )
+    for ref in refs:
+        if re.fullmatch(r"T\d{3}", ref, flags=re.I):
+            for ev in evidence:
+                for catalog_id in ev.get("catalog_ids", []):
+                    entry = catalog_entries_by_id.get(catalog_id)
+                    if entry and str(entry.get("locator", "")).upper() == ref.upper() and entry.get("kind") == "table":
+                        return entry
+    for ref in refs:
+        for index, entry in enumerate(catalog_entries):
+            text = sanitize_visible_text(entry.get("text", ""))
+            if ref not in text:
+                continue
+            if not (text.startswith("表名") or text.startswith("表")):
+                continue
+            for follower in catalog_entries[index + 1 : index + 5]:
+                if follower.get("source") != entry.get("source"):
+                    break
+                if follower.get("kind") == "table" and follower.get("rows"):
+                    return follower
+    return table_from_catalog(catalog_entries_by_id, evidence)
 
 
 def report_text_from_evidence(
@@ -558,6 +731,9 @@ def report_text_from_page(
         if len("".join(parts)) >= max_len:
             break
 
+    if len("".join(parts)) < max_len * 0.45:
+        add(source_text_for_note_heading(page, catalog_entries, max_len=max_len))
+
     return text_preview(" ".join(parts), max_len)
 
 
@@ -579,9 +755,29 @@ def report_points_from_evidence(
         value = sanitize_visible_text(raw)
         if value and value not in seen:
             seen.add(value)
-            points.append(text_preview(value, 132))
+            if len(value) > 150:
+                for point in split_report_points(value, max_points=max_points - len(points), max_len=108):
+                    if point and point not in seen:
+                        seen.add(point)
+                        points.append(point)
+                    if len(points) >= max_points:
+                        return points
+            else:
+                points.append(text_preview(value, 112))
         if len(points) >= max_points:
             return points
+
+    for ev in evidence:
+        for item in ev.get("values", []) or []:
+            basis = sanitize_visible_text(str(item.get("time_basis", "")))
+            value = sanitize_visible_text(str(item.get("value", "")))
+            unit = sanitize_visible_text(str(item.get("unit", "")))
+            point = f"{basis}：{value}{unit}" if basis else f"{value}{unit}"
+            if point and point not in seen:
+                seen.add(point)
+                points.append(text_preview(point, 90))
+            if len(points) >= max_points:
+                return points
 
     if not points:
         merged = report_text_from_evidence(evidence, catalog_entries, max_len=680)
@@ -688,6 +884,7 @@ def add_fill(slide, x, y, w, h, color="paper", line="line", colors: dict[str, st
 
 def add_title(slide, page: dict[str, Any], colors: dict[str, str] | None = None):
     palette = colors or DEFAULT_COLORS
+    display_page = int(page.get("display_page", page["page"]))
     add_textbox(slide, 0.42, 0.20, 11.85, 0.50, page["title"], 24, "ink", True, colors=palette)
     add_textbox(slide, 0.43, 0.68, 7.0, 0.24, page["chapter"], 9.5, "accent", colors=palette)
     add_textbox(
@@ -696,7 +893,7 @@ def add_title(slide, page: dict[str, Any], colors: dict[str, str] | None = None)
         0.66,
         0.7,
         0.20,
-        f"{page['page']:02d}",
+        f"{display_page:02d}",
         9,
         "muted",
         align=PP_ALIGN.RIGHT,
@@ -729,17 +926,28 @@ def add_table(
     if not rows:
         add_textbox(slide, x, y, w, h, text_preview(entry.get("text", ""), 720), BODY_MIN_PT, "ink", colors=palette)
         return None
-    clean = [[text_preview(str(cell), 70) for cell in row[:max_cols]] for row in rows[:max_rows]]
+    cell_limit = max(24, min(62, int((w / max(1, max_cols)) * (h / max(1, max_rows)) * 22)))
+    clean = [[text_preview(str(cell), cell_limit) for cell in row[:max_cols]] for row in rows[:max_rows]]
     col_count = max(len(row) for row in clean) if clean else 1
     for row in clean:
         while len(row) < col_count:
             row.append("")
     shape = slide.shapes.add_table(len(clean), col_count, Inches(x), Inches(y), Inches(w), Inches(h))
     table = shape.table
+    row_height = Inches(h / max(1, len(clean)))
+    for row in table.rows:
+        row.height = row_height
+    col_width = Inches(w / max(1, col_count))
+    for column in table.columns:
+        column.width = col_width
     for i, row in enumerate(clean):
         for j, cell_text in enumerate(row):
             cell = table.cell(i, j)
             cell.text = cell_text
+            cell.margin_left = Inches(0.04)
+            cell.margin_right = Inches(0.04)
+            cell.margin_top = Inches(0.02)
+            cell.margin_bottom = Inches(0.02)
             for paragraph in cell.text_frame.paragraphs:
                 paragraph.font.name = "Microsoft YaHei"
                 paragraph.font.size = pt(TABLE_MIN_PT)
@@ -868,6 +1076,7 @@ def add_agenda_slide(
     colors: dict[str, str] | None = None,
 ) -> None:
     palette = colors or DEFAULT_COLORS
+    display_page = int(page.get("display_page", page["page"]))
     add_fill(slide, 0, 0, 13.333, 7.5, "paper", "paper", colors=palette)
     add_textbox(slide, 0.75, 0.62, 5.8, 0.62, "目录", 30, "primary", True, colors=palette)
     add_textbox(slide, 0.78, 1.30, 4.0, 0.25, "CONTENTS", 10, "accent", colors=palette)
@@ -896,7 +1105,7 @@ def add_agenda_slide(
         6.82,
         0.7,
         0.2,
-        f"{page['page']:02d}",
+        f"{display_page:02d}",
         9,
         "muted",
         align=PP_ALIGN.RIGHT,
@@ -1045,6 +1254,9 @@ def create_engineering_design_spec(
         "- Dense technical pages avoid decorative cards; tables and figures use framed source panels.",
         "- Visible panel headings must be content-specific, such as `图件重点：矿区强径流带分布` or `表格重点：涌水量预测结果`.",
         "- Generic workflow labels such as `报告对图件的说明`, `报告对表格的说明`, `报告计算口径`, and `报告阐述` are forbidden in visible slides.",
+        "- Report section headings, figure captions, table captions and corresponding subsection titles take priority over agent-generated topic labels.",
+        "- Visible ellipses are forbidden; long report text must be shortened to complete, source-faithful sentences or split across slides.",
+        "- Horizontal report maps/profiles/charts should use top-figure/bottom-text layouts when side-by-side placement would make the figure too small.",
         "- Internal planning metadata, evidence IDs, asset filenames and row/column diagnostics remain only in backend contracts/QA.",
         "",
         "## VI. Icon Usage Specification",
@@ -1174,7 +1386,8 @@ def create_engineering_spec_lock(
             "- `<style>`, `class`, `<foreignObject>`, `textPath`, `@font-face`, `<animate*>`, `<script>`, `<iframe>`",
             "- `<g opacity>`",
             "- HTML named entities in visible text",
-            "- Visible internal metadata labels such as 来源模式, 证据编号, 本页用于, 原表定位, image_*.png, or E-* evidence IDs",
+            "- Visible ellipses (`...`, `…`, `……`) as incomplete wording",
+            "- Visible internal metadata labels such as 来源模式, 证据编号, 本页用于, 原始对象, 必讲内容, 保留理由, 原表定位, image_*.png, or E-* evidence IDs",
         ]
     )
     return "\n".join(lines) + "\n"

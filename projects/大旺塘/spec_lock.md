@@ -322,4 +322,5 @@
 - `<style>`, `class`, `<foreignObject>`, `textPath`, `@font-face`, `<animate*>`, `<script>`, `<iframe>`
 - `<g opacity>`
 - HTML named entities in visible text
-- Visible internal metadata labels such as 来源模式, 证据编号, 本页用于, 原表定位, image_*.png, or E-* evidence IDs
+- Visible ellipses (`...`, `…`, `……`) as incomplete wording
+- Visible internal metadata labels such as 来源模式, 证据编号, 本页用于, 原始对象, 必讲内容, 保留理由, 原表定位, image_*.png, or E-* evidence IDs

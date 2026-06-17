@@ -77,6 +77,10 @@ The catalog must recover:
 - formulas and calculation sequences
 - source locations for every extracted object
 
+The catalog must treat only user/source material as source. Agent-generated planning,
+coverage, design, QA, and deck-contract files are backend records and must not become
+visible-content candidates.
+
 Read [evidence-contract.md](references/evidence-contract.md). Review the original Office/PDF
 object before marking evidence `verified`; extracted text alone is not authoritative when it is
 damaged, merged, or incomplete.
@@ -117,6 +121,9 @@ planning pages. For every report chapter or dense subsection, decide:
 - which dense objects should be split across multiple slides
 - what the visible small title should be, preferring the report heading or table/figure caption
 - what interpretation is needed beside the source evidence, without replacing it
+- whether each figure is better served by a side-by-side layout or a top-figure/bottom-text
+  layout; horizontal maps and paired wide figures normally need the latter so the figures stay
+  inspectable
 
 Do not treat the generated blueprint as final thinking. It is the structured workspace.
 The agent must refine it mentally or in writing before `deck_plan.json`, and each
@@ -202,6 +209,17 @@ top_text_bottom_table | top_table_bottom_text
 Use standalone summary cards sparingly: primarily for cover/agenda/chapter openers, decision
 summaries, and final conclusions. Technical process pages should pair original evidence with
 faithful explanation.
+
+Visible text rules:
+
+- Small titles and panel headings must prefer report section headings, figure captions, table
+  captions, or the paragraph's corresponding subsection title.
+- Never show backend labels such as `原始对象`, `必讲内容`, `保留理由`, `证据`, asset filenames,
+  evidence IDs, or source-mode strings.
+- Never show ellipses (`...`, `…`, `……`) as a substitute for long source text. Summarize to
+  complete, source-faithful sentences or split the page.
+- After final font sizing, verify text-box capacity and table-cell capacity; if text does not
+  fit at the minimum font size, shorten, enlarge, or split the page.
 
 ## 8. Confirm Design Once
 
