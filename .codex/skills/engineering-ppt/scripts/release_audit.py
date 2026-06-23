@@ -217,6 +217,24 @@ def image_boxes(root: ET.Element, width: float, height: float, policy: dict) -> 
     return boxes
 
 
+def rect_boxes(root: ET.Element, width: float, height: float, policy: dict) -> list[dict]:
+    aesthetic = policy.get("aesthetic_layout", {})
+    min_area_ratio = float(aesthetic.get("minimum_box_area_ratio", 0.004))
+    min_area = width * height * min_area_ratio
+    max_area = width * height * 0.85
+    boxes: list[dict] = []
+    for index, node in enumerate(root.findall(".//svg:rect", SVG_NS), start=1):
+        x = parse_svg_length(node.attrib.get("x"))
+        y = parse_svg_length(node.attrib.get("y"))
+        w = parse_svg_length(node.attrib.get("width"))
+        h = parse_svg_length(node.attrib.get("height"))
+        area = w * h
+        if w <= 0 or h <= 0 or area < min_area or area > max_area:
+            continue
+        boxes.append({"id": f"rect-{index}", "bbox": (x, y, x + w, y + h)})
+    return boxes
+
+
 def intersection_area(
     a: tuple[float, float, float, float], b: tuple[float, float, float, float]
 ) -> float:
@@ -236,6 +254,149 @@ def box_area(box: tuple[float, float, float, float]) -> float:
 def compact_text(value: str, limit: int = 54) -> str:
     value = re.sub(r"\s+", " ", value).strip()
     return value if len(value) <= limit else value[:limit].rstrip()
+
+
+def sampled_union_area(
+    boxes: list[tuple[float, float, float, float]],
+    width: float,
+    height: float,
+    columns: int = 48,
+    rows: int = 27,
+) -> float:
+    if not boxes:
+        return 0
+    covered = 0
+    for row in range(rows):
+        y = height * (row + 0.5) / rows
+        for column in range(columns):
+            x = width * (column + 0.5) / columns
+            if any(box[0] <= x <= box[2] and box[1] <= y <= box[3] for box in boxes):
+                covered += 1
+    return covered / (columns * rows) * width * height
+
+
+def audit_aesthetic_layout(
+    page_number: int,
+    root: ET.Element,
+    nodes: list[dict],
+    image_items: list[dict],
+    width: float,
+    height: float,
+    slide_type: str,
+    policy: dict,
+    strict: bool,
+    audit: Audit,
+) -> None:
+    aesthetic = policy.get("aesthetic_layout", {})
+    if not strict or aesthetic.get("enabled", True) is False:
+        return
+
+    for index, node in enumerate(root.findall(".//svg:image", SVG_NS), start=1):
+        preserve = str(node.attrib.get("preserveAspectRatio", "")).strip().lower()
+        if preserve == "none":
+            audit.error(
+                "image-aspect-ratio-disabled",
+                "SVG image disables aspect-ratio preservation.",
+                page=page_number,
+                image=f"image-{index}",
+            )
+
+    visual_items = list(image_items)
+    collision_items = list(image_items)
+    visual_items.extend(rect_boxes(root, width, height, policy))
+    for index, node in enumerate(nodes, start=1):
+        if is_template_or_meta_text(node, width, height, policy):
+            continue
+        bbox = text_bbox(node)
+        if bbox:
+            item = {"id": f"text-{index}", "bbox": bbox}
+            visual_items.append(item)
+            collision_items.append(item)
+
+    boxes = [item["bbox"] for item in visual_items if box_area(item["bbox"]) > 0]
+    if not boxes:
+        return
+
+    occupied_area = sampled_union_area(boxes, width, height)
+    occupied_ratio = occupied_area / max(width * height, 1)
+    minimum = float(
+        aesthetic.get(
+            "minimum_structural_occupied_area_ratio"
+            if slide_type in STRUCTURAL_DEFAULT
+            else "minimum_occupied_area_ratio",
+            0.18,
+        )
+    )
+    maximum = float(aesthetic.get("maximum_occupied_area_ratio", 0.92))
+    if occupied_ratio < minimum:
+        audit.warning(
+            "low-occupied-area",
+            "Slide appears visually sparse under deterministic occupied-area sampling.",
+            page=page_number,
+            occupied_ratio=round(occupied_ratio, 3),
+            minimum=minimum,
+        )
+    if occupied_ratio > maximum:
+        audit.warning(
+            "overcrowded-occupied-area",
+            "Slide appears visually overcrowded under deterministic occupied-area sampling.",
+            page=page_number,
+            occupied_ratio=round(occupied_ratio, 3),
+            maximum=maximum,
+        )
+
+    weighted_area = sum(box_area(box) for box in boxes)
+    if weighted_area:
+        center_x = sum(((box[0] + box[2]) / 2) * box_area(box) for box in boxes) / weighted_area
+        center_y = sum(((box[1] + box[3]) / 2) * box_area(box) for box in boxes) / weighted_area
+        offset = max(abs(center_x - width / 2) / width, abs(center_y - height / 2) / height)
+        warn_offset = float(aesthetic.get("maximum_balance_offset_ratio", 0.22))
+        severe_offset = float(aesthetic.get("severe_balance_offset_ratio", 0.32))
+        if offset >= severe_offset:
+            audit.error(
+                "severe-visual-imbalance",
+                "Slide visual mass is severely biased toward one side.",
+                page=page_number,
+                balance_offset=round(offset, 3),
+                maximum=severe_offset,
+            )
+        elif offset >= warn_offset:
+            audit.warning(
+                "visual-imbalance",
+                "Slide visual mass is biased toward one side.",
+                page=page_number,
+                balance_offset=round(offset, 3),
+                maximum=warn_offset,
+            )
+
+    overlap_min = float(aesthetic.get("element_overlap_min_ratio", 0.55))
+    severe_overlap = float(aesthetic.get("severe_element_overlap_ratio", 0.75))
+    for left_index, left_item in enumerate(collision_items):
+        for right_item in collision_items[left_index + 1 :]:
+            left_box = left_item["bbox"]
+            right_box = right_item["bbox"]
+            smaller = min(box_area(left_box), box_area(right_box))
+            if not smaller:
+                continue
+            ratio = intersection_area(left_box, right_box) / smaller
+            if ratio >= severe_overlap:
+                audit.error(
+                    "severe-element-overlap",
+                    "Two SVG visual elements severely overlap.",
+                    page=page_number,
+                    element_a=left_item["id"],
+                    element_b=right_item["id"],
+                    overlap_ratio=round(ratio, 3),
+                )
+            elif ratio >= overlap_min:
+                audit.warning(
+                    "element-overlap",
+                    "Two SVG visual elements substantially overlap.",
+                    page=page_number,
+                    element_a=left_item["id"],
+                    element_b=right_item["id"],
+                    overlap_ratio=round(ratio, 3),
+                )
 
 
 def parse_font_size(value: object) -> float | None:
@@ -671,6 +832,18 @@ def audit_svgs(
             image_items,
             width,
             height,
+            policy,
+            strict,
+            audit,
+        )
+        audit_aesthetic_layout(
+            page_number,
+            root,
+            nodes,
+            image_items,
+            width,
+            height,
+            slide_type,
             policy,
             strict,
             audit,

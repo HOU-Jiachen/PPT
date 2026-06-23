@@ -12,17 +12,20 @@ Run the following gates in order. A later success never cancels an earlier failu
 7. `svg_quality_checker.py`: zero errors.
 8. Font audit: non-template PPT body text, table text, and chart labels are at least 14 pt,
    with table text at least 12 pt when the project policy distinguishes table minimums.
-9. Layout-collision and capacity audit after final font sizing and PPTX export: visible
+9. Frontier layout metrics: source images preserve aspect ratio, occupied area is not
+   excessively sparse or overcrowded, visual balance stays within policy thresholds, and
+   severe element collisions are blocked.
+10. Layout-collision and capacity audit after final font sizing and PPTX export: visible
    text stays inside the safe frame, text boxes do not overlap each other, body text does
    not cover large source images/figures/tables, and text boxes/table cells have enough
    line capacity for their content.
-10. Chart verification: required for every data-driven chart.
-11. Full render: inspect every page at full size and as a contact sheet.
-12. `release_audit.py --strict`: zero errors.
-13. PPTX export: native DrawingML, with no empty media.
-14. `release_audit.py --strict --pptx <file>`: package, XML, slide count, aspect ratio,
-   forbidden wording, sparse-page checks, consecutive-duplicate checks, and parser checks pass.
-15. GitHub upload: commit and push this run's relevant artifacts, contracts, QA records,
+11. Chart verification: required for every data-driven chart.
+12. Full render: inspect every page at full size and as a contact sheet.
+13. `release_audit.py --strict`: zero errors.
+14. PPTX export: native DrawingML, with no empty media.
+15. `release_audit.py --strict --pptx <file>`: package, XML, slide count, aspect ratio,
+    forbidden wording, sparse-page checks, consecutive-duplicate checks, and parser checks pass.
+16. GitHub upload: commit and push this run's relevant artifacts, contracts, QA records,
     exports, and local agent-rule changes to `origin`.
 
 ## Blocking Defects

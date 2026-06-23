@@ -2,14 +2,40 @@
 
 ## Design
 
-This repository uses a two-layer model:
+This repository uses a three-layer model:
 
 1. `.vendor/ppt-master/skills/ppt-master/` is the pinned upstream execution kernel.
 2. `.codex/skills/engineering-ppt/` is the local engineering-report orchestration layer.
+3. `.codex/skills/engineering-ppt/references/frontier-agent-fusion.md` is the
+   frontier-method fusion layer for public PPT agent research.
 
 The local layer adds source traceability, claim-first story design, Chinese engineering
 defaults, project routing, Windows commands, and mandatory visual QA. It does not fork
 or patch upstream implementation files.
+
+## Frontier Baseline
+
+As of 2026-06, the strongest open public PPT-generation line is
+`icip-cas/PPTAgent`, especially its `DeepPresenter` branch. It supports reflective
+generation, PPTX export, offline mode, MCP integration, sandboxed tools, and a
+published PPT-specialized model:
+
+- Full model: `Forceless/DeepPresenter-9B`
+- Lightweight local model: `Forceless/DeepPresenter-9B-GGUF`
+
+This repo does not vendor those models by default. They are optional generation
+backends that can be connected later through an approved local OpenAI-compatible
+endpoint. The current integration takes the ideas that improve reliability without
+adding heavyweight runtime dependencies:
+
+- DeepPresenter: render, observe, revise, and keep reflection grounded in actual
+  slide artifacts.
+- AeSlides: audit aspect preservation, occupied area, collisions, and visual balance
+  with deterministic layout metrics.
+- MemSlides: keep persistent rules in the skill, run-specific decisions in project
+  contracts, and targeted edits scoped to the smallest affected slide region.
+- SlideBot/PreGenie: retain modular multimodal analysis and retrieval-grounded
+  planning where useful, while keeping verified project sources as the authority.
 
 ## Commands
 
@@ -22,6 +48,9 @@ or patch upstream implementation files.
 
 `update` fast-forwards the vendored upstream repository. Review upstream release notes
 and run `doctor` after updating.
+
+`audit` also runs deterministic frontier layout checks through
+`qa/release_policy.json > aesthetic_layout`.
 
 ## Project Artifacts
 
@@ -79,6 +108,8 @@ labels remain in project records and never appear in the deck.
 - Treat text overflow, undersized key content, and unreadable source figures as release blockers.
 - Treat unsupported numbers, unverified evidence, visible internal labels, and chapters without
   original evidence as release blockers.
+- Treat disabled image aspect preservation and severe visual imbalance/element collision as
+  release blockers under strict audit.
 
 ## Upgrade Policy
 

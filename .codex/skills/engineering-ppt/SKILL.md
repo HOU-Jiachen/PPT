@@ -85,6 +85,11 @@ Read [evidence-contract.md](references/evidence-contract.md). Review the origina
 object before marking evidence `verified`; extracted text alone is not authoritative when it is
 damaged, merged, or incomplete.
 
+Read [frontier-agent-fusion.md](references/frontier-agent-fusion.md) before planning or
+reviewing a deck. Use it to apply DeepPresenter-style rendered-artifact reflection,
+AeSlides-style deterministic layout metrics, and MemSlides-style scoped revision memory
+without replacing the local evidence-first workflow.
+
 ## 5. Build The Report Content Inventory And PPT Blueprint
 
 Run:
@@ -363,7 +368,8 @@ Do not fill space with invented metrics or decorative cards.
 
 ## 11. Run Release Gates
 
-Read [release-gates.md](references/release-gates.md). Run:
+Read [release-gates.md](references/release-gates.md) and
+[frontier-agent-fusion.md](references/frontier-agent-fusion.md). Run:
 
 1. upstream `svg_quality_checker.py`
 2. upstream `verify-charts` for data-driven charts

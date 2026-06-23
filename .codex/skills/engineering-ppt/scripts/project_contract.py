@@ -91,6 +91,17 @@ def init_project(
                 "text_image_overlap_min_ratio": 0.15,
                 "image_min_area_ratio": 0.03,
             },
+            "aesthetic_layout": {
+                "enabled": True,
+                "minimum_box_area_ratio": 0.004,
+                "minimum_occupied_area_ratio": 0.18,
+                "minimum_structural_occupied_area_ratio": 0.10,
+                "maximum_occupied_area_ratio": 0.92,
+                "maximum_balance_offset_ratio": 0.22,
+                "severe_balance_offset_ratio": 0.32,
+                "element_overlap_min_ratio": 0.55,
+                "severe_element_overlap_ratio": 0.75,
+            },
             "section_dividers": {
                 "required": True,
                 "before_first_content_chapter": True,
