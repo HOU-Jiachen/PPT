@@ -35,6 +35,11 @@ Run the following gates in order. A later success never cancels an earlier failu
 - visible bullet, paragraph, or numbered item that is clipped or semantically unfinished
 - table or figure explanation that is a mechanical value dump, extracted-JSON phrasing,
   asset metadata, or generic text instead of source-faithful engineering interpretation
+- visible text that describes presentation strategy, reviewer behavior, truncation policy,
+  generation choices, or where to check the full report instead of stating report-body
+  engineering content
+- assistant-like or instructional visible wording such as `汇报时`, `本页`, `对评审而言`,
+  `评审需`, `应关注`, `PPT 中`, `报告原文复核`, `不替代报告原图`, or `完整表格可在报告原表中复核`
 - unsupported or newly calculated values not declared as verified calculations
 - source conflicts hidden from the audience
 - major chapter represented only by Agent conclusions

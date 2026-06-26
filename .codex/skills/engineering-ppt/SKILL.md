@@ -286,6 +286,15 @@ Local source-preservation overrides:
   interpretation grounded in the report, not a mechanical dump of extracted JSON fields,
   row counts, asset filenames, or naked values. Generic text such as `报告列示数值` is a
   content defect.
+- Agent-authored visible text must be report-body prose only. It may paraphrase the
+  report's engineering meaning, but it must not describe presentation strategy, review
+  behavior, generation choices, truncation policy, or where the audience should look later.
+  Phrases such as `汇报时`, `本页`, `对评审而言`, `评审需`, `PPT 中`, `报告原文复核`,
+  `完整表格可在报告原表中复核`, and `不替代报告原图` are visible-content defects.
+- De-AI visible prose: use concise Chinese engineering-report style with project nouns as
+  subjects, such as `工程特性表明确...`, `防治责任范围为...`, `措施体系包括...`.
+  Avoid assistant-like guidance words including `应优先`, `应关注`, `不能理解为`,
+  `只保留`, `不只展示`, and other instructions to a presenter or reviewer.
 - Use topic titles for faithful source pages; do not force every title into a new conclusion.
 - Prefer report headings and table/figure captions for visible small titles.
 - Keep visible source notes concise and professional.
