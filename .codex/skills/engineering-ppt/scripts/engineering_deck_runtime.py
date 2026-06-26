@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import re
+import zipfile
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
@@ -19,7 +20,7 @@ from PIL import Image
 from pptx import Presentation
 from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE_TYPE
-from pptx.enum.text import MSO_AUTO_SIZE, PP_ALIGN
+from pptx.enum.text import MSO_ANCHOR, MSO_AUTO_SIZE, PP_ALIGN
 from pptx.util import Inches, Pt
 
 
@@ -39,6 +40,8 @@ DEFAULT_COLORS = {
 
 BODY_MIN_PT = 14.0
 TABLE_MIN_PT = 12.0
+
+IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tif", ".tiff", ".webp"}
 
 INTERNAL_VISIBLE_PATTERNS = [
     r"来源模式[:：]?\s*\S+",
@@ -124,6 +127,40 @@ def text_preview(text: str, max_len: int = 480, complete_sentence: bool = False)
     if complete_sentence:
         clipped = remove_orphan_list_fragment(clipped)
     return ensure_sentence_end(clipped) if complete_sentence else clipped
+
+
+def complete_semantic_point(text: str, max_len: int = 130) -> str:
+    """Return a compact point that does not end on a dangling clause."""
+
+    point = text_preview(text, max_len, complete_sentence=True)
+    weak_tail = (
+        "并",
+        "及",
+        "与",
+        "和",
+        "或",
+        "对",
+        "将",
+        "为",
+        "按",
+        "由",
+        "在",
+        "其中",
+        "包括",
+        "主要",
+        "分别",
+        "以及",
+        "同时",
+        "通过",
+        "依据",
+    )
+    stripped = point.rstrip("。；;，,、 ")
+    if any(stripped.endswith(tail) for tail in weak_tail):
+        for mark in ("；", ";", "，", ",", "、"):
+            boundary = stripped.rfind(mark)
+            if boundary >= max(12, len(stripped) * 0.45):
+                return ensure_sentence_end(stripped[:boundary].strip())
+    return point
 
 
 def catalog_locator_number(entry: dict[str, Any]) -> int | None:
@@ -327,6 +364,37 @@ def join_short_titles(titles: list[str], limit: int = 32) -> str:
     return text_preview(joined, limit)
 
 
+def extract_docx_media(source_docx: Path, output_dir: Path) -> list[Path]:
+    """Extract embedded DOCX media for source-figure slides."""
+
+    if not source_docx.exists():
+        raise FileNotFoundError(f"Source DOCX not found: {source_docx}")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    extracted: list[Path] = []
+    with zipfile.ZipFile(source_docx) as archive:
+        for name in archive.namelist():
+            path = Path(name)
+            if path.parent.as_posix() != "word/media" or path.suffix.lower() not in IMAGE_EXTENSIONS:
+                continue
+            target = output_dir / path.name
+            target.write_bytes(archive.read(name))
+            extracted.append(target)
+    if not extracted:
+        raise ValueError(f"No embedded media found in DOCX: {source_docx}")
+    return sorted(extracted, key=lambda item: item.name.lower())
+
+
+def require_media_paths(media_dir: Path, names: list[str], context: str = "source figure") -> list[Path]:
+    """Return existing media paths or fail the build before a placeholder can leak."""
+
+    paths = [media_dir / name for name in names]
+    missing = [str(path) for path in paths if not path.exists()]
+    if missing:
+        joined = "; ".join(missing)
+        raise FileNotFoundError(f"Missing required {context} media: {joined}")
+    return paths
+
+
 def split_report_points(text: str, max_points: int = 5, max_len: int = 130) -> list[str]:
     text = sanitize_visible_text(text)
     text = remove_orphan_list_fragment(text)
@@ -344,13 +412,13 @@ def split_report_points(text: str, max_points: int = 5, max_len: int = 130) -> l
             current = candidate
             continue
         if current:
-            points.append(text_preview(current, max_len, complete_sentence=True))
+            points.append(complete_semantic_point(current, max_len))
         current = sentence
         if len(points) >= max_points:
             break
     if current and len(points) < max_points:
-        points.append(text_preview(current, max_len, complete_sentence=True))
-    return points[:max_points] or [text_preview(text, max_len, complete_sentence=True)]
+        points.append(complete_semantic_point(current, max_len))
+    return points[:max_points] or [complete_semantic_point(text, max_len)]
 
 
 def report_heading(source_mode: str) -> str:
@@ -997,11 +1065,13 @@ def add_table(
         for j, cell_text in enumerate(row):
             cell = table.cell(i, j)
             cell.text = cell_text
+            cell.vertical_anchor = MSO_ANCHOR.MIDDLE
             cell.margin_left = Inches(0.04)
             cell.margin_right = Inches(0.04)
             cell.margin_top = Inches(0.02)
             cell.margin_bottom = Inches(0.02)
             for paragraph in cell.text_frame.paragraphs:
+                paragraph.alignment = PP_ALIGN.CENTER
                 paragraph.font.name = "Microsoft YaHei"
                 paragraph.font.size = pt(TABLE_MIN_PT)
                 paragraph.font.color.rgb = rgb(palette["ink"])
@@ -1048,9 +1118,12 @@ def add_image_panel(
     w,
     h,
     colors: dict[str, str] | None = None,
+    allow_placeholder: bool = False,
 ):
     palette = colors or DEFAULT_COLORS
     if not paths:
+        if not allow_placeholder:
+            raise ValueError("Required source-figure panel has no image paths")
         add_fill(slide, x, y, w, h, "soft", colors=palette)
         add_textbox(
             slide,
@@ -1147,7 +1220,7 @@ def add_agenda_slide(
         6.75,
         9.8,
         0.30,
-        "汇报按报告章节展开，依次呈现勘察任务、基础工作、区域与矿区水文地质条件、勘探试验、分区评价、涌水量预测、模型校核及防治水建议。",
+        "汇报按报告章节展开，依次呈现项目背景、工程概况、评价预测、措施体系、投资效益与管理验收。",
         10.5,
         "muted",
         colors=palette,

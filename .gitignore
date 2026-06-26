@@ -15,6 +15,7 @@ projects/**/preview-server*.log
 projects/**/~$*
 projects/**/debug_*
 projects/**/full_deck/
+projects/**/images/docx_media/*
 projects/**/notes/
 projects/**/exports/
 projects/**/qa/report-docx.zip

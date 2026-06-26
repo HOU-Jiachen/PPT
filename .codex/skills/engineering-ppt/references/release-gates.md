@@ -32,6 +32,9 @@ Run the following gates in order. A later success never cancels an earlier failu
 
 - visible internal workflow labels or caveats
 - visible ellipses used as incomplete wording or source-text replacement
+- visible bullet, paragraph, or numbered item that is clipped or semantically unfinished
+- table or figure explanation that is a mechanical value dump, extracted-JSON phrasing,
+  asset metadata, or generic text instead of source-faithful engineering interpretation
 - unsupported or newly calculated values not declared as verified calculations
 - source conflicts hidden from the audience
 - major chapter represented only by Agent conclusions
@@ -40,6 +43,10 @@ Run the following gates in order. A later success never cancels an earlier failu
   and figures
 - text reduced below the readability floor to preserve decoration
 - key source table, map, or figure too small to inspect
+- planned source figure, map, chart, or required image replaced by a generic placeholder
+  or omitted without a recorded plan change
+- complex source table flattened so merged headers, units, row groups, or footnotes become
+  misleading or unreadable
 - sparse page containing neither adequate explanation nor substantive source evidence
 - consecutive content pages whose body text is near-identical while only the title or figure changes
 - technical chapters reduced to summary cards without enough original text, tables, figures,

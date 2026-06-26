@@ -37,6 +37,7 @@
       "content_unit_ids": [],
       "visual_proof": "",
       "layout_pattern": "",
+      "image_names": [],
       "source_note": "",
       "density": "normal",
       "density_exempt_reason": "structural slide"
@@ -51,6 +52,7 @@
       "content_unit_ids": [],
       "visual_proof": "",
       "layout_pattern": "",
+      "image_names": [],
       "source_note": "",
       "density": "normal",
       "density_exempt_reason": "structural slide"
@@ -69,6 +71,7 @@
       ],
       "visual_proof": "综合报告表拆分呈现项目概况、土石方、防治目标、措施和投资控制指标",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T004",
       "density": "dense",
       "density_exempt_reason": ""
@@ -91,6 +94,7 @@
       ],
       "visual_proof": "报告附件清单、可研批复、初设批复和前期工作概况原文",
       "layout_pattern": "text_with_keypoints",
+      "image_names": [],
       "source_note": "P0036、P0037、P0079、P0080、P0082",
       "density": "normal",
       "density_exempt_reason": ""
@@ -109,16 +113,17 @@
       ],
       "visual_proof": "建设项目工程特性表，含总投资、土建投资、建设规模、工期和占地",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T008、P0207",
       "density": "dense",
       "density_exempt_reason": ""
     },
     {
       "page": 6,
-      "type": "text",
+      "type": "figure",
       "chapter": "项目概况与工程布置",
       "title": "项目位于黄州区城北片区并沿多条道路布设",
-      "source_mode": "ORIGINAL_TEXT",
+      "source_mode": "ORIGINAL_FIGURE",
       "evidence_ids": [
         "E-004"
       ],
@@ -129,17 +134,20 @@
         "UNIT-0081"
       ],
       "visual_proof": "项目基本情况、建设地点和工程建设地点示意图标题",
-      "layout_pattern": "left_text_right_table",
+      "layout_pattern": "top_figure_bottom_text",
+      "image_names": [
+        "image18.png"
+      ],
       "source_note": "P0065、P0066、P0071、T009",
-      "density": "normal",
+      "density": "dense",
       "density_exempt_reason": ""
     },
     {
       "page": 7,
-      "type": "text",
+      "type": "figure",
       "chapter": "项目概况与工程布置",
       "title": "施工组织与顶管工艺决定扰动范围和防护时序",
-      "source_mode": "ORIGINAL_TEXT",
+      "source_mode": "ORIGINAL_FIGURE",
       "evidence_ids": [
         "E-005"
       ],
@@ -148,9 +156,14 @@
         "UNIT-0089"
       ],
       "visual_proof": "顶管施工示意、顶管井回填纵横剖示意及施工工艺说明",
-      "layout_pattern": "text_with_keypoints",
+      "layout_pattern": "top_figure_bottom_text",
+      "image_names": [
+        "image19.png",
+        "image20.png",
+        "image21.png"
+      ],
       "source_note": "T010、T011",
-      "density": "normal",
+      "density": "dense",
       "density_exempt_reason": ""
     },
     {
@@ -168,6 +181,7 @@
       ],
       "visual_proof": "本项目防治责任范围一览表与工程占地情况一览表",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T006、P0125、T013、P0252",
       "density": "dense",
       "density_exempt_reason": ""
@@ -186,6 +200,7 @@
       ],
       "visual_proof": "本工程水土流失防治目标值表",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T007、P0134",
       "density": "dense",
       "density_exempt_reason": ""
@@ -206,6 +221,7 @@
       ],
       "visual_proof": "水土保持法、GB50433-2018、长江保护法制约因素分析评价表",
       "layout_pattern": "top_table_bottom_text",
+      "image_names": [],
       "source_note": "T018、P0319、T019、P0322、T020、P0325",
       "density": "dense",
       "density_exempt_reason": ""
@@ -225,6 +241,7 @@
       ],
       "visual_proof": "工程土石方平衡表及土石方平衡流向图标题",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T015、P0264、T016",
       "density": "dense",
       "density_exempt_reason": ""
@@ -243,6 +260,7 @@
       ],
       "visual_proof": "主体工程设计中应纳入水土保持的措施量及投资一览表",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T021、P0369",
       "density": "dense",
       "density_exempt_reason": ""
@@ -263,6 +281,7 @@
       ],
       "visual_proof": "扰动地表面积表、预测单元划分表、预测范围与预测时段划分表",
       "layout_pattern": "top_table_bottom_text",
+      "image_names": [],
       "source_note": "T023、P0392、T025、P0401、T026、P0407",
       "density": "dense",
       "density_exempt_reason": ""
@@ -282,6 +301,7 @@
       ],
       "visual_proof": "各地类土壤侵蚀模数取值表和背景值计算表",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T027、P0412、T028、P0420",
       "density": "dense",
       "density_exempt_reason": ""
@@ -303,6 +323,7 @@
       ],
       "visual_proof": "植被破坏型、地表翻扰型和自然恢复期土壤侵蚀模数计算表",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T030、P0463、T031、P0471、T032、P0474、T033、P0476",
       "density": "dense",
       "density_exempt_reason": ""
@@ -321,6 +342,7 @@
       ],
       "visual_proof": "工程建设可能造成的土壤流失量预测结果表",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T034、P0496",
       "density": "dense",
       "density_exempt_reason": ""
@@ -339,6 +361,7 @@
       ],
       "visual_proof": "水土流失防治区划分表",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T035、P0523",
       "density": "dense",
       "density_exempt_reason": ""
@@ -358,6 +381,7 @@
       ],
       "visual_proof": "水土流失防治措施体系表和措施工程量汇总表",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T036、P0549、T037、P0573",
       "density": "dense",
       "density_exempt_reason": ""
@@ -376,6 +400,7 @@
       ],
       "visual_proof": "水土保持措施实施进度表",
       "layout_pattern": "top_table_bottom_text",
+      "image_names": [],
       "source_note": "T038、P0601",
       "density": "dense",
       "density_exempt_reason": ""
@@ -394,6 +419,7 @@
       ],
       "visual_proof": "本项目水土保持估算总表",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T040、P0679",
       "density": "dense",
       "density_exempt_reason": ""
@@ -415,6 +441,7 @@
       ],
       "visual_proof": "工程措施、植物措施、临时措施和独立费用估算表",
       "layout_pattern": "top_table_bottom_text",
+      "image_names": [],
       "source_note": "T041、P0680、T042、P0681、T043、P0682、T044、P0683",
       "density": "dense",
       "density_exempt_reason": ""
@@ -433,6 +460,7 @@
       ],
       "visual_proof": "水土保持补偿费计算表及免征依据说明",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T045、P0684",
       "density": "dense",
       "density_exempt_reason": ""
@@ -451,6 +479,7 @@
       ],
       "visual_proof": "水土保持防治效果分析表",
       "layout_pattern": "left_table_right_text",
+      "image_names": [],
       "source_note": "T048、P0700",
       "density": "dense",
       "density_exempt_reason": ""
@@ -471,6 +500,7 @@
       ],
       "visual_proof": "水土保持设施验收及后续管理章节内容",
       "layout_pattern": "text_with_keypoints",
+      "image_names": [],
       "source_note": "T049、T050、T051",
       "density": "normal",
       "density_exempt_reason": ""

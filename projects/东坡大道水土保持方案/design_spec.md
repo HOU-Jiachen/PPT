@@ -103,15 +103,15 @@ The deck uses report-native tables, maps, figures and formulas because source fi
 - **Evidence**: E-003
 - **Source note**: T008、P0207
 #### Slide 06 - 项目位于黄州区城北片区并沿多条道路布设
-- **Layout**: left_text_right_table
+- **Layout**: top_figure_bottom_text
 - **Core message**: 项目位于黄州区城北片区并沿多条道路布设
-- **Source mode**: ORIGINAL_TEXT
+- **Source mode**: ORIGINAL_FIGURE
 - **Evidence**: E-004
 - **Source note**: P0065、P0066、P0071、T009
 #### Slide 07 - 施工组织与顶管工艺决定扰动范围和防护时序
-- **Layout**: text_with_keypoints
+- **Layout**: top_figure_bottom_text
 - **Core message**: 施工组织与顶管工艺决定扰动范围和防护时序
-- **Source mode**: ORIGINAL_TEXT
+- **Source mode**: ORIGINAL_FIGURE
 - **Evidence**: E-005
 - **Source note**: T010、T011
 

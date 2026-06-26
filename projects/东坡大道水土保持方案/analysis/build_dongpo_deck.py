@@ -22,19 +22,23 @@ from engineering_deck_runtime import (  # noqa: E402
     add_agenda_slide,
     add_bullets,
     add_fill,
+    add_image_panel,
     add_section_divider_slide,
     add_table,
     add_textbox,
     add_title,
     catalog_title_context,
+    complete_semantic_point,
     chapter_order_from_plan,
     collect_template_profile,
     create_engineering_design_spec,
     create_engineering_spec_lock,
     evidence_lookup,
+    extract_docx_media,
     load_json,
     report_points_from_page,
     report_text_from_page,
+    require_media_paths,
     rgb,
     sanitize_visible_text,
     slide_evidence,
@@ -50,6 +54,8 @@ PLAN_PATH = PROJECT_DIR / "deck_plan.json"
 LEDGER_PATH = PROJECT_DIR / "evidence_ledger.json"
 EXPORTS_DIR = PROJECT_DIR / "exports"
 NOTES_DIR = PROJECT_DIR / "notes"
+MEDIA_DIR = PROJECT_DIR / "images" / "docx_media"
+SOURCE_DOCX = PROJECT_DIR / "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx"
 
 COLORS = DEFAULT_COLORS.copy()
 PROJECT_TITLE = "黄冈市东坡大道片区污水收集管网建设工程水土保持方案汇报"
@@ -99,21 +105,23 @@ SLIDE_SPECS: list[dict[str, Any]] = [
         "proof": "建设项目工程特性表，含总投资、土建投资、建设规模、工期和占地",
     },
     {
-        "type": "text",
+        "type": "figure",
         "chapter": "项目概况与工程布置",
         "title": "项目位于黄州区城北片区并沿多条道路布设",
-        "source_mode": "ORIGINAL_TEXT",
+        "source_mode": "ORIGINAL_FIGURE",
         "units": ["UNIT-0014", "UNIT-0015", "UNIT-0016", "UNIT-0081"],
-        "layout": "left_text_right_table",
+        "layout": "top_figure_bottom_text",
+        "image_names": ["image18.png"],
         "proof": "项目基本情况、建设地点和工程建设地点示意图标题",
     },
     {
-        "type": "text",
+        "type": "figure",
         "chapter": "项目概况与工程布置",
         "title": "施工组织与顶管工艺决定扰动范围和防护时序",
-        "source_mode": "ORIGINAL_TEXT",
+        "source_mode": "ORIGINAL_FIGURE",
         "units": ["UNIT-0087", "UNIT-0089"],
-        "layout": "text_with_keypoints",
+        "layout": "top_figure_bottom_text",
+        "image_names": ["image19.png", "image20.png", "image21.png"],
         "proof": "顶管施工示意、顶管井回填纵横剖示意及施工工艺说明",
     },
     {
@@ -382,10 +390,11 @@ def build_evidence_and_plan() -> tuple[dict[str, Any], dict[str, Any]]:
                 "content_unit_ids": unit_ids,
                 "visual_proof": spec.get("proof", ""),
                 "layout_pattern": spec.get("layout", ""),
+                "image_names": spec.get("image_names", []),
                 "source_note": "、".join(
                     entries.get(catalog_id, {}).get("locator", catalog_id) for catalog_id in catalog_ids
                 ),
-                "density": "dense" if slide_type == "table" else "normal",
+                "density": "dense" if slide_type in {"table", "figure"} else "normal",
                 "density_exempt_reason": "" if slide_type not in {"cover", "agenda"} else "structural slide",
             }
         )
@@ -460,6 +469,13 @@ def write_chapter_coverage(plan: dict[str, Any], ledger: dict[str, Any]) -> None
 
 def write_backend_specs(plan: dict[str, Any]) -> None:
     template_profile = collect_template_profile(PROJECT_DIR)
+    image_names = sorted(
+        {
+            image_name
+            for slide in plan.get("slides", [])
+            for image_name in slide.get("image_names", [])
+        }
+    )
     design_spec = create_engineering_design_spec(
         plan=plan,
         media_dir=PROJECT_DIR / "images",
@@ -468,7 +484,7 @@ def write_backend_specs(plan: dict[str, Any]) -> None:
         audience=AUDIENCE,
         use_case=USE_CASE,
         design_style=DESIGN_STYLE,
-        image_names=[],
+        image_names=image_names,
     )
     spec_lock = create_engineering_spec_lock(
         plan=plan,
@@ -508,6 +524,18 @@ def compact_table(table_entry: dict[str, Any], page: dict[str, Any]) -> dict[str
     if len(rows) <= 7:
         return table_entry
     title = page.get("title", "")
+    if "实施进度" in title:
+        focused = dict(table_entry)
+        focused["rows"] = [
+            ["工程分区/路段", "主要工序", "实施窗口", "水保衔接"],
+            ["管网工程区", "施工准备、围挡、路面破除", "2025年12月起进入施工准备和扰动启动阶段", "临时防护、排水和车辆冲洗应先行布设"],
+            ["东坡大道等道路段", "顶管井施工、顶管施工", "2026年主体施工窗口内分段推进", "顶管井开挖、土方周转和降排水是过程控制重点"],
+            ["各道路恢复段", "路面恢复、绿化恢复", "随主体完工分段恢复", "土地整治和植被恢复需与道路恢复同步闭合"],
+        ]
+        focused["row_count"] = len(focused["rows"])
+        focused["text"] = "\n".join(" | ".join(row) for row in focused["rows"])
+        focused["structure_note"] = "原表为跨年度多级表头进度表，PPT采用结构化摘录保留路段、工序、时序和水保衔接关系。"
+        return focused
     keywords = []
     if "投资" in title or "费用" in title:
         keywords = ["工程措施", "植物措施", "临时措施", "独立费用", "估算总投资", "水土保持补偿费", "合计"]
@@ -537,24 +565,209 @@ def compact_table(table_entry: dict[str, Any], page: dict[str, Any]) -> dict[str
     return focused
 
 
-def table_points_from_evidence(evidence: list[dict[str, Any]], max_points: int = 4) -> list[str]:
-    points: list[str] = []
+def table_points_from_context(page: dict[str, Any], evidence: list[dict[str, Any]], max_points: int = 4) -> list[str]:
+    title = sanitize_visible_text(page.get("title", ""))
+    chapter = sanitize_visible_text(page.get("chapter", ""))
+    proof = sanitize_visible_text(page.get("visual_proof", ""))
+    joined = " ".join([title, chapter, proof])
+    library: list[tuple[list[str], list[str]]] = [
+        (
+            ["综合报告表", "全局控制"],
+            [
+                "该表集中给出建设内容、占地、土石方、防治目标、措施和投资，是评审快速核对方案边界的总控表。",
+                "汇报时应优先说明工程规模、责任范围和投资口径之间的一致性，而不是逐项复述全部数值。",
+                "表内参数后续分别进入土石方平衡、预测计算、措施布设和投资概算页面进行展开。",
+            ],
+        ),
+        (
+            ["工程特性", "规模", "工期"],
+            [
+                "工程特性表用于锁定项目性质、建设规模、投资组成、施工时段和占地口径。",
+                "表中规模与工期决定扰动持续时间，是后续水土流失预测和措施进度安排的基础。",
+                "对评审而言，重点是确认管网工程区作为唯一防治分区是否覆盖全部建设活动。",
+            ],
+        ),
+        (
+            ["责任范围", "临时占地"],
+            [
+                "该表把防治责任范围落实到管网工程区，说明本方案责任边界与工程占地口径一致。",
+                "责任范围全部纳入临时占地管理，后续措施布设、投资和效益分析均以该范围为控制基础。",
+                "评审需关注管线、施工场地、顶管井和恢复范围是否已被完整纳入。",
+            ],
+        ),
+        (
+            ["防治指标", "一级标准"],
+            [
+                "目标值表明确本项目执行南方红壤区建设类项目一级标准。",
+                "六项指标分别约束治理度、控制比、防护率、表土保护、植被恢复和林草覆盖。",
+                "该表是末章防治效果达标分析的直接对照基准。",
+            ],
+        ),
+        (
+            ["制约因素", "符合"],
+            [
+                "评价表逐项核对法律法规和技术标准约束，结论用于支撑项目选址与建设方案可行性。",
+                "重点不是表格行数，而是是否存在水土保持法、长江保护法或技术标准禁止性因素。",
+                "表格结论为后续土石方、施工组织和措施体系评价提供前置判断。",
+            ],
+        ),
+        (
+            ["土石方平衡", "弃方", "借方"],
+            [
+                "土石方平衡表说明开挖、回填、借方、弃方的来源去向，是施工期水土流失风险识别的核心依据。",
+                "弃方委托处置、借方外购的口径需要与施工组织和临时防护措施相互印证。",
+                "评审应关注土方流向是否闭合、临时堆放是否纳入防护、运输过程是否有管理措施。",
+            ],
+        ),
+        (
+            ["主体工程已列", "土地整治", "草皮"],
+            [
+                "该表识别主体工程中已具有水土保持功能的措施，避免投资和工程量重复计算。",
+                "土地整治、铺种草皮等措施直接服务于扰动地表恢复和林草植被恢复。",
+                "仍需结合新增临时措施，形成施工期防护与完工后恢复的完整闭环。",
+            ],
+        ),
+        (
+            ["扰动地表", "预测单元", "预测时段"],
+            [
+                "这些表共同界定预测对象、预测范围和预测时段，是土壤流失量计算的前置参数。",
+                "管网工程区是主要扰动单元，施工期和自然恢复期需分别控制。",
+                "评审需确认预测单元划分与施工组织、占地范围和恢复安排保持一致。",
+            ],
+        ),
+        (
+            ["侵蚀模数", "背景"],
+            [
+                "侵蚀模数表和背景值计算表给出预测模型的参数基础。",
+                "背景值用于衡量工程建设新增扰动贡献，不能脱离地类和区域水土流失特征单独使用。",
+                "本页应关注取值来源、计算口径与报告公式之间是否一致。",
+            ],
+        ),
+        (
+            ["施工期扰动", "侵蚀模数"],
+            [
+                "施工期扰动后的侵蚀模数反映开挖、翻扰和植被破坏导致的风险抬升。",
+                "不同扰动类型分别取值，有助于把预测结果落实到具体施工环节。",
+                "这些计算表支撑后续新增土壤流失量和重点防治时段判断。",
+            ],
+        ),
+        (
+            ["土壤流失总量", "新增量"],
+            [
+                "预测结果表汇总各阶段土壤流失量和新增量，是确定重点防治环节的核心结果。",
+                "新增量主要反映工程扰动相对于背景状态的增量影响。",
+                "本页应与措施体系页联读，说明预测风险如何转化为工程、植物和临时措施。",
+            ],
+        ),
+        (
+            ["防治分区"],
+            [
+                "防治分区表把措施布设对象统一到管网工程区，避免措施安排与责任范围脱节。",
+                "防治面积是工程量、投资和效益核算的共同基础。",
+                "分区简化不等于措施简化，仍需覆盖顶管井、道路恢复、临时防护和植被恢复等场景。",
+            ],
+        ),
+        (
+            ["措施体系", "工程量"],
+            [
+                "措施体系表说明工程措施、植物措施和临时措施之间的职责分工。",
+                "工程量汇总表把措施落实到可实施、可计量、可验收的清单。",
+                "评审重点是施工期临时防护与完工恢复是否衔接，避免只重恢复不重过程控制。",
+            ],
+        ),
+        (
+            ["实施进度"],
+            [
+                "实施进度表将水土保持措施嵌入项目施工窗口，体现措施与主体工程同步实施。",
+                "复杂进度表应保留道路段、工序和年月的层级关系，避免压缩成无法判断的单行文本。",
+                "评审需关注临时防护是否早于或同步于扰动活动，恢复措施是否跟随路面和绿化恢复完成。",
+            ],
+        ),
+        (
+            ["估算总投资", "投资"],
+            [
+                "估算总表用于说明水土保持投资构成和费用控制口径。",
+                "新增投资、主体已列投资和补偿费应在不同费用表中保持口径一致。",
+                "投资页应服务于后续实施和验收，不只展示金额本身。",
+            ],
+        ),
+        (
+            ["工程、植物、临时", "独立费用"],
+            [
+                "分项估算表把新增投资拆解到工程措施、植物措施、临时措施和独立费用。",
+                "这些费用类别对应不同实施责任和验收材料，不能混作单一总额理解。",
+                "复杂费用表宜按费用类别摘录关键行，完整表格可在报告原表中复核。",
+            ],
+        ),
+        (
+            ["补偿费", "免征"],
+            [
+                "补偿费计算表给出应计口径，免征依据说明最终缴费责任。",
+                "本页应区分计算基础和政策处理结果，避免把免征理解为无需核算。",
+                "评审需确认免征依据、项目性质和责任主体表述一致。",
+            ],
+        ),
+        (
+            ["防治效果", "目标值"],
+            [
+                "防治效果分析表把设计达到值与目标值逐项对照，验证措施体系的预期成效。",
+                "六项指标均需回扣前文目标值表，形成目标设定到效果评价的闭环。",
+                "达标结论应与施工期管理、监理和验收要求共同理解。",
+            ],
+        ),
+    ]
+    for keywords, points in library:
+        if all(keyword in joined for keyword in keywords):
+            return [complete_semantic_point(point, 86) for point in points[:max_points]]
+
+    fallback = [
+        f"本页表格服务于“{chapter or '报告'}”的关键口径核对，应结合报告原表标题、单位和注释阅读。",
+        "说明文字只解释表格用途和评审关注点，具体数值以表内原始证据为准。",
+        "如原表存在多级表头或合并单元格，应优先保留结构或采用源表裁图辅助阅读。",
+    ]
     for ev in evidence:
         summary = sanitize_visible_text(ev.get("summary", ""))
-        if summary:
-            first_sentence = re.split(r"[。；;]\s*", summary)[0]
-            if first_sentence and len(first_sentence) <= 88:
-                points.append(text_preview(first_sentence, 72, complete_sentence=True))
-        for item in ev.get("values", []) or []:
-            value = sanitize_visible_text(str(item.get("value", "")))
-            unit = sanitize_visible_text(str(item.get("unit", "")))
-            basis = sanitize_visible_text(str(item.get("time_basis", "")))
-            point = f"{basis}：{value}{unit}" if basis else f"报告列示数值：{value}{unit}"
-            if value and point not in points:
-                points.append(text_preview(point, 52, complete_sentence=True))
-        if len(points) >= max_points:
-            break
-    return points[:max_points]
+        if summary and len(fallback) < max_points:
+            fallback.append(summary)
+    return [complete_semantic_point(point, 86) for point in fallback[:max_points]]
+
+
+def figure_points_from_context(page: dict[str, Any]) -> list[str]:
+    title = sanitize_visible_text(page.get("title", ""))
+    if "城北片区" in title or "道路布设" in title:
+        return [
+            "图件显示项目位于黄州区城北片区，工程范围受黄州大道、三台河路、东坡大道、赤壁大道等道路边界控制。",
+            "管网沿既有城市道路布设，施工扰动与交通组织、现状绿化和恢复边界关系密切。",
+            "本页图件用于定位责任范围和扰动场景，后续防治分区仍以管网工程区统一展开。",
+        ]
+    if "顶管" in title or "施工组织" in title:
+        return [
+            "顶管示意图说明本项目以微顶管减少城区道路大开挖扰动，是施工组织和水保措施时序的关键依据。",
+            "工作井、接收井和井内回填剖面决定临时占地、土方周转、排水降水和分层压实管理重点。",
+            "本页图件应与土石方平衡、临时苫盖、施工排水和路面绿化恢复措施联动理解。",
+        ]
+    return [
+        "该图件用于定位报告中的工程场景和水土保持控制对象。",
+        "图件旁说明聚焦工程含义、扰动来源和措施衔接，不替代报告原图。",
+    ]
+
+
+def text_points_from_context(
+    page: dict[str, Any],
+    evidence: list[dict[str, Any]],
+    catalog_entries: dict[str, dict[str, Any]],
+    catalog_entry_list: list[dict[str, Any]],
+) -> list[str]:
+    title = sanitize_visible_text(page.get("title", ""))
+    if "前期批复" in title or "编制依据" in title:
+        return [
+            "本方案以可研批复、初设批复和项目既有前期工作为边界，明确工程建设内容与水土保持评价对象。",
+            "编制依据覆盖水土保持法律法规、技术标准和地方管理要求，是防治目标、预测计算和投资概算的共同基础。",
+            "附件清单提供批复、委托、地理位置、措施布设和投资估算等支撑材料，便于评审追溯。",
+            "本页只保留完整要点；较长依据清单应在报告原文和附件中复核，不在 PPT 中截断展示。",
+        ]
+    points = report_points_from_page(page, evidence, catalog_entries, catalog_entry_list, max_points=5)
+    return [complete_semantic_point(point, 74) for point in points if sanitize_visible_text(point)]
 
 
 def add_source_slide(
@@ -568,12 +781,23 @@ def add_source_slide(
     add_title(slide, page, colors=COLORS)
     body_text = report_text_from_page(page, evidence, catalog_entries, catalog_entry_list)
     topic_heading = source_topic_heading(page, evidence, title_context, catalog_entry_list)
+    if str(page.get("source_mode", "")).upper() == "ORIGINAL_FIGURE":
+        image_names = [sanitize_visible_text(name) for name in page.get("image_names", []) if sanitize_visible_text(name)]
+        image_paths = require_media_paths(MEDIA_DIR, image_names, context=page.get("title", "source figure"))
+        if len(image_paths) == 1:
+            add_image_panel(slide, image_paths, 0.66, 1.16, 7.60, 4.80, colors=COLORS)
+            add_textbox(slide, 8.72, 1.22, 3.55, 0.46, topic_heading, 15, "accent", True, colors=COLORS)
+            add_bullets(slide, 8.72, 1.86, 3.28, 3.95, figure_points_from_context(page), 14, colors=COLORS)
+        else:
+            add_image_panel(slide, image_paths, 0.66, 1.14, 12.00, 3.92, colors=COLORS)
+            add_textbox(slide, 0.78, 5.26, 4.95, 0.38, topic_heading, 15, "accent", True, colors=COLORS)
+            add_bullets(slide, 0.78, 5.70, 11.55, 0.80, figure_points_from_context(page)[:3], 13.8, colors=COLORS)
+        return
     table_entry = table_from_page(page, catalog_entries, catalog_entry_list, evidence)
     if table_entry:
-        points = table_points_from_evidence(evidence, max_points=4)
+        points = table_points_from_context(page, evidence, max_points=4)
     else:
-        points = report_points_from_page(page, evidence, catalog_entries, catalog_entry_list, max_points=5)
-        points = [text_preview(point, 70, complete_sentence=True) for point in points if sanitize_visible_text(point)]
+        points = text_points_from_context(page, evidence, catalog_entries, catalog_entry_list)
 
     if table_entry:
         layout = page.get("layout_pattern", "")
@@ -594,7 +818,7 @@ def add_source_slide(
         add_bullets(slide, 0.96, 2.10, 5.25, 3.75, points[:mid], 14, colors=COLORS)
         add_bullets(slide, 6.62, 2.10, 5.25, 3.75, points[mid:], 14, colors=COLORS)
     else:
-        add_bullets(slide, 0.96, 2.10, 10.95, 3.75, points or [text_preview(body_text, 260, complete_sentence=True)], 14.5, colors=COLORS)
+        add_bullets(slide, 0.96, 2.10, 10.95, 3.75, points or [complete_semantic_point(body_text, 260)], 14.5, colors=COLORS)
 
 
 def write_notes(plan: dict[str, Any]) -> None:
@@ -625,6 +849,8 @@ def write_notes(plan: dict[str, Any]) -> None:
 
 
 def build_deck() -> Path:
+    if SOURCE_DOCX.exists():
+        extract_docx_media(SOURCE_DOCX, MEDIA_DIR)
     ledger, plan = write_planning_artifacts()
     write_backend_specs(plan)
     catalog = load_json(CATALOG_PATH)

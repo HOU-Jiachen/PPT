@@ -223,6 +223,9 @@ Visible text rules:
   evidence IDs, or source-mode strings.
 - Never show ellipses (`...`, `…`, `……`) as a substitute for long source text. Summarize to
   complete, source-faithful sentences or split the page.
+- Never leave a visible bullet, paragraph, or numbered item semantically unfinished. If a
+  source paragraph is too long for the frame, rewrite it into complete report-language
+  points or split the page before export.
 - After final font sizing, verify text-box capacity and table-cell capacity; if text does not
   fit at the minimum font size, shorten, enlarge, or split the page.
 
@@ -262,7 +265,16 @@ Local source-preservation overrides:
 
 - Use verified original figures at source resolution.
 - Give key maps and figures at least 45% of slide area.
+- Before rebuilding a complex table, inspect its source structure: merged cells, multi-row
+  headers, units, subtotal rows, footnotes, and row groups. Preserve that structure as a
+  native table when practical; otherwise use a source crop/image plus a simplified key-row
+  table. Do not flatten merged-cell tables into unreadable rows.
+- Center table cell content horizontally and vertically by default unless the source table
+  clearly requires another alignment.
 - Split or crop source tables instead of shrinking them.
+- Planned source figures are mandatory evidence. If a planned figure cannot be located or
+  embedded, stop and repair the source/media mapping or change the deck plan with a recorded
+  reason. Never silently replace a required figure with a generic placeholder.
 - Prefer original-source mixed pages over empty summary pages: left text / right figure,
   left figure / right text, top text / bottom figure, top figure / bottom text, left text /
   right table, left table / right text, top text / bottom table, or top table / bottom text.
@@ -270,6 +282,10 @@ Local source-preservation overrides:
   map, table crop, formula, or exact source parameter before adding decorative cards.
 - Retain units, time basis, footnotes, and uncertainty notes.
 - Put interpretation beside or after original evidence, never in its place.
+- Figure and table side explanations must be agent-authored, source-faithful engineering
+  interpretation grounded in the report, not a mechanical dump of extracted JSON fields,
+  row counts, asset filenames, or naked values. Generic text such as `报告列示数值` is a
+  content defect.
 - Use topic titles for faithful source pages; do not force every title into a new conclusion.
 - Prefer report headings and table/figure captions for visible small titles.
 - Keep visible source notes concise and professional.
