@@ -23,6 +23,8 @@ from pptx.enum.shapes import MSO_SHAPE_TYPE
 from pptx.enum.text import MSO_ANCHOR, MSO_AUTO_SIZE, PP_ALIGN
 from pptx.util import Inches, Pt
 
+from figure_layout_optimizer import choose_figure_layout
+
 
 DEFAULT_COLORS = {
     "bg": "F7F9FC",
@@ -1140,32 +1142,21 @@ def add_image_panel(
         )
         return
     n = min(len(paths), 4)
+    paths = paths[:n]
     if n == 1:
-        add_fill(slide, x, y, w, h, "paper", colors=palette)
-        add_image(slide, paths[0], x + 0.08, y + 0.08, w - 0.16, h - 0.16, colors=palette)
+        add_image(slide, paths[0], x, y, w, h, colors=palette)
         return
 
-    ratios = []
-    for path in paths[:n]:
-        try:
-            with Image.open(path) as im:
-                ratios.append(im.size[0] / im.size[1])
-        except Exception:
-            pass
-    if n <= 3 and ratios and sum(ratios) / len(ratios) > 2.4:
-        cols = 1
-        rows = n
-    else:
-        cols = 2
-        rows = 1 if n <= 2 else 2
-    gap = 0.12
+    layout = choose_figure_layout(paths, w, h)
+    cols = int(layout["cols"])
+    rows = int(layout["rows"])
+    gap = float(layout["gap"])
     cell_w = (w - gap * (cols - 1)) / cols
     cell_h = (h - gap * (rows - 1)) / rows
-    for idx, path in enumerate(paths[:n]):
+    for idx, path in enumerate(paths):
         cx = x + (idx % cols) * (cell_w + gap)
         cy = y + (idx // cols) * (cell_h + gap)
-        add_fill(slide, cx, cy, cell_w, cell_h, "paper", colors=palette)
-        add_image(slide, path, cx + 0.05, cy + 0.05, cell_w - 0.1, cell_h - 0.1, colors=palette)
+        add_image(slide, path, cx + 0.03, cy + 0.03, cell_w - 0.06, cell_h - 0.06, colors=palette)
 
 
 def add_bullets(

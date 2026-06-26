@@ -52,6 +52,8 @@ Run the following gates in order. A later success never cancels an earlier failu
   or omitted without a recorded plan change
 - complex source table flattened so merged headers, units, row groups, or footnotes become
   misleading or unreadable
+- DOCX table-heavy deck rendered without a `docx_table_models.json` structure pass or
+  without native merged-cell rendering for small/medium source tables that fit the slide
 - sparse page containing neither adequate explanation nor substantive source evidence
 - consecutive content pages whose body text is near-identical while only the title or figure changes
 - technical chapters reduced to summary cards without enough original text, tables, figures,

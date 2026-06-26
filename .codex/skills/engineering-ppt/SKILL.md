@@ -269,6 +269,16 @@ Local source-preservation overrides:
   headers, units, subtotal rows, footnotes, and row groups. Preserve that structure as a
   native table when practical; otherwise use a source crop/image plus a simplified key-row
   table. Do not flatten merged-cell tables into unreadable rows.
+- For DOCX sources, generate `analysis/docx_table_models.json` with
+  `scripts/docx_table_parser.py` before rendering table-heavy decks. Prefer the resulting
+  OOXML structure model over flattened catalog rows because it preserves `gridSpan`,
+  `vMerge`, table grid widths, and merge origins.
+- Render small and medium table models with `scripts/pptx_merged_table_renderer.py` so
+  PowerPoint receives real merged cells, not visually simulated blanks. If a merged table
+  has too many rows or columns to remain readable, switch to a wide table layout, split the
+  table, or use a structured excerpt with a recorded backend reason.
+- Use `scripts/figure_layout_optimizer.py` for source figures so image panels are chosen
+  from aspect ratio and figure count instead of a fixed card grid.
 - Center table cell content horizontally and vertically by default unless the source table
   clearly requires another alignment.
 - Split or crop source tables instead of shrinking them.

@@ -46,6 +46,8 @@ from engineering_deck_runtime import (  # noqa: E402
     table_from_page,
     text_preview,
 )
+from docx_table_parser import write_docx_table_models  # noqa: E402
+from pptx_merged_table_renderer import model_fits_native_table, render_merged_table  # noqa: E402
 
 
 CATALOG_PATH = PROJECT_DIR / "analysis" / "source_catalog.json"
@@ -56,6 +58,7 @@ EXPORTS_DIR = PROJECT_DIR / "exports"
 NOTES_DIR = PROJECT_DIR / "notes"
 MEDIA_DIR = PROJECT_DIR / "images" / "docx_media"
 SOURCE_DOCX = PROJECT_DIR / "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx"
+TABLE_MODELS_PATH = PROJECT_DIR / "analysis" / "docx_table_models.json"
 
 COLORS = DEFAULT_COLORS.copy()
 PROJECT_TITLE = "黄冈市东坡大道片区污水收集管网建设工程水土保持方案汇报"
@@ -770,6 +773,37 @@ def text_points_from_context(
     return [complete_semantic_point(point, 74) for point in points if sanitize_visible_text(point)]
 
 
+def table_model_for_entry(table_entry: dict[str, Any], table_models: dict[str, Any]) -> dict[str, Any] | None:
+    locator = sanitize_visible_text(table_entry.get("locator", "")).upper()
+    if not locator:
+        return None
+    model = table_models.get(locator)
+    if not model:
+        return None
+    if not model.get("rows"):
+        return None
+    return model
+
+
+def add_project_table(
+    slide,
+    table_entry: dict[str, Any],
+    page: dict[str, Any],
+    table_models: dict[str, Any],
+    x: float,
+    y: float,
+    w: float,
+    h: float,
+    max_rows: int,
+    max_cols: int,
+) -> None:
+    model = table_model_for_entry(table_entry, table_models)
+    if model and model_fits_native_table(model, max_rows=max_rows, max_cols=max_cols):
+        render_merged_table(slide, model, x, y, w, h, colors=COLORS, max_rows=max_rows, max_cols=max_cols)
+        return
+    add_table(slide, compact_table(table_entry, page), x, y, w, h, max_rows=max_rows, max_cols=max_cols, colors=COLORS)
+
+
 def add_source_slide(
     slide,
     page: dict[str, Any],
@@ -777,6 +811,7 @@ def add_source_slide(
     catalog_entries: dict[str, dict[str, Any]],
     catalog_entry_list: list[dict[str, Any]],
     title_context: dict[str, dict[str, str]],
+    table_models: dict[str, Any],
 ) -> None:
     add_title(slide, page, colors=COLORS)
     body_text = report_text_from_page(page, evidence, catalog_entries, catalog_entry_list)
@@ -801,12 +836,23 @@ def add_source_slide(
 
     if table_entry:
         layout = page.get("layout_pattern", "")
+        model = table_model_for_entry(table_entry, table_models)
+        if (
+            model
+            and model.get("has_merged_cells")
+            and model_fits_native_table(model, max_rows=7, max_cols=7)
+            and int(model.get("column_count", 0)) > 4
+        ):
+            render_merged_table(slide, model, 0.60, 1.16, 12.10, 3.78, colors=COLORS, max_rows=7, max_cols=7)
+            add_textbox(slide, 0.78, 5.12, 7.20, 0.54, topic_heading, 15, "accent", True, colors=COLORS)
+            add_bullets(slide, 0.78, 5.62, 11.55, 0.95, points[:3] or [text_preview(page["visual_proof"], 90, complete_sentence=True)], 14, colors=COLORS)
+            return
         if layout.startswith("top_"):
-            add_table(slide, compact_table(table_entry, page), 0.60, 1.16, 12.10, 3.78, max_rows=7, max_cols=5, colors=COLORS)
-            add_textbox(slide, 0.78, 5.18, 4.75, 0.38, topic_heading, 15, "accent", True, colors=COLORS)
+            add_project_table(slide, table_entry, page, table_models, 0.60, 1.16, 12.10, 3.78, max_rows=7, max_cols=5)
+            add_textbox(slide, 0.78, 5.12, 7.20, 0.54, topic_heading, 15, "accent", True, colors=COLORS)
             add_bullets(slide, 0.78, 5.62, 11.55, 0.95, points[:3] or [text_preview(page["visual_proof"], 90, complete_sentence=True)], 14, colors=COLORS)
         else:
-            add_table(slide, compact_table(table_entry, page), 0.60, 1.16, 8.00, 5.05, max_rows=7, max_cols=4, colors=COLORS)
+            add_project_table(slide, table_entry, page, table_models, 0.60, 1.16, 8.00, 5.05, max_rows=7, max_cols=4)
             add_textbox(slide, 8.95, 1.22, 3.35, 0.48, topic_heading, 15, "accent", True, colors=COLORS)
             add_bullets(slide, 8.95, 1.88, 3.15, 3.95, points[:4] or [text_preview(page["visual_proof"], 100, complete_sentence=True)], 14, colors=COLORS)
         return
@@ -851,6 +897,7 @@ def write_notes(plan: dict[str, Any]) -> None:
 def build_deck() -> Path:
     if SOURCE_DOCX.exists():
         extract_docx_media(SOURCE_DOCX, MEDIA_DIR)
+        write_docx_table_models(SOURCE_DOCX, TABLE_MODELS_PATH)
     ledger, plan = write_planning_artifacts()
     write_backend_specs(plan)
     catalog = load_json(CATALOG_PATH)
@@ -858,6 +905,8 @@ def build_deck() -> Path:
     catalog_entries = {entry["id"]: entry for entry in catalog_entry_list}
     title_context = catalog_title_context(catalog_entry_list)
     evidence_by_id = evidence_lookup(ledger)
+    table_models_payload = load_json(TABLE_MODELS_PATH) if TABLE_MODELS_PATH.exists() else {"by_locator": {}}
+    table_models = table_models_payload.get("by_locator", {})
 
     prs = Presentation()
     prs.slide_width = Inches(13.333333)
@@ -902,7 +951,7 @@ def build_deck() -> Path:
         slide.background.fill.fore_color.rgb = rgb(COLORS["bg"])
         render_page = dict(page, display_page=len(prs.slides) + 1)
         evidence = slide_evidence(page, evidence_by_id)
-        add_source_slide(slide, render_page, evidence, catalog_entries, catalog_entry_list, title_context)
+        add_source_slide(slide, render_page, evidence, catalog_entries, catalog_entry_list, title_context, table_models)
 
     EXPORTS_DIR.mkdir(exist_ok=True)
     out = EXPORTS_DIR / f"东坡大道水土保持方案汇报_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pptx"
