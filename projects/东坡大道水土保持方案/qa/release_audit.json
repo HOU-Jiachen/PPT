@@ -1,0 +1,33 @@
+{
+  "summary": {
+    "errors": 0,
+    "warnings": 1,
+    "info": 1,
+    "release_ready": true
+  },
+  "metadata": {
+    "project": "projects/东坡大道水土保持方案",
+    "strict": true,
+    "planned_slides": 24,
+    "expected_pptx_slides": 31,
+    "svg_slides": 0,
+    "content_units": 385,
+    "pptx": "projects/东坡大道水土保持方案/exports/东坡大道水土保持方案汇报_20260626_095433.pptx"
+  },
+  "findings": [
+    {
+      "level": "warning",
+      "code": "no-svg",
+      "message": "No SVG output found; visual-content checks were skipped.",
+      "context": {}
+    },
+    {
+      "level": "info",
+      "code": "pptx-valid",
+      "message": "PPTX package, XML, media, and parser checks passed.",
+      "context": {
+        "slides": 31
+      }
+    }
+  ]
+}
