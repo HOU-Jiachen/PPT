@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "project": "东坡大道水土保持方案",
-  "updated_at": "2026-06-26T10:49:00",
+  "updated_at": "2026-06-29T09:59:35",
   "rules": {
     "source_truth": "Only verified source evidence may support FACT or CALCULATION.",
     "conflict_handling": "Keep conflicting source values separate and disclose the conflict."

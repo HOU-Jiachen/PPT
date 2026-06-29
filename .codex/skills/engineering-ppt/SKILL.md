@@ -292,6 +292,10 @@ Local source-preservation overrides:
   map, table crop, formula, or exact source parameter before adding decorative cards.
 - Retain units, time basis, footnotes, and uncertainty notes.
 - Put interpretation beside or after original evidence, never in its place.
+- Do not auto-place a table, chart, or figure on pages whose `source_mode` is not an
+  original table/figure/calculation mode. Text, recommendation, and management-action
+  pages must use their selected paragraphs and headings only; a same-chapter table is not
+  valid fallback evidence unless the deck plan explicitly names it.
 - Figure and table side explanations must be agent-authored, source-faithful engineering
   interpretation grounded in the report, not a mechanical dump of extracted JSON fields,
   row counts, asset filenames, or naked values. Generic text such as `报告列示数值` is a
@@ -305,6 +309,10 @@ Local source-preservation overrides:
   subjects, such as `工程特性表明确...`, `防治责任范围为...`, `措施体系包括...`.
   Avoid assistant-like guidance words including `应优先`, `应关注`, `不能理解为`,
   `只保留`, `不只展示`, and other instructions to a presenter or reviewer.
+- Chart and table side text must be speaker-ready for another presenter: lead with the
+  report's conclusion, control value, responsibility, or engineering relationship. Avoid
+  meta-sentences such as `该表用于...`, `表格说明...`, or `本页图件用于...` unless the
+  source report itself uses that wording.
 - Use topic titles for faithful source pages; do not force every title into a new conclusion.
 - Prefer report headings and table/figure captions for visible small titles.
 - Keep visible source notes concise and professional.
