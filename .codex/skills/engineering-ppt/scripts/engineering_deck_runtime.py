@@ -41,7 +41,7 @@ DEFAULT_COLORS = {
 }
 
 BODY_MIN_PT = 14.0
-TABLE_MIN_PT = 12.0
+TABLE_MIN_PT = 14.0
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tif", ".tiff", ".webp"}
 EMPHASIS_TERM_RE = re.compile(
@@ -1334,7 +1334,7 @@ def add_numbered_points(
                 0.38,
                 0.18,
                 point["number"],
-                10.5,
+                BODY_MIN_PT,
                 "paper",
                 True,
                 align=PP_ALIGN.CENTER,

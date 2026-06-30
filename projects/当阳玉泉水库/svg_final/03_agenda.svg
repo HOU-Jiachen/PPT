@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<rect width="1280" height="720" fill="#F6F8FB"/>
+<rect x="54" y="58" width="8" height="32" fill="#0E9F9A"/>
+<text x="78" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="15" font-weight="bold" fill="#5B6F82">汇报结构 | 03</text>
+<text x="54" y="132" font-family="Microsoft YaHei, Arial, sans-serif" font-size="30" font-weight="bold" fill="#132D46">九章报告形成“背景—核算—影响—管控—结论”的证据链</text>
+<circle cx="70" cy="198" r="5" fill="#0E9F9A"/>
+<text x="90" y="205" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">1 总论 任务、依据、等级与范围。</text>
+<circle cx="70" cy="252" r="5" fill="#0E9F9A"/>
+<text x="90" y="259" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">2 项目概况 工程边界与取退水方案。</text>
+<circle cx="70" cy="306" r="5" fill="#0E9F9A"/>
+<text x="90" y="313" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">3 区域水资源 资源条件与开发现状。</text>
+<circle cx="70" cy="360" r="5" fill="#0E9F9A"/>
+<text x="90" y="367" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">4 用水合理性 需水、供水平衡与核定。</text>
+<circle cx="70" cy="414" r="5" fill="#0E9F9A"/>
+<text x="90" y="421" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">5 取水水源 联合水源与可靠性。</text>
+<text x="54" y="695" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="normal" fill="#5B6F82">来源：报告目录</text>
+</svg>

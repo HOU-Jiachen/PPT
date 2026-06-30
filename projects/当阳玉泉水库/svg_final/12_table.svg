@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<rect width="1280" height="720" fill="#F6F8FB"/>
+<rect x="54" y="58" width="8" height="32" fill="#0E9F9A"/>
+<text x="78" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="15" font-weight="bold" fill="#5B6F82">第3章 区域背景 | 12</text>
+<text x="54" y="132" font-family="Microsoft YaHei, Arial, sans-serif" font-size="30" font-weight="bold" fill="#132D46">2019年和2024年水资源总量处于近十年低位</text>
+<circle cx="70" cy="198" r="5" fill="#0E9F9A"/>
+<text x="90" y="205" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">年际波动 丰枯差异显著，2024年接近近十年低位。</text>
+<circle cx="70" cy="252" r="5" fill="#0E9F9A"/>
+<text x="90" y="259" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">工程含义 枯水年更依赖水库调蓄和外调补源。</text>
+<circle cx="70" cy="306" r="5" fill="#0E9F9A"/>
+<text x="90" y="313" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">2019 15.77 2.60 1.69 2.81 0.18 13.2 122.1</text>
+<circle cx="70" cy="360" r="5" fill="#0E9F9A"/>
+<text x="90" y="367" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">2020 30.86 14.50 3.68 14.61 0.47 68.7 681.6</text>
+<circle cx="70" cy="414" r="5" fill="#0E9F9A"/>
+<text x="90" y="421" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">2024 14.33 2.66 1.06 2.83 0.20 13.3 125.2</text>
+<text x="54" y="695" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="normal" fill="#5B6F82">来源：报告表3.2-1节选</text>
+</svg>

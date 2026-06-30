@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<rect width="1280" height="720" fill="#F6F8FB"/>
+<rect x="54" y="58" width="8" height="32" fill="#0E9F9A"/>
+<text x="78" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="15" font-weight="bold" fill="#5B6F82">项目总览 | 02</text>
+<text x="54" y="132" font-family="Microsoft YaHei, Arial, sans-serif" font-size="30" font-weight="bold" fill="#132D46">联合水源可支撑灌区用水，许可条件必须同步锁定</text>
+<circle cx="70" cy="198" r="5" fill="#0E9F9A"/>
+<text x="90" y="205" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">水源结构 玉泉水库本地调蓄与东风三干渠补源共同承担P=90%保证率。</text>
+<circle cx="70" cy="252" r="5" fill="#0E9F9A"/>
+<text x="90" y="259" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">用水合理性 作物结构维持现状，取水量主要由中稻灌溉定额和利用系数控制。</text>
+<circle cx="70" cy="306" r="5" fill="#0E9F9A"/>
+<text x="90" y="313" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">影响控制 取水影响取决于生态下泄、库容边界和其他用户权益保障。</text>
+<circle cx="70" cy="360" r="5" fill="#0E9F9A"/>
+<text x="90" y="367" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">管理条件 计量、台账、监测、渠系管护和引水协议需要形成许可约束。</text>
+<text x="54" y="695" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="normal" fill="#5B6F82">来源：报告基本情况表、第4—5章、第9章</text>
+</svg>

@@ -808,9 +808,11 @@ def audit_svgs(
     strict: bool,
     audit: Audit,
 ) -> int:
-    candidates = [project / "svg_final", project / "svg_output"]
-    candidates.extend(project.glob("*/svg_final"))
-    candidates.extend(project.glob("*/svg_output"))
+    root_candidates = [project / "svg_final", project / "svg_output"]
+    candidates = list(root_candidates)
+    if not any(directory.exists() and any(directory.glob("*.svg")) for directory in root_candidates):
+        candidates.extend(project.glob("*/svg_final"))
+        candidates.extend(project.glob("*/svg_output"))
     candidate_files = [
         (directory, sorted(directory.glob("*.svg")))
         for directory in candidates

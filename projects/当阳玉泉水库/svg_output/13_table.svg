@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<rect width="1280" height="720" fill="#F6F8FB"/>
+<rect x="54" y="58" width="8" height="32" fill="#0E9F9A"/>
+<text x="78" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="15" font-weight="bold" fill="#5B6F82">第3章 区域背景 | 13</text>
+<text x="54" y="132" font-family="Microsoft YaHei, Arial, sans-serif" font-size="30" font-weight="bold" fill="#132D46">农业用水占比最高，是节水与配置优化主战场</text>
+<circle cx="70" cy="198" r="5" fill="#0E9F9A"/>
+<text x="90" y="205" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">农业主导 农业用水占全市用水量近四分之三。</text>
+<circle cx="70" cy="252" r="5" fill="#0E9F9A"/>
+<text x="90" y="259" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">管理方向 灌区节水对总量控制最敏感。</text>
+<circle cx="70" cy="306" r="5" fill="#0E9F9A"/>
+<text x="90" y="313" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">农业用水 2.550 74.06%</text>
+<circle cx="70" cy="360" r="5" fill="#0E9F9A"/>
+<text x="90" y="367" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">生活用水 0.538 15.62%</text>
+<circle cx="70" cy="414" r="5" fill="#0E9F9A"/>
+<text x="90" y="421" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">工业用水 0.356 10.34%</text>
+<text x="54" y="695" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="normal" fill="#5B6F82">来源：报告3.3.2节选</text>
+</svg>

@@ -2,793 +2,369 @@
   "schema_version": "1.0",
   "project": "当阳玉泉水库",
   "deck": {
-    "title": "",
-    "audience": "",
-    "objective": "",
-    "chapter_order": []
+    "title": "玉泉水库灌区水资源论证报告工程评审汇报",
+    "audience": "水行政主管部门、技术审查专家和建设单位",
+    "objective": "讲清取水合理性、联合水源可靠性、取退水影响和许可管理条件。",
+    "chapter_order": [
+      "总论",
+      "建设项目概况",
+      "水资源及其开发利用状况",
+      "用水合理性分析",
+      "取水水源论证",
+      "取水影响论证",
+      "退水影响论证",
+      "水资源节约、保护及管理措施",
+      "结论与建议"
+    ]
   },
   "slides": [
     {
       "page": 1,
       "type": "cover",
       "chapter": "项目总览",
-      "title": "封面",
+      "title": "玉泉水库灌区水资源论证报告",
       "source_mode": "",
       "evidence_ids": [],
-      "visual_proof": "",
-      "source_note": ""
+      "content_unit_ids": [],
+      "visual_proof": "cover",
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
       "page": 2,
-      "type": "analysis",
+      "type": "overview",
       "chapter": "项目总览",
-      "title": "项目年申请取水量750万m³，服务三村17621.55亩农田灌溉",
+      "title": "联合水源可支撑灌区用水，许可条件必须同步锁定",
       "source_mode": "INTERPRETATION",
       "evidence_ids": [
-        "LEGACY-P002"
+        "YQ-001"
       ],
-      "visual_proof": "analysis",
-      "source_note": "报告基本情况表、2.3、2.4"
+      "content_unit_ids": [],
+      "visual_proof": "overview",
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告基本情况表、第4—5章、第9章",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
       "page": 3,
       "type": "agenda",
-      "chapter": "项目总览",
-      "title": "九章内容按报告原始顺序完整展开",
+      "chapter": "汇报结构",
+      "title": "九章报告形成“背景—核算—影响—管控—结论”的证据链",
       "source_mode": "",
       "evidence_ids": [],
-      "visual_proof": "",
-      "source_note": "报告目录"
-    },
-    {
-      "page": 4,
-      "type": "section",
-      "chapter": "总论",
-      "title": "总论",
-      "source_mode": "",
-      "evidence_ids": [],
-      "visual_proof": "",
-      "source_note": ""
+      "content_unit_ids": [],
+      "visual_proof": "agenda",
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告目录",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
       "page": 5,
       "type": "source_text",
-      "chapter": "总论",
-      "title": "水资源论证服务于合理取水、水资源保护和取水许可审批",
+      "chapter": "第1章 总论",
+      "title": "论证任务回答“能不能取、取多少、如何管”",
       "source_mode": "ORIGINAL_TEXT",
       "evidence_ids": [
-        "LEGACY-P005"
+        "YQ-002"
       ],
+      "content_unit_ids": [],
       "visual_proof": "source_text",
-      "source_note": "报告1.2"
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告1.2",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
       "page": 6,
-      "type": "source_text",
-      "chapter": "总论",
-      "title": "论证任务覆盖范围、合理性、水源、影响和结论建议",
-      "source_mode": "ORIGINAL_TEXT",
+      "type": "figure",
+      "chapter": "第1章 总论",
+      "title": "分析范围覆盖当阳市，水源范围聚焦坝址以上流域",
+      "source_mode": "ORIGINAL_FIGURE",
       "evidence_ids": [
-        "LEGACY-P006"
+        "YQ-003"
       ],
-      "visual_proof": "source_text",
-      "source_note": "报告1.2"
-    },
-    {
-      "page": 7,
-      "type": "source_text",
-      "chapter": "总论",
-      "title": "论证依据由许可制度、技术导则、用水定额和区域成果组成",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P007"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告1.3"
+      "content_unit_ids": [],
+      "visual_proof": "figure",
+      "layout_pattern": "left_text_right_figure",
+      "source_note": "来源：报告1.4—1.5、附图一",
+      "density": "dense",
+      "density_exempt_reason": ""
     },
     {
       "page": 8,
-      "type": "table",
-      "chapter": "总论",
-      "title": "分类指标最高等级确定本项目论证等级为二级",
-      "source_mode": "ORIGINAL_TABLE",
+      "type": "source_text",
+      "chapter": "第2章 项目概况",
+      "title": "项目主要服务三村农业灌溉，并兼顾防洪与生态功能",
+      "source_mode": "ORIGINAL_TEXT",
       "evidence_ids": [
-        "LEGACY-P008"
+        "YQ-004"
       ],
-      "visual_proof": "table",
-      "source_note": "报告表1.4-1"
+      "content_unit_ids": [],
+      "visual_proof": "source_text",
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告2.1、基本情况表",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
       "page": 9,
-      "type": "figure",
-      "chapter": "总论",
-      "title": "分析范围覆盖当阳市，水源论证聚焦玉泉水库坝址以上流域",
-      "source_mode": "ORIGINAL_FIGURE",
+      "type": "source_text",
+      "chapter": "第2章 项目概况",
+      "title": "取水依托既有闸渠系统，退水属于农业回归水",
+      "source_mode": "ORIGINAL_TEXT",
       "evidence_ids": [
-        "LEGACY-P009"
+        "YQ-005"
       ],
-      "visual_proof": "figure",
-      "source_note": "报告1.4—1.5、附图一"
-    },
-    {
-      "page": 10,
-      "type": "section",
-      "chapter": "建设项目概况",
-      "title": "建设项目概况",
-      "source_mode": "",
-      "evidence_ids": [],
-      "visual_proof": "",
-      "source_note": ""
+      "content_unit_ids": [],
+      "visual_proof": "source_text",
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告2.3—2.4",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
       "page": 11,
-      "type": "source_text",
-      "chapter": "建设项目概况",
-      "title": "玉泉水库主要服务三村农业灌溉，并兼顾防洪与生态效益",
-      "source_mode": "ORIGINAL_TEXT",
+      "type": "figure",
+      "chapter": "第3章 区域背景",
+      "title": "玉泉水库位于沮漳河流域玉泉河中游",
+      "source_mode": "ORIGINAL_FIGURE",
       "evidence_ids": [
-        "LEGACY-P011"
+        "YQ-006"
       ],
-      "visual_proof": "source_text",
-      "source_note": "报告2.1"
+      "content_unit_ids": [],
+      "visual_proof": "figure",
+      "layout_pattern": "left_text_right_figure",
+      "source_note": "来源：报告图3.1-1",
+      "density": "dense",
+      "density_exempt_reason": ""
     },
     {
       "page": 12,
-      "type": "source_text",
-      "chapter": "建设项目概况",
-      "title": "项目符合粮食安全、农田水利和流域综合治理方向",
-      "source_mode": "ORIGINAL_TEXT",
+      "type": "table",
+      "chapter": "第3章 区域背景",
+      "title": "2019年和2024年水资源总量处于近十年低位",
+      "source_mode": "ORIGINAL_TABLE",
       "evidence_ids": [
-        "LEGACY-P012"
+        "YQ-007"
       ],
-      "visual_proof": "source_text",
-      "source_note": "报告2.2"
+      "content_unit_ids": [],
+      "visual_proof": "table",
+      "layout_pattern": "left_text_right_table",
+      "source_note": "来源：报告表3.2-1节选",
+      "density": "dense",
+      "density_exempt_reason": ""
     },
     {
       "page": 13,
-      "type": "analysis",
-      "chapter": "建设项目概况",
-      "title": "取水依托既有坝址节制闸和渠系，不新增复杂取水工程",
-      "source_mode": "INTERPRETATION",
+      "type": "table",
+      "chapter": "第3章 区域背景",
+      "title": "农业用水占比最高，是节水与配置优化主战场",
+      "source_mode": "ORIGINAL_TABLE",
       "evidence_ids": [
-        "LEGACY-P013"
+        "YQ-008"
       ],
-      "visual_proof": "analysis",
-      "source_note": "报告2.3、基本情况表"
-    },
-    {
-      "page": 14,
-      "type": "figure",
-      "chapter": "建设项目概况",
-      "title": "取水影响范围集中于玉泉水库水域及坝下渠系",
-      "source_mode": "ORIGINAL_FIGURE",
-      "evidence_ids": [
-        "LEGACY-P014"
-      ],
-      "visual_proof": "figure",
-      "source_note": "报告2.3、附图三"
+      "content_unit_ids": [],
+      "visual_proof": "table",
+      "layout_pattern": "left_text_right_table",
+      "source_note": "来源：报告3.3.2节选",
+      "density": "dense",
+      "density_exempt_reason": ""
     },
     {
       "page": 15,
       "type": "source_text",
-      "chapter": "建设项目概况",
-      "title": "退水为分散农业回归水，不设置集中排污口",
+      "chapter": "第4章 用水合理性",
+      "title": "节水路径覆盖工程、农艺、灌水技术和价格管理",
       "source_mode": "ORIGINAL_TEXT",
       "evidence_ids": [
-        "LEGACY-P015"
+        "YQ-009"
       ],
+      "content_unit_ids": [],
       "visual_proof": "source_text",
-      "source_note": "报告2.4"
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告4.1.3",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
       "page": 16,
-      "type": "section",
-      "chapter": "水资源及其开发利用状况",
-      "title": "水资源及其开发利用状况",
-      "source_mode": "",
-      "evidence_ids": [],
-      "visual_proof": "",
-      "source_note": ""
+      "type": "table",
+      "chapter": "第4章 用水合理性",
+      "title": "P=90%条件下，中稻灌溉定额是主要控制项",
+      "source_mode": "ORIGINAL_TABLE",
+      "evidence_ids": [
+        "YQ-010"
+      ],
+      "content_unit_ids": [],
+      "visual_proof": "table",
+      "layout_pattern": "left_text_right_table",
+      "source_note": "来源：报告表4.2-2节选",
+      "density": "dense",
+      "density_exempt_reason": ""
     },
     {
       "page": 17,
       "type": "figure",
-      "chapter": "水资源及其开发利用状况",
-      "title": "玉泉水库位于当阳市中西部、沮漳河流域玉泉河中游",
+      "chapter": "第4章 用水合理性",
+      "title": "供水平衡显示外调补源是实现保证率的关键",
       "source_mode": "ORIGINAL_FIGURE",
       "evidence_ids": [
-        "LEGACY-P017"
+        "YQ-011"
       ],
+      "content_unit_ids": [],
       "visual_proof": "figure",
-      "source_note": "报告图3.1-1"
+      "layout_pattern": "left_text_right_figure",
+      "source_note": "来源：报告供水平衡图",
+      "density": "dense",
+      "density_exempt_reason": ""
     },
     {
       "page": 18,
-      "type": "source_text",
-      "chapter": "水资源及其开发利用状况",
-      "title": "地形与流域条件决定工程调蓄和渠系输配水的重要性",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P018"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告3.1.1—3.1.2"
-    },
-    {
-      "page": 19,
       "type": "table",
-      "chapter": "水资源及其开发利用状况",
-      "title": "2024年农业生产规模说明灌溉供水具有明确公共效益",
+      "chapter": "第4章 用水合理性",
+      "title": "全年供水、耗水和退水形成750—600—150万m3闭合关系",
       "source_mode": "ORIGINAL_TABLE",
       "evidence_ids": [
-        "LEGACY-P019"
+        "YQ-012"
       ],
+      "content_unit_ids": [],
       "visual_proof": "table",
-      "source_note": "报告3.1.3、表3.1-1"
+      "layout_pattern": "left_text_right_table",
+      "source_note": "来源：报告规划水平年耗水及退水量表节选",
+      "density": "dense",
+      "density_exempt_reason": ""
     },
     {
       "page": 20,
-      "type": "table",
-      "chapter": "水资源及其开发利用状况",
-      "title": "降雨总体较丰富，但年内集中、年际波动明显",
-      "source_mode": "ORIGINAL_TABLE",
+      "type": "source_text",
+      "chapter": "第5章 取水水源",
+      "title": "项目采用玉泉水库与东风三干渠联合水源方案",
+      "source_mode": "ORIGINAL_TEXT",
       "evidence_ids": [
-        "LEGACY-P020"
+        "YQ-013"
       ],
-      "visual_proof": "table",
-      "source_note": "报告3.1.4、表3.1-2"
+      "content_unit_ids": [],
+      "visual_proof": "source_text",
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告5.1、5.2.4",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
       "page": 21,
-      "type": "table",
-      "chapter": "水资源及其开发利用状况",
-      "title": "2015—2019年当阳市水资源总量呈周期性波动",
-      "source_mode": "ORIGINAL_TABLE",
+      "type": "figure",
+      "chapter": "第5章 取水水源",
+      "title": "取水口与坝下渠系衔接紧密，工程路径清晰",
+      "source_mode": "ORIGINAL_FIGURE",
       "evidence_ids": [
-        "LEGACY-P021"
+        "YQ-014"
       ],
-      "visual_proof": "table",
-      "source_note": "报告表3.2-1"
-    },
-    {
-      "page": 22,
-      "type": "table",
-      "chapter": "水资源及其开发利用状况",
-      "title": "2020—2024年水资源总量由14.61亿m³降至2.83亿m³",
-      "source_mode": "ORIGINAL_TABLE",
-      "evidence_ids": [
-        "LEGACY-P022"
-      ],
-      "visual_proof": "table",
-      "source_note": "报告表3.2-1"
+      "content_unit_ids": [],
+      "visual_proof": "figure",
+      "layout_pattern": "left_text_right_figure",
+      "source_note": "来源：报告附图三",
+      "density": "dense",
+      "density_exempt_reason": ""
     },
     {
       "page": 23,
       "type": "source_text",
-      "chapter": "水资源及其开发利用状况",
-      "title": "群利一队断面2024年水质达到地表水Ⅱ类标准",
+      "chapter": "第6章 取水影响",
+      "title": "取水影响总体可控，但前提是生态下泄和补源计划刚性执行",
       "source_mode": "ORIGINAL_TEXT",
       "evidence_ids": [
-        "LEGACY-P023"
+        "YQ-015"
       ],
+      "content_unit_ids": [],
       "visual_proof": "source_text",
-      "source_note": "报告3.2.2"
-    },
-    {
-      "page": 24,
-      "type": "source_text",
-      "chapter": "水资源及其开发利用状况",
-      "title": "当阳市已形成蓄、引、提结合的区域供水工程体系",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P024"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告3.3.1"
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告第6章",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
       "page": 25,
-      "type": "analysis",
-      "chapter": "水资源及其开发利用状况",
-      "title": "2024年供水以地表水为主，蓄水工程贡献最大",
-      "source_mode": "INTERPRETATION",
-      "evidence_ids": [
-        "LEGACY-P025"
-      ],
-      "visual_proof": "analysis",
-      "source_note": "报告3.3.1"
-    },
-    {
-      "page": 26,
-      "type": "table",
-      "chapter": "水资源及其开发利用状况",
-      "title": "当阳市农业用水占比高，亩均和人均用水仍有提升空间",
-      "source_mode": "ORIGINAL_TABLE",
-      "evidence_ids": [
-        "LEGACY-P026"
-      ],
-      "visual_proof": "table",
-      "source_note": "报告3.3.2、表3.3-1"
-    },
-    {
-      "page": 27,
-      "type": "source_text",
-      "chapter": "水资源及其开发利用状况",
-      "title": "报告识别出开发程度、效率、季节缺水和水质保护四类问题",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P027"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告3.3.3"
-    },
-    {
-      "page": 28,
-      "type": "analysis",
-      "chapter": "水资源及其开发利用状况",
-      "title": "2024年当阳市实际用水总量未超过年度控制指标",
-      "source_mode": "INTERPRETATION",
-      "evidence_ids": [
-        "LEGACY-P028"
-      ],
-      "visual_proof": "analysis",
-      "source_note": "报告基本情况表、3.4.1"
-    },
-    {
-      "page": 29,
-      "type": "section",
-      "chapter": "用水合理性分析",
-      "title": "用水合理性分析",
-      "source_mode": "",
-      "evidence_ids": [],
-      "visual_proof": "",
-      "source_note": ""
-    },
-    {
-      "page": 30,
-      "type": "table",
-      "chapter": "用水合理性分析",
-      "title": "2024枯水年毛灌溉用水量显著高于平水年份",
-      "source_mode": "ORIGINAL_TABLE",
-      "evidence_ids": [
-        "LEGACY-P030"
-      ],
-      "visual_proof": "table",
-      "source_note": "报告表4.1-1"
-    },
-    {
-      "page": 31,
-      "type": "source_text",
-      "chapter": "用水合理性分析",
-      "title": "既有渠系改造和信息化设施构成节水与调度基础",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P031"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告4.1.2"
-    },
-    {
-      "page": 32,
-      "type": "source_text",
-      "chapter": "用水合理性分析",
-      "title": "节水措施覆盖渠系防渗、分类灌溉、水肥一体化与价格管理",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P032"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告4.1.3"
-    },
-    {
-      "page": 33,
-      "type": "table",
-      "chapter": "用水合理性分析",
-      "title": "规划水平年维持现状作物种植结构与规模不变",
-      "source_mode": "ORIGINAL_TABLE",
-      "evidence_ids": [
-        "LEGACY-P033"
-      ],
-      "visual_proof": "table",
-      "source_note": "报告4.2.1、表4.2-1"
-    },
-    {
-      "page": 34,
-      "type": "table",
-      "chapter": "用水合理性分析",
-      "title": "P=90%条件下，中稻灌溉定额为主要控制项",
-      "source_mode": "ORIGINAL_TABLE",
-      "evidence_ids": [
-        "LEGACY-P034"
-      ],
-      "visual_proof": "table",
-      "source_note": "报告表4.2-2"
-    },
-    {
-      "page": 35,
-      "type": "source_text",
-      "chapter": "用水合理性分析",
-      "title": "灌溉需水量依据作物面积、灌溉定额和利用系数计算",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P035"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告4.2.1、表4.2-3"
-    },
-    {
-      "page": 36,
       "type": "figure",
-      "chapter": "用水合理性分析",
-      "title": "来水频率分析采用经验点据与理论频率曲线",
-      "source_mode": "ORIGINAL_FIGURE",
-      "evidence_ids": [
-        "LEGACY-P036"
-      ],
-      "visual_proof": "figure",
-      "source_note": "报告4.2.2原图"
-    },
-    {
-      "page": 37,
-      "type": "source_text",
-      "chapter": "用水合理性分析",
-      "title": "可供水量必须先扣除下游生态流量",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P037"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告4.2.2"
-    },
-    {
-      "page": 38,
-      "type": "figure",
-      "chapter": "用水合理性分析",
-      "title": "供水平衡图（一）：本地可供水60.59万m³，三干渠引水689.41万m³",
-      "source_mode": "ORIGINAL_FIGURE",
-      "evidence_ids": [
-        "LEGACY-P038"
-      ],
-      "visual_proof": "figure",
-      "source_note": "报告供水平衡原图"
-    },
-    {
-      "page": 39,
-      "type": "figure",
-      "chapter": "用水合理性分析",
-      "title": "供水平衡图（二）：本地可供水94.57万m³，三干渠引水655.43万m³",
-      "source_mode": "ORIGINAL_FIGURE",
-      "evidence_ids": [
-        "LEGACY-P039"
-      ],
-      "visual_proof": "figure",
-      "source_note": "报告供水平衡原图"
-    },
-    {
-      "page": 40,
-      "type": "analysis",
-      "chapter": "用水合理性分析",
-      "title": "报告正文及图件分别出现两组P=90%供水平衡参数",
-      "source_mode": "INTERPRETATION",
-      "evidence_ids": [
-        "LEGACY-P040"
-      ],
-      "visual_proof": "analysis",
-      "source_note": "报告4.2.2、5.2.4及供水平衡原图"
-    },
-    {
-      "page": 41,
-      "type": "table",
-      "chapter": "用水合理性分析",
-      "title": "全年灌溉供水集中于5—8月，7月达到217.50万m³",
-      "source_mode": "ORIGINAL_TABLE",
-      "evidence_ids": [
-        "LEGACY-P041"
-      ],
-      "visual_proof": "table",
-      "source_note": "报告月度耗水及退水量表（上半表）"
-    },
-    {
-      "page": 42,
-      "type": "table",
-      "chapter": "用水合理性分析",
-      "title": "8—11月供水逐步回落，全年供水、耗水和退水闭合",
-      "source_mode": "ORIGINAL_TABLE",
-      "evidence_ids": [
-        "LEGACY-P042"
-      ],
-      "visual_proof": "table",
-      "source_note": "报告月度耗水及退水量表（下半表）"
-    },
-    {
-      "page": 43,
-      "type": "analysis",
-      "chapter": "用水合理性分析",
-      "title": "报告按20%回归水比例核定耗水量与退水量",
-      "source_mode": "INTERPRETATION",
-      "evidence_ids": [
-        "LEGACY-P043"
-      ],
-      "visual_proof": "analysis",
-      "source_note": "报告4.2.3、表4.2-7"
-    },
-    {
-      "page": 44,
-      "type": "analysis",
-      "chapter": "用水合理性分析",
-      "title": "规划利用系数0.650高于现有对标值，但需要持续改造支撑",
-      "source_mode": "INTERPRETATION",
-      "evidence_ids": [
-        "LEGACY-P044"
-      ],
-      "visual_proof": "analysis",
-      "source_note": "报告4.3"
-    },
-    {
-      "page": 45,
-      "type": "table",
-      "chapter": "用水合理性分析",
-      "title": "报告核定取水量、耗水量与退水量",
-      "source_mode": "ORIGINAL_TABLE",
-      "evidence_ids": [
-        "LEGACY-P045"
-      ],
-      "visual_proof": "table",
-      "source_note": "报告4.4"
-    },
-    {
-      "page": 46,
-      "type": "section",
-      "chapter": "取水水源论证",
-      "title": "取水水源论证",
-      "source_mode": "",
-      "evidence_ids": [],
-      "visual_proof": "",
-      "source_note": ""
-    },
-    {
-      "page": 47,
-      "type": "source_text",
-      "chapter": "取水水源论证",
-      "title": "项目采用东风三干渠与玉泉水库联合水源方案",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P047"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告5.1"
-    },
-    {
-      "page": 48,
-      "type": "source_text",
-      "chapter": "取水水源论证",
-      "title": "可靠性论证采用降雨序列和水库工程特性资料",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P048"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告5.2.3"
-    },
-    {
-      "page": 49,
-      "type": "figure",
-      "chapter": "取水水源论证",
-      "title": "取水水源论证范围为玉泉水库坝址以上流域",
-      "source_mode": "ORIGINAL_FIGURE",
-      "evidence_ids": [
-        "LEGACY-P049"
-      ],
-      "visual_proof": "figure",
-      "source_note": "报告附图二"
-    },
-    {
-      "page": 50,
-      "type": "source_text",
-      "chapter": "取水水源论证",
-      "title": "东风三干渠补水通过引水协议落实具体调度指标",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P050"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告5.2.4"
-    },
-    {
-      "page": 51,
-      "type": "figure",
-      "chapter": "取水水源论证",
-      "title": "取水口与坝下渠系衔接紧密，工程路径清晰",
-      "source_mode": "ORIGINAL_FIGURE",
-      "evidence_ids": [
-        "LEGACY-P051"
-      ],
-      "visual_proof": "figure",
-      "source_note": "报告附图三"
-    },
-    {
-      "page": 52,
-      "type": "source_text",
-      "chapter": "取水水源论证",
-      "title": "联合水源水质满足农业灌溉要求",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P052"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告5.2.6"
-    },
-    {
-      "page": 53,
-      "type": "analysis",
-      "chapter": "取水水源论证",
-      "title": "可靠性由水量、水质和水位运行三个方面构成",
-      "source_mode": "INTERPRETATION",
-      "evidence_ids": [
-        "LEGACY-P053"
-      ],
-      "visual_proof": "analysis",
-      "source_note": "报告5.2.7—5.2.8"
-    },
-    {
-      "page": 54,
-      "type": "section",
-      "chapter": "取水影响论证",
-      "title": "取水影响论证",
-      "source_mode": "",
-      "evidence_ids": [],
-      "visual_proof": "",
-      "source_note": ""
-    },
-    {
-      "page": 55,
-      "type": "source_text",
-      "chapter": "取水影响论证",
-      "title": "报告从水资源配置、水生态、水功能区和其他用户分析取水影响",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P055"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告第6章"
-    },
-    {
-      "page": 56,
-      "type": "section",
-      "chapter": "退水影响论证",
-      "title": "退水影响论证",
-      "source_mode": "",
-      "evidence_ids": [],
-      "visual_proof": "",
-      "source_note": ""
-    },
-    {
-      "page": 57,
-      "type": "figure",
-      "chapter": "退水影响论证",
+      "chapter": "第7章 退水影响",
       "title": "退水影响范围覆盖子龙、合意和玉泉三村灌区",
       "source_mode": "ORIGINAL_FIGURE",
       "evidence_ids": [
-        "LEGACY-P057"
+        "YQ-016"
       ],
+      "content_unit_ids": [],
       "visual_proof": "figure",
-      "source_note": "报告附图四"
+      "layout_pattern": "left_text_right_figure",
+      "source_note": "来源：报告附图四",
+      "density": "dense",
+      "density_exempt_reason": ""
     },
     {
-      "page": 58,
+      "page": 26,
       "type": "source_text",
-      "chapter": "退水影响论证",
-      "title": "退水呈季节性、间歇性和分散性，不具备集中排放特征",
+      "chapter": "第7章 退水影响",
+      "title": "退水方案可行，但面源污染控制需要运行期验证",
       "source_mode": "ORIGINAL_TEXT",
       "evidence_ids": [
-        "LEGACY-P058"
+        "YQ-017"
       ],
+      "content_unit_ids": [],
       "visual_proof": "source_text",
-      "source_note": "报告7.1"
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告7.1—7.5",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
-      "page": 59,
-      "type": "analysis",
-      "chapter": "退水影响论证",
-      "title": "退水方案可行，但面源污染控制不能只依赖自然净化",
-      "source_mode": "INTERPRETATION",
-      "evidence_ids": [
-        "LEGACY-P059"
-      ],
-      "visual_proof": "analysis",
-      "source_note": "报告7.2—7.5"
-    },
-    {
-      "page": 60,
-      "type": "section",
-      "chapter": "水资源节约、保护及管理措施",
-      "title": "水资源节约、保护及管理措施",
-      "source_mode": "",
-      "evidence_ids": [],
-      "visual_proof": "",
-      "source_note": ""
-    },
-    {
-      "page": 61,
+      "page": 28,
       "type": "source_text",
-      "chapter": "水资源节约、保护及管理措施",
-      "title": "节约措施聚焦输水损失与田间用水效率",
+      "chapter": "第8章 管理措施",
+      "title": "管理措施覆盖节水、保护、许可、计量和运维",
       "source_mode": "ORIGINAL_TEXT",
       "evidence_ids": [
-        "LEGACY-P061"
+        "YQ-018"
       ],
+      "content_unit_ids": [],
       "visual_proof": "source_text",
-      "source_note": "报告8.1"
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告第8章",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
-      "page": 62,
+      "page": 30,
       "type": "source_text",
-      "chapter": "水资源节约、保护及管理措施",
-      "title": "保护措施包括农业投入减量、水资源监管和公众参与",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P062"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告8.2"
-    },
-    {
-      "page": 63,
-      "type": "source_text",
-      "chapter": "水资源节约、保护及管理措施",
-      "title": "管理措施覆盖取水许可、计量监测、工程运维和水环境保护",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P063"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告8.3"
-    },
-    {
-      "page": 64,
-      "type": "section",
-      "chapter": "结论与建议",
-      "title": "结论与建议",
-      "source_mode": "",
-      "evidence_ids": [],
-      "visual_proof": "",
-      "source_note": ""
-    },
-    {
-      "page": 65,
-      "type": "source_text",
-      "chapter": "结论与建议",
+      "chapter": "第9章 结论建议",
       "title": "报告总体认为项目取用水合理、联合水源方案可行",
       "source_mode": "ORIGINAL_TEXT",
       "evidence_ids": [
-        "LEGACY-P065"
+        "YQ-019"
       ],
+      "content_unit_ids": [],
       "visual_proof": "source_text",
-      "source_note": "报告第9章结论"
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告第9章结论",
+      "density": "normal",
+      "density_exempt_reason": ""
     },
     {
-      "page": 66,
-      "type": "source_text",
-      "chapter": "结论与建议",
-      "title": "报告提出取水、退水影响补救与补偿措施",
-      "source_mode": "ORIGINAL_TEXT",
+      "page": 31,
+      "type": "closing",
+      "chapter": "第9章 结论建议",
+      "title": "建议把五项条件写入许可与后续实施要求",
+      "source_mode": "MANAGEMENT_ACTION",
       "evidence_ids": [
-        "LEGACY-P066"
+        "YQ-020"
       ],
-      "visual_proof": "source_text",
-      "source_note": "报告9.1取水和退水影响补救与补偿措施"
-    },
-    {
-      "page": 67,
-      "type": "source_text",
-      "chapter": "结论与建议",
-      "title": "报告建议深化信息化管理并加强末级渠系长效管护",
-      "source_mode": "ORIGINAL_TEXT",
-      "evidence_ids": [
-        "LEGACY-P067"
-      ],
-      "visual_proof": "source_text",
-      "source_note": "报告9.2"
+      "content_unit_ids": [],
+      "visual_proof": "closing",
+      "layout_pattern": "text_with_keypoints",
+      "source_note": "来源：报告9.2及第4—8章",
+      "density": "normal",
+      "density_exempt_reason": ""
     }
   ]
 }

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<rect width="1280" height="720" fill="#F6F8FB"/>
+<rect x="54" y="58" width="8" height="32" fill="#0E9F9A"/>
+<text x="78" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="15" font-weight="bold" fill="#5B6F82">第4章 用水合理性 | 16</text>
+<text x="54" y="132" font-family="Microsoft YaHei, Arial, sans-serif" font-size="30" font-weight="bold" fill="#132D46">P=90%条件下，中稻灌溉定额是主要控制项</text>
+<circle cx="70" cy="198" r="5" fill="#0E9F9A"/>
+<text x="90" y="205" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">控制作物 中稻P=90%定额显著高于其他作物。</text>
+<circle cx="70" cy="252" r="5" fill="#0E9F9A"/>
+<text x="90" y="259" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">核算逻辑 净需水量由种植面积乘以相应定额得到。</text>
+<circle cx="70" cy="306" r="5" fill="#0E9F9A"/>
+<text x="90" y="313" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">水田（中稻） 464 533 584</text>
+<circle cx="70" cy="360" r="5" fill="#0E9F9A"/>
+<text x="90" y="367" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">油菜 60 87 87</text>
+<circle cx="70" cy="414" r="5" fill="#0E9F9A"/>
+<text x="90" y="421" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">小麦 37 66 66</text>
+<circle cx="70" cy="468" r="5" fill="#0E9F9A"/>
+<text x="90" y="475" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#132D46">玉米 90 134 134</text>
+<text x="54" y="695" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="normal" fill="#5B6F82">来源：报告表4.2-2节选</text>
+</svg>

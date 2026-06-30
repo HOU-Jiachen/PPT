@@ -1,993 +1,333 @@
 {
   "schema_version": "1.0",
   "project": "当阳玉泉水库",
-  "rules": {},
+  "updated_at": "2026-06-30T10:41:20",
+  "rules": {
+    "source_truth": "Fresh DOCX source catalog is authoritative.",
+    "conflict_handling": "Visible deck preserves source conflicts as report-language caveats."
+  },
   "evidence": [
     {
-      "id": "LEGACY-P002",
+      "id": "YQ-001",
       "kind": "INTERPRETATION",
-      "summary": "项目年申请取水量750万m³，服务三村17621.55亩农田灌溉",
+      "summary": "联合水源可支撑灌区用水，许可条件必须同步锁定",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告基本情况表、2.3、2.4",
+      "source_locator": "来源：报告基本情况表、第4—5章、第9章",
       "catalog_ids": [
-        "c34b5f52:L00085",
-        "c34b5f52:L00403",
-        "068e8e9b:P0119"
+        "7cbef768:P0003",
+        "7cbef768:P0004",
+        "7cbef768:T001",
+        "7cbef768:P0015"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "项目年申请取水量750万m³，服务三村17621.55亩农田灌溉",
-      "values": []
+      "exact_text": "联合水源可支撑灌区用水，许可条件必须同步锁定。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P005",
+      "id": "YQ-002",
       "kind": "ORIGINAL_TEXT",
-      "summary": "水资源论证服务于合理取水、水资源保护和取水许可审批",
+      "summary": "论证任务回答“能不能取、取多少、如何管”",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告1.2",
+      "source_locator": "来源：报告1.2",
       "catalog_ids": [
-        "c34b5f52:L00269"
+        "7cbef768:T003",
+        "7cbef768:P0035",
+        "7cbef768:P0037",
+        "7cbef768:P0039"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "水资源论证服务于合理取水、水资源保护和取水许可审批",
-      "values": []
+      "exact_text": "论证任务回答“能不能取、取多少、如何管” 确定分析范围、取水水源论证范围和取退水影响范围。 评价区域水资源状况及开发利用现状，分析取用水合理性。 分析取水水源可靠性和可行性，评价取退水影响并提出保护措施。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P006",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "论证任务覆盖范围、合理性、水源、影响和结论建议",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告1.2",
-      "catalog_ids": [
-        "c34b5f52:L00270",
-        "c34b5f52:L00271",
-        "c34b5f52:L00272",
-        "c34b5f52:L00273",
-        "c34b5f52:L00274"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "论证任务覆盖范围、合理性、水源、影响和结论建议",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P007",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "论证依据由许可制度、技术导则、用水定额和区域成果组成",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告1.3",
-      "catalog_ids": [
-        "c34b5f52:L00275",
-        "c34b5f52:L00299",
-        "c34b5f52:L00314"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "论证依据由许可制度、技术导则、用水定额和区域成果组成",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P008",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "分类指标最高等级确定本项目论证等级为二级",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告表1.4-1",
-      "catalog_ids": [
-        "c34b5f52:L00330",
-        "c34b5f52:L00333",
-        "068e8e9b:T004"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "分类指标最高等级确定本项目论证等级为二级",
-      "values": [
-        {
-          "value": "24.3%",
-          "unit": "%",
-          "time_basis": "table 1.4-1"
-        }
-      ]
-    },
-    {
-      "id": "LEGACY-P009",
+      "id": "YQ-003",
       "kind": "ORIGINAL_FIGURE",
-      "summary": "分析范围覆盖当阳市，水源论证聚焦玉泉水库坝址以上流域",
+      "summary": "分析范围覆盖当阳市，水源范围聚焦坝址以上流域",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告1.4—1.5、附图一",
+      "source_locator": "来源：报告1.4—1.5、附图一",
       "catalog_ids": [
-        "c34b5f52:L00395",
-        "068e8e9b:P0575",
-        "068e8e9b:I0002"
+        "7cbef768:T003",
+        "7cbef768:P0109"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "分析范围覆盖当阳市，水源论证聚焦玉泉水库坝址以上流域",
-      "values": []
+      "exact_text": "分析范围覆盖当阳市，水源范围聚焦坝址以上流域。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P011",
+      "id": "YQ-004",
       "kind": "ORIGINAL_TEXT",
-      "summary": "玉泉水库主要服务三村农业灌溉，并兼顾防洪与生态效益",
+      "summary": "项目主要服务三村农业灌溉，并兼顾防洪与生态功能",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告2.1",
+      "source_locator": "来源：报告2.1、基本情况表",
       "catalog_ids": [
-        "c34b5f52:L00403",
-        "068e8e9b:P0119"
+        "7cbef768:P0119",
+        "7cbef768:P0238",
+        "7cbef768:P0252"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "玉泉水库主要服务三村农业灌溉，并兼顾防洪与生态效益",
-      "values": []
+      "exact_text": "项目主要服务三村农业灌溉，并兼顾防洪与生态功能 玉泉水库位于当阳市，以农业灌溉为主，兼顾防洪、生态等综合效益。 供水范围覆盖子龙村、合意村、玉泉村3个行政村。 水库灌区农田总面积为17621.55亩，主要种植水稻、油菜及蔬菜。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P012",
+      "id": "YQ-005",
       "kind": "ORIGINAL_TEXT",
-      "summary": "项目符合粮食安全、农田水利和流域综合治理方向",
+      "summary": "取水依托既有闸渠系统，退水属于农业回归水",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告2.2",
+      "source_locator": "来源：报告2.3—2.4",
       "catalog_ids": [
-        "c34b5f52:L00407"
+        "7cbef768:T003"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "项目符合粮食安全、农田水利和流域综合治理方向",
-      "values": []
+      "exact_text": "取水依托既有闸渠系统，退水属于农业回归水 取水口位于玉泉水库坝址处节制闸，水源通过既有引水闸和干支渠进入灌区。 日最大取水量为7.02万m3，年申请取水量为750万m3。 农业灌溉回归水按供水量20%计算，年退水量为150万m3。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P013",
-      "kind": "INTERPRETATION",
-      "summary": "取水依托既有坝址节制闸和渠系，不新增复杂取水工程",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告2.3、基本情况表",
-      "catalog_ids": [
-        "c34b5f52:L00423",
-        "c34b5f52:L00085"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "取水依托既有坝址节制闸和渠系，不新增复杂取水工程",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P014",
+      "id": "YQ-006",
       "kind": "ORIGINAL_FIGURE",
-      "summary": "取水影响范围集中于玉泉水库水域及坝下渠系",
+      "summary": "玉泉水库位于沮漳河流域玉泉河中游",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告2.3、附图三",
+      "source_locator": "来源：报告图3.1-1",
       "catalog_ids": [
-        "068e8e9b:P0582",
-        "068e8e9b:I0003"
+        "7cbef768:P0176",
+        "7cbef768:P0244",
+        "7cbef768:P0414",
+        "7cbef768:P0423"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "取水影响范围集中于玉泉水库水域及坝下渠系",
-      "values": []
+      "exact_text": "玉泉水库位于沮漳河流域玉泉河中游。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P015",
+      "id": "YQ-007",
+      "kind": "ORIGINAL_TABLE",
+      "summary": "2019年和2024年水资源总量处于近十年低位",
+      "source_file": "玉泉水库水资源论证报告.docx",
+      "source_locator": "来源：报告表3.2-1节选",
+      "catalog_ids": [
+        "7cbef768:P0179",
+        "7cbef768:T007",
+        "7cbef768:P0182"
+      ],
+      "verification_status": "verified",
+      "exact_text": "2019年和2024年水资源总量处于近十年低位 2019 15.77 2.60 1.69 2.81 0.18 13.2 122.1 -70.4 -64.0 2020 30.86 14.50 3.68 14.61 0.47 68.7 681.6 458.2 162.4 2024 14.33 2.66 1.06 2.83 0.20 13.3 125.2 -54.0 -51.8",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
+    },
+    {
+      "id": "YQ-008",
+      "kind": "ORIGINAL_TABLE",
+      "summary": "农业用水占比最高，是节水与配置优化主战场",
+      "source_file": "玉泉水库水资源论证报告.docx",
+      "source_locator": "来源：报告3.3.2节选",
+      "catalog_ids": [
+        "7cbef768:P0194"
+      ],
+      "verification_status": "verified",
+      "exact_text": "农业用水占比最高，是节水与配置优化主战场 农业用水 2.550 74.06% 生活用水 0.538 15.62% 工业用水 0.356 10.34%",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
+    },
+    {
+      "id": "YQ-009",
       "kind": "ORIGINAL_TEXT",
-      "summary": "退水为分散农业回归水，不设置集中排污口",
+      "summary": "节水路径覆盖工程、农艺、灌水技术和价格管理",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告2.4",
+      "source_locator": "来源：报告4.1.3",
       "catalog_ids": [
-        "c34b5f52:L01812"
+        "7cbef768:P0003",
+        "7cbef768:P0004",
+        "7cbef768:T001",
+        "7cbef768:P0015"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "退水为分散农业回归水，不设置集中排污口",
-      "values": []
+      "exact_text": "节水路径覆盖工程、农艺、灌水技术和价格管理 干支渠采用砼护坡护底，末级渠系推广U型渠槽和低压管道。 推广畦灌、沟灌、喷灌、微喷、滴灌、水肥一体化以及水稻节水控灌。 依托农业水价综合改革，实行按方收费和超定额累进加价。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P017",
+      "id": "YQ-010",
+      "kind": "ORIGINAL_TABLE",
+      "summary": "P=90%条件下，中稻灌溉定额是主要控制项",
+      "source_file": "玉泉水库水资源论证报告.docx",
+      "source_locator": "来源：报告表4.2-2节选",
+      "catalog_ids": [
+        "7cbef768:T003",
+        "7cbef768:T011",
+        "7cbef768:T019"
+      ],
+      "verification_status": "verified",
+      "exact_text": "P=90%条件下，中稻灌溉定额是主要控制项 水田（中稻） 464 533 584 油菜 60 87 87 小麦 37 66 66 玉米 90 134 134",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
+    },
+    {
+      "id": "YQ-011",
       "kind": "ORIGINAL_FIGURE",
-      "summary": "玉泉水库位于当阳市中西部、沮漳河流域玉泉河中游",
+      "summary": "供水平衡显示外调补源是实现保证率的关键",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告图3.1-1",
+      "source_locator": "来源：报告供水平衡图",
       "catalog_ids": [
-        "c34b5f52:L00443",
-        "068e8e9b:P0587",
-        "068e8e9b:I0001"
+        "7cbef768:P0003",
+        "7cbef768:P0004",
+        "7cbef768:T001",
+        "7cbef768:P0015"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "玉泉水库位于当阳市中西部、沮漳河流域玉泉河中游",
-      "values": []
+      "exact_text": "供水平衡显示外调补源是实现保证率的关键。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P018",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "地形与流域条件决定工程调蓄和渠系输配水的重要性",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告3.1.1—3.1.2",
-      "catalog_ids": [
-        "c34b5f52:L00446",
-        "c34b5f52:L00480"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "地形与流域条件决定工程调蓄和渠系输配水的重要性",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P019",
+      "id": "YQ-012",
       "kind": "ORIGINAL_TABLE",
-      "summary": "2024年农业生产规模说明灌溉供水具有明确公共效益",
+      "summary": "全年供水、耗水和退水形成750—600—150万m3闭合关系",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告3.1.3、表3.1-1",
+      "source_locator": "来源：报告规划水平年耗水及退水量表节选",
       "catalog_ids": [
-        "c34b5f52:L00452",
-        "c34b5f52:L00453",
-        "068e8e9b:T005"
+        "7cbef768:T017"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "2024年农业生产规模说明灌溉供水具有明确公共效益",
-      "values": [
-        {
-          "value": "108.5",
-          "unit": "",
-          "time_basis": "table 3.1-1"
-        },
-        {
-          "value": "2%",
-          "unit": "%",
-          "time_basis": "table 3.1-1"
-        },
-        {
-          "value": "3.29%",
-          "unit": "%",
-          "time_basis": "table 3.1-1"
-        },
-        {
-          "value": "3.92%",
-          "unit": "%",
-          "time_basis": "table 3.1-1"
-        },
-        {
-          "value": "4.18%",
-          "unit": "%",
-          "time_basis": "table 3.1-1"
-        }
-      ]
+      "exact_text": "全年供水、耗水和退水形成750—600—150万m3闭合关系 供水量 7.50 52.50 52.50 123.75 93.75 217.50 153.75 30.00 11.25 7.50 750.00 耗水量 6.00 42.00 42.00 99.00 75.00 174.00 123.00 24.00 9.00 6.00 600.00 退水量 1.50 10.50 10.50 24.75 18.75 43.50 30.75 6.00 2.25 1.50 150.00",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P020",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "降雨总体较丰富，但年内集中、年际波动明显",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告3.1.4、表3.1-2",
-      "catalog_ids": [
-        "c34b5f52:L00480",
-        "c34b5f52:L00481",
-        "068e8e9b:T006"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "降雨总体较丰富，但年内集中、年际波动明显",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P021",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "2015—2019年当阳市水资源总量呈周期性波动",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告表3.2-1",
-      "catalog_ids": [
-        "c34b5f52:L00532",
-        "c34b5f52:L00652",
-        "068e8e9b:T007"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "2015—2019年当阳市水资源总量呈周期性波动",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P022",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "2020—2024年水资源总量由14.61亿m³降至2.83亿m³",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告表3.2-1",
-      "catalog_ids": [
-        "c34b5f52:L00531",
-        "c34b5f52:L00652",
-        "068e8e9b:T007"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "2020—2024年水资源总量由14.61亿m³降至2.83亿m³",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P023",
+      "id": "YQ-013",
       "kind": "ORIGINAL_TEXT",
-      "summary": "群利一队断面2024年水质达到地表水Ⅱ类标准",
+      "summary": "项目采用玉泉水库与东风三干渠联合水源方案",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告3.2.2",
+      "source_locator": "来源：报告5.1、5.2.4",
       "catalog_ids": [
-        "c34b5f52:L00654",
-        "068e8e9b:P0184"
+        "7cbef768:P0384",
+        "7cbef768:P0431",
+        "7cbef768:P0442",
+        "7cbef768:P0533"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "群利一队断面2024年水质达到地表水Ⅱ类标准",
-      "values": []
+      "exact_text": "项目采用玉泉水库与东风三干渠联合水源方案 玉泉水库长期承担本灌区农业供水，供水目标明确。 仅依靠玉泉水库天然来水及现有库容，不足以完全支撑灌区需求。 报告提出由管理单位与三干渠主管部门正式签订引水协议。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P024",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "当阳市已形成蓄、引、提结合的区域供水工程体系",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告3.3.1",
-      "catalog_ids": [
-        "c34b5f52:L00661"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "当阳市已形成蓄、引、提结合的区域供水工程体系",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P025",
-      "kind": "INTERPRETATION",
-      "summary": "2024年供水以地表水为主，蓄水工程贡献最大",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告3.3.1",
-      "catalog_ids": [
-        "c34b5f52:L00662"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "2024年供水以地表水为主，蓄水工程贡献最大",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P026",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "当阳市农业用水占比高，亩均和人均用水仍有提升空间",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告3.3.2、表3.3-1",
-      "catalog_ids": [
-        "c34b5f52:L00664",
-        "c34b5f52:L00666",
-        "068e8e9b:T008"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "当阳市农业用水占比高，亩均和人均用水仍有提升空间",
-      "values": [
-        {
-          "value": "74.06%",
-          "unit": "%",
-          "time_basis": "2024 water use mix"
-        }
-      ]
-    },
-    {
-      "id": "LEGACY-P027",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "报告识别出开发程度、效率、季节缺水和水质保护四类问题",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告3.3.3",
-      "catalog_ids": [
-        "c34b5f52:L00701",
-        "c34b5f52:L00703"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "报告识别出开发程度、效率、季节缺水和水质保护四类问题",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P028",
-      "kind": "INTERPRETATION",
-      "summary": "2024年当阳市实际用水总量未超过年度控制指标",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告基本情况表、3.4.1",
-      "catalog_ids": [
-        "c34b5f52:L00711",
-        "068e8e9b:P0209"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "2024年当阳市实际用水总量未超过年度控制指标",
-      "values": [
-        {
-          "value": "100%",
-          "unit": "%",
-          "time_basis": "control target baseline"
-        },
-        {
-          "value": "98.39%",
-          "unit": "%",
-          "time_basis": "2024 actual/target"
-        }
-      ]
-    },
-    {
-      "id": "LEGACY-P030",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "2024枯水年毛灌溉用水量显著高于平水年份",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告表4.1-1",
-      "catalog_ids": [
-        "c34b5f52:L00741",
-        "068e8e9b:T009"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "2024枯水年毛灌溉用水量显著高于平水年份",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P031",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "既有渠系改造和信息化设施构成节水与调度基础",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告4.1.2",
-      "catalog_ids": [
-        "c34b5f52:L00774"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "既有渠系改造和信息化设施构成节水与调度基础",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P032",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "节水措施覆盖渠系防渗、分类灌溉、水肥一体化与价格管理",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告4.1.3",
-      "catalog_ids": [
-        "c34b5f52:L00784",
-        "c34b5f52:L00788",
-        "068e8e9b:P0258"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "节水措施覆盖渠系防渗、分类灌溉、水肥一体化与价格管理",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P033",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "规划水平年维持现状作物种植结构与规模不变",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告4.2.1、表4.2-1",
-      "catalog_ids": [
-        "c34b5f52:L00802",
-        "c34b5f52:L00803",
-        "068e8e9b:T010"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "规划水平年维持现状作物种植结构与规模不变",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P034",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "P=90%条件下，中稻灌溉定额为主要控制项",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告表4.2-2",
-      "catalog_ids": [
-        "c34b5f52:L00844",
-        "068e8e9b:T011"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "P=90%条件下，中稻灌溉定额为主要控制项",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P035",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "灌溉需水量依据作物面积、灌溉定额和利用系数计算",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告4.2.1、表4.2-3",
-      "catalog_ids": [
-        "c34b5f52:L00866",
-        "c34b5f52:L00901",
-        "068e8e9b:T012",
-        "068e8e9b:P0281"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "灌溉需水量依据作物面积、灌溉定额和利用系数计算",
-      "values": [
-        {
-          "value": "0.65",
-          "unit": "irrigation efficiency coefficient",
-          "time_basis": "planning horizon"
-        }
-      ]
-    },
-    {
-      "id": "LEGACY-P036",
-      "kind": "ORIGINAL_FIGURE",
-      "summary": "来水频率分析采用经验点据与理论频率曲线",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告4.2.2原图",
-      "catalog_ids": [
-        "c34b5f52:L01483",
-        "c34b5f52:L01485",
-        "068e8e9b:P0295"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "来水频率分析采用经验点据与理论频率曲线",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P037",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "可供水量必须先扣除下游生态流量",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告4.2.2",
-      "catalog_ids": [
-        "c34b5f52:L01496",
-        "c34b5f52:L01502",
-        "068e8e9b:P0312"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "可供水量必须先扣除下游生态流量",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P038",
-      "kind": "ORIGINAL_FIGURE",
-      "summary": "供水平衡图（一）：本地可供水60.59万m³，三干渠引水689.41万m³",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告供水平衡原图",
-      "catalog_ids": [
-        "c34b5f52:L01758",
-        "c34b5f52:L01763",
-        "068e8e9b:P0312"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "供水平衡图（一）：本地可供水60.59万m³，三干渠引水689.41万m³",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P039",
-      "kind": "ORIGINAL_FIGURE",
-      "summary": "供水平衡图（二）：本地可供水94.57万m³，三干渠引水655.43万m³",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告供水平衡原图",
-      "catalog_ids": [
-        "c34b5f52:L01768",
-        "c34b5f52:L01773"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "供水平衡图（二）：本地可供水94.57万m³，三干渠引水655.43万m³",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P040",
-      "kind": "INTERPRETATION",
-      "summary": "报告正文及图件分别出现两组P=90%供水平衡参数",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告4.2.2、5.2.4及供水平衡原图",
-      "catalog_ids": [
-        "c34b5f52:L01502",
-        "c34b5f52:L01638",
-        "c34b5f52:L01643"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "报告正文及图件分别出现两组P=90%供水平衡参数",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P041",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "全年灌溉供水集中于5—8月，7月达到217.50万m³",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告月度耗水及退水量表（上半表）",
-      "catalog_ids": [
-        "c34b5f52:L01555",
-        "c34b5f52:L01600",
-        "068e8e9b:T016"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "全年灌溉供水集中于5—8月，7月达到217.50万m³",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P042",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "8—11月供水逐步回落，全年供水、耗水和退水闭合",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告月度耗水及退水量表（下半表）",
-      "catalog_ids": [
-        "c34b5f52:L01555",
-        "c34b5f52:L01663",
-        "068e8e9b:T016"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "8—11月供水逐步回落，全年供水、耗水和退水闭合",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P043",
-      "kind": "INTERPRETATION",
-      "summary": "报告按20%回归水比例核定耗水量与退水量",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告4.2.3、表4.2-7",
-      "catalog_ids": [
-        "c34b5f52:L01643",
-        "c34b5f52:L01774",
-        "068e8e9b:T017"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "报告按20%回归水比例核定耗水量与退水量",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P044",
-      "kind": "INTERPRETATION",
-      "summary": "规划利用系数0.650高于现有对标值，但需要持续改造支撑",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告4.3",
-      "catalog_ids": [
-        "c34b5f52:L01697",
-        "c34b5f52:L01704",
-        "068e8e9b:P0340"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "规划利用系数0.650高于现有对标值，但需要持续改造支撑",
-      "values": [
-        {
-          "value": "0.65",
-          "unit": "irrigation efficiency coefficient",
-          "time_basis": "planning horizon"
-        }
-      ]
-    },
-    {
-      "id": "LEGACY-P045",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "报告核定取水量、耗水量与退水量",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告4.4",
-      "catalog_ids": [
-        "c34b5f52:L01704",
-        "c34b5f52:L01706",
-        "068e8e9b:P0340"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "报告核定取水量、耗水量与退水量",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P047",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "项目采用东风三干渠与玉泉水库联合水源方案",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告5.1",
-      "catalog_ids": [
-        "c34b5f52:L00224",
-        "068e8e9b:P0349"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "项目采用东风三干渠与玉泉水库联合水源方案",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P048",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "可靠性论证采用降雨序列和水库工程特性资料",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告5.2.3",
-      "catalog_ids": [
-        "c34b5f52:L01483",
-        "c34b5f52:L01751",
-        "068e8e9b:P0370"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "可靠性论证采用降雨序列和水库工程特性资料",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P049",
-      "kind": "ORIGINAL_FIGURE",
-      "summary": "取水水源论证范围为玉泉水库坝址以上流域",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告附图二",
-      "catalog_ids": [
-        "c34b5f52:L00395",
-        "068e8e9b:P0579"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "取水水源论证范围为玉泉水库坝址以上流域",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P050",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "东风三干渠补水通过引水协议落实具体调度指标",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告5.2.4",
-      "catalog_ids": [
-        "c34b5f52:L01640",
-        "c34b5f52:L01785"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "东风三干渠补水通过引水协议落实具体调度指标",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P051",
+      "id": "YQ-014",
       "kind": "ORIGINAL_FIGURE",
       "summary": "取水口与坝下渠系衔接紧密，工程路径清晰",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告附图三",
+      "source_locator": "来源：报告附图三",
       "catalog_ids": [
-        "068e8e9b:P0582",
-        "068e8e9b:I0003"
+        "7cbef768:T003",
+        "7cbef768:P0136",
+        "7cbef768:P0415",
+        "7cbef768:P0425"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "取水口与坝下渠系衔接紧密，工程路径清晰",
-      "values": []
+      "exact_text": "取水口与坝下渠系衔接紧密，工程路径清晰。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P052",
+      "id": "YQ-015",
       "kind": "ORIGINAL_TEXT",
-      "summary": "联合水源水质满足农业灌溉要求",
+      "summary": "取水影响总体可控，但前提是生态下泄和补源计划刚性执行",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告5.2.6",
+      "source_locator": "来源：报告第6章",
       "catalog_ids": [
-        "c34b5f52:L01776",
-        "068e8e9b:P0412"
+        "7cbef768:P0417",
+        "7cbef768:P0431",
+        "7cbef768:P0435"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "联合水源水质满足农业灌溉要求",
-      "values": []
+      "exact_text": "取水影响总体可控，但前提是生态下泄和补源计划刚性执行 在执行三干渠引水协议及年度调度计划的情况下，项目取水对区域地表水资源及配置方案无显著影响。 项目预留生态下泄流量，水库运行库容保持在死库容以上。 项目无生产、生活废污水排放，不改变现状水域水质本底值。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P053",
-      "kind": "INTERPRETATION",
-      "summary": "可靠性由水量、水质和水位运行三个方面构成",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告5.2.7—5.2.8",
-      "catalog_ids": [
-        "c34b5f52:L01785",
-        "068e8e9b:P0419",
-        "068e8e9b:P0425"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "可靠性由水量、水质和水位运行三个方面构成",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P055",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "报告从水资源配置、水生态、水功能区和其他用户分析取水影响",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告第6章",
-      "catalog_ids": [
-        "068e8e9b:P0428",
-        "068e8e9b:P0430",
-        "068e8e9b:P0432",
-        "068e8e9b:P0438"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "报告从水资源配置、水生态、水功能区和其他用户分析取水影响",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P057",
+      "id": "YQ-016",
       "kind": "ORIGINAL_FIGURE",
       "summary": "退水影响范围覆盖子龙、合意和玉泉三村灌区",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告附图四",
+      "source_locator": "来源：报告附图四",
       "catalog_ids": [
-        "068e8e9b:P0585",
-        "068e8e9b:I0004"
+        "7cbef768:T003",
+        "7cbef768:P0327",
+        "7cbef768:T017",
+        "7cbef768:P0344"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "退水影响范围覆盖子龙、合意和玉泉三村灌区",
-      "values": []
+      "exact_text": "退水影响范围覆盖子龙、合意和玉泉三村灌区。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P058",
+      "id": "YQ-017",
       "kind": "ORIGINAL_TEXT",
-      "summary": "退水呈季节性、间歇性和分散性，不具备集中排放特征",
+      "summary": "退水方案可行，但面源污染控制需要运行期验证",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告7.1",
+      "source_locator": "来源：报告7.1—7.5",
       "catalog_ids": [
-        "c34b5f52:L01812",
-        "c34b5f52:L01819",
-        "068e8e9b:P0455"
+        "7cbef768:P0003",
+        "7cbef768:P0004",
+        "7cbef768:T001",
+        "7cbef768:P0015"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "退水呈季节性、间歇性和分散性，不具备集中排放特征",
-      "values": []
+      "exact_text": "退水方案可行，但面源污染控制需要运行期验证 退水与灌水周期同步，7—8月为高峰，非灌溉季基本无退水。 土壤吸附、沟渠沉淀和植被拦截可降低污染负荷。 仍需通过化肥农药减量、生态沟渠和关键断面监测验证环境风险。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P059",
-      "kind": "INTERPRETATION",
-      "summary": "退水方案可行，但面源污染控制不能只依赖自然净化",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告7.2—7.5",
-      "catalog_ids": [
-        "c34b5f52:L01817",
-        "c34b5f52:L01839",
-        "068e8e9b:P0466"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "退水方案可行，但面源污染控制不能只依赖自然净化",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P061",
+      "id": "YQ-018",
       "kind": "ORIGINAL_TEXT",
-      "summary": "节约措施聚焦输水损失与田间用水效率",
+      "summary": "管理措施覆盖节水、保护、许可、计量和运维",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告8.1",
+      "source_locator": "来源：报告第8章",
       "catalog_ids": [
-        "c34b5f52:L00237",
-        "068e8e9b:P0478"
+        "7cbef768:T003"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "节约措施聚焦输水损失与田间用水效率",
-      "values": []
+      "exact_text": "管理措施覆盖节水、保护、许可、计量和运维 推进干支渠及末级渠系防渗整治，推广低压管输和精准灌溉。 推广测土配方施肥和生态农业技术，减少化学肥料用量和农业面源污染。 依法办理取水许可，安装标准化计量设施，建立用水台账和数据上报制度。 建立水库及渠系专业化管护机制，开展工程巡查养护。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P062",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "保护措施包括农业投入减量、水资源监管和公众参与",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告8.2",
-      "catalog_ids": [
-        "068e8e9b:P0483",
-        "068e8e9b:P0499"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "保护措施包括农业投入减量、水资源监管和公众参与",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P063",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "管理措施覆盖取水许可、计量监测、工程运维和水环境保护",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告8.3",
-      "catalog_ids": [
-        "068e8e9b:P0490",
-        "068e8e9b:P0493",
-        "068e8e9b:P0495",
-        "068e8e9b:P0497"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "管理措施覆盖取水许可、计量监测、工程运维和水环境保护",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P065",
+      "id": "YQ-019",
       "kind": "ORIGINAL_TEXT",
       "summary": "报告总体认为项目取用水合理、联合水源方案可行",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告第9章结论",
+      "source_locator": "来源：报告第9章结论",
       "catalog_ids": [
-        "068e8e9b:P0503",
-        "068e8e9b:P0508",
-        "068e8e9b:P0514",
-        "068e8e9b:P0524"
+        "7cbef768:P0003",
+        "7cbef768:P0004",
+        "7cbef768:T001",
+        "7cbef768:P0015"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "报告总体认为项目取用水合理、联合水源方案可行",
-      "values": []
+      "exact_text": "报告总体认为项目取用水合理、联合水源方案可行 项目服务于现有农业灌溉，规划水平年不以扩大种植规模增加需水。 玉泉水库天然来水与东风三干渠补水组成联合水源。 落实生态下泄、库水位控制、农业面源治理和水质监测后，取水与退水影响总体可控。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     },
     {
-      "id": "LEGACY-P066",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "报告提出取水、退水影响补救与补偿措施",
+      "id": "YQ-020",
+      "kind": "RECOMMENDATION",
+      "summary": "建议把五项条件写入许可与后续实施要求",
       "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告9.1取水和退水影响补救与补偿措施",
+      "source_locator": "来源：报告9.2及第4—8章",
       "catalog_ids": [
-        "c34b5f52:L01893",
-        "068e8e9b:P0529"
+        "7cbef768:P0003",
+        "7cbef768:P0004",
+        "7cbef768:T001",
+        "7cbef768:P0015"
       ],
       "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "报告提出取水、退水影响补救与补偿措施",
-      "values": []
-    },
-    {
-      "id": "LEGACY-P067",
-      "kind": "ORIGINAL_TEXT",
-      "summary": "报告建议深化信息化管理并加强末级渠系长效管护",
-      "source_file": "玉泉水库水资源论证报告.docx",
-      "source_locator": "报告9.2",
-      "catalog_ids": [
-        "068e8e9b:P0541"
-      ],
-      "verification_status": "verified",
-      "visible_numbers": [],
-      "notes": "Verified by locating the refreshed source catalog entry for the report section, table, or figure; interpretive records remain INTERPRETATION.",
-      "exact_text": "报告建议深化信息化管理并加强末级渠系长效管护",
-      "values": []
+      "exact_text": "建议把五项条件写入许可与后续实施要求。",
+      "values": [],
+      "notes": "Generated from refreshed DOCX-only source catalog and PPT content blueprint."
     }
   ]
 }

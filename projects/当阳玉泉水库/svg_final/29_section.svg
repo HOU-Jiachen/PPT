@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<rect width="1280" height="720" fill="#0B3558"/>
+<rect x="770" y="120" width="360" height="430" rx="8" fill="#0E9F9A" opacity="0.18"/>
+<rect x="814" y="176" width="272" height="18" fill="#D7E8EA" opacity="0.75"/>
+<rect x="814" y="236" width="220" height="18" fill="#D7E8EA" opacity="0.55"/>
+<rect x="814" y="296" width="248" height="18" fill="#D7E8EA" opacity="0.55"/>
+<rect x="814" y="356" width="198" height="18" fill="#D7E8EA" opacity="0.55"/>
+<rect x="54" y="58" width="8" height="32" fill="#0E9F9A"/>
+<text x="78" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="15" font-weight="bold" fill="#D7E8EA">结论与建议 | 29</text>
+<text x="54" y="132" font-family="Microsoft YaHei, Arial, sans-serif" font-size="30" font-weight="bold" fill="#FFFFFF">结论与建议</text>
+<circle cx="70" cy="198" r="5" fill="#0E9F9A"/>
+<text x="90" y="205" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#FFFFFF">结论与建议</text>
+<circle cx="70" cy="252" r="5" fill="#0E9F9A"/>
+<text x="90" y="259" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#FFFFFF">第 结论与建议 章 / 共 9 章</text>
+<circle cx="70" cy="306" r="5" fill="#0E9F9A"/>
+<text x="90" y="313" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="normal" fill="#FFFFFF">本章对应报告原始证据页。</text>
+<text x="54" y="695" font-family="Microsoft YaHei, Arial, sans-serif" font-size="12" font-weight="normal" fill="#D7E8EA"></text>
+</svg>

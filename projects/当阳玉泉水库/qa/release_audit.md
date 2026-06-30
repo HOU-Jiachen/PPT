@@ -1,8 +1,36 @@
 # Release Audit
 
 - Errors: 0
-- Warnings: 0
+- Warnings: 28
 - Release ready: True
 
-- **INFO svg-directory**: Auditing SVG directory. `{"path": "projects/当阳玉泉水库/source_faithful_deck/svg_final", "slides": 67}`
-- **INFO pptx-valid**: PPTX package, XML, media, and parser checks passed. `{"slides": 67}`
+- **INFO svg-directory**: Auditing SVG directory. `{"path": "projects/当阳玉泉水库/svg_final", "slides": 31}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 2, "occupied_ratio": 0.091, "minimum": 0.18}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 3, "occupied_ratio": 0.069, "minimum": 0.18}`
+- **WARNING visual-imbalance**: Slide visual mass is biased toward one side. `{"page": 3, "balance_offset": 0.24, "maximum": 0.22}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 5, "occupied_ratio": 0.062, "minimum": 0.18}`
+- **WARNING visual-imbalance**: Slide visual mass is biased toward one side. `{"page": 5, "balance_offset": 0.229, "maximum": 0.22}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 8, "occupied_ratio": 0.066, "minimum": 0.18}`
+- **WARNING visual-imbalance**: Slide visual mass is biased toward one side. `{"page": 8, "balance_offset": 0.223, "maximum": 0.22}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 9, "occupied_ratio": 0.066, "minimum": 0.18}`
+- **WARNING visual-imbalance**: Slide visual mass is biased toward one side. `{"page": 9, "balance_offset": 0.221, "maximum": 0.22}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 12, "occupied_ratio": 0.082, "minimum": 0.18}`
+- **WARNING visual-imbalance**: Slide visual mass is biased toward one side. `{"page": 12, "balance_offset": 0.252, "maximum": 0.22}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 13, "occupied_ratio": 0.058, "minimum": 0.18}`
+- **WARNING visual-imbalance**: Slide visual mass is biased toward one side. `{"page": 13, "balance_offset": 0.277, "maximum": 0.22}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 15, "occupied_ratio": 0.065, "minimum": 0.18}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 16, "occupied_ratio": 0.059, "minimum": 0.18}`
+- **WARNING visual-imbalance**: Slide visual mass is biased toward one side. `{"page": 16, "balance_offset": 0.283, "maximum": 0.22}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 18, "occupied_ratio": 0.086, "minimum": 0.18}`
+- **WARNING visual-imbalance**: Slide visual mass is biased toward one side. `{"page": 18, "balance_offset": 0.22, "maximum": 0.22}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 20, "occupied_ratio": 0.062, "minimum": 0.18}`
+- **WARNING visual-imbalance**: Slide visual mass is biased toward one side. `{"page": 20, "balance_offset": 0.23, "maximum": 0.22}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 23, "occupied_ratio": 0.077, "minimum": 0.18}`
+- **WARNING visual-imbalance**: Slide visual mass is biased toward one side. `{"page": 23, "balance_offset": 0.229, "maximum": 0.22}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 26, "occupied_ratio": 0.062, "minimum": 0.18}`
+- **WARNING visual-imbalance**: Slide visual mass is biased toward one side. `{"page": 26, "balance_offset": 0.225, "maximum": 0.22}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 28, "occupied_ratio": 0.083, "minimum": 0.18}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 30, "occupied_ratio": 0.07, "minimum": 0.18}`
+- **WARNING low-occupied-area**: Slide appears visually sparse under deterministic occupied-area sampling. `{"page": 31, "occupied_ratio": 0.098, "minimum": 0.18}`
+- **WARNING pptx-table-source-unmatched**: Native PPTX table could not be confidently matched to a source table. `{"page": 13, "table": 7, "match_score": 0.125}`
+- **INFO pptx-valid**: PPTX package, XML, media, and parser checks passed. `{"slides": 31}`

@@ -35,7 +35,8 @@
       "left_table_right_text",
       "top_text_bottom_table",
       "top_table_bottom_text"
-    ]
+    ],
+    "max_summary_or_overall_pages": 3
   },
   "forbidden_visible_phrases": [
     "报告原文摘录",
@@ -57,10 +58,11 @@
     "CALCULATION"
   ],
   "structural_slide_types": [
-    "cover",
     "agenda",
-    "section",
-    "closing"
+    "closing",
+    "cover",
+    "overview",
+    "section"
   ],
   "sparse_page": {
     "minimum_visible_characters_without_visual": 70,

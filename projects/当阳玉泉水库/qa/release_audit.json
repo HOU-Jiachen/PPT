@@ -1,16 +1,18 @@
 {
   "summary": {
     "errors": 0,
-    "warnings": 0,
+    "warnings": 28,
     "info": 2,
     "release_ready": true
   },
   "metadata": {
     "project": "projects/当阳玉泉水库",
     "strict": true,
-    "planned_slides": 67,
-    "svg_slides": 67,
-    "pptx": "projects/当阳玉泉水库/exports/玉泉水库水资源论证_工程评审汇报_67页_20260616.pptx"
+    "planned_slides": 22,
+    "expected_pptx_slides": 31,
+    "svg_slides": 31,
+    "content_units": 286,
+    "pptx": "projects/当阳玉泉水库/exports/玉泉水库水资源论证_增强源证据汇报_31页_20260630_1041.pptx"
   },
   "findings": [
     {
@@ -18,8 +20,288 @@
       "code": "svg-directory",
       "message": "Auditing SVG directory.",
       "context": {
-        "path": "projects/当阳玉泉水库/source_faithful_deck/svg_final",
-        "slides": 67
+        "path": "projects/当阳玉泉水库/svg_final",
+        "slides": 31
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 2,
+        "occupied_ratio": 0.091,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 3,
+        "occupied_ratio": 0.069,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "visual-imbalance",
+      "message": "Slide visual mass is biased toward one side.",
+      "context": {
+        "page": 3,
+        "balance_offset": 0.24,
+        "maximum": 0.22
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 5,
+        "occupied_ratio": 0.062,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "visual-imbalance",
+      "message": "Slide visual mass is biased toward one side.",
+      "context": {
+        "page": 5,
+        "balance_offset": 0.229,
+        "maximum": 0.22
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 8,
+        "occupied_ratio": 0.066,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "visual-imbalance",
+      "message": "Slide visual mass is biased toward one side.",
+      "context": {
+        "page": 8,
+        "balance_offset": 0.223,
+        "maximum": 0.22
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 9,
+        "occupied_ratio": 0.066,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "visual-imbalance",
+      "message": "Slide visual mass is biased toward one side.",
+      "context": {
+        "page": 9,
+        "balance_offset": 0.221,
+        "maximum": 0.22
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 12,
+        "occupied_ratio": 0.082,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "visual-imbalance",
+      "message": "Slide visual mass is biased toward one side.",
+      "context": {
+        "page": 12,
+        "balance_offset": 0.252,
+        "maximum": 0.22
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 13,
+        "occupied_ratio": 0.058,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "visual-imbalance",
+      "message": "Slide visual mass is biased toward one side.",
+      "context": {
+        "page": 13,
+        "balance_offset": 0.277,
+        "maximum": 0.22
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 15,
+        "occupied_ratio": 0.065,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 16,
+        "occupied_ratio": 0.059,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "visual-imbalance",
+      "message": "Slide visual mass is biased toward one side.",
+      "context": {
+        "page": 16,
+        "balance_offset": 0.283,
+        "maximum": 0.22
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 18,
+        "occupied_ratio": 0.086,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "visual-imbalance",
+      "message": "Slide visual mass is biased toward one side.",
+      "context": {
+        "page": 18,
+        "balance_offset": 0.22,
+        "maximum": 0.22
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 20,
+        "occupied_ratio": 0.062,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "visual-imbalance",
+      "message": "Slide visual mass is biased toward one side.",
+      "context": {
+        "page": 20,
+        "balance_offset": 0.23,
+        "maximum": 0.22
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 23,
+        "occupied_ratio": 0.077,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "visual-imbalance",
+      "message": "Slide visual mass is biased toward one side.",
+      "context": {
+        "page": 23,
+        "balance_offset": 0.229,
+        "maximum": 0.22
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 26,
+        "occupied_ratio": 0.062,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "visual-imbalance",
+      "message": "Slide visual mass is biased toward one side.",
+      "context": {
+        "page": 26,
+        "balance_offset": 0.225,
+        "maximum": 0.22
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 28,
+        "occupied_ratio": 0.083,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 30,
+        "occupied_ratio": 0.07,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "low-occupied-area",
+      "message": "Slide appears visually sparse under deterministic occupied-area sampling.",
+      "context": {
+        "page": 31,
+        "occupied_ratio": 0.098,
+        "minimum": 0.18
+      }
+    },
+    {
+      "level": "warning",
+      "code": "pptx-table-source-unmatched",
+      "message": "Native PPTX table could not be confidently matched to a source table.",
+      "context": {
+        "page": 13,
+        "table": 7,
+        "match_score": 0.125
       }
     },
     {
@@ -27,7 +309,7 @@
       "code": "pptx-valid",
       "message": "PPTX package, XML, media, and parser checks passed.",
       "context": {
-        "slides": 67
+        "slides": 31
       }
     }
   ]
