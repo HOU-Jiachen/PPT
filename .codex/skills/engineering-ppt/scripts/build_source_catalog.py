@@ -15,6 +15,8 @@ from lxml import etree
 from openpyxl import load_workbook
 from pptx import Presentation
 
+from table_ir import write_table_ir_for_sources
+
 try:
     import fitz
 except ImportError:  # pragma: no cover
@@ -267,7 +269,24 @@ def extract(path: Path) -> list[dict]:
     return []
 
 
-def write_inventory(project: Path, sources: Iterable[Path], catalog: list[dict]) -> None:
+def attach_table_ir(catalog: list[dict], table_ir: dict) -> None:
+    by_source_locator = table_ir.get("by_source_locator", {})
+    for item in catalog:
+        if item.get("kind") != "table":
+            continue
+        key = f"{item.get('source', '')}::{item.get('locator', '')}"
+        table = by_source_locator.get(key)
+        if not table:
+            continue
+        item["table_id"] = table.get("table_id")
+        item["render_mode"] = table.get("render_mode")
+        item["table_ir_path"] = "analysis/table_ir.json"
+        item["table_assets"] = table.get("assets", {})
+        item["structure"] = table.get("structure", {})
+        item["geometry"] = table.get("geometry", {})
+
+
+def write_inventory(project: Path, sources: Iterable[Path], catalog: list[dict], table_ir: dict | None = None) -> None:
     analysis = project / "analysis"
     analysis.mkdir(parents=True, exist_ok=True)
     inventory = []
@@ -284,6 +303,7 @@ def write_inventory(project: Path, sources: Iterable[Path], catalog: list[dict])
         "schema_version": "1.0",
         "sources": inventory,
         "entries": catalog,
+        "table_ir": "analysis/table_ir.json" if table_ir is not None else "",
     }
     (analysis / "source_catalog.json").write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
@@ -300,6 +320,8 @@ def write_inventory(project: Path, sources: Iterable[Path], catalog: list[dict])
         [
             "",
             "Use `analysis/source_catalog.json` IDs in `evidence_ledger.json`.",
+            "Use `analysis/table_ir.json` table_id/render_mode for table planning and rendering.",
+            "LLM may select tables and summarize conclusions, but code owns table structure, screenshots, and rendering.",
             "Do not treat extraction output as verified when tables or OCR are visibly damaged.",
             "",
         ]
@@ -323,7 +345,9 @@ def main() -> None:
             catalog.extend(extract(source))
         except Exception as exc:  # continue inventorying other authoritative files
             failures.append({"source": str(source), "error": str(exc)})
-    write_inventory(project, sources, catalog)
+    table_ir = write_table_ir_for_sources(project, sources)
+    attach_table_ir(catalog, table_ir)
+    write_inventory(project, sources, catalog, table_ir)
     print(
         json.dumps(
             {

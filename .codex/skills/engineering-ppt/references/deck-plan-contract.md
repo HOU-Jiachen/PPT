@@ -82,6 +82,12 @@ top_text_bottom_table | top_table_bottom_text
 - Native PPTX tables must be matched back to source table structure. Small/medium DOCX
   tables with merged headers or vertical merges should use real PPTX merged cells, while
   dense tables must record the split/excerpt reason.
+- Table pages must reference `analysis/table_ir.json` by `table_id` and respect
+  `render_mode`. LLM planning selects the table and speaker conclusion only; code renders
+  native/image/hybrid output from the IR. Do not plan Markdown tables or LLM-rebuilt table
+  grids for complex source tables.
+- Complex tables should use `image` mode by default. Important complex tables should use
+  `hybrid` mode: source crop plus 2-4 concise conclusions derived from that table.
 - Choose figure layout from source aspect ratio: paired horizontal figures, maps, profiles,
   and wide charts should normally use `top_figure_bottom_text` or `top_text_bottom_figure`
   instead of narrow side-by-side figure panels.

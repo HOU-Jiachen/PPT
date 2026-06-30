@@ -347,10 +347,14 @@ def build_inventory(catalog: dict[str, Any]) -> dict[str, Any]:
             item = {
                 "catalog_id": entry.get("id"),
                 "source_locator": entry.get("locator"),
+                "table_id": entry.get("table_id", ""),
+                "render_mode": entry.get("render_mode", "auto"),
+                "table_assets": entry.get("table_assets", {}),
                 "caption": caption["title"] if caption else "",
                 "caption_catalog_id": caption["catalog_id"] if caption else "",
                 "row_count": entry.get("row_count", len(entry.get("rows", []))),
                 "column_count": entry.get("column_count", 0),
+                "structure": entry.get("structure", {}),
                 "text_preview": text_preview(text, 260),
                 "numbers": entry.get("numbers", []),
                 "emphasis_candidates": emphasis_candidates(text),
@@ -419,7 +423,7 @@ def content_unit(
     if kind == "paragraph":
         title = section["title"]
     mode = SOURCE_MODES.get("calculation" if kind == "paragraph" and "calculation" in item["ppt_use"]["slide_role"] else kind, "ORIGINAL_TEXT")
-    return {
+    unit = {
         "id": unit_id,
         "section_id": section["id"],
         "section_path": section["path_titles"],
@@ -434,6 +438,12 @@ def content_unit(
         "paragraph_structure": item.get("paragraph_structure", {}),
         "emphasis_candidates": item.get("emphasis_candidates", {}),
     }
+    if kind == "table":
+        unit["table_id"] = item.get("table_id", "")
+        unit["render_mode"] = item.get("render_mode", "auto")
+        unit["table_assets"] = item.get("table_assets", {})
+        unit["structure"] = item.get("structure", {})
+    return unit
 
 
 def write_blueprint(project: Path, inventory: dict[str, Any]) -> None:
@@ -459,7 +469,8 @@ def write_blueprint(project: Path, inventory: dict[str, Any]) -> None:
         "- Preserve the report's title hierarchy before summarizing.",
         "- Treat table and figure captions as the default small-title source.",
         "- Pair source objects with faithful explanation; do not replace technical process with summary cards.",
-        "- Split dense tables, long formulas, and complex maps before reducing font size.",
+        "- Use `analysis/table_ir.json` for tables. LLM may select `table_id` and summarize conclusions, but must not redraw complex tables or use Markdown tables as a substitute.",
+        "- Respect each table `render_mode`: simple `native`, complex `image`, important complex `hybrid`; split dense tables, long formulas, and complex maps before reducing font size.",
         "- When one source paragraph contains several numbered or semicolon-separated points, keep visible item numbers and short item names.",
         "- Mark key report terms, controlling values, units, conclusions, and risk words for bold/color/highlight treatment in the visible slide.",
         "- Every planned slide should point back to one or more content unit IDs or explain why no source object exists.",
@@ -489,23 +500,24 @@ def write_blueprint(project: Path, inventory: dict[str, Any]) -> None:
                 f"  - Slide split decision: {split_summary(units)}",
                 f"  - Text structure and emphasis: {structure_summary(units)}",
                 "",
-                "| Unit | Source Mode | Candidate Title | Role | Layout Hint | Catalog IDs |",
-                "| --- | --- | --- | --- | --- | --- |",
+                "| Unit | Source Mode | Candidate Title | Role | Layout Hint | Table Render | Catalog IDs |",
+                "| --- | --- | --- | --- | --- | --- | --- |",
             ]
         )
         for unit in units[:12]:
             lines.append(
-                "| {id} | {mode} | {title} | {role} | {layout} | {catalog} |".format(
+                "| {id} | {mode} | {title} | {role} | {layout} | {table_render} | {catalog} |".format(
                     id=unit["id"],
                     mode=unit["source_mode"],
                     title=unit["candidate_slide_title"].replace("|", "；"),
                     role=unit["narrative_role"].replace("|", "；"),
                     layout=unit["layout_hint"].replace("|", "；"),
+                    table_render=(f"{unit.get('table_id', '')}:{unit.get('render_mode', '')}" if unit.get("table_id") else ""),
                     catalog=", ".join(unit["catalog_ids"]),
                 )
             )
         if len(units) > 12:
-            lines.append(f"| ... | ... | Additional {len(units) - 12} units in JSON inventory | ... | ... | ... |")
+            lines.append(f"| ... | ... | Additional {len(units) - 12} units in JSON inventory | ... | ... | ... | ... |")
         lines.append("")
 
     lines.extend(

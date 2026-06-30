@@ -24,6 +24,7 @@ from pptx.enum.text import MSO_ANCHOR, MSO_AUTO_SIZE, PP_ALIGN
 from pptx.util import Inches, Pt
 
 from figure_layout_optimizer import choose_figure_layout
+from table_renderers import get_table_ir, load_table_ir, render_table
 
 
 DEFAULT_COLORS = {
@@ -77,6 +78,37 @@ def rgb(hex_color: str) -> RGBColor:
 
 def pt(value: float):
     return Pt(value)
+
+
+def table_ir_payload(project: Path) -> dict[str, Any]:
+    """Load deterministic Table IR generated during cataloging."""
+
+    return load_table_ir(project)
+
+
+def table_ir_by_id(project: Path, table_id: str) -> dict[str, Any]:
+    """Return a Table IR record by table_id or source locator."""
+
+    return get_table_ir(project, table_id)
+
+
+def add_ir_table(
+    slide,
+    project: Path,
+    table_id: str,
+    x: float,
+    y: float,
+    w: float,
+    h: float,
+    *,
+    conclusions: list[str] | None = None,
+    mode: str | None = None,
+    colors: dict[str, str] | None = None,
+):
+    """Render a table through deterministic native/image/hybrid renderers."""
+
+    table = table_ir_by_id(project, table_id)
+    return render_table(slide, table, project, x, y, w, h, conclusions=conclusions, mode=mode, colors=colors or DEFAULT_COLORS)
 
 
 def load_json(path: Path) -> Any:

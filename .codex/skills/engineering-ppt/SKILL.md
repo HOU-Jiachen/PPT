@@ -286,6 +286,20 @@ Local source-preservation overrides:
   `scripts/docx_table_parser.py` before rendering table-heavy decks. Prefer the resulting
   OOXML structure model over flattened catalog rows because it preserves `gridSpan`,
   `vMerge`, table grid widths, and merge origins.
+- Generate and use `analysis/table_ir.json` for every DOCX/PDF table-bearing source. The
+  LLM may only select `table_id`, decide whether the table belongs in the PPT, and write
+  short source-grounded conclusions. It must not redraw complex tables, infer merge
+  relationships, choose concrete row heights/column widths/borders, or use Markdown tables
+  as a replacement for original report tables.
+- Respect `render_mode` from Table IR:
+  - `native`: simple, editable PPT table rendered by `NativeTableRenderer`.
+  - `image`: complex source table crop rendered by `ImageTableRenderer`, preserving aspect
+    ratio and visual format over editability.
+  - `hybrid`: source table crop plus 2-4 concise table-grounded conclusions rendered by
+    `HybridTableRenderer`.
+  Complex tables, cross-page tables, dense merged headers, diagonal headers, nested tables,
+  unstable PDF tables, and scan/image PDFs must default to `image` or `hybrid`; never force
+  editability when it would break source format.
 - Render small and medium table models with `scripts/pptx_merged_table_renderer.py` so
   PowerPoint receives real merged cells, not visually simulated blanks. If a merged table
   has too many rows or columns to remain readable, switch to a wide table layout, split the

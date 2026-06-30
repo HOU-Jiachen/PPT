@@ -27,6 +27,10 @@ Run the following gates in order. A later success never cancels an earlier failu
 10b. Source-table fidelity audit after PPTX export: native PPTX tables must preserve source
     headers, row/column scale where required, key numeric values, units, and merged-cell
     structure against `docx_table_models.json` or `source_catalog.json`.
+10c. Table IR audit: DOCX/PDF table-bearing projects must have `analysis/table_ir.json`;
+    each table must have a valid `render_mode`; image/hybrid modes must reference an
+    existing source-derived crop image; complex tables must not default to native
+    reconstruction.
 11. Chart verification: required for every data-driven chart.
 12. Full render: inspect every page at full size and as a contact sheet.
 13. `release_audit.py --strict`: zero errors.
@@ -65,6 +69,9 @@ Run the following gates in order. A later success never cancels an earlier failu
   or omitted without a recorded plan change
 - complex source table flattened so merged headers, units, row groups, or footnotes become
   misleading or unreadable
+- complex source table reconstructed by the LLM or via Markdown instead of rendered from
+  Table IR as native/image/hybrid
+- image/hybrid table inserted with distorted aspect ratio or without a source-derived crop
 - DOCX table-heavy deck rendered without a `docx_table_models.json` structure pass or
   without native merged-cell rendering for small/medium source tables that fit the slide
 - sparse page containing neither adequate explanation nor substantive source evidence

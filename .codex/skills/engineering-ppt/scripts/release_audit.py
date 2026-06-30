@@ -1295,6 +1295,105 @@ def source_table_candidates(catalog: dict, docx_models: dict) -> list[dict[str, 
     return candidates
 
 
+def add_table_ir_candidates(candidates: list[dict[str, Any]], table_ir: dict) -> None:
+    for table in table_ir.get("tables", []) if isinstance(table_ir, dict) else []:
+        rows = table.get("rows") or []
+        structure = table.get("structure", {})
+        candidates.append(
+            {
+                "id": table.get("table_id", ""),
+                "locator": table.get("locator", table.get("table_id", "")),
+                "source": table.get("source", {}).get("file", ""),
+                "rows": rows,
+                "row_count": int(structure.get("rows") or len(rows)),
+                "column_count": int(structure.get("cols") or max((len(row) for row in rows), default=0)),
+                "has_merged_cells": bool(structure.get("merged_cells")),
+                "numbers": collect_numbers("\n".join(" | ".join(map(str, row)) for row in rows)),
+                "model": table,
+                "render_mode": table.get("render_mode", "auto"),
+            }
+        )
+
+
+def audit_table_ir(project: Path, table_ir: dict, catalog: dict, policy: dict, strict: bool, audit: Audit) -> None:
+    settings = policy.get("table_fidelity", {})
+    if not strict or settings.get("enabled", True) is False:
+        return
+    docx_or_pdf_sources = [
+        item
+        for item in catalog.get("sources", [])
+        if str(item.get("name", "")).lower().endswith((".docx", ".pdf"))
+    ]
+    if settings.get("require_table_ir", True) and docx_or_pdf_sources and not table_ir:
+        audit.error(
+            "missing-table-ir",
+            "DOCX/PDF engineering decks must generate analysis/table_ir.json so LLM does not reconstruct tables.",
+            sources=[item.get("name") for item in docx_or_pdf_sources],
+        )
+        return
+
+    allowed = set(settings.get("allowed_render_modes", ["native", "image", "hybrid", "auto"]))
+    tables = table_ir.get("tables", []) if isinstance(table_ir, dict) else []
+    catalog_table_ids = {
+        str(item.get("table_id"))
+        for item in catalog.get("entries", [])
+        if item.get("kind") == "table" and item.get("table_id")
+    }
+    ir_table_ids = {str(item.get("table_id")) for item in tables if item.get("table_id")}
+    missing_from_ir = sorted(catalog_table_ids - ir_table_ids)
+    if missing_from_ir:
+        audit.error(
+            "catalog-table-missing-ir",
+            "Source catalog table entries reference table_id values absent from analysis/table_ir.json.",
+            table_ids=missing_from_ir[:12],
+        )
+
+    for table in tables:
+        table_id = str(table.get("table_id", ""))
+        mode = str(table.get("render_mode", "")).lower()
+        if mode not in allowed:
+            audit.error(
+                "invalid-table-render-mode",
+                "Table IR render_mode must be one of native, image, hybrid, or auto.",
+                table_id=table_id,
+                render_mode=mode,
+            )
+        structure = table.get("structure", {})
+        complex_by_rule = (
+            bool(structure.get("is_cross_page"))
+            or bool(structure.get("has_diagonal_header"))
+            or bool(structure.get("has_nested_table"))
+            or int(structure.get("rows") or 0) > int(settings.get("small_medium_max_rows", 10))
+            or int(structure.get("cols") or 0) > int(settings.get("small_medium_max_cols", 7))
+            or int(structure.get("merged_cell_count") or len(structure.get("merged_cells") or [])) >= 3
+            or float(structure.get("border_complexity") or 0.0) > 0.6
+        )
+        if settings.get("complex_tables_default_to_image", True) and complex_by_rule and mode == "native":
+            audit.error(
+                "complex-table-rendered-native",
+                "Complex source tables must default to image/hybrid instead of native reconstruction.",
+                table_id=table_id,
+                rows=structure.get("rows"),
+                cols=structure.get("cols"),
+                merged_cell_count=structure.get("merged_cell_count"),
+            )
+        if settings.get("image_modes_require_crop_asset", True) and mode in {"image", "hybrid"}:
+            asset = table.get("assets", {}).get("crop_image") or table.get("assets", {}).get("source_table_image")
+            if not asset:
+                audit.error(
+                    "table-image-mode-missing-asset",
+                    "Image/hybrid table render modes require a source-derived table crop asset.",
+                    table_id=table_id,
+                )
+            elif not (project / asset).exists():
+                audit.error(
+                    "table-image-asset-missing",
+                    "Table crop asset referenced by Table IR does not exist.",
+                    table_id=table_id,
+                    asset=asset,
+                )
+
+
 def flatten_cells(rows: list[list[str]]) -> list[str]:
     values: list[str] = []
     for row in rows:
@@ -1341,6 +1440,7 @@ def audit_pptx_table_fidelity(
     project: Path,
     presentation: Presentation,
     catalog: dict,
+    table_ir: dict,
     pages: dict[int, dict],
     policy: dict,
     strict: bool,
@@ -1376,6 +1476,7 @@ def audit_pptx_table_fidelity(
         )
 
     candidates = source_table_candidates(catalog, docx_models)
+    add_table_ir_candidates(candidates, table_ir)
     if not candidates:
         return
 
@@ -1831,6 +1932,7 @@ def audit_pptx(
     expected_slides: int,
     policy: dict,
     catalog: dict,
+    table_ir: dict,
     pages: dict[int, dict],
     audit: Audit,
     strict: bool,
@@ -1862,7 +1964,7 @@ def audit_pptx(
         audit_pptx_font_sizes(presentation, policy, audit)
         audit_pptx_text_structure_and_emphasis(presentation, policy, strict, audit)
         audit_pptx_layout_geometry(presentation, policy, strict, audit)
-        audit_pptx_table_fidelity(project, presentation, catalog, pages, policy, strict, audit)
+        audit_pptx_table_fidelity(project, presentation, catalog, table_ir, pages, policy, strict, audit)
         audit_pptx_density_and_duplicates(presentation, policy, strict, audit)
         if expected_slides and actual != expected_slides:
             audit.error(
@@ -1914,8 +2016,10 @@ def main() -> None:
     plan = load_json(project / "deck_plan.json", audit, required=args.strict)
     ledger = load_json(project / "evidence_ledger.json", audit, required=args.strict)
     catalog = load_json(project / "analysis" / "source_catalog.json", audit, required=args.strict)
+    table_ir = load_json(project / "analysis" / "table_ir.json", audit, required=False)
     content_inventory = audit_content_analysis(project, args.strict, audit)
     audit_ledger(ledger, catalog, args.strict, audit)
+    audit_table_ir(project, table_ir, catalog, policy, args.strict, audit)
     source_text = "\n".join(item.get("text", "") for item in catalog.get("entries", []))
     source_numbers = collect_numbers(source_text)
     pages = audit_plan(project, plan, ledger, policy, args.strict, audit)
@@ -1928,6 +2032,7 @@ def main() -> None:
             expected_pptx_slides,
             policy,
             catalog,
+            table_ir,
             pages,
             audit,
             args.strict,

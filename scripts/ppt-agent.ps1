@@ -32,6 +32,8 @@ $SourceCatalog = Join-Path $LocalSkill "scripts\build_source_catalog.py"
 $ContentBlueprint = Join-Path $LocalSkill "scripts\build_ppt_content_blueprint.py"
 $ReleaseAudit = Join-Path $LocalSkill "scripts\release_audit.py"
 $LegacyMigration = Join-Path $LocalSkill "scripts\migrate_legacy_manifest.py"
+$TableIr = Join-Path $LocalSkill "scripts\table_ir.py"
+$TableRenderers = Join-Path $LocalSkill "scripts\table_renderers.py"
 
 function Resolve-Python {
     $fileCandidates = @(
@@ -107,7 +109,9 @@ switch ($Command) {
             $SourceCatalog,
             $ContentBlueprint,
             $ReleaseAudit,
-            $LegacyMigration
+            $LegacyMigration,
+            $TableIr,
+            $TableRenderers
         )
         $missing = @($required | Where-Object { -not (Test-Path -LiteralPath $_) })
         if ($missing.Count -gt 0) {
@@ -208,6 +212,7 @@ switch ($Command) {
 
         foreach ($item in @(
             "analysis\source_catalog.json",
+            "analysis\table_ir.json",
             "analysis\report_content_inventory.json",
             "analysis\ppt_content_blueprint.md",
             "project_config.json",
@@ -218,6 +223,7 @@ switch ($Command) {
             "claim_spine.md",
             "design_spec.md",
             "spec_lock.md",
+            "tables",
             "svg_output",
             "qa\release_audit.json",
             "exports"

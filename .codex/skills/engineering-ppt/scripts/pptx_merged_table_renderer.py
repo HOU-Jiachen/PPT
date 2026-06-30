@@ -112,4 +112,7 @@ def render_merged_table(
 
 
 def model_fits_native_table(model: dict[str, Any], max_rows: int = 10, max_cols: int = 7) -> bool:
+    render_mode = str(model.get("render_mode", "native")).lower()
+    if render_mode not in {"native", "auto"}:
+        return False
     return int(model.get("row_count", 0)) <= max_rows and int(model.get("column_count", 0)) <= max_cols

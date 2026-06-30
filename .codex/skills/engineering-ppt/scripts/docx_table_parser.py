@@ -11,6 +11,8 @@ from pathlib import Path
 from typing import Any
 from xml.etree import ElementTree as ET
 
+from table_ir import build_table_ir, legacy_models_from_ir
+
 
 NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
 W_NS = NS["w"]
@@ -161,16 +163,14 @@ def parse_docx_tables(docx_path: Path) -> list[dict[str, Any]]:
 
 
 def write_docx_table_models(docx_path: Path, output_path: Path) -> dict[str, Any]:
-    models = parse_docx_tables(docx_path)
-    payload = {
-        "schema_version": "1.0",
-        "source_file": docx_path.name,
-        "table_count": len(models),
-        "tables": models,
-        "by_locator": {table["locator"]: table for table in models},
-    }
+    project = output_path.resolve().parents[1] if output_path.parent.name == "analysis" else output_path.parent
+    ir_payload = build_table_ir(project, [docx_path.resolve()])
+    payload = legacy_models_from_ir(ir_payload, docx_path.name)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    table_ir_path = output_path.parent / "table_ir.json"
+    if not table_ir_path.exists():
+        table_ir_path.write_text(json.dumps(ir_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return payload
 
 
