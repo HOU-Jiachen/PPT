@@ -9,10 +9,10 @@
     "project": "projects/东坡大道水土保持方案",
     "strict": true,
     "planned_slides": 24,
-    "expected_pptx_slides": 31,
+    "expected_pptx_slides": 32,
     "svg_slides": 0,
     "content_units": 385,
-    "pptx": "projects/东坡大道水土保持方案/exports/东坡大道水土保持方案汇报_20260630_105959.pptx"
+    "pptx": "projects/东坡大道水土保持方案/exports/东坡大道水土保持方案源证据增强汇报_32页_20260630_115819.pptx"
   },
   "findings": [
     {
@@ -26,7 +26,7 @@
       "code": "pptx-valid",
       "message": "PPTX package, XML, media, and parser checks passed.",
       "context": {
-        "slides": 31
+        "slides": 32
       }
     }
   ]

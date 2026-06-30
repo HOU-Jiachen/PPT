@@ -43,6 +43,15 @@
   "content_richness": {
     "minimum_original_source_ratio": 0.55,
     "max_consecutive_interpretation_slides": 2,
+    "max_summary_or_overall_pages": 3,
+    "summary_page_types": [
+      "overview",
+      "summary",
+      "chapter_summary",
+      "conclusion",
+      "closing",
+      "management_action"
+    ],
     "preferred_mixed_layouts": [
       "left_text_right_figure",
       "left_figure_right_text",
@@ -132,6 +141,39 @@
     "enabled": true,
     "line_height_ratio": 1.24,
     "overflow_tolerance_lines": 0.35
+  },
+  "paragraph_structure": {
+    "enabled": true,
+    "min_unlabeled_paragraphs": 3,
+    "marker_regex": "^(?:\\d{1,2}[、.．]|\\(\\d+\\)|（\\d+）|[A-Z][.)])",
+    "title_delimiters": "：:"
+  },
+  "emphasis": {
+    "required": true,
+    "check_only_when_numbers_or_terms": true,
+    "min_emphasized_runs_per_content_slide": 1,
+    "terms": [
+      "范围",
+      "目标",
+      "责任",
+      "措施",
+      "风险",
+      "结论",
+      "投资",
+      "验收",
+      "监测",
+      "水土流失",
+      "防治责任范围"
+    ]
+  },
+  "table_fidelity": {
+    "enabled": true,
+    "require_docx_table_models_for_docx_sources": true,
+    "small_medium_max_rows": 10,
+    "small_medium_max_cols": 7,
+    "header_missing_error_ratio": 0.4,
+    "native_merge_required_for_merged_small_tables": true,
+    "unsupported_table_number_is_error": true
   },
   "duplicate_content": {
     "enabled": true,
