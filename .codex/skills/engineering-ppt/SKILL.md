@@ -215,6 +215,12 @@ Use standalone summary cards sparingly: primarily for cover/agenda/chapter opene
 summaries, and final conclusions. Technical process pages should pair original evidence with
 faithful explanation.
 
+You may add richer high-level synthesis pages at the opening, closing, or a major chapter
+turning point when they improve briefing readability. These pages must remain source-backed,
+must not replace original table/figure/text evidence, and the entire deck may contain no more
+than three such summary / overview / conclusion / management-action pages unless the user
+explicitly overrides the limit.
+
 Visible text rules:
 
 - Small titles and panel headings must prefer report section headings, figure captions, table
@@ -226,6 +232,13 @@ Visible text rules:
 - Never leave a visible bullet, paragraph, or numbered item semantically unfinished. If a
   source paragraph is too long for the frame, rewrite it into complete report-language
   points or split the page before export.
+- When one report paragraph is visibly split into several points, each point must carry a
+  stable visible number and a short paragraph name derived from the report wording. Do not
+  leave a stack of anonymous paragraphs for the presenter to decode.
+- Highlight key engineering nouns, control values, units, conclusions, risk words, and
+  responsibility/action phrases with bold, accent color, subtle highlight fill, or another
+  readable emphasis treatment. Emphasis must clarify the source meaning; do not over-highlight
+  decorative words.
 - After final font sizing, verify text-box capacity and table-cell capacity; if text does not
   fit at the minimum font size, shorten, enlarge, or split the page.
 
@@ -277,6 +290,10 @@ Local source-preservation overrides:
   PowerPoint receives real merged cells, not visually simulated blanks. If a merged table
   has too many rows or columns to remain readable, switch to a wide table layout, split the
   table, or use a structured excerpt with a recorded backend reason.
+- For every table shown as a native PPTX table, compare the displayed row/column scale,
+  header cells, key numeric values, units, and merge structure against
+  `analysis/docx_table_models.json` or `analysis/source_catalog.json`. Fix mismatches before
+  export; do not rely on the previous PPTX as evidence that a table is correct.
 - Use `scripts/figure_layout_optimizer.py` for source figures so image panels are chosen
   from aspect ratio and figure count instead of a fixed card grid.
 - Center table cell content horizontally and vertically by default unless the source table
@@ -419,7 +436,8 @@ Read [release-gates.md](references/release-gates.md) and
 3. render every slide and inspect contact sheet plus full-size pages
 4. local strict audit before export
 5. native PPTX export
-6. local strict audit with the PPTX
+6. local strict audit with the PPTX, including paragraph structure, visible emphasis, and
+   source-table fidelity checks
 7. GitHub upload gate: commit and push this run's relevant project artifacts,
    contracts, QA records, exports, and local agent-rule changes to `origin`
 

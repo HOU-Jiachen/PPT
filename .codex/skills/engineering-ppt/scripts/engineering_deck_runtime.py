@@ -44,6 +44,10 @@ BODY_MIN_PT = 14.0
 TABLE_MIN_PT = 12.0
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tif", ".tiff", ".webp"}
+EMPHASIS_TERM_RE = re.compile(
+    r"[-+]?\d+(?:\.\d+)?\s*(?:%|万?m3|万?m³|km2|km²|hm2|hm²|m|km|万元|亿元|t|d|年|月|日)?"
+    r"|防治责任范围|水土流失|表土剥离|临时防护|排水沟|沉沙池|投资估算|监测时段|验收管理|风险|结论|措施|责任|目标"
+)
 
 INTERNAL_VISIBLE_PATTERNS = [
     r"来源模式[:：]?\s*\S+",
@@ -421,6 +425,51 @@ def split_report_points(text: str, max_points: int = 5, max_len: int = 130) -> l
     if current and len(points) < max_points:
         points.append(complete_semantic_point(current, max_len))
     return points[:max_points] or [complete_semantic_point(text, max_len)]
+
+
+def emphasis_terms_from_text(text: str, max_terms: int = 8) -> list[str]:
+    """Pick source-visible numbers and engineering terms for bold/color emphasis."""
+
+    terms: list[str] = []
+    for match in EMPHASIS_TERM_RE.findall(sanitize_visible_text(text)):
+        term = match.strip()
+        if term and term not in terms:
+            terms.append(term)
+        if len(terms) >= max_terms:
+            break
+    return terms
+
+
+def point_title(point: str, fallback: str, max_len: int = 14) -> str:
+    value = sanitize_visible_text(point)
+    title = re.split(r"[：:，,；;。]", value, maxsplit=1)[0].strip()
+    if not title or len(title) < 3:
+        title = fallback
+    return text_preview(title, max_len)
+
+
+def structured_points(points: list[str | dict[str, Any]], max_items: int = 5) -> list[dict[str, str]]:
+    """Normalize split paragraphs into numbered items with a short visible title."""
+
+    normalized: list[dict[str, str]] = []
+    for index, item in enumerate(points[:max_items], start=1):
+        if isinstance(item, dict):
+            body = sanitize_visible_text(str(item.get("text") or item.get("text_preview") or ""))
+            title = sanitize_visible_text(str(item.get("title") or point_title(body, f"要点{index}")))
+            number = sanitize_visible_text(str(item.get("number") or f"{index:02d}"))
+        else:
+            body = sanitize_visible_text(str(item))
+            title = point_title(body, f"要点{index}")
+            number = f"{index:02d}"
+        if body:
+            normalized.append(
+                {
+                    "number": number,
+                    "title": text_preview(title, 14),
+                    "text": text_preview(body, 120, complete_sentence=True),
+                }
+            )
+    return normalized
 
 
 def report_heading(source_mode: str) -> str:
@@ -995,6 +1044,73 @@ def add_textbox(
     return box
 
 
+def add_emphasis_textbox(
+    slide,
+    x,
+    y,
+    w,
+    h,
+    text,
+    size=18,
+    color="ink",
+    emphasis_terms: list[str] | None = None,
+    emphasis_color="accent",
+    bold=False,
+    align=None,
+    font="Microsoft YaHei",
+    colors: dict[str, str] | None = None,
+):
+    """Add editable text with key terms/numbers highlighted as separate runs."""
+
+    palette = colors or DEFAULT_COLORS
+    clean = sanitize_visible_text(text)
+    terms = [term for term in (emphasis_terms or emphasis_terms_from_text(clean)) if term]
+    terms = sorted(dict.fromkeys(terms), key=len, reverse=True)
+    box = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h))
+    tf = box.text_frame
+    tf.clear()
+    tf.word_wrap = True
+    tf.auto_size = MSO_AUTO_SIZE.NONE
+    p = tf.paragraphs[0]
+    if align:
+        p.alignment = align
+    if not clean:
+        return box
+    if not terms:
+        p.text = clean
+        p.font.name = font
+        p.font.size = pt(size)
+        p.font.bold = bold
+        p.font.color.rgb = rgb(palette[color])
+        return box
+
+    pattern = re.compile("|".join(re.escape(term) for term in terms))
+    pos = 0
+    for match in pattern.finditer(clean):
+        if match.start() > pos:
+            run = p.add_run()
+            run.text = clean[pos : match.start()]
+            run.font.name = font
+            run.font.size = pt(size)
+            run.font.bold = bold
+            run.font.color.rgb = rgb(palette[color])
+        run = p.add_run()
+        run.text = match.group(0)
+        run.font.name = font
+        run.font.size = pt(size)
+        run.font.bold = True
+        run.font.color.rgb = rgb(palette[emphasis_color])
+        pos = match.end()
+    if pos < len(clean):
+        run = p.add_run()
+        run.text = clean[pos:]
+        run.font.name = font
+        run.font.size = pt(size)
+        run.font.bold = bold
+        run.font.color.rgb = rgb(palette[color])
+    return box
+
+
 def add_fill(slide, x, y, w, h, color="paper", line="line", colors: dict[str, str] | None = None):
     palette = colors or DEFAULT_COLORS
     shape = slide.shapes.add_shape(1, Inches(x), Inches(y), Inches(w), Inches(h))
@@ -1184,6 +1300,124 @@ def add_bullets(
         paragraph.font.color.rgb = rgb(palette["ink"])
         paragraph.space_after = pt(4)
     return box
+
+
+def add_numbered_points(
+    slide,
+    x,
+    y,
+    w,
+    h,
+    items: list[str | dict[str, Any]],
+    size=14,
+    colors: dict[str, str] | None = None,
+    emphasis_terms: list[str] | None = None,
+):
+    """Render multi-paragraph source text as numbered, named, editable blocks."""
+
+    palette = colors or DEFAULT_COLORS
+    points = structured_points(items, max_items=5)
+    if not points:
+        return []
+    gap = 0.10
+    row_h = (h - gap * (len(points) - 1)) / len(points)
+    shapes = []
+    for idx, point in enumerate(points):
+        row_y = y + idx * (row_h + gap)
+        shapes.append(add_fill(slide, x, row_y, w, row_h, "paper", "line", colors=palette))
+        shapes.append(add_fill(slide, x + 0.12, row_y + 0.12, 0.46, 0.34, "accent", "accent", colors=palette))
+        shapes.append(
+            add_textbox(
+                slide,
+                x + 0.16,
+                row_y + 0.17,
+                0.38,
+                0.18,
+                point["number"],
+                10.5,
+                "paper",
+                True,
+                align=PP_ALIGN.CENTER,
+                colors=palette,
+            )
+        )
+        shapes.append(
+            add_textbox(
+                slide,
+                x + 0.72,
+                row_y + 0.08,
+                w - 0.86,
+                0.22,
+                point["title"],
+                max(size, 14),
+                "ink",
+                True,
+                colors=palette,
+            )
+        )
+        terms = emphasis_terms or emphasis_terms_from_text(point["text"])
+        shapes.append(
+            add_emphasis_textbox(
+                slide,
+                x + 0.72,
+                row_y + 0.36,
+                w - 0.88,
+                max(0.22, row_h - 0.44),
+                point["text"],
+                max(size - 1, BODY_MIN_PT),
+                "muted",
+                emphasis_terms=terms,
+                colors=palette,
+            )
+        )
+    return shapes
+
+
+def add_summary_dashboard_slide(
+    slide,
+    title: str,
+    subtitle: str,
+    sections: list[dict[str, str]],
+    facts: list[str],
+    closing: str = "",
+    colors: dict[str, str] | None = None,
+) -> None:
+    """Create one of the allowed high-level summary/overall pages."""
+
+    palette = colors or DEFAULT_COLORS
+    add_fill(slide, 0, 0, 13.333, 7.5, "paper", "paper", colors=palette)
+    add_textbox(slide, 0.62, 0.48, 7.6, 0.52, title, 28, "primary", True, colors=palette)
+    add_emphasis_textbox(slide, 0.65, 1.12, 8.8, 0.38, subtitle, 14, "muted", colors=palette)
+    add_fill(slide, 0.64, 1.68, 12.0, 0.02, "accent", "accent", colors=palette)
+
+    for index, section in enumerate(sections[:4], start=1):
+        col = (index - 1) % 2
+        row = (index - 1) // 2
+        card_x = 0.72 + col * 6.1
+        card_y = 1.98 + row * 1.55
+        add_fill(slide, card_x, card_y, 5.72, 1.24, "soft", "line", colors=palette)
+        add_textbox(slide, card_x + 0.18, card_y + 0.14, 0.44, 0.26, f"{index:02d}", 12, "accent", True, colors=palette)
+        add_textbox(slide, card_x + 0.70, card_y + 0.11, 4.76, 0.30, section.get("title", ""), 15, "ink", True, colors=palette)
+        add_emphasis_textbox(
+            slide,
+            card_x + 0.20,
+            card_y + 0.52,
+            5.25,
+            0.42,
+            section.get("text", ""),
+            11.5,
+            "muted",
+            colors=palette,
+        )
+
+    add_textbox(slide, 0.76, 5.28, 1.6, 0.26, "关键数据", 14, "primary", True, colors=palette)
+    for index, fact in enumerate(facts[:4]):
+        x0 = 2.18 + index * 2.58
+        add_fill(slide, x0, 5.16, 2.25, 0.82, "paper", "line", colors=palette)
+        add_emphasis_textbox(slide, x0 + 0.14, 5.34, 1.96, 0.26, fact, 13, "ink", colors=palette)
+    if closing:
+        add_fill(slide, 0.76, 6.35, 11.78, 0.48, "secondary", "secondary", colors=palette)
+        add_emphasis_textbox(slide, 0.98, 6.49, 11.2, 0.22, closing, 12.5, "primary", colors=palette)
 
 
 def add_agenda_slide(

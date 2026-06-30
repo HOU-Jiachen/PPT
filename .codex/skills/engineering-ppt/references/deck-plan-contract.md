@@ -44,6 +44,9 @@ INTERPRETATION | CONCLUSION | MANAGEMENT_ACTION
 - Split dense tables, maps, formulas, and long quotations instead of shrinking them.
 - Do not use conclusion cards as a substitute for a chapter's technical process.
 - Use three to five stable layout families. Do not add decorative components merely to fill space.
+- Add richer overview, chapter-synthesis, conclusion, or management-action pages only when
+  they improve the report story. Across the whole deck, these high-level synthesis pages are
+  capped at three unless the user explicitly changes the cap.
 - At least 55% of substantive slides should be `ORIGINAL_TEXT`, `ORIGINAL_TABLE`,
   `ORIGINAL_FIGURE`, or `CALCULATION`; use interpretation slides to connect evidence,
   not to replace it.
@@ -70,6 +73,15 @@ top_text_bottom_table | top_table_bottom_text
   source-mode names, evidence IDs, or asset filenames as visible titles or body text.
 - Never place visible ellipses (`...`, `…`, `……`) in titles, captions, bullets, table
   summaries, or source explanations. Shorten to a complete sentence/phrase or split the slide.
+- When one source paragraph is divided into multiple visible paragraphs, each visible item
+  must have a number and a short report-derived name. A plain stack of anonymous paragraphs
+  is a planning defect.
+- Mark key terms, control values, units, conclusion clauses, and risk/action words for
+  visible emphasis. Use emphasis sparingly but consistently so the presenter can locate the
+  engineering point quickly.
+- Native PPTX tables must be matched back to source table structure. Small/medium DOCX
+  tables with merged headers or vertical merges should use real PPTX merged cells, while
+  dense tables must record the split/excerpt reason.
 - Choose figure layout from source aspect ratio: paired horizontal figures, maps, profiles,
   and wide charts should normally use `top_figure_bottom_text` or `top_text_bottom_figure`
   instead of narrow side-by-side figure panels.

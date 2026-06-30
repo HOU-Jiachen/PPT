@@ -45,6 +45,9 @@ KEY_TERMS = (
     "防治水",
 )
 
+LIST_MARKER_RE = re.compile(r"(?:^|[。；;\n]\s*)(（\d+）|\(\d+\)|\d+[、.．]|[①②③④⑤⑥⑦⑧⑨⑩])")
+INLINE_ITEM_RE = re.compile(r"([①②③④⑤⑥⑦⑧⑨⑩]|[一二三四五六七八九十][是为、]|[；;]\s*[^；;。]{3,24}[：:])")
+
 SOURCE_MODES = {
     "paragraph": "ORIGINAL_TEXT",
     "table": "ORIGINAL_TABLE",
@@ -60,6 +63,81 @@ def clean_text(value: str | None) -> str:
 def text_preview(value: str | None, limit: int = 180) -> str:
     value = clean_text(value)
     return value if len(value) <= limit else value[: limit - 1] + "…"
+
+
+def emphasis_candidates(text: str, max_items: int = 8) -> dict[str, list[str]]:
+    """Return source-backed terms/numbers that should be visually emphasized later."""
+
+    numbers = []
+    for token in re.findall(r"[-+]?\d+(?:\.\d+)?\s*(?:%|万?m3|万?m³|km2|km²|hm2|hm²|m|km|万元|亿元|t|d|年|月|日)?", text):
+        token = clean_text(token)
+        if token and token not in numbers:
+            numbers.append(token)
+
+    terms = []
+    for term in KEY_TERMS:
+        if term in text and term not in terms:
+            terms.append(term)
+    for phrase in re.findall(r"(?:防治责任范围|水土流失|表土剥离|临时防护|排水沟|沉沙池|投资估算|监测时段|验收管理)", text):
+        if phrase not in terms:
+            terms.append(phrase)
+
+    return {"numbers": numbers[:max_items], "terms": terms[:max_items]}
+
+
+def split_numbered_segments(text: str, max_segments: int = 6) -> list[dict[str, str]]:
+    """Detect report paragraphs that contain several speaker-worthy numbered segments."""
+
+    matches = list(LIST_MARKER_RE.finditer(text))
+    segments: list[dict[str, str]] = []
+    if len(matches) < 2:
+        inline_parts = [part.strip(" ，,；;。") for part in re.split(r"[；;]", text) if part.strip()]
+        if len(inline_parts) >= 3 or INLINE_ITEM_RE.search(text):
+            for index, body in enumerate(inline_parts[:max_segments], start=1):
+                title = re.split(r"[：:，,。]", body, maxsplit=1)[0].strip()
+                if len(title) > 18:
+                    title = title[:18].rstrip()
+                segments.append(
+                    {
+                        "number": f"{index:02d}",
+                        "source_marker": "",
+                        "title": title or f"要点{index}",
+                        "text_preview": text_preview(body, 120),
+                    }
+                )
+        return segments
+
+    for index, match in enumerate(matches[:max_segments]):
+        start = match.end()
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+        body = clean_text(text[start:end]).strip(" ；;。")
+        if not body:
+            continue
+        title = re.split(r"[：:，,；;。]", body, maxsplit=1)[0].strip()
+        if len(title) > 18:
+            title = title[:18].rstrip()
+        segments.append(
+            {
+                "number": f"{index + 1:02d}",
+                "source_marker": match.group(1),
+                "title": title or f"要点{index + 1}",
+                "text_preview": text_preview(body, 120),
+            }
+        )
+    return segments
+
+
+def paragraph_structure(text: str, section_title: str) -> dict[str, Any]:
+    segments = split_numbered_segments(text)
+    return {
+        "requires_numbered_segments": bool(segments),
+        "segment_count": len(segments),
+        "segment_title_basis": "report numbered paragraph leading phrases"
+        if segments
+        else "report section heading",
+        "fallback_title": text_preview(section_title, 24),
+        "suggested_segments": segments,
+    }
 
 
 def heading_level(entry: dict[str, Any]) -> int:
@@ -252,6 +330,8 @@ def build_inventory(catalog: dict[str, Any]) -> dict[str, Any]:
                     "numbers": entry.get("numbers", []),
                     "importance_score": score,
                     "reasons": reasons,
+                    "paragraph_structure": paragraph_structure(text, current["title"]),
+                    "emphasis_candidates": emphasis_candidates(text),
                     "ppt_use": paragraph_ppt_use({"text": text}),
                 }
                 current["important_paragraphs"].append(item)
@@ -273,6 +353,7 @@ def build_inventory(catalog: dict[str, Any]) -> dict[str, Any]:
                 "column_count": entry.get("column_count", 0),
                 "text_preview": text_preview(text, 260),
                 "numbers": entry.get("numbers", []),
+                "emphasis_candidates": emphasis_candidates(text),
                 "ppt_use": table_ppt_use(entry),
             }
             current["tables"].append(item)
@@ -294,6 +375,7 @@ def build_inventory(catalog: dict[str, Any]) -> dict[str, Any]:
                 "caption_catalog_id": caption["catalog_id"] if caption else "",
                 "asset": entry.get("asset", ""),
                 "text_preview": text_preview(text, 220),
+                "emphasis_candidates": emphasis_candidates(text),
                 "ppt_use": figure_ppt_use(entry),
             }
             current["figures"].append(item)
@@ -349,6 +431,8 @@ def content_unit(
         "layout_hint": item["ppt_use"]["layout_hint"],
         "split_hint": item["ppt_use"]["split_hint"],
         "content_preview": item.get("text_preview") or item.get("caption") or "",
+        "paragraph_structure": item.get("paragraph_structure", {}),
+        "emphasis_candidates": item.get("emphasis_candidates", {}),
     }
 
 
@@ -376,6 +460,8 @@ def write_blueprint(project: Path, inventory: dict[str, Any]) -> None:
         "- Treat table and figure captions as the default small-title source.",
         "- Pair source objects with faithful explanation; do not replace technical process with summary cards.",
         "- Split dense tables, long formulas, and complex maps before reducing font size.",
+        "- When one source paragraph contains several numbered or semicolon-separated points, keep visible item numbers and short item names.",
+        "- Mark key report terms, controlling values, units, conclusions, and risk words for bold/color/highlight treatment in the visible slide.",
         "- Every planned slide should point back to one or more content unit IDs or explain why no source object exists.",
         "",
         "## Content Units By Report Section",
@@ -401,6 +487,7 @@ def write_blueprint(project: Path, inventory: dict[str, Any]) -> None:
                 f"  - Must-keep original wording/data: {must_keep_summary(units)}",
                 f"  - Best source pairing: {layout_summary(units)}",
                 f"  - Slide split decision: {split_summary(units)}",
+                f"  - Text structure and emphasis: {structure_summary(units)}",
                 "",
                 "| Unit | Source Mode | Candidate Title | Role | Layout Hint | Catalog IDs |",
                 "| --- | --- | --- | --- | --- | --- |",
@@ -464,6 +551,25 @@ def split_summary(units: list[dict[str, Any]]) -> str:
     if figures:
         return "reserve at least 45% of slide area for key figures."
     return "one source-text page may be sufficient if evidence remains readable."
+
+
+def structure_summary(units: list[dict[str, Any]]) -> str:
+    structured = [
+        unit
+        for unit in units
+        if unit.get("paragraph_structure", {}).get("requires_numbered_segments")
+    ]
+    emphasized = []
+    for unit in units:
+        candidates = unit.get("emphasis_candidates", {})
+        emphasized.extend(candidates.get("terms", [])[:2])
+        emphasized.extend(candidates.get("numbers", [])[:2])
+    pieces = []
+    if structured:
+        pieces.append(f"{len(structured)}个文字单元需要保留编号与短标题")
+    if emphasized:
+        pieces.append("重点强调：" + "、".join(dict.fromkeys(emphasized[:8])))
+    return "；".join(pieces) if pieces else "常规短句呈现，保留关键数据与工程名词强调。"
 
 
 def main() -> None:

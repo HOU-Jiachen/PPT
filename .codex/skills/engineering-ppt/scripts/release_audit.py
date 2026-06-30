@@ -12,6 +12,7 @@ import sys
 import zipfile
 from collections import defaultdict
 from pathlib import Path
+from typing import Any
 from xml.etree import ElementTree as ET
 
 from lxml import etree
@@ -588,6 +589,28 @@ def audit_plan(
         slide for slide in slides if str(slide.get("type", "")).lower() not in structural
     ]
     if substantive:
+        summary_types = {
+            str(item).lower()
+            for item in richness.get(
+                "summary_page_types",
+                ["overview", "summary", "chapter_summary", "conclusion", "closing", "management_action"],
+            )
+        }
+        max_summary_pages = int(richness.get("max_summary_or_overall_pages", 0) or 0)
+        summary_pages = [
+            slide.get("page")
+            for slide in slides
+            if str(slide.get("type", "")).lower() in summary_types
+            or str(slide.get("source_mode", "")).upper() in {"CONCLUSION", "MANAGEMENT_ACTION"}
+        ]
+        if strict and max_summary_pages and len(summary_pages) > max_summary_pages:
+            audit.error(
+                "too-many-summary-pages",
+                "Summary, overall, conclusion, and management-action pages exceed the configured maximum.",
+                pages=summary_pages,
+                maximum=max_summary_pages,
+            )
+
         original_count = sum(
             1
             for slide in substantive
@@ -754,6 +777,24 @@ def audit_content_analysis(project: Path, strict: bool, audit: Audit) -> dict:
             audit.error(
                 "content-unit-without-layout",
                 "PPT content unit has no layout recommendation.",
+                unit=unit.get("id", ""),
+            )
+        structure = unit.get("paragraph_structure", {})
+        if (
+            strict
+            and str(unit.get("source_mode", "")).upper() == "ORIGINAL_TEXT"
+            and structure.get("requires_numbered_segments")
+            and not structure.get("suggested_segments")
+        ):
+            audit.error(
+                "content-unit-missing-paragraph-segments",
+                "Multi-part source paragraph is missing numbered segment/title guidance.",
+                unit=unit.get("id", ""),
+            )
+        if strict and not unit.get("emphasis_candidates"):
+            audit.warning(
+                "content-unit-without-emphasis-candidates",
+                "PPT content unit has no key term/value emphasis candidates.",
                 unit=unit.get("id", ""),
             )
     return inventory
@@ -985,6 +1026,131 @@ def paragraph_size_or_default(paragraph, default: float) -> float:
     return float(size or default)
 
 
+def paragraph_has_marker_or_title(text: str, policy: dict) -> bool:
+    settings = policy.get("paragraph_structure", {})
+    marker = settings.get("marker_regex", r"^(?:\d{1,2}[、.．]|\(\d+\)|（\d+）)")
+    value = re.sub(r"\s+", " ", text or "").strip()
+    if not value:
+        return True
+    if re.search(str(marker), value):
+        return True
+    delimiters = str(settings.get("title_delimiters", "：:"))
+    first_part = re.split(r"[。；;\n]", value, maxsplit=1)[0]
+    return any(delimiter in first_part[:18] for delimiter in delimiters)
+
+
+def run_has_emphasis(run, default_rgb: str | None = None) -> bool:
+    if getattr(run.font, "bold", False):
+        return True
+    try:
+        rgb_value = run.font.color.rgb
+    except Exception:
+        rgb_value = None
+    if rgb_value is not None:
+        value = str(rgb_value).upper()
+        if default_rgb is None or value != default_rgb.upper():
+            return True
+    try:
+        if run.font.highlight_color is not None:
+            return True
+    except Exception:
+        pass
+    return False
+
+
+def shape_emphasis_run_count(shape, policy: dict) -> int:
+    default_rgb = str(policy.get("default_body_rgb", "01203C"))
+    count = 0
+    if getattr(shape, "has_table", False):
+        for row in shape.table.rows:
+            for cell in row.cells:
+                for paragraph in cell.text_frame.paragraphs:
+                    count += sum(1 for run in paragraph.runs if run.text.strip() and run_has_emphasis(run, default_rgb))
+        return count
+    if not getattr(shape, "has_text_frame", False):
+        return 0
+    for paragraph in shape.text_frame.paragraphs:
+        count += sum(1 for run in paragraph.runs if run.text.strip() and run_has_emphasis(run, default_rgb))
+    return count
+
+
+def text_needs_emphasis(text: str, policy: dict) -> bool:
+    settings = policy.get("emphasis", {})
+    if settings.get("check_only_when_numbers_or_terms", True) is False:
+        return True
+    if collect_numbers(text):
+        return True
+    terms = [str(item) for item in settings.get("terms", [])]
+    return any(term and term in text for term in terms)
+
+
+def audit_pptx_text_structure_and_emphasis(
+    presentation: Presentation,
+    policy: dict,
+    strict: bool,
+    audit: Audit,
+) -> None:
+    if not strict:
+        return
+    structure = policy.get("paragraph_structure", {})
+    structure_enabled = structure.get("enabled", True) is not False
+    min_unlabeled = int(structure.get("min_unlabeled_paragraphs", 3))
+    emphasis = policy.get("emphasis", {})
+    emphasis_required = emphasis.get("required", True) is not False
+    min_emphasis = int(emphasis.get("min_emphasized_runs_per_content_slide", 1))
+
+    slide_width = int(presentation.slide_width)
+    slide_height = int(presentation.slide_height)
+    for slide_index, slide in enumerate(presentation.slides, start=1):
+        all_text, body_text, visible_chars, _visual_area = slide_text_payload(slide, presentation, policy)
+        if is_structural_pptx_slide(all_text):
+            continue
+
+        slide_emphasis_count = 0
+        for shape in iter_pptx_shapes(slide.shapes):
+            if getattr(shape, "has_table", False):
+                slide_emphasis_count += shape_emphasis_run_count(shape, policy)
+                continue
+            if not getattr(shape, "has_text_frame", False):
+                continue
+            text = re.sub(r"\s+", " ", getattr(shape, "text", "") or "").strip()
+            if is_pptx_layout_meta_text(text, shape, slide_width, slide_height, policy):
+                continue
+            slide_emphasis_count += shape_emphasis_run_count(shape, policy)
+            paragraphs = [
+                re.sub(r"\s+", " ", paragraph.text or "").strip()
+                for paragraph in shape.text_frame.paragraphs
+                if re.sub(r"\s+", " ", paragraph.text or "").strip()
+            ]
+            body_like = [item for item in paragraphs if len(item) >= 12]
+            if (
+                structure_enabled
+                and len(body_like) >= min_unlabeled
+                and sum(1 for item in body_like if paragraph_has_marker_or_title(item, policy)) < len(body_like) * 0.6
+            ):
+                audit.error(
+                    "pptx-unlabeled-paragraph-group",
+                    "A visible multi-paragraph text block lacks item numbers or short paragraph titles.",
+                    page=slide_index,
+                    paragraph_count=len(body_like),
+                    text=compact_text(" ".join(body_like)),
+                )
+
+        if (
+            emphasis_required
+            and visible_chars >= 80
+            and text_needs_emphasis(body_text, policy)
+            and slide_emphasis_count < min_emphasis
+        ):
+            audit.error(
+                "pptx-missing-emphasis",
+                "Content slide with key terms or values has no visible bold/color/highlight emphasis runs.",
+                page=slide_index,
+                emphasized_runs=slide_emphasis_count,
+                minimum=min_emphasis,
+            )
+
+
 def audit_pptx_text_capacity(
     slide_index: int,
     text: str,
@@ -1049,6 +1215,260 @@ def slide_text_payload(slide, presentation: Presentation, policy: dict) -> tuple
                 if not is_pptx_layout_meta_text(text, shape, slide_width, slide_height, policy):
                     body_texts.append(text)
     return "\n".join(all_texts), "\n".join(body_texts), len(re.sub(r"\s+", "", "\n".join(body_texts))), visual_area
+
+
+def normalize_cell_text(value: str) -> str:
+    value = re.sub(r"\s+", "", value or "")
+    value = re.sub(r"[，,。；;：:（）()\[\]【】]", "", value)
+    return value
+
+
+def table_rows_from_shape(shape) -> list[list[str]]:
+    rows: list[list[str]] = []
+    if not getattr(shape, "has_table", False):
+        return rows
+    for row in shape.table.rows:
+        rows.append([re.sub(r"\s+", " ", cell.text or "").strip() for cell in row.cells])
+    return rows
+
+
+def pptx_table_has_merge(shape) -> bool:
+    if not getattr(shape, "has_table", False):
+        return False
+    for row in shape.table.rows:
+        for cell in row.cells:
+            if bool(getattr(cell, "is_merge_origin", False)) or bool(getattr(cell, "is_spanned", False)):
+                return True
+    return False
+
+
+def source_table_candidates(catalog: dict, docx_models: dict) -> list[dict[str, Any]]:
+    candidates: list[dict[str, Any]] = []
+    for entry in catalog.get("entries", []):
+        if entry.get("kind") != "table":
+            continue
+        rows = entry.get("rows") or []
+        if not rows:
+            continue
+        candidates.append(
+            {
+                "id": entry.get("id", ""),
+                "locator": entry.get("locator", ""),
+                "source": entry.get("source", ""),
+                "rows": rows,
+                "row_count": int(entry.get("row_count") or len(rows)),
+                "column_count": int(entry.get("column_count") or max((len(row) for row in rows), default=0)),
+                "has_merged_cells": False,
+                "numbers": collect_numbers(entry.get("text", "")),
+                "model": None,
+            }
+        )
+    for model in docx_models.get("tables", []) or []:
+        rows = model.get("rows") or []
+        candidates.append(
+            {
+                "id": model.get("locator", ""),
+                "locator": model.get("locator", ""),
+                "source": model.get("source", docx_models.get("source_file", "")),
+                "rows": rows,
+                "row_count": int(model.get("row_count") or len(rows)),
+                "column_count": int(model.get("column_count") or max((len(row) for row in rows), default=0)),
+                "has_merged_cells": bool(model.get("has_merged_cells")),
+                "numbers": collect_numbers("\n".join(" | ".join(map(str, row)) for row in rows)),
+                "model": model,
+            }
+        )
+    return candidates
+
+
+def flatten_cells(rows: list[list[str]]) -> list[str]:
+    values: list[str] = []
+    for row in rows:
+        for cell in row:
+            value = normalize_cell_text(str(cell))
+            if value:
+                values.append(value)
+    return values
+
+
+def table_match_score(ppt_rows: list[list[str]], source_rows: list[list[str]]) -> float:
+    ppt_cells = set(flatten_cells(ppt_rows))
+    source_cells = set(flatten_cells(source_rows))
+    if not ppt_cells or not source_cells:
+        return 0.0
+    exact = len(ppt_cells.intersection(source_cells))
+    partial = 0
+    for cell in ppt_cells - source_cells:
+        if len(cell) >= 4 and any(cell in source or source in cell for source in source_cells if len(source) >= 4):
+            partial += 1
+    return (exact + partial * 0.5) / max(len(ppt_cells), 1)
+
+
+def best_source_table_match(ppt_rows: list[list[str]], candidates: list[dict[str, Any]]) -> tuple[dict[str, Any] | None, float]:
+    best: dict[str, Any] | None = None
+    best_score = 0.0
+    for candidate in candidates:
+        score = table_match_score(ppt_rows, candidate["rows"])
+        if score > best_score:
+            best = candidate
+            best_score = score
+    return best, best_score
+
+
+def row_text_set(row: list[str]) -> set[str]:
+    return {normalize_cell_text(str(cell)) for cell in row if normalize_cell_text(str(cell))}
+
+
+def slide_has_split_or_excerpt_note(all_text: str) -> bool:
+    return bool(re.search(r"节选|摘录|重点行|重点列|拆分|续表|分表|局部|裁剪", all_text or ""))
+
+
+def audit_pptx_table_fidelity(
+    project: Path,
+    presentation: Presentation,
+    catalog: dict,
+    pages: dict[int, dict],
+    policy: dict,
+    strict: bool,
+    audit: Audit,
+) -> None:
+    settings = policy.get("table_fidelity", {})
+    if not strict or settings.get("enabled", True) is False:
+        return
+
+    docx_sources = [
+        item
+        for item in catalog.get("sources", [])
+        if str(item.get("name", "")).lower().endswith(".docx")
+    ]
+    docx_models_path = project / "analysis" / "docx_table_models.json"
+    docx_models = load_json(docx_models_path, audit, required=False) if docx_models_path.exists() else {}
+    planned_table_pages = [
+        page
+        for page in pages.values()
+        if str(page.get("source_mode", "")).upper() == "ORIGINAL_TABLE"
+    ]
+    if (
+        settings.get("require_docx_table_models_for_docx_sources", True)
+        and docx_sources
+        and planned_table_pages
+        and not docx_models
+    ):
+        audit.error(
+            "missing-docx-table-models",
+            "DOCX table-heavy deck needs analysis/docx_table_models.json before strict table rendering/checking.",
+            docx_sources=[item.get("name") for item in docx_sources],
+            planned_table_pages=[page.get("page") for page in planned_table_pages],
+        )
+
+    candidates = source_table_candidates(catalog, docx_models)
+    if not candidates:
+        return
+
+    matched_tables = 0
+    native_tables = 0
+    small_rows = int(settings.get("small_medium_max_rows", 10))
+    small_cols = int(settings.get("small_medium_max_cols", 7))
+    header_missing_error_ratio = float(settings.get("header_missing_error_ratio", 0.4))
+
+    for slide_index, slide in enumerate(presentation.slides, start=1):
+        all_text, _body_text, _visible_chars, _visual_area = slide_text_payload(slide, presentation, policy)
+        for shape_index, shape in enumerate(iter_pptx_shapes(slide.shapes), start=1):
+            if not getattr(shape, "has_table", False):
+                continue
+            native_tables += 1
+            ppt_rows = table_rows_from_shape(shape)
+            if not ppt_rows:
+                continue
+            candidate, score = best_source_table_match(ppt_rows, candidates)
+            if candidate is None or score < 0.16:
+                audit.warning(
+                    "pptx-table-source-unmatched",
+                    "Native PPTX table could not be confidently matched to a source table.",
+                    page=slide_index,
+                    table=shape_index,
+                    match_score=round(score, 3),
+                )
+                continue
+            matched_tables += 1
+
+            ppt_row_count = len(ppt_rows)
+            ppt_col_count = max((len(row) for row in ppt_rows), default=0)
+            source_row_count = int(candidate["row_count"])
+            source_col_count = int(candidate["column_count"])
+            source_is_small = source_row_count <= small_rows and source_col_count <= small_cols
+            has_excerpt_note = slide_has_split_or_excerpt_note(all_text)
+
+            if source_is_small and not has_excerpt_note and (ppt_row_count != source_row_count or ppt_col_count != source_col_count):
+                audit.error(
+                    "pptx-table-shape-mismatch",
+                    "Small/medium source table should preserve row and column scale unless the slide explicitly records a split/excerpt.",
+                    page=slide_index,
+                    table=shape_index,
+                    source=candidate["locator"],
+                    ppt_rows=ppt_row_count,
+                    ppt_cols=ppt_col_count,
+                    source_rows=source_row_count,
+                    source_cols=source_col_count,
+                    match_score=round(score, 3),
+                )
+
+            source_header = row_text_set(candidate["rows"][0] if candidate["rows"] else [])
+            ppt_header = row_text_set(ppt_rows[0] if ppt_rows else [])
+            if source_header:
+                missing = [cell for cell in source_header if not any(cell in item or item in cell for item in ppt_header)]
+                missing_ratio = len(missing) / max(len(source_header), 1)
+                if missing_ratio >= header_missing_error_ratio:
+                    audit.error(
+                        "pptx-table-header-mismatch",
+                        "PPTX table header does not preserve enough source header cells.",
+                        page=slide_index,
+                        table=shape_index,
+                        source=candidate["locator"],
+                        missing_header_cells=missing[:6],
+                        missing_ratio=round(missing_ratio, 3),
+                    )
+
+            ppt_numbers = collect_numbers("\n".join(" | ".join(row) for row in ppt_rows))
+            source_numbers = set(candidate["numbers"])
+            unsupported = sorted(ppt_numbers - source_numbers)
+            if unsupported and settings.get("unsupported_table_number_is_error", True):
+                audit.error(
+                    "pptx-table-number-not-in-source-table",
+                    "PPTX table contains numbers that are not present in its matched source table.",
+                    page=slide_index,
+                    table=shape_index,
+                    source=candidate["locator"],
+                    numbers=unsupported,
+                )
+
+            if (
+                settings.get("native_merge_required_for_merged_small_tables", True)
+                and source_is_small
+                and candidate.get("has_merged_cells")
+                and not pptx_table_has_merge(shape)
+            ):
+                audit.error(
+                    "pptx-merged-table-flattened",
+                    "Merged-cell source table was rendered without native PPTX merged cells.",
+                    page=slide_index,
+                    table=shape_index,
+                    source=candidate["locator"],
+                )
+
+    if planned_table_pages and matched_tables == 0:
+        if native_tables:
+            audit.error(
+                "planned-table-without-matched-native-table",
+                "Deck plan includes original table slides, but no native PPTX table matched the source catalog/models.",
+                planned_table_pages=[page.get("page") for page in planned_table_pages],
+            )
+        else:
+            audit.warning(
+                "planned-table-rendered-without-native-table",
+                "Deck plan includes original table slides but no native PPTX table was available for structural comparison; verify source crops visually.",
+                planned_table_pages=[page.get("page") for page in planned_table_pages],
+            )
 
 
 def is_structural_pptx_slide(all_text: str) -> bool:
@@ -1391,7 +1811,16 @@ def expected_pptx_slide_count(plan: dict, pages: dict[int, dict], svg_count: int
     return base + planned_section_divider_count(plan, policy)
 
 
-def audit_pptx(path: Path, expected_slides: int, policy: dict, audit: Audit, strict: bool) -> None:
+def audit_pptx(
+    project: Path,
+    path: Path,
+    expected_slides: int,
+    policy: dict,
+    catalog: dict,
+    pages: dict[int, dict],
+    audit: Audit,
+    strict: bool,
+) -> None:
     if not path.exists():
         audit.error("missing-pptx", "Requested PPTX does not exist.", path=display_path(path))
         return
@@ -1417,7 +1846,9 @@ def audit_pptx(path: Path, expected_slides: int, policy: dict, audit: Audit, str
         presentation = Presentation(path)
         actual = len(presentation.slides)
         audit_pptx_font_sizes(presentation, policy, audit)
+        audit_pptx_text_structure_and_emphasis(presentation, policy, strict, audit)
         audit_pptx_layout_geometry(presentation, policy, strict, audit)
+        audit_pptx_table_fidelity(project, presentation, catalog, pages, policy, strict, audit)
         audit_pptx_density_and_duplicates(presentation, policy, strict, audit)
         if expected_slides and actual != expected_slides:
             audit.error(
@@ -1477,7 +1908,16 @@ def main() -> None:
     svg_count = audit_svgs(project, pages, policy, source_numbers, args.strict, audit)
     expected_pptx_slides = expected_pptx_slide_count(plan, pages, svg_count, policy)
     if args.pptx:
-        audit_pptx(args.pptx.resolve(), expected_pptx_slides, policy, audit, args.strict)
+        audit_pptx(
+            project,
+            args.pptx.resolve(),
+            expected_pptx_slides,
+            policy,
+            catalog,
+            pages,
+            audit,
+            args.strict,
+        )
     metadata = {
         "project": display_path(project),
         "strict": args.strict,

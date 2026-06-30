@@ -9,6 +9,8 @@ Run the following gates in order. A later success never cancels an earlier failu
 5. Deck-plan audit: every content page has chapter, source mode, evidence IDs, and proof object.
 6. Content-richness audit: original text/table/figure/calculation slides meet the configured
    minimum ratio, and interpretation-only runs do not replace the report's technical process.
+   Summary / overview / conclusion / management-action pages must not exceed the configured
+   maximum of three unless explicitly overridden.
 7. `svg_quality_checker.py`: zero errors.
 8. Font audit: non-template PPT body text, table text, and chart labels are at least 14 pt,
    with table text at least 12 pt when the project policy distinguishes table minimums.
@@ -16,9 +18,15 @@ Run the following gates in order. A later success never cancels an earlier failu
    excessively sparse or overcrowded, visual balance stays within policy thresholds, and
    severe element collisions are blocked.
 10. Layout-collision and capacity audit after final font sizing and PPTX export: visible
-   text stays inside the safe frame, text boxes do not overlap each other, body text does
-   not cover large source images/figures/tables, and text boxes/table cells have enough
-   line capacity for their content.
+    text stays inside the safe frame, text boxes do not overlap each other, body text does
+    not cover large source images/figures/tables, and text boxes/table cells have enough
+    line capacity for their content.
+10a. Paragraph and emphasis audit after PPTX export: multi-paragraph text blocks must carry
+    visible item numbers or short paragraph names, and content slides with key values/terms
+    must contain visible bold/color/highlight emphasis.
+10b. Source-table fidelity audit after PPTX export: native PPTX tables must preserve source
+    headers, row/column scale where required, key numeric values, units, and merged-cell
+    structure against `docx_table_models.json` or `source_catalog.json`.
 11. Chart verification: required for every data-driven chart.
 12. Full render: inspect every page at full size and as a contact sheet.
 13. `release_audit.py --strict`: zero errors.
@@ -63,6 +71,13 @@ Run the following gates in order. A later success never cancels an earlier failu
 - consecutive content pages whose body text is near-identical while only the title or figure changes
 - technical chapters reduced to summary cards without enough original text, tables, figures,
   formulas, or source-backed mixed layouts
+- more than three high-level summary / overview / conclusion / management-action pages
+  unless the user explicitly approved the exception
+- split paragraphs shown as anonymous text stacks without visible item numbers or short
+  paragraph names
+- content slides with important values or terms but no visible emphasis treatment
+- native PPTX table headers, numbers, row/column scale, or merge structure inconsistent
+  with the source table model/catalog
 - non-template body/table/chart text smaller than 14 pt
 - corrupt PPTX, slide-count mismatch, empty media, or invalid XML
 - completed local run that has not been uploaded to GitHub and has no explicit blocker report
