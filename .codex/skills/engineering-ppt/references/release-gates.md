@@ -31,6 +31,11 @@ Run the following gates in order. A later success never cancels an earlier failu
     each table must have a valid `render_mode`; image/hybrid modes must reference an
     existing source-derived crop image; complex tables must not default to native
     reconstruction.
+10d. Final text review after PPTX export: visible slide text must come from
+    `slide_content` semantics only, must not contain backend notes, prompt constraints,
+    source-boundary wording, OCR/LLM/fallback/agent process terms, or planning phrases
+    such as `本页用于`, `建议放置`, and `这里应该`; long report-style sentences must be
+    compressed or moved to speaker notes.
 11. Chart verification: required for every data-driven chart.
 12. Full render: inspect every page at full size and as a contact sheet.
 13. `release_audit.py --strict`: zero errors.
@@ -43,6 +48,9 @@ Run the following gates in order. A later success never cancels an earlier failu
 ## Blocking Defects
 
 - visible internal workflow labels or caveats
+- visible backend constraints such as `编制边界`, `事实来源`, `仅使用源报告`,
+  `不采用旧 PPT`, `生成策略`, `内部约束`, `渲染模式`, `OCR 识别`, `LLM 判断`,
+  `prompt 要求`, `fallback`, `根据系统指令`, or `为避免幻觉`
 - visible ellipses used as incomplete wording or source-text replacement
 - visible bullet, paragraph, or numbered item that is clipped or semantically unfinished
 - table or figure explanation that is a mechanical value dump, extracted-JSON phrasing,
@@ -64,6 +72,8 @@ Run the following gates in order. A later success never cancels an earlier failu
 - text outside the slide safe frame, text overlapping text, or text covering large images
   and figures
 - text reduced below the readability floor to preserve decoration
+- text forced into a textbox/table cell after reaching the minimum font size instead of
+  being compressed, relaid out, split, moved to notes, or rendered as image/hybrid table
 - key source table, map, or figure too small to inspect
 - planned source figure, map, chart, or required image replaced by a generic placeholder
   or omitted without a recorded plan change

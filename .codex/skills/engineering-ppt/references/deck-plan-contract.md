@@ -16,6 +16,12 @@ Each slide must declare:
   "visual_proof": "Recreated source table split across two readable pages",
   "layout_pattern": "left_text_right_table",
   "source_note": "报告表3.2-1",
+  "slide_content": {
+    "title": "2015—2024年水资源量年际波动明显",
+    "bullets": ["多年平均水资源量以报告表3.2-1为依据。"]
+  },
+  "internal_notes": ["后台记录表格采用 image/hybrid 的原因，不进入页面正文。"],
+  "speaker_notes": ["可口头补充年际波动的原因。"],
   "density": "dense",
   "density_exempt_reason": ""
 }
@@ -38,6 +44,10 @@ INTERPRETATION | CONCLUSION | MANAGEMENT_ACTION
 - Derive every substantive slide from `analysis/report_content_inventory.json` or
   `analysis/ppt_content_blueprint.md`; keep `content_unit_ids` in the backend plan
   whenever possible.
+- Keep `internal_notes`, `slide_content`, and `speaker_notes` separate. Only
+  `slide_content` is eligible for visible slide rendering; backend analysis, source-boundary
+  rules, processing notes, JSON snippets, prompt constraints, OCR/LLM/fallback wording, and
+  layout strategy belong in `internal_notes` or QA logs, not the visible page body.
 - Give each chapter at least one original text, table, figure, or calculation slide.
 - Present original evidence before interpretation or conclusion when review accuracy matters.
 - Preserve significant original wording for legal, regulatory, technical, and conclusion text.
@@ -79,6 +89,10 @@ top_text_bottom_table | top_table_bottom_text
 - Mark key terms, control values, units, conclusion clauses, and risk/action words for
   visible emphasis. Use emphasis sparingly but consistently so the presenter can locate the
   engineering point quickly.
+- Plan text so it fits before rendering: keep body pages to five visible points or fewer,
+  avoid report-style long sentences, and split or move secondary detail to `speaker_notes`
+  once the configured minimum font size is reached. Never plan a page that relies on text
+  below the minimum font floor or overlapping another component.
 - Native PPTX tables must be matched back to source table structure. Small/medium DOCX
   tables with merged headers or vertical merges should use real PPTX merged cells, while
   dense tables must record the split/excerpt reason.

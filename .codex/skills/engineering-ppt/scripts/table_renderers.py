@@ -10,6 +10,14 @@ from typing import Any
 from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.util import Inches, Pt
 
+from text_fitting import SlideContentSanitizer, TextFittingEngine, TextStyle, component_char_limit
+
+
+TEXT_SANITIZER = SlideContentSanitizer()
+TEXT_FITTER = TextFittingEngine()
+TABLE_MIN_PT = 12.0
+BODY_MIN_PT = 14.0
+
 
 def _rgb(hex_value: str):
     from pptx.dml.color import RGBColor
@@ -18,6 +26,21 @@ def _rgb(hex_value: str):
     if len(value) != 6:
         value = "FFFFFF"
     return RGBColor(int(value[0:2], 16), int(value[2:4], 16), int(value[4:6], 16))
+
+
+def _fit_text(text: str, w: float, h: float, size: float, min_size: float, component: str) -> tuple[str, float, bool]:
+    fitted = TEXT_FITTER.fit_text_to_box(
+        text,
+        w,
+        h,
+        TextStyle(
+            font_size=size,
+            min_font_size=min_size,
+            max_chars=component_char_limit(component),
+            component=component,
+        ),
+    )
+    return fitted.text, fitted.font_size, fitted.overflow
 
 
 def _fit_rect(x: float, y: float, w: float, h: float, aspect: float) -> tuple[float, float, float, float]:
@@ -108,7 +131,18 @@ class NativeTableRenderer:
                 if text is None and r_idx < len(raw_rows) and c_idx < len(raw_rows[r_idx]):
                     text = raw_rows[r_idx][c_idx]
                 style = ir_cell.get("style", {})
-                ppt_cell.text = str(text or "")
+                fitted_text, fitted_size, cell_overflow = _fit_text(
+                    str(text or ""),
+                    1.0,
+                    0.35,
+                    max(float(style.get("font_size", TABLE_MIN_PT)), TABLE_MIN_PT),
+                    TABLE_MIN_PT,
+                    "table_cell",
+                )
+                if cell_overflow:
+                    ppt_cell.text = fitted_text
+                else:
+                    ppt_cell.text = fitted_text
                 ppt_cell.vertical_anchor = _valign(style.get("valign", "middle"))
                 margin = style.get("margin", {})
                 ppt_cell.margin_left = Inches(float(margin.get("left", 0.04)))
@@ -120,7 +154,7 @@ class NativeTableRenderer:
                 for paragraph in ppt_cell.text_frame.paragraphs:
                     paragraph.alignment = _alignment(style.get("align", "center"))
                     paragraph.font.name = self.font_name
-                    paragraph.font.size = Pt(float(style.get("font_size", 10.5)))
+                    paragraph.font.size = Pt(fitted_size)
                     paragraph.font.bold = bool(style.get("bold") or ir_cell.get("is_header"))
                     paragraph.font.color.rgb = _rgb(style.get("color", "#" + self.colors.get("ink", "132D46")))
 
@@ -157,13 +191,16 @@ class ImageTableRenderer:
         title: str | None = None,
         note: str | None = None,
     ):
-        title_text = title if title is not None else table_ir.get("title", "")
+        title_text = TEXT_SANITIZER.sanitize(title if title is not None else table_ir.get("title", ""), component="caption")
         if title_text:
+            title_text, title_size, title_overflow = _fit_text(title_text, w, 0.28, 14, 12, "caption")
             box = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(0.28))
+            if title_overflow:
+                box.name = "TableTitleNeedsRelayout"
             p = box.text_frame.paragraphs[0]
             p.text = title_text
             p.font.name = self.font_name
-            p.font.size = Pt(14)
+            p.font.size = Pt(title_size)
             p.font.bold = True
             p.font.color.rgb = _rgb("#" + self.colors.get("ink", "132D46"))
             y += 0.34
@@ -176,11 +213,14 @@ class ImageTableRenderer:
         ix, iy, iw, ih = _fit_rect(x, y, w, h - (0.28 if note else 0), aspect)
         picture = slide.shapes.add_picture(str(image_path), Inches(ix), Inches(iy), width=Inches(iw), height=Inches(ih))
         if note:
+            note_text, note_size, note_overflow = _fit_text(note, w, 0.22, 10, 8, "table_note")
             box = slide.shapes.add_textbox(Inches(x), Inches(y + h - 0.24), Inches(w), Inches(0.22))
+            if note_overflow:
+                box.name = "TableNoteNeedsRelayout"
             p = box.text_frame.paragraphs[0]
-            p.text = note
+            p.text = note_text
             p.font.name = self.font_name
-            p.font.size = Pt(10)
+            p.font.size = Pt(note_size)
             p.font.color.rgb = _rgb("#" + self.colors.get("muted", "5B6F82"))
         return picture
 
@@ -218,7 +258,11 @@ class HybridTableRenderer:
         conclusions: list[str] | None = None,
         layout: str = "right",
     ):
-        conclusions = [item for item in (conclusions or []) if str(item).strip()][:4]
+        conclusions = [
+            TEXT_SANITIZER.sanitize(str(item), component="hybrid_conclusion")
+            for item in (conclusions or [])
+            if str(item).strip()
+        ][:4]
         if layout == "bottom":
             image_h = h * 0.68
             self.image_renderer.render(slide, table_ir, x, y, w, image_h)
@@ -240,9 +284,19 @@ class HybridTableRenderer:
         for index, text in enumerate(conclusions, start=1):
             box = slide.shapes.add_textbox(Inches(x), Inches(y + 0.42 + (index - 1) * row_h), Inches(w), Inches(max(0.32, row_h - 0.04)))
             p = box.text_frame.paragraphs[0]
-            p.text = f"{index}. {text}"
+            fitted_text, fitted_size, needs_relayout = _fit_text(
+                f"{index}. {text}",
+                w,
+                max(0.32, row_h - 0.04),
+                14,
+                BODY_MIN_PT,
+                "hybrid_conclusion",
+            )
+            if needs_relayout:
+                box.name = "HybridConclusionNeedsRelayout"
+            p.text = fitted_text
             p.font.name = self.font_name
-            p.font.size = Pt(14)
+            p.font.size = Pt(fitted_size)
             p.font.color.rgb = _rgb("#" + self.colors.get("ink", "132D46"))
 
 

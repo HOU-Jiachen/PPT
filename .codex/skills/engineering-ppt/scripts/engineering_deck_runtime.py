@@ -25,6 +25,12 @@ from pptx.util import Inches, Pt
 
 from figure_layout_optimizer import choose_figure_layout
 from table_renderers import get_table_ir, load_table_ir, render_table
+from text_fitting import (
+    SlideContentSanitizer,
+    TextFittingEngine,
+    TextStyle,
+    component_char_limit,
+)
 
 
 DEFAULT_COLORS = {
@@ -43,6 +49,9 @@ DEFAULT_COLORS = {
 
 BODY_MIN_PT = 14.0
 TABLE_MIN_PT = 14.0
+
+TEXT_SANITIZER = SlideContentSanitizer()
+TEXT_FITTER = TextFittingEngine()
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tif", ".tiff", ".webp"}
 EMPHASIS_TERM_RE = re.compile(
@@ -116,6 +125,7 @@ def load_json(path: Path) -> Any:
 
 
 def sanitize_visible_text(text: str) -> str:
+    text = TEXT_SANITIZER.sanitize(text, component="body_text")
     text = re.sub(r"\s+", " ", text or "").strip()
     text = re.sub(r"\s*\|\s*", "；", text)
     text = text.replace("……", "").replace("...", "").replace("…", "")
@@ -123,6 +133,45 @@ def sanitize_visible_text(text: str) -> str:
         text = re.sub(pattern, "", text, flags=re.I)
     text = text.replace("证据解读", "报告说明")
     return re.sub(r"\s+", " ", text).strip(" ，,;；")
+
+
+def fit_visible_text(
+    text: str,
+    w: float,
+    h: float,
+    size: float,
+    *,
+    min_size: float | None = None,
+    component: str = "body_text",
+    max_lines: int | None = None,
+) -> tuple[str, float, bool]:
+    if min_size is None:
+        component_minima = {
+            "body_text": min(float(size), BODY_MIN_PT),
+            "bullet": BODY_MIN_PT,
+            "conclusion": BODY_MIN_PT,
+            "hybrid_conclusion": BODY_MIN_PT,
+            "table_cell": TABLE_MIN_PT,
+            "caption": min(float(size), 8.0),
+            "table_note": min(float(size), 8.0),
+            "page_meta": min(float(size), 8.0),
+            "subtitle": min(float(size), 12.0),
+            "title": min(float(size), 18.0),
+        }
+        min_size = component_minima.get(component, min(float(size), BODY_MIN_PT))
+    fitted = TEXT_FITTER.fit_text_to_box(
+        text,
+        float(w),
+        float(h),
+        TextStyle(
+            font_size=float(size),
+            min_font_size=float(min_size),
+            max_lines=max_lines,
+            max_chars=component_char_limit(component),
+            component=component,
+        ),
+    )
+    return fitted.text, fitted.font_size, fitted.overflow
 
 
 def ensure_sentence_end(text: str) -> str:
@@ -1058,17 +1107,31 @@ def add_textbox(
     align=None,
     font="Microsoft YaHei",
     colors: dict[str, str] | None = None,
+    min_size: float | None = None,
+    component: str = "body_text",
+    max_lines: int | None = None,
 ):
     palette = colors or DEFAULT_COLORS
+    fitted_text, fitted_size, needs_relayout = fit_visible_text(
+        text,
+        w,
+        h,
+        size,
+        min_size=min_size,
+        component=component,
+        max_lines=max_lines,
+    )
     box = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h))
+    if needs_relayout:
+        box.name = "TextOverflowNeedsRelayout"
     tf = box.text_frame
     tf.clear()
     tf.word_wrap = True
     tf.auto_size = MSO_AUTO_SIZE.NONE
     p = tf.paragraphs[0]
-    p.text = sanitize_visible_text(text)
+    p.text = fitted_text
     p.font.name = font
-    p.font.size = pt(size)
+    p.font.size = pt(fitted_size)
     p.font.bold = bold
     p.font.color.rgb = rgb(palette[color])
     if align:
@@ -1091,15 +1154,28 @@ def add_emphasis_textbox(
     align=None,
     font="Microsoft YaHei",
     colors: dict[str, str] | None = None,
+    min_size: float | None = None,
+    component: str = "body_text",
+    max_lines: int | None = None,
 ):
     """Add editable text with key terms/numbers highlighted as separate runs."""
 
     palette = colors or DEFAULT_COLORS
-    clean = sanitize_visible_text(text)
+    clean, fitted_size, needs_relayout = fit_visible_text(
+        text,
+        w,
+        h,
+        size,
+        min_size=min_size,
+        component=component,
+        max_lines=max_lines,
+    )
     raw_terms = emphasis_terms if emphasis_terms is not None else emphasis_terms_from_text(clean)
     terms = [term for term in raw_terms if term]
     terms = sorted(dict.fromkeys(terms), key=len, reverse=True)
     box = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h))
+    if needs_relayout:
+        box.name = "TextOverflowNeedsRelayout"
     tf = box.text_frame
     tf.clear()
     tf.word_wrap = True
@@ -1112,7 +1188,7 @@ def add_emphasis_textbox(
     if not terms:
         p.text = clean
         p.font.name = font
-        p.font.size = pt(size)
+        p.font.size = pt(fitted_size)
         p.font.bold = bold
         p.font.color.rgb = rgb(palette[color])
         return box
@@ -1124,13 +1200,13 @@ def add_emphasis_textbox(
             run = p.add_run()
             run.text = clean[pos : match.start()]
             run.font.name = font
-            run.font.size = pt(size)
+            run.font.size = pt(fitted_size)
             run.font.bold = bold
             run.font.color.rgb = rgb(palette[color])
         run = p.add_run()
         run.text = match.group(0)
         run.font.name = font
-        run.font.size = pt(size)
+        run.font.size = pt(fitted_size)
         run.font.bold = True
         run.font.color.rgb = rgb(palette[emphasis_color])
         pos = match.end()
@@ -1138,7 +1214,7 @@ def add_emphasis_textbox(
         run = p.add_run()
         run.text = clean[pos:]
         run.font.name = font
-        run.font.size = pt(size)
+        run.font.size = pt(fitted_size)
         run.font.bold = bold
         run.font.color.rgb = rgb(palette[color])
     return box
@@ -1157,8 +1233,8 @@ def add_fill(slide, x, y, w, h, color="paper", line="line", colors: dict[str, st
 def add_title(slide, page: dict[str, Any], colors: dict[str, str] | None = None):
     palette = colors or DEFAULT_COLORS
     display_page = int(page.get("display_page", page["page"]))
-    add_textbox(slide, 0.42, 0.20, 11.85, 0.50, page["title"], 24, "ink", True, colors=palette)
-    add_textbox(slide, 0.43, 0.68, 7.0, 0.24, page["chapter"], 9.5, "accent", colors=palette)
+    add_textbox(slide, 0.42, 0.20, 11.85, 0.50, page["title"], 24, "ink", True, colors=palette, component="title")
+    add_textbox(slide, 0.43, 0.68, 7.0, 0.24, page["chapter"], 9.5, "accent", colors=palette, component="page_meta")
     add_textbox(
         slide,
         11.65,
@@ -1170,6 +1246,7 @@ def add_title(slide, page: dict[str, Any], colors: dict[str, str] | None = None)
         "muted",
         align=PP_ALIGN.RIGHT,
         colors=palette,
+        component="page_meta",
     )
     line = slide.shapes.add_shape(1, Inches(0.42), Inches(0.88), Inches(11.84), Inches(0.015))
     line.fill.solid()
@@ -1196,7 +1273,19 @@ def add_table(
     palette = colors or DEFAULT_COLORS
     rows = entry.get("rows") or []
     if not rows:
-        add_textbox(slide, x, y, w, h, text_preview(entry.get("text", ""), 720), BODY_MIN_PT, "ink", colors=palette)
+        add_textbox(
+            slide,
+            x,
+            y,
+            w,
+            h,
+            text_preview(entry.get("text", ""), 720),
+            BODY_MIN_PT,
+            "ink",
+            colors=palette,
+            component="body_text",
+            max_lines=5,
+        )
         return None
     cell_limit = max(24, min(62, int((w / max(1, max_cols)) * (h / max(1, max_rows)) * 22)))
     clean = [[text_preview(str(cell), cell_limit) for cell in row[:max_cols]] for row in rows[:max_rows]]
@@ -1215,7 +1304,17 @@ def add_table(
     for i, row in enumerate(clean):
         for j, cell_text in enumerate(row):
             cell = table.cell(i, j)
-            cell.text = cell_text
+            fitted_text, fitted_size, cell_overflow = fit_visible_text(
+                cell_text,
+                w / max(1, col_count),
+                h / max(1, len(clean)),
+                TABLE_MIN_PT,
+                min_size=TABLE_MIN_PT,
+                component="table_cell",
+            )
+            if cell_overflow:
+                shape.name = "NativeTableNeedsImageFallback"
+            cell.text = fitted_text
             cell.vertical_anchor = MSO_ANCHOR.MIDDLE
             cell.margin_left = Inches(0.04)
             cell.margin_right = Inches(0.04)
@@ -1224,7 +1323,7 @@ def add_table(
             for paragraph in cell.text_frame.paragraphs:
                 paragraph.alignment = PP_ALIGN.CENTER
                 paragraph.font.name = "Microsoft YaHei"
-                paragraph.font.size = pt(TABLE_MIN_PT)
+                paragraph.font.size = pt(fitted_size)
                 paragraph.font.color.rgb = rgb(palette["ink"])
                 if i == 0:
                     paragraph.font.bold = True
@@ -1324,12 +1423,25 @@ def add_bullets(
     tf.clear()
     tf.word_wrap = True
     tf.auto_size = MSO_AUTO_SIZE.NONE
-    for idx, item in enumerate(items):
+    visible_items = [item for item in items[:5] if str(item).strip()]
+    row_h = h / max(1, len(visible_items))
+    for idx, item in enumerate(visible_items):
+        fitted_text, fitted_size, needs_relayout = fit_visible_text(
+            str(item),
+            w,
+            max(0.2, row_h),
+            max(float(size), BODY_MIN_PT),
+            min_size=BODY_MIN_PT,
+            component="bullet",
+            max_lines=2,
+        )
+        if needs_relayout:
+            box.name = "TextOverflowNeedsRelayout"
         paragraph = tf.paragraphs[0] if idx == 0 else tf.add_paragraph()
-        paragraph.text = sanitize_visible_text(item)
+        paragraph.text = fitted_text
         paragraph.level = 0
         paragraph.font.name = "Microsoft YaHei"
-        paragraph.font.size = pt(max(float(size), BODY_MIN_PT))
+        paragraph.font.size = pt(fitted_size)
         paragraph.font.color.rgb = rgb(palette["ink"])
         paragraph.space_after = pt(4)
     return box

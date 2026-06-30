@@ -154,6 +154,13 @@ Mandatory rules:
 - Keep interpretation as interpretation. Never promote it to fact.
 - Treat old PPT decks and outlines as leads, not authoritative sources.
 - Keep workflow notes and extraction warnings out of visible slides.
+- Separate generated text into three explicit layers whenever a script or prompt plans
+  slide text:
+  `internal_notes` for backend analysis, constraints, source-boundary decisions, layout
+  strategy, and processing notes; `slide_content` for the only text allowed on the visible
+  slide; and `speaker_notes` for optional presenter notes. PPT rendering must read visible
+  text from `slide_content` only. Never render `internal_notes`, JSON records, prompt
+  constraints, OCR/LLM/fallback explanations, or agent self-description into slide bodies.
 - Use `analysis/report_content_inventory.json` and `analysis/ppt_content_blueprint.md`
   as the primary selection workspace; do not select evidence only from memory or from
   an old deck outline.
@@ -336,6 +343,17 @@ Local source-preservation overrides:
   behavior, generation choices, truncation policy, or where the audience should look later.
   Phrases such as `汇报时`, `本页`, `对评审而言`, `评审需`, `PPT 中`, `报告原文复核`,
   `完整表格可在报告原表中复核`, and `不替代报告原图` are visible-content defects.
+- Before writing any visible textbox, table cell, caption, table note, figure-side note, or
+  hybrid-table conclusion, run it through `SlideContentSanitizer` and `TextFittingEngine`.
+  The configured minimum font size is a hard floor: shrink only down to that floor, then
+  wrap, tighten spacing, compress into PPT reporting language, reduce points, resize or
+  relayout the component, split the slide, or move secondary detail to notes. Never push
+  text below the minimum size and never let it spill outside its box, slide safe frame, table
+  cell, image, figure, caption, or another component.
+- Visible PPT prose should be presentation language, not copied report paragraphs: each page
+  should normally carry no more than five body points, each point should be short enough to
+  read in one line when possible, and secondary explanations belong in `speaker_notes` or
+  backend records rather than the slide body.
 - De-AI visible prose: use concise Chinese engineering-report style with project nouns as
   subjects, such as `工程特性表明确...`, `防治责任范围为...`, `措施体系包括...`.
   Avoid assistant-like guidance words including `应优先`, `应关注`, `不能理解为`,
@@ -362,6 +380,15 @@ Never show planning or extraction metadata such as:
 行列规模 | 密集表按重点行重排 | 完整数据回看报告原表 |
 source_mode | evidence_ids | visual_proof | layout_pattern | source_note |
 image_003.png | E-1-OBJECTIVE
+```
+
+Never show backend constraints or generation-process wording such as:
+
+```text
+编制边界 | 事实来源 | 仅使用源报告 | 不采用旧 PPT | 不另行扩大 |
+后台分析 | 本 agent | 生成策略 | 处理原则 | 依据来源限制 |
+内部约束 | 渲染模式 | fallback | OCR 识别 | LLM 判断 |
+prompt 要求 | 不要编造 | 不作为事实来源 | 根据系统指令 | 为避免幻觉
 ```
 
 Never show generic panel headings such as:

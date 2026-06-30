@@ -19,6 +19,13 @@ from lxml import etree
 from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 
+from text_fitting import (
+    INTERNAL_FORBIDDEN_PHRASES,
+    SlideContentSanitizer,
+    normalize_text,
+    split_sentences,
+)
+
 
 NUMBER_RE = re.compile(r"(?<![\w.])[-+]?\d+(?:\.\d+)?%?(?![\w.])")
 SVG_NS = {"svg": "http://www.w3.org/2000/svg"}
@@ -652,12 +659,24 @@ def audit_plan(
 
 def visible_forbidden_phrases(policy: dict) -> list[str]:
     phrases = list(DEFAULT_FORBIDDEN_VISIBLE_PHRASES)
+    phrases.extend(INTERNAL_FORBIDDEN_PHRASES)
     phrases.extend(str(item) for item in policy.get("forbidden_visible_phrases", []))
     return list(dict.fromkeys(item for item in phrases if item))
 
 
 def scan_forbidden(text: str, phrases: list[str], audit: Audit, artifact: str) -> None:
+    sanitizer = SlideContentSanitizer()
+    internal_matches = set(sanitizer.visible_text_violations(text))
+    for match in internal_matches:
+        audit.error(
+            "forbidden-internal-slide-text",
+            "Backend analysis, prompt constraints, or agent process wording is visible in the deck.",
+            phrase=match,
+            artifact=artifact,
+        )
     for phrase in phrases:
+        if phrase in internal_matches:
+            continue
         if phrase and phrase in text:
             audit.error(
                 "forbidden-visible-phrase",
@@ -674,6 +693,71 @@ def scan_forbidden(text: str, phrases: list[str], audit: Audit, artifact: str) -
                 pattern=pattern.pattern,
                 match=match.group(0),
                 artifact=artifact,
+            )
+
+
+def audit_final_text_review_pptx(
+    presentation: Presentation,
+    policy: dict,
+    strict: bool,
+    audit: Audit,
+) -> None:
+    settings = policy.get("final_text_review", {})
+    if settings.get("enabled", True) is False:
+        return
+    sanitizer = SlideContentSanitizer(visible_forbidden_phrases(policy))
+    max_bullets = int(settings.get("max_body_bullets", 5))
+    max_sentence_chars = int(settings.get("max_sentence_chars", 96))
+    error_on_internal = settings.get("error_on_internal_terms", True) is not False
+    slide_width = int(presentation.slide_width)
+    slide_height = int(presentation.slide_height)
+    for slide_index, slide in enumerate(presentation.slides, start=1):
+        all_text, body_text, visible_chars, _visual_area = slide_text_payload(slide, presentation, policy)
+        if not all_text.strip():
+            continue
+        violations = sanitizer.visible_text_violations(all_text)
+        if violations and error_on_internal:
+            audit.error(
+                "final-text-review-internal-text",
+                "Final PPTX body contains internal notes, generation constraints, or process wording.",
+                page=slide_index,
+                matches=violations[:8],
+                text=compact_text(all_text),
+            )
+
+        bullet_like_count = 0
+        long_sentences: list[str] = []
+        for shape in iter_pptx_shapes(slide.shapes):
+            if not getattr(shape, "has_text_frame", False):
+                continue
+            text = re.sub(r"\s+", " ", getattr(shape, "text", "") or "").strip()
+            if not text or is_pptx_layout_meta_text(text, shape, slide_width, slide_height, policy):
+                continue
+            paragraphs = [
+                normalize_text(paragraph.text)
+                for paragraph in shape.text_frame.paragraphs
+                if normalize_text(paragraph.text)
+            ]
+            bullet_like_count += sum(1 for item in paragraphs if len(item) >= 8)
+            for paragraph in paragraphs:
+                for sentence in split_sentences(paragraph):
+                    value = normalize_text(sentence)
+                    if len(value) > max_sentence_chars:
+                        long_sentences.append(value)
+        if strict and bullet_like_count > max_bullets + 2 and visible_chars > 260:
+            audit.warning(
+                "final-text-review-too-many-visible-points",
+                "A slide has more visible body points than PPT-style reporting should carry.",
+                page=slide_index,
+                body_points=bullet_like_count,
+                preferred_max=max_bullets,
+            )
+        if strict and long_sentences:
+            audit.warning(
+                "final-text-review-report-style-sentence",
+                "A slide still contains long report-style sentences; compress or move detail to notes.",
+                page=slide_index,
+                examples=[compact_text(item, 120) for item in long_sentences[:3]],
             )
 
 
@@ -1962,6 +2046,7 @@ def audit_pptx(
         presentation = Presentation(path)
         actual = len(presentation.slides)
         audit_pptx_font_sizes(presentation, policy, audit)
+        audit_final_text_review_pptx(presentation, policy, strict, audit)
         audit_pptx_text_structure_and_emphasis(presentation, policy, strict, audit)
         audit_pptx_layout_geometry(presentation, policy, strict, audit)
         audit_pptx_table_fidelity(project, presentation, catalog, table_ir, pages, policy, strict, audit)
