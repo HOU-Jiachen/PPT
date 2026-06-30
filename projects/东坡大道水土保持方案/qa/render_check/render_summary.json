@@ -1,0 +1,217 @@
+{
+  "pages": 30,
+  "min_nonwhite_ratio": 0.6273,
+  "max_nonwhite_ratio": 1.0,
+  "records": [
+    {
+      "page": 1,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.9799,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_01.png"
+    },
+    {
+      "page": 2,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.7347,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_02.png"
+    },
+    {
+      "page": 3,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 1.0,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_03.png"
+    },
+    {
+      "page": 4,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.9498,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_04.png"
+    },
+    {
+      "page": 5,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 1.0,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_05.png"
+    },
+    {
+      "page": 6,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.907,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_06.png"
+    },
+    {
+      "page": 7,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 1.0,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_07.png"
+    },
+    {
+      "page": 8,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.8112,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_08.png"
+    },
+    {
+      "page": 9,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 1.0,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_09.png"
+    },
+    {
+      "page": 10,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.861,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_10.png"
+    },
+    {
+      "page": 11,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.6273,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_11.png"
+    },
+    {
+      "page": 12,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.9671,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_12.png"
+    },
+    {
+      "page": 13,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 1.0,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_13.png"
+    },
+    {
+      "page": 14,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.7076,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_14.png"
+    },
+    {
+      "page": 15,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.9059,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_15.png"
+    },
+    {
+      "page": 16,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.8995,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_16.png"
+    },
+    {
+      "page": 17,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 1.0,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_17.png"
+    },
+    {
+      "page": 18,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.7851,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_18.png"
+    },
+    {
+      "page": 19,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.8813,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_19.png"
+    },
+    {
+      "page": 20,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.9184,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_20.png"
+    },
+    {
+      "page": 21,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.864,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_21.png"
+    },
+    {
+      "page": 22,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 1.0,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_22.png"
+    },
+    {
+      "page": 23,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.9379,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_23.png"
+    },
+    {
+      "page": 24,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.8034,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_24.png"
+    },
+    {
+      "page": 25,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.711,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_25.png"
+    },
+    {
+      "page": 26,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 1.0,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_26.png"
+    },
+    {
+      "page": 27,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.855,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_27.png"
+    },
+    {
+      "page": 28,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.9589,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_28.png"
+    },
+    {
+      "page": 29,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.7019,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_29.png"
+    },
+    {
+      "page": 30,
+      "width": 1200,
+      "height": 675,
+      "nonwhite_ratio": 0.9999,
+      "file": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\qa\\render_check\\slide_30.png"
+    }
+  ]
+}

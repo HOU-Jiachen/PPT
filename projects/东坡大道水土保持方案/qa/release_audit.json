@@ -1,18 +1,18 @@
 {
   "summary": {
     "errors": 0,
-    "warnings": 1,
+    "warnings": 2,
     "info": 1,
     "release_ready": true
   },
   "metadata": {
     "project": "projects/东坡大道水土保持方案",
     "strict": true,
-    "planned_slides": 24,
-    "expected_pptx_slides": 32,
+    "planned_slides": 22,
+    "expected_pptx_slides": 30,
     "svg_slides": 0,
     "content_units": 385,
-    "pptx": "projects/东坡大道水土保持方案/exports/东坡大道水土保持方案源证据增强汇报_32页_20260630_115819.pptx"
+    "pptx": "projects/东坡大道水土保持方案/exports/东坡大道水土保持方案当前agent测试_30页_20260630_164657.pptx"
   },
   "findings": [
     {
@@ -22,11 +22,36 @@
       "context": {}
     },
     {
+      "level": "warning",
+      "code": "planned-table-rendered-without-native-table",
+      "message": "Deck plan includes original table slides but no native PPTX table was available for structural comparison; verify source crops visually.",
+      "context": {
+        "planned_table_pages": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ]
+      }
+    },
+    {
       "level": "info",
       "code": "pptx-valid",
       "message": "PPTX package, XML, media, and parser checks passed.",
       "context": {
-        "slides": 32
+        "slides": 30
       }
     }
   ]
