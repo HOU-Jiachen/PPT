@@ -1064,7 +1064,8 @@ def add_emphasis_textbox(
 
     palette = colors or DEFAULT_COLORS
     clean = sanitize_visible_text(text)
-    terms = [term for term in (emphasis_terms or emphasis_terms_from_text(clean)) if term]
+    raw_terms = emphasis_terms if emphasis_terms is not None else emphasis_terms_from_text(clean)
+    terms = [term for term in raw_terms if term]
     terms = sorted(dict.fromkeys(terms), key=len, reverse=True)
     box = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h))
     tf = box.text_frame
@@ -1355,7 +1356,7 @@ def add_numbered_points(
                 colors=palette,
             )
         )
-        terms = emphasis_terms or emphasis_terms_from_text(point["text"])
+        terms = emphasis_terms if emphasis_terms is not None else emphasis_terms_from_text(point["text"])
         shapes.append(
             add_emphasis_textbox(
                 slide,

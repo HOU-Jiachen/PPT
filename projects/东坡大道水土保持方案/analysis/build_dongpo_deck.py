@@ -21,6 +21,7 @@ from engineering_deck_runtime import (  # noqa: E402
     DEFAULT_COLORS,
     add_agenda_slide,
     add_bullets,
+    add_emphasis_textbox,
     add_fill,
     add_image_panel,
     add_section_divider_slide,
@@ -75,6 +76,32 @@ CHAPTER_SUMMARIES = {
     "水土保持措施与施工安排": "呈现防治分区、工程/植物/临时措施体系、工程量和实施进度。",
     "投资概算、效益与管理验收": "说明投资构成、补偿费免征依据、防治效果达标情况及后续管理要求。",
 }
+
+
+CURATED_EMPHASIS: list[tuple[list[str], list[str]]] = [
+    (["综合报告表", "全局控制"], ["6.2公里", "34416.00m²", "26.9211万元"]),
+    (["前期批复", "编制依据"], ["可研批复", "初设批复", "水土保持责任边界"]),
+    (["工程特性", "规模", "工期"], ["8024.00万元", "2025年12月至2026年12月", "临时占地"]),
+    (["城北片区", "道路布设"], ["城北片区", "既有城市道路", "管网工程区"]),
+    (["顶管", "施工组织"], ["微顶管", "工作井", "施工期控制重点"]),
+    (["责任范围", "临时占地"], ["34416.00m²", "临时占地", "管网工程区"]),
+    (["防治指标", "一级标准"], ["南方红壤区", "一级防治标准", "0.77%"]),
+    (["制约因素", "符合"], ["无禁止性因素", "减少扰动面积", "分段施工"]),
+    (["土石方平衡", "弃方"], ["4971.61m³", "4892.11m³", "委托处置"]),
+    (["主体工程已列", "土地整治"], ["土地整治", "铺种草皮", "临时苫盖"]),
+    (["扰动地表", "预测单元"], ["管网工程区", "施工期", "自然恢复期"]),
+    (["侵蚀模数", "背景"], ["261.46t/km²·a", "500t/km²·a", "背景值"]),
+    (["施工期扰动", "侵蚀模数"], ["施工期", "自然恢复期", "新增土壤流失量"]),
+    (["土壤流失总量", "新增量"], ["104.05t", "94.92t", "施工期"]),
+    (["防治分区"], ["一个防治分区", "34416.00m²", "管网工程区"]),
+    (["措施体系", "工程量"], ["工程措施", "植物措施", "临时措施"]),
+    (["实施进度"], ["2025年12月至2026年12月", "同步布设", "分段完成"]),
+    (["估算总投资"], ["26.9211万元", "0.6381万元", "0.5885万元"]),
+    (["工程、植物、临时"], ["工程措施", "临时措施", "独立费用"]),
+    (["补偿费", "免征"], ["51624元", "3.4416hm²", "免征情形"]),
+    (["防治效果", "目标值"], ["六项指标", "达到或高于目标值", "设施验收"]),
+    (["后续管理", "设施验收"], ["建设单位", "水土保持监理", "设施验收"]),
+]
 
 
 SLIDE_SPECS: list[dict[str, Any]] = [
@@ -285,6 +312,51 @@ SLIDE_SPECS: list[dict[str, Any]] = [
 
 def clean_number(value: str) -> str:
     return re.sub(r"\s+", "", value)
+
+
+def curated_terms_for_page(page: dict[str, Any], points: list[str] | None = None) -> list[str]:
+    joined = " ".join(
+        [
+            sanitize_visible_text(page.get("title", "")),
+            sanitize_visible_text(page.get("chapter", "")),
+            sanitize_visible_text(page.get("visual_proof", "")),
+            " ".join(sanitize_visible_text(point) for point in (points or [])),
+        ]
+    )
+    selected: list[str] = []
+    for keywords, terms in CURATED_EMPHASIS:
+        if all(keyword in joined for keyword in keywords):
+            selected.extend(term for term in terms if term in joined)
+    return list(dict.fromkeys(selected))[:3]
+
+
+def add_curated_bullets(
+    slide,
+    x: float,
+    y: float,
+    w: float,
+    h: float,
+    items: list[str],
+    page: dict[str, Any],
+    size: float = 14,
+) -> None:
+    if not items:
+        return
+    terms = curated_terms_for_page(page, items)
+    row_h = h / max(1, len(items))
+    for idx, item in enumerate(items):
+        add_emphasis_textbox(
+            slide,
+            x,
+            y + idx * row_h,
+            w,
+            max(0.30, row_h - 0.04),
+            sanitize_visible_text(item),
+            size,
+            "ink",
+            emphasis_terms=terms,
+            colors=COLORS,
+        )
 
 
 def unit_lookup(inventory: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -528,8 +600,9 @@ def compact_table(table_entry: dict[str, Any], page: dict[str, Any]) -> dict[str
     if "补偿费" in title:
         focused = dict(table_entry)
         focused["rows"] = [
-            ["行政区", "征占地面积(m²)", "收费标准(元/m²)", "水保补偿费(元)"],
-            ["黄冈市黄州区", "34416", "1.5", "51624"],
+            ["序号", "行政区", "征占地面积（hm²）", "征占地面积（m²）", "收费标准（元/m²）", "水保补偿费（元）"],
+            ["1", "黄冈市黄州区", "3.4416", "34416", "1.5", "51624"],
+            ["免征依据", "市政生态环境保护基础设施项目", "", "", "", ""],
         ]
         focused["row_count"] = len(focused["rows"])
         focused["text"] = "\n".join(" | ".join(row) for row in focused["rows"])
@@ -537,26 +610,26 @@ def compact_table(table_entry: dict[str, Any], page: dict[str, Any]) -> dict[str
     if "防治效果" in title:
         focused = dict(table_entry)
         focused["rows"] = [
-            ["评估指标", "目标值", "设计达到值", "评估结果"],
-            ["水土流失治理度", "98%", "99.99%", "达标"],
-            ["土壤流失控制比", "1.0", "1.55", "达标"],
-            ["渣土防护率", "97%", "97.80%", "达标"],
-            ["表土保护率", "92%", "99.99%", "达标"],
-            ["林草植被恢复率", "98%", "99.99%", "达标"],
-            ["林草覆盖率", "0.77%", "0.77%", "达标"],
+            ["评估指标", "目标值", "评估依据", "单位", "数量", "设计达到值", "评估结果"],
+            ["水土流失总治理度", "98%", "水土流失治理达标面积", "hm²", "3.4416", "99.99%", "达标"],
+            ["土壤流失控制比", "1.0", "容许土壤流失量", "t/km²·a", "500", "1.55", "达标"],
+            ["渣土防护率", "97%", "采取措施实际挡护永久弃渣、临时堆土数量", "万m³", "0.4784", "97.80%", "达标"],
+            ["表土保护率", "92", "保护的表土数量", "万m³", "0.0079", "99.99%", "达标"],
+            ["林草植被恢复率", "98%", "林草植被面积", "hm²", "0.0265", "99.99%", "达标"],
+            ["林草覆盖率", "0.77%", "林草植被面积", "hm²", "0.0265", "0.77%", "达标"],
         ]
         focused["row_count"] = len(focused["rows"])
         focused["text"] = "\n".join(" | ".join(row) for row in focused["rows"])
         return focused
-    if len(rows) <= 7:
+    if len(rows) <= 8:
         return table_entry
     if "实施进度" in title:
         focused = dict(table_entry)
         focused["rows"] = [
-            ["工程分区/路段", "主要工序", "实施窗口", "水保衔接"],
-            ["管网工程区", "施工准备、围挡、路面破除", "2025年12月起进入施工准备和扰动启动阶段", "临时防护、排水和车辆冲洗应先行布设"],
-            ["东坡大道等道路段", "顶管井施工、顶管施工", "2026年主体施工窗口内分段推进", "顶管井开挖、土方周转和降排水是过程控制重点"],
-            ["各道路恢复段", "路面恢复、绿化恢复", "随主体完工分段恢复", "土地整治和植被恢复需与道路恢复同步闭合"],
+            ["项目分区", "工程分项", "2025年", "2026年", "水保衔接"],
+            ["管网工程区", "施工准备、围挡、路面破除", "12月", "1月至12月分段推进", "临时防护、排水和车辆冲洗先行布设"],
+            ["管网工程区", "顶管井施工、顶管施工", "", "主体施工窗口内推进", "顶管井开挖、土方周转和降排水为重点"],
+            ["管网工程区", "路面恢复、绿化恢复", "", "随主体完工分段恢复", "土地整治和植被恢复同步闭合"],
         ]
         focused["row_count"] = len(focused["rows"])
         focused["text"] = "\n".join(" | ".join(row) for row in focused["rows"])
@@ -871,11 +944,11 @@ def add_source_slide(
         if len(image_paths) == 1:
             add_image_panel(slide, image_paths, 0.66, 1.16, 7.60, 4.80, colors=COLORS)
             add_textbox(slide, 8.72, 1.22, 3.55, 0.46, topic_heading, 15, "accent", True, colors=COLORS)
-            add_bullets(slide, 8.72, 1.86, 3.28, 3.95, figure_points_from_context(page), 14, colors=COLORS)
+            add_curated_bullets(slide, 8.72, 1.86, 3.28, 3.95, figure_points_from_context(page), page, 14)
         else:
             add_image_panel(slide, image_paths, 0.66, 1.14, 12.00, 3.92, colors=COLORS)
             add_textbox(slide, 0.78, 5.26, 4.95, 0.38, topic_heading, 15, "accent", True, colors=COLORS)
-            add_bullets(slide, 0.78, 5.70, 11.55, 0.80, figure_points_from_context(page)[:3], 13.8, colors=COLORS)
+            add_curated_bullets(slide, 0.78, 5.66, 11.55, 1.02, figure_points_from_context(page)[:3], page, 14)
         return
     table_allowed = str(page.get("source_mode", "")).upper() in {"ORIGINAL_TABLE", "CALCULATION"}
     table_entry = table_from_page(page, catalog_entries, catalog_entry_list, evidence) if table_allowed else None
@@ -897,26 +970,26 @@ def add_source_slide(
         ):
             render_merged_table(slide, model, 0.60, 1.16, 12.10, 3.78, colors=COLORS, max_rows=7, max_cols=7)
             add_textbox(slide, 0.78, 5.12, 7.20, 0.54, topic_heading, 15, "accent", True, colors=COLORS)
-            add_bullets(slide, 0.78, 5.62, 11.55, 0.95, points[:3] or [text_preview(page["visual_proof"], 90, complete_sentence=True)], 14, colors=COLORS)
+            add_curated_bullets(slide, 0.78, 5.58, 11.55, 1.08, points[:3] or [text_preview(page["visual_proof"], 90, complete_sentence=True)], page, 14)
             return
         if layout.startswith("top_"):
-            add_project_table(slide, table_entry, page, table_models, 0.60, 1.16, 12.10, 3.78, max_rows=7, max_cols=5)
+            add_project_table(slide, table_entry, page, table_models, 0.60, 1.16, 12.10, 3.78, max_rows=8, max_cols=8)
             add_textbox(slide, 0.78, 5.12, 7.20, 0.54, topic_heading, 15, "accent", True, colors=COLORS)
-            add_bullets(slide, 0.78, 5.62, 11.55, 0.95, points[:3] or [text_preview(page["visual_proof"], 90, complete_sentence=True)], 14, colors=COLORS)
+            add_curated_bullets(slide, 0.78, 5.58, 11.55, 1.08, points[:3] or [text_preview(page["visual_proof"], 90, complete_sentence=True)], page, 14)
         else:
-            add_project_table(slide, table_entry, page, table_models, 0.60, 1.16, 8.00, 5.05, max_rows=7, max_cols=4)
+            add_project_table(slide, table_entry, page, table_models, 0.60, 1.16, 8.00, 5.05, max_rows=8, max_cols=7)
             add_textbox(slide, 8.95, 1.22, 3.35, 0.48, topic_heading, 15, "accent", True, colors=COLORS)
-            add_bullets(slide, 8.95, 1.88, 3.15, 3.95, points[:4] or [text_preview(page["visual_proof"], 100, complete_sentence=True)], 14, colors=COLORS)
+            add_curated_bullets(slide, 8.95, 1.88, 3.15, 3.95, points[:4] or [text_preview(page["visual_proof"], 100, complete_sentence=True)], page, 14)
         return
 
     add_fill(slide, 0.66, 1.23, 12.0, 4.88, "paper", colors=COLORS)
     add_textbox(slide, 0.96, 1.55, 11.3, 0.38, topic_heading, 16, "accent", True, colors=COLORS)
     if len(points) >= 4:
         mid = (len(points) + 1) // 2
-        add_bullets(slide, 0.96, 2.10, 5.25, 3.75, points[:mid], 14, colors=COLORS)
-        add_bullets(slide, 6.62, 2.10, 5.25, 3.75, points[mid:], 14, colors=COLORS)
+        add_curated_bullets(slide, 0.96, 2.10, 5.25, 3.75, points[:mid], page, 14)
+        add_curated_bullets(slide, 6.62, 2.10, 5.25, 3.75, points[mid:], page, 14)
     else:
-        add_bullets(slide, 0.96, 2.10, 10.95, 3.75, points or [complete_semantic_point(body_text, 260)], 14.5, colors=COLORS)
+        add_curated_bullets(slide, 0.96, 2.10, 10.95, 3.75, points or [complete_semantic_point(body_text, 260)], page, 14.5)
 
 
 def write_notes(plan: dict[str, Any]) -> None:

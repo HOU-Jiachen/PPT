@@ -1246,22 +1246,34 @@ def pptx_table_has_merge(shape) -> bool:
 
 def source_table_candidates(catalog: dict, docx_models: dict) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
+    model_numbers_by_locator: dict[str, set[str]] = {}
+    for model in docx_models.get("tables", []) or []:
+        locator = str(model.get("locator", ""))
+        rows = model.get("rows") or []
+        if not locator or not rows:
+            continue
+        model_numbers_by_locator[locator] = collect_numbers(
+            "\n".join(" | ".join(map(str, row)) for row in rows)
+        )
     for entry in catalog.get("entries", []):
         if entry.get("kind") != "table":
             continue
         rows = entry.get("rows") or []
         if not rows:
             continue
+        locator = str(entry.get("locator", ""))
+        numbers = set(collect_numbers(entry.get("text", "")))
+        numbers.update(model_numbers_by_locator.get(locator, set()))
         candidates.append(
             {
                 "id": entry.get("id", ""),
-                "locator": entry.get("locator", ""),
+                "locator": locator,
                 "source": entry.get("source", ""),
                 "rows": rows,
                 "row_count": int(entry.get("row_count") or len(rows)),
                 "column_count": int(entry.get("column_count") or max((len(row) for row in rows), default=0)),
                 "has_merged_cells": False,
-                "numbers": collect_numbers(entry.get("text", "")),
+                "numbers": numbers,
                 "model": None,
             }
         )
