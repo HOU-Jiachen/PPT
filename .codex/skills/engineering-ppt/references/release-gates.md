@@ -40,7 +40,9 @@ Run the following gates in order. A later success never cancels an earlier failu
     PPTX before delivery. It must produce structured `issue_list_round_*.json` files,
     auto-repair fixable critical/high issues, rerun review up to three times, and write
     `qa/review_report.json`. Critical issues cannot pass. High issues must be fixed or
-    the offending content must be removed.
+    the offending content must be removed. The review must include duplicate page,
+    duplicate expression, duplicate table, and duplicate figure checks; confirmed
+    duplicates must be removed or merged before release.
 10f. AI model review after PPTX export: run `ppt-agent ai-review` on the exported PPTX.
     Findings with severity `error` block release until the deck or project builder is
     revised and strict audit plus AI review are rerun.
@@ -96,6 +98,8 @@ Run the following gates in order. A later success never cancels an earlier failu
   without native merged-cell rendering for small/medium source tables that fit the slide
 - sparse page containing neither adequate explanation nor substantive source evidence
 - consecutive content pages whose body text is near-identical while only the title or figure changes
+- repeated pages, repeated body expressions, repeated source tables, or repeated source
+  figures that do not add new evidence or a clearly different engineering point
 - technical chapters reduced to summary cards without enough original text, tables, figures,
   formulas, or source-backed mixed layouts
 - more than three high-level summary / overview / conclusion / management-action pages

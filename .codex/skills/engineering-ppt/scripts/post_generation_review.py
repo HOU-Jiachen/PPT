@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import difflib
 import json
 import math
 import re
@@ -37,6 +38,9 @@ ISSUE_TYPES = {
     "font_below_minimum",
     "caption_too_long",
     "duplicate_content",
+    "duplicate_slide",
+    "duplicate_table",
+    "duplicate_figure",
     "empty_placeholder",
     "low_readability",
     "source_untraceable",
@@ -164,6 +168,16 @@ def source_numbers(project: Path) -> set[str]:
     return {normalize_number(value) for value in NUMBER_RE.findall(text)}
 
 
+def load_policy(project: Path) -> dict[str, Any]:
+    policy_path = project / "qa" / "release_policy.json"
+    if not policy_path.exists():
+        return {}
+    try:
+        return json.loads(policy_path.read_text(encoding="utf-8-sig"))
+    except Exception:
+        return {}
+
+
 def normalize_number(value: str) -> str:
     suffix = "%" if value.endswith("%") else ""
     raw = value[:-1] if suffix else value
@@ -192,6 +206,77 @@ def collect_body_text(slide) -> str:
     return "\n".join(parts)
 
 
+def canonical_duplicate_text(text: str) -> str:
+    value = normalize_text(text)
+    value = re.sub(r"\b\d{1,3}\b", " ", value)
+    value = re.sub(r"[^\w\u4e00-\u9fff]+", "", value)
+    return value.lower()
+
+
+def text_similarity(left: str, right: str) -> float:
+    if not left or not right:
+        return 0.0
+    return difflib.SequenceMatcher(None, left, right).ratio()
+
+
+def shape_area_ratio(prs: Presentation, shape) -> float:
+    slide_area = max(1, int(prs.slide_width) * int(prs.slide_height))
+    return box_area(shape_bbox(shape)) / slide_area
+
+
+def picture_sha(shape) -> str:
+    try:
+        return str(shape.image.sha1)
+    except Exception:
+        try:
+            return str(hash(shape.image.blob))
+        except Exception:
+            return ""
+
+
+def table_fingerprint(shape) -> str:
+    name = shape_location(shape, "")
+    if name.startswith("TableImage:"):
+        return f"image-table:{name.split(':', 1)[1].strip()}"
+    if getattr(shape, "has_table", False):
+        cells: list[str] = []
+        for row in shape.table.rows:
+            for cell in row.cells:
+                value = canonical_duplicate_text(cell.text)
+                if value:
+                    cells.append(value)
+        return "native-table:" + "|".join(cells)
+    if getattr(shape, "shape_type", None) == MSO_SHAPE_TYPE.PICTURE and "table" in name.lower():
+        sha = picture_sha(shape)
+        return f"image-table:{sha}" if sha else ""
+    return ""
+
+
+def figure_fingerprint(shape) -> str:
+    if getattr(shape, "shape_type", None) != MSO_SHAPE_TYPE.PICTURE:
+        return ""
+    name = shape_location(shape, "").lower()
+    if "table" in name:
+        return ""
+    sha = picture_sha(shape)
+    return f"figure:{sha}" if sha else ""
+
+
+def is_structural_slide_text(text: str) -> bool:
+    value = normalize_text(text)
+    if not value:
+        return True
+    if value.startswith("目录") or "CONTENTS" in value:
+        return True
+    if "水土保持方案报告表" in value and "技术汇报" in value:
+        return True
+    if "章节内容保留报告中的源表" in value and "后续页面以该章节证据为核心" in value:
+        return True
+    if re.search(r"第\s*\d+\s*章\s*/\s*共\s*\d+\s*章", value):
+        return True
+    return False
+
+
 def review_content(prs: Presentation, round_idx: int) -> list[ReviewIssue]:
     issues: list[ReviewIssue] = []
     sanitizer = SlideContentSanitizer()
@@ -217,6 +302,129 @@ def review_content(prs: Presentation, round_idx: int) -> list[ReviewIssue]:
                     issue(issues, round_idx, slide_index, "content_too_long", "high", f"{location}/p{para_index}", f"要点过长：{compact(paragraph)}", True, "压缩为 35-45 个中文字符左右。", "ContentReview")
                 if para_index > 1 and paragraph == body_paragraphs[para_index - 2]:
                     issue(issues, round_idx, slide_index, "duplicate_content", "high", f"{location}/p{para_index}", f"重复表达：{compact(paragraph)}", True, "删除重复要点。", "ContentReview")
+    return issues
+
+
+def review_duplicates(prs: Presentation, round_idx: int, policy: dict[str, Any]) -> list[ReviewIssue]:
+    issues: list[ReviewIssue] = []
+    duplicate_policy = policy.get("duplicate_content", {})
+    if duplicate_policy.get("enabled", True) is False:
+        return issues
+    check_slides = duplicate_policy.get("check_duplicate_slides", True) is not False
+    check_tables = duplicate_policy.get("check_duplicate_tables", True) is not False
+    check_figures = duplicate_policy.get("check_duplicate_figures", True) is not False
+    min_text_chars = int(duplicate_policy.get("minimum_body_characters", 80))
+    paragraph_threshold = float(duplicate_policy.get("paragraph_similarity", 0.92))
+    slide_threshold = float(duplicate_policy.get("max_slide_similarity", 0.94))
+    slide_visual_threshold = float(duplicate_policy.get("max_slide_similarity_with_shared_visual", 0.88))
+    previous_slides: list[dict[str, Any]] = []
+    seen_tables: dict[str, tuple[int, str]] = {}
+    seen_figures: dict[str, tuple[int, str]] = {}
+
+    for slide_index, slide in enumerate(prs.slides, start=1):
+        body_text = collect_body_text(slide)
+        normalized = canonical_duplicate_text(body_text)
+        structural = is_structural_slide_text(body_text)
+        table_keys: list[tuple[str, str]] = []
+        figure_keys: list[tuple[str, str]] = []
+        paragraphs: list[tuple[str, str]] = []
+
+        for shape_index, shape in enumerate(iter_shapes(slide), start=1):
+            location = shape_location(shape, f"shape_{shape_index}")
+            if getattr(shape, "has_text_frame", False):
+                for para_index, paragraph in enumerate(shape.text_frame.paragraphs, start=1):
+                    text = normalize_text(paragraph.text)
+                    key = canonical_duplicate_text(text)
+                    if len(key) >= 18 and not is_meta_text(text):
+                        paragraphs.append((f"{location}/p{para_index}", key))
+            table_key = table_fingerprint(shape)
+            if table_key and len(table_key) > 18:
+                table_keys.append((location, table_key))
+            figure_key = figure_fingerprint(shape)
+            if figure_key and shape_area_ratio(prs, shape) >= 0.025:
+                figure_keys.append((location, figure_key))
+
+        for idx, (location, key) in enumerate(paragraphs):
+            for previous_location, previous_key in paragraphs[:idx]:
+                if text_similarity(previous_key, key) >= paragraph_threshold:
+                    issue(
+                        issues,
+                        round_idx,
+                        slide_index,
+                        "duplicate_content",
+                        "high",
+                        location,
+                        "同页存在高度重复的正文表述。",
+                        True,
+                        "删除后一条重复表述或合并为一个要点。",
+                        "ContentReview",
+                    )
+                    break
+
+        if check_slides and not structural and len(normalized) >= min_text_chars:
+            for previous in previous_slides:
+                ratio = text_similarity(previous["text"], normalized)
+                shared_visuals = bool(set(previous["tables"]).intersection(key for _loc, key in table_keys) or set(previous["figures"]).intersection(key for _loc, key in figure_keys))
+                if ratio >= slide_threshold or (ratio >= slide_visual_threshold and shared_visuals):
+                    issue(
+                        issues,
+                        round_idx,
+                        slide_index,
+                        "duplicate_slide",
+                        "high",
+                        f"slide|previous:{previous['slide_index']}",
+                        f"页面与第 {previous['slide_index']} 页内容高度重复，相似度 {ratio:.2f}。",
+                        True,
+                        "删除后一页或合并两页内容。",
+                        "ContentReview",
+                    )
+                    break
+            previous_slides.append(
+                {
+                    "slide_index": slide_index,
+                    "text": normalized,
+                    "tables": [key for _loc, key in table_keys],
+                    "figures": [key for _loc, key in figure_keys],
+                }
+            )
+
+        for location, key in table_keys if check_tables else []:
+            previous = seen_tables.get(key)
+            if previous:
+                severity = "high" if previous[0] == slide_index - 1 else "medium"
+                issue(
+                    issues,
+                    round_idx,
+                    slide_index,
+                    "duplicate_table",
+                    severity,
+                    location,
+                    f"表格与第 {previous[0]} 页的 {previous[1]} 重复。",
+                    severity == "high",
+                    "删除后一处重复表格；若确需复用，应在备注中说明用途差异。",
+                    "VisualReview",
+                )
+            else:
+                seen_tables[key] = (slide_index, location)
+
+        for location, key in figure_keys if check_figures else []:
+            previous = seen_figures.get(key)
+            if previous:
+                severity = "high" if previous[0] == slide_index - 1 else "medium"
+                issue(
+                    issues,
+                    round_idx,
+                    slide_index,
+                    "duplicate_figure",
+                    severity,
+                    location,
+                    f"图件与第 {previous[0]} 页的 {previous[1]} 重复。",
+                    severity == "high",
+                    "删除后一处重复图件；若确需复用，应改为引用说明或合并页面。",
+                    "VisualReview",
+                )
+            else:
+                seen_figures[key] = (slide_index, location)
     return issues
 
 
@@ -379,8 +587,10 @@ def issues_from_release_audit(audit: dict[str, Any], round_idx: int) -> list[Rev
 
 def review_ppt(project: Path, pptx: Path, round_idx: int) -> list[ReviewIssue]:
     prs = Presentation(pptx)
+    policy = load_policy(project)
     issues = []
     issues.extend(review_content(prs, round_idx))
+    issues.extend(review_duplicates(prs, round_idx, policy))
     issues.extend(review_format(prs, round_idx))
     issues.extend(review_fact_consistency(project, prs, round_idx))
     issues.extend(review_visual(prs, round_idx))
@@ -417,8 +627,16 @@ def repair_text_frame(shape, max_paragraphs: int = 5) -> bool:
         shape.text_frame.clear()
         return True
     clean: list[str] = []
+    seen_keys: list[str] = []
     for item in paragraphs[:max_paragraphs]:
+        key = canonical_duplicate_text(item)
+        if key and any(text_similarity(key, previous) >= 0.92 for previous in seen_keys):
+            continue
+        seen_keys.append(key)
         clean.append(compress_for_ppt(item, max_chars=45))
+    if not clean:
+        shape.text_frame.clear()
+        return True
     original = normalize_text(getattr(shape, "text", "") or "")
     if normalize_text("\n".join(clean)) == original:
         return False
@@ -437,6 +655,20 @@ def delete_shape(shape) -> bool:
     try:
         element = shape._element
         element.getparent().remove(element)
+        return True
+    except Exception:
+        return False
+
+
+def delete_slide(prs: Presentation, slide_index: int) -> bool:
+    if slide_index < 1 or slide_index > len(prs.slides):
+        return False
+    try:
+        slides = prs.slides
+        slide_id = slides._sldIdLst[slide_index - 1]
+        rel_id = slide_id.rId
+        slides._sldIdLst.remove(slide_id)
+        prs.part.drop_rel(rel_id)
         return True
     except Exception:
         return False
@@ -534,6 +766,21 @@ def repair_ppt(project: Path, pptx: Path, issues: list[ReviewIssue], round_idx: 
     prs = Presentation(pptx)
     repaired = deepcopy(issues)
     changed = False
+
+    duplicate_slide_issues = [
+        item for item in repaired if item.auto_fixable and item.issue_type == "duplicate_slide"
+    ]
+    if duplicate_slide_issues:
+        for item in sorted(duplicate_slide_issues, key=lambda issue_item: issue_item.slide_index, reverse=True):
+            if delete_slide(prs, item.slide_index):
+                changed = True
+                item.status = "fixed"
+                item.repair_action = "deleted duplicate slide"
+        if changed:
+            repaired_path = pptx.with_name(f"{pptx.stem}_review_round{round_idx}{pptx.suffix}")
+            prs.save(repaired_path)
+            return repaired_path, repaired
+
     by_slide: dict[int, list[ReviewIssue]] = {}
     for item in repaired:
         by_slide.setdefault(item.slide_index, []).append(item)
@@ -549,6 +796,21 @@ def repair_ppt(project: Path, pptx: Path, issues: list[ReviewIssue], round_idx: 
         )
         for shape in list(iter_shapes(slide)):
             name = shape_location(shape, "")
+            duplicate_object_issue = next(
+                (
+                    item
+                    for item in slide_issues
+                    if item.auto_fixable
+                    and item.issue_type in {"duplicate_table", "duplicate_figure"}
+                    and item.location == name
+                ),
+                None,
+            )
+            if duplicate_object_issue and delete_shape(shape):
+                changed = True
+                duplicate_object_issue.status = "fixed"
+                duplicate_object_issue.repair_action = f"deleted repeated {duplicate_object_issue.issue_type.replace('duplicate_', '')}"
+                continue
             if "low_readability" in issue_types and getattr(shape, "shape_type", None) == MSO_SHAPE_TYPE.PICTURE and ("TableImage" in name or "Table" in name):
                 if delete_shape(shape):
                     changed = True
@@ -622,10 +884,19 @@ def write_report(project: Path, final_pptx: Path, rounds: list[dict[str, Any]], 
 
 def run_pipeline(project: Path, pptx: Path) -> dict[str, Any]:
     current = pptx.resolve()
+    qa = project / "qa"
+    qa.mkdir(parents=True, exist_ok=True)
+    for stale_issue_list in qa.glob("issue_list_round_*.json"):
+        try:
+            stale_issue_list.unlink()
+        except OSError:
+            pass
     rounds: list[dict[str, Any]] = []
     final_issues: list[ReviewIssue] = []
+    last_reviewed_pptx: Path | None = None
     for round_idx in range(1, MAX_REVIEW_REPAIR_ROUNDS + 1):
         issues = review_ppt(project, current, round_idx)
+        last_reviewed_pptx = current
         write_issues(project, round_idx, issues)
         blocking = [item for item in issues if item.severity in {"critical", "high"}]
         round_record = {"round": round_idx, "pptx": str(current), "issues": [asdict(item) for item in issues]}
@@ -643,17 +914,19 @@ def run_pipeline(project: Path, pptx: Path) -> dict[str, Any]:
         if repaired_path == current:
             break
         current = repaired_path
-    final_issues = review_ppt(project, current, MAX_REVIEW_REPAIR_ROUNDS + 1)
-    write_issues(project, MAX_REVIEW_REPAIR_ROUNDS + 1, final_issues)
+    if last_reviewed_pptx != current:
+        final_issues = review_ppt(project, current, len(rounds) + 1)
+        write_issues(project, len(rounds) + 1, final_issues)
     report_path = write_report(project, current, rounds, final_issues)
     remaining_blocking = [item for item in final_issues if item.severity in {"critical", "high"}]
+    remaining_issues = [item for item in final_issues if item.status != "fixed"]
     return {
         "passed": not remaining_blocking,
         "final_pptx": str(current),
         "review_report": str(report_path),
         "review_rounds": len(rounds),
         "remaining_blocking": len(remaining_blocking),
-        "issues_remaining": len(final_issues),
+        "issues_remaining": len(remaining_issues),
     }
 
 

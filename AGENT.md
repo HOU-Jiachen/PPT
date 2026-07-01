@@ -71,7 +71,7 @@
 2. 含数据图表时执行 `verify-charts`。
 3. 渲染每一页并按 100% 尺寸检查溢出、换行、遮挡、错位、字体替换和对比度；最终 PPTX 字号调整后还必须做文本框、图片、表格的几何压盖/越框审查。
 4. 检查 PPTX 可打开、页数正确、媒体文件非空、最终文件非空。
-5. 运行 `PostGenerationReviewPipeline`，形成结构化 IssueList，自动修复 critical/high 问题，最多循环 3 轮，并输出 `qa/review_report.json`。
+5. 运行 `PostGenerationReviewPipeline`，形成结构化 IssueList，检查重复页、重复表述、重复表格、重复图件等问题，自动修复 critical/high 问题，最多循环 3 轮，并输出 `qa/review_report.json`。
 6. 运行本地严格发布审计，检查证据、数字、禁用措辞、页面密度、连续页重复、文本框/表格容量和 PPTX 结构。
 7. 将本次运行产生或修改的项目成果、契约文件、QA 记录和 agent 规则提交并上传到 GitHub。
 8. 输出简短 QA 摘要，明确仍存在的限制。

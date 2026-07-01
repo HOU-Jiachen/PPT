@@ -310,6 +310,7 @@ def init_project(
                     "FormatReview",
                     "FactConsistencyReview",
                     "VisualReview",
+                    "DuplicateReview",
                     "AutoRepair",
                 ],
                 "report": "qa/review_report.json",
@@ -317,7 +318,14 @@ def init_project(
             "duplicate_content": {
                 "enabled": True,
                 "max_consecutive_body_similarity": 0.9,
+                "max_slide_similarity": 0.94,
+                "max_slide_similarity_with_shared_visual": 0.88,
+                "paragraph_similarity": 0.92,
                 "minimum_body_characters": 80,
+                "check_duplicate_slides": True,
+                "check_duplicate_tables": True,
+                "check_duplicate_figures": True,
+                "auto_delete_adjacent_duplicate_objects": True,
             },
         },
     }

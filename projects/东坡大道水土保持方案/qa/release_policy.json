@@ -274,6 +274,7 @@
       "FormatReview",
       "FactConsistencyReview",
       "VisualReview",
+      "DuplicateReview",
       "AutoRepair"
     ],
     "report": "qa/review_report.json"
@@ -281,6 +282,13 @@
   "duplicate_content": {
     "enabled": true,
     "max_consecutive_body_similarity": 0.9,
-    "minimum_body_characters": 80
+    "max_slide_similarity": 0.94,
+    "max_slide_similarity_with_shared_visual": 0.88,
+    "paragraph_similarity": 0.92,
+    "minimum_body_characters": 80,
+    "check_duplicate_slides": true,
+    "check_duplicate_tables": true,
+    "check_duplicate_figures": true,
+    "auto_delete_adjacent_duplicate_objects": true
   }
 }

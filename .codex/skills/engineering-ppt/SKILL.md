@@ -486,7 +486,9 @@ Read [release-gates.md](references/release-gates.md) and
    `scripts\ppt-agent.cmd post-review "<project>" -Pptx "<file>"`. This runs
    ContentReview, FormatReview, FactConsistencyReview, VisualReview, emits structured
    IssueList files, auto-repairs fixable critical/high issues, reruns review for up to
-   three rounds, and writes `qa/review_report.json`. A PPTX is not deliverable until this
+   three rounds, and writes `qa/review_report.json`. It must also check duplicate slides,
+   duplicate visible expressions, duplicate source tables, and duplicate figures, then
+   remove or merge confirmed high-severity duplicates. A PPTX is not deliverable until this
    pipeline has run.
 7. local strict audit with the reviewed PPTX, including paragraph structure, visible emphasis, and
    source-table fidelity checks
