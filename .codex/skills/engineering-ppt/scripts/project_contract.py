@@ -182,6 +182,7 @@ def init_project(
                 "source_note",
                 "资料来源：",
                 "按照报告章节顺序进入",
+                "关键数值保持源表口径",
                 "Source mode",
                 "编制边界",
                 "事实来源",
@@ -222,7 +223,7 @@ def init_project(
             "sparse_page": {
                 "minimum_visible_characters_without_visual": 120,
                 "minimum_visible_characters_with_visual": 70,
-                "minimum_visual_area_ratio": 0.18,
+                "minimum_visual_area_ratio": 0.12,
                 "minimum_visual_objects": 1,
             },
             "text_fit": {
@@ -295,6 +296,8 @@ def init_project(
                 "header_missing_error_ratio": 0.4,
                 "native_merge_required_for_merged_small_tables": True,
                 "unsupported_table_number_is_error": True,
+                "image_table_min_effective_pt": 10,
+                "table_image_source_dpi": 220,
             },
             "duplicate_content": {
                 "enabled": True,

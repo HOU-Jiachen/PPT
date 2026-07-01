@@ -36,6 +36,9 @@ Run the following gates in order. A later success never cancels an earlier failu
     source-boundary wording, OCR/LLM/fallback/agent process terms, or planning phrases
     such as `本页用于`, `建议放置`, and `这里应该`; long report-style sentences must be
     compressed or moved to speaker notes.
+10e. AI model review after PPTX export: run `ppt-agent ai-review` on the exported PPTX.
+    Findings with severity `error` block release until the deck or project builder is
+    revised and strict audit plus AI review are rerun.
 11. Chart verification: required for every data-driven chart.
 12. Full render: inspect every page at full size and as a contact sheet.
 13. `release_audit.py --strict`: zero errors.

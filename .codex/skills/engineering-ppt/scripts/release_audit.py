@@ -16,6 +16,7 @@ from typing import Any
 from xml.etree import ElementTree as ET
 
 from lxml import etree
+from PIL import Image
 from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 
@@ -64,9 +65,11 @@ DEFAULT_FORBIDDEN_VISIBLE_PHRASES = [
     "必讲内容",
     "保留理由",
     "按照报告章节顺序进入",
+    "关键数值保持源表口径",
 ]
 DEFAULT_FORBIDDEN_VISIBLE_REGEXES = [
     re.compile(r"\bE-\d(?:-[A-Z0-9]+)+\b"),
+    re.compile(r"\bT-?\d{3}\b"),
     re.compile(r"\bimage_\d+\.(?:png|jpe?g|wmf|emf)\b", re.IGNORECASE),
     re.compile(r"\b(?:ORIGINAL_TEXT|ORIGINAL_TABLE|ORIGINAL_FIGURE|CALCULATION|INTERPRETATION|CONCLUSION|MANAGEMENT_ACTION)\b"),
     re.compile(r"(?:\.{3,}|…|……)"),
@@ -1156,7 +1159,18 @@ def shape_emphasis_run_count(shape, policy: dict) -> int:
     if not getattr(shape, "has_text_frame", False):
         return 0
     for paragraph in shape.text_frame.paragraphs:
-        count += sum(1 for run in paragraph.runs if run.text.strip() and run_has_emphasis(run, default_rgb))
+        runs = [run for run in paragraph.runs if run.text.strip()]
+        count += sum(1 for run in runs if run_has_emphasis(run, default_rgb))
+        if not runs and paragraph.text.strip():
+            if getattr(paragraph.font, "bold", False):
+                count += 1
+            else:
+                try:
+                    rgb_value = paragraph.font.color.rgb
+                except Exception:
+                    rgb_value = None
+                if rgb_value is not None and str(rgb_value).upper() != default_rgb.upper():
+                    count += 1
     return count
 
 
@@ -1670,6 +1684,84 @@ def audit_pptx_table_fidelity(
             )
 
 
+def table_ir_lookup(table_ir: dict) -> dict[str, dict]:
+    lookup: dict[str, dict] = {}
+    for table in table_ir.get("tables", []) or []:
+        for key in (table.get("table_id"), table.get("locator")):
+            if key:
+                lookup[str(key)] = table
+                lookup[str(key).replace("-", "")] = table
+    return lookup
+
+
+def min_table_source_font(table: dict) -> float:
+    sizes: list[float] = []
+    for cell in table.get("cells", []) or []:
+        if not str(cell.get("text", "")).strip():
+            continue
+        try:
+            sizes.append(float(cell.get("style", {}).get("font_size", 10.5)))
+        except (TypeError, ValueError):
+            continue
+    return min(sizes) if sizes else 10.5
+
+
+def audit_pptx_image_table_readability(
+    project: Path,
+    presentation: Presentation,
+    table_ir: dict,
+    policy: dict,
+    strict: bool,
+    audit: Audit,
+) -> None:
+    if not strict:
+        return
+    settings = policy.get("table_fidelity", {})
+    minimum = float(settings.get("image_table_min_effective_pt", 10))
+    source_dpi = float(settings.get("table_image_source_dpi", 220))
+    lookup = table_ir_lookup(table_ir)
+    if not lookup:
+        return
+
+    for slide_index, slide in enumerate(presentation.slides, start=1):
+        for shape in iter_pptx_shapes(slide.shapes):
+            name = str(getattr(shape, "name", "") or "")
+            if "TableImage" not in name:
+                continue
+            match = re.search(r"TableImage(?:NeedsSplit)?[:：]([A-Za-z]-?\d{3})", name)
+            table = lookup.get(match.group(1)) if match else None
+            if table is None:
+                continue
+            asset = table.get("assets", {}).get("crop_image") or table.get("assets", {}).get("source_table_image")
+            image_path = project / str(asset or "")
+            if not image_path.exists():
+                continue
+            try:
+                image_width, image_height = shape.image.size
+            except Exception:
+                with Image.open(image_path) as image:
+                    image_width, image_height = image.size
+            original_w_pt = image_width / source_dpi * 72.0
+            original_h_pt = image_height / source_dpi * 72.0
+            display_w_pt = emu_to_pt(int(getattr(shape, "width", 0) or 0))
+            display_h_pt = emu_to_pt(int(getattr(shape, "height", 0) or 0))
+            scale = min(
+                display_w_pt / max(original_w_pt, 1.0),
+                display_h_pt / max(original_h_pt, 1.0),
+            )
+            effective_pt = min_table_source_font(table) * scale
+            if effective_pt < minimum:
+                audit.error(
+                    "pptx-image-table-font-too-small",
+                    "Source table crop is displayed below the readable table-text floor; enlarge it or split it onto a new slide.",
+                    page=slide_index,
+                    table=table.get("locator") or table.get("table_id"),
+                    effective_font_size=round(effective_pt, 2),
+                    minimum=minimum,
+                    displayed_size_pt=[round(display_w_pt, 1), round(display_h_pt, 1)],
+                )
+
+
 def is_structural_pptx_slide(all_text: str) -> bool:
     text = re.sub(r"\s+", " ", all_text or "").strip()
     if not text:
@@ -1677,6 +1769,8 @@ def is_structural_pptx_slide(all_text: str) -> bool:
     if "CONTENTS" in text or text == "目录" or text.startswith("目录 "):
         return True
     if re.search(r"第\s*\d+\s*章\s*/\s*共\s*\d+\s*章", text):
+        return True
+    if "章节内容保留报告中的源表" in text and "后续页面以该章节证据为核心" in text:
         return True
     if "工程评审汇报" in text and "专项勘察" in text and "依据报告章节" in text:
         return True
@@ -2050,6 +2144,7 @@ def audit_pptx(
         audit_pptx_text_structure_and_emphasis(presentation, policy, strict, audit)
         audit_pptx_layout_geometry(presentation, policy, strict, audit)
         audit_pptx_table_fidelity(project, presentation, catalog, table_ir, pages, policy, strict, audit)
+        audit_pptx_image_table_readability(project, presentation, table_ir, policy, strict, audit)
         audit_pptx_density_and_duplicates(presentation, policy, strict, audit)
         if expected_slides and actual != expected_slides:
             audit.error(

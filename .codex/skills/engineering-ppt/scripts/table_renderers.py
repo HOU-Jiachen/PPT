@@ -17,6 +17,8 @@ TEXT_SANITIZER = SlideContentSanitizer()
 TEXT_FITTER = TextFittingEngine()
 TABLE_MIN_PT = 12.0
 BODY_MIN_PT = 14.0
+IMAGE_TABLE_MIN_EFFECTIVE_PT = 10.0
+TABLE_IMAGE_DPI = 220.0
 
 
 def _rgb(hex_value: str):
@@ -52,6 +54,37 @@ def _fit_rect(x: float, y: float, w: float, h: float, aspect: float) -> tuple[fl
         return x + (w - fitted_w) / 2, y, fitted_w, h
     fitted_h = w / aspect
     return x, y + (h - fitted_h) / 2, w, fitted_h
+
+
+def _table_label(table_ir: dict[str, Any]) -> str:
+    return str(table_ir.get("locator") or table_ir.get("table_id") or "table")
+
+
+def min_source_font_pt(table_ir: dict[str, Any]) -> float:
+    sizes: list[float] = []
+    for cell in table_ir.get("cells", []):
+        if not str(cell.get("text", "")).strip():
+            continue
+        try:
+            sizes.append(float(cell.get("style", {}).get("font_size", 10.5)))
+        except (TypeError, ValueError):
+            continue
+    return min(sizes) if sizes else 10.5
+
+
+def effective_image_table_font_pt(table_ir: dict[str, Any], image_path: Path, display_w_in: float, display_h_in: float) -> float:
+    from PIL import Image
+
+    with Image.open(image_path) as image:
+        original_w_pt = image.width / TABLE_IMAGE_DPI * 72.0
+        original_h_pt = image.height / TABLE_IMAGE_DPI * 72.0
+    display_w_pt = display_w_in * 72.0
+    display_h_pt = display_h_in * 72.0
+    scale = min(
+        display_w_pt / max(original_w_pt, 1.0),
+        display_h_pt / max(original_h_pt, 1.0),
+    )
+    return min_source_font_pt(table_ir) * scale
 
 
 def _alignment(value: str):
@@ -103,6 +136,7 @@ class NativeTableRenderer:
         self._apply_geometry(table, table_ir, w, h, rows, cols)
         self._apply_cells(table, table_ir, rows, cols)
         self._apply_merges(table, table_ir, rows, cols)
+        shape.name = f"NativeTable:{_table_label(table_ir)}"
         return shape
 
     def _apply_geometry(self, ppt_table, table_ir: dict[str, Any], w: float, h: float, rows: int, cols: int) -> None:
@@ -191,7 +225,7 @@ class ImageTableRenderer:
         title: str | None = None,
         note: str | None = None,
     ):
-        title_text = TEXT_SANITIZER.sanitize(title if title is not None else table_ir.get("title", ""), component="caption")
+        title_text = TEXT_SANITIZER.sanitize(title if title is not None else "", component="caption")
         if title_text:
             title_text, title_size, title_overflow = _fit_text(title_text, w, 0.28, 14, 12, "caption")
             box = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(0.28))
@@ -212,6 +246,11 @@ class ImageTableRenderer:
         aspect = self._image_aspect(image_path)
         ix, iy, iw, ih = _fit_rect(x, y, w, h - (0.28 if note else 0), aspect)
         picture = slide.shapes.add_picture(str(image_path), Inches(ix), Inches(iy), width=Inches(iw), height=Inches(ih))
+        effective_pt = effective_image_table_font_pt(table_ir, image_path, iw, ih)
+        if effective_pt < IMAGE_TABLE_MIN_EFFECTIVE_PT:
+            picture.name = f"TableImageNeedsSplit:{_table_label(table_ir)}:{effective_pt:.1f}pt"
+        else:
+            picture.name = f"TableImage:{_table_label(table_ir)}"
         if note:
             note_text, note_size, note_overflow = _fit_text(note, w, 0.22, 10, 8, "table_note")
             box = slide.shapes.add_textbox(Inches(x), Inches(y + h - 0.24), Inches(w), Inches(0.22))

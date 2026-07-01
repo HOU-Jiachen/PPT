@@ -1,6 +1,6 @@
 param(
     [Parameter(Position = 0)]
-    [ValidateSet("doctor", "init", "prepare", "catalog", "analyze", "migrate", "audit", "status", "update")]
+    [ValidateSet("doctor", "init", "prepare", "catalog", "analyze", "migrate", "audit", "ai-review", "status", "update")]
     [string]$Command = "status",
 
     [Parameter(Position = 1)]
@@ -31,6 +31,7 @@ $ProjectContract = Join-Path $LocalSkill "scripts\project_contract.py"
 $SourceCatalog = Join-Path $LocalSkill "scripts\build_source_catalog.py"
 $ContentBlueprint = Join-Path $LocalSkill "scripts\build_ppt_content_blueprint.py"
 $ReleaseAudit = Join-Path $LocalSkill "scripts\release_audit.py"
+$AiReview = Join-Path $LocalSkill "scripts\ai_review.py"
 $LegacyMigration = Join-Path $LocalSkill "scripts\migrate_legacy_manifest.py"
 $TableIr = Join-Path $LocalSkill "scripts\table_ir.py"
 $TableRenderers = Join-Path $LocalSkill "scripts\table_renderers.py"
@@ -109,6 +110,7 @@ switch ($Command) {
             $SourceCatalog,
             $ContentBlueprint,
             $ReleaseAudit,
+            $AiReview,
             $LegacyMigration,
             $TableIr,
             $TableRenderers
@@ -200,6 +202,15 @@ switch ($Command) {
             $arguments += @("--pptx", $Pptx)
         }
         Invoke-CheckedPython -Python $python -Arguments $arguments
+    }
+
+    "ai-review" {
+        $python = Resolve-Python
+        $projectPath = Resolve-ProjectPath
+        if (-not $Pptx) {
+            throw "Use -Pptx <file> for AI review."
+        }
+        Invoke-CheckedPython -Python $python -Arguments @($AiReview, $projectPath, "--pptx", $Pptx)
     }
 
     "status" {

@@ -7,6 +7,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from PIL import Image
 from pptx import Presentation
 from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches
@@ -25,6 +26,7 @@ from engineering_deck_runtime import (  # noqa: E402
     sanitize_visible_text,
     text_preview,
 )
+from table_renderers import effective_image_table_font_pt  # noqa: E402
 
 
 PROJECT = "东坡大道水土保持方案"
@@ -337,6 +339,128 @@ def table_for_locator(locator: str) -> dict[str, Any] | None:
     return None
 
 
+def table_image_path(table: dict[str, Any]) -> Path | None:
+    asset = table.get("assets", {}).get("crop_image") or table.get("assets", {}).get("source_table_image")
+    if not asset:
+        return None
+    path = PROJECT_DIR / str(asset)
+    return path if path.exists() else None
+
+
+def table_effective_font(locator: str, w: float, h: float) -> float:
+    table = table_for_locator(locator)
+    if table is None:
+        return 0.0
+    image_path = table_image_path(table)
+    if image_path is None:
+        return 0.0
+    return effective_image_table_font_pt(table, image_path, w, h)
+
+
+def split_part_effective_font(locator: str, parts: int, w: float, h: float) -> float:
+    table = table_for_locator(locator)
+    if table is None:
+        return 0.0
+    image_path = table_image_path(table)
+    if image_path is None:
+        return 0.0
+    with Image.open(image_path) as image:
+        crop_h = max(1, image.height // max(1, parts))
+        original_w_pt = image.width / 220.0 * 72.0
+        original_h_pt = crop_h / 220.0 * 72.0
+    source_font = min(
+        [
+            float(cell.get("style", {}).get("font_size", 10.5))
+            for cell in table.get("cells", [])
+            if str(cell.get("text", "")).strip()
+        ]
+        or [10.5]
+    )
+    scale = min(w * 72.0 / max(original_w_pt, 1.0), h * 72.0 / max(original_h_pt, 1.0))
+    return source_font * scale
+
+
+def required_table_parts(locator: str) -> int:
+    if table_effective_font(locator, 12.1, 5.35) >= 10:
+        return 1
+    for parts in range(2, 5):
+        if split_part_effective_font(locator, parts, 12.1, 5.15) >= 10:
+            return parts
+    return 4
+
+
+def best_table_layout(locator: str) -> str:
+    if required_table_parts(locator) > 1:
+        return "table_split"
+    wide_score = table_effective_font(locator, 11.74, 4.42)
+    side_score = table_effective_font(locator, 6.92, 5.45)
+    return "wide_table" if wide_score >= side_score else "side_table"
+
+
+def chinese_suffix(index: int) -> str:
+    values = ["一", "二", "三", "四", "五", "六"]
+    return values[index - 1] if 1 <= index <= len(values) else str(index)
+
+
+def continuation_bullets(page: dict[str, Any], locator: str, index: int) -> list[str]:
+    bullets = list(page.get("bullets", []))
+    table = table_for_locator(locator) or {}
+    rows = table.get("rows", [])
+    selected = bullets if index == 1 else (bullets[index - 1 : index + 1] or bullets[:2])
+    snippets: list[str] = []
+    start = max(1, index)
+    for row in rows[start : start + 4]:
+        cells = [sanitize_visible_text(str(cell)) for cell in row if sanitize_visible_text(str(cell))]
+        if cells:
+            snippets.append("、".join(cells[:3]))
+        if len(snippets) >= 2:
+            break
+    for snippet in snippets:
+        selected.append(f"{len(selected) + 1}. 表内分项：{text_preview(snippet, 42)}。")
+    return selected[:3] or bullets[:3]
+
+
+def expanded_pages() -> list[dict[str, Any]]:
+    pages: list[dict[str, Any]] = []
+    for page in PAGES:
+        locators = list(page.get("tables", []))
+        if page.get("layout") == "overview":
+            clone = dict(page)
+            clone["evidence_tables"] = locators
+            clone["tables"] = []
+            pages.append(clone)
+            continue
+        if page.get("type") in {"cover", "agenda", "closing"} or len(locators) <= 1:
+            clone = dict(page)
+            if len(locators) == 1 and clone.get("layout") not in {"overview", "closing"}:
+                parts = required_table_parts(locators[0])
+                clone["layout"] = "table_split" if parts > 1 else best_table_layout(locators[0])
+                clone["table_parts"] = parts
+                clone["table_part"] = 1
+            pages.append(clone)
+            if len(locators) == 1:
+                for part in range(2, int(pages[-1].get("table_parts", 1)) + 1):
+                    continuation = dict(pages[-1])
+                    continuation["title"] = f"{page['title']}（{chinese_suffix(part)}）"
+                    continuation["table_part"] = part
+                    continuation["bullets"] = continuation_bullets(page, locators[0], 1 + (part - 1) * 3)
+                    pages.append(continuation)
+            continue
+        for index, locator in enumerate(locators, start=1):
+            parts = required_table_parts(locator)
+            for part in range(1, parts + 1):
+                clone = dict(page)
+                clone["tables"] = [locator]
+                clone["layout"] = "table_split" if parts > 1 else best_table_layout(locator)
+                clone["table_parts"] = parts
+                clone["table_part"] = part
+                if index > 1 or part > 1:
+                    clone["title"] = f"{page['title']}（{chinese_suffix(index)}-{chinese_suffix(part)}）"
+                clone["bullets"] = continuation_bullets(page, locator, index + (part - 1) * 3)
+                pages.append(clone)
+    return pages
+
+
 def source_text_for_locators(locators: list[str], limit: int = 1200) -> str:
     chunks: list[str] = []
     for locator in locators:
@@ -396,15 +520,19 @@ def calculation_meta(locators: list[str]) -> dict[str, Any]:
                 "施工期综合取值_t_km2_a": "3018.60",
             },
         }
+    if set(locators).issubset({"T027", "T028"}):
+        return calculation_meta(["T027", "T028"])
+    if set(locators).issubset({"T030", "T031", "T032", "T033"}):
+        return calculation_meta(["T030", "T031", "T032", "T033"])
     return {}
 
 
 def write_evidence_and_plan() -> None:
     evidence: list[dict[str, Any]] = []
     slides: list[dict[str, Any]] = []
-    for idx, page in enumerate(PAGES, start=1):
+    for idx, page in enumerate(expanded_pages(), start=1):
         page_type = page.get("type", "content")
-        locators = list(page.get("tables", []))
+        locators = list(page.get("evidence_tables") or page.get("tables", []))
         eid = evidence_id(idx, locators)
         if page_type not in {"cover", "agenda"}:
             exact = source_text_for_locators(locators)
@@ -562,6 +690,42 @@ def add_table_picture(slide, locator: str, x: float, y: float, w: float, h: floa
     add_ir_table(slide, PROJECT_DIR, locator, x, y, w, h, mode=render_mode, colors=COLORS)
 
 
+def split_table_crop(locator: str, part: int, parts: int) -> Path:
+    table = table_for_locator(locator)
+    if table is None:
+        raise ValueError(f"Unknown table locator: {locator}")
+    image_path = table_image_path(table)
+    if image_path is None:
+        raise FileNotFoundError(f"Missing table image for {locator}")
+    out_dir = PROJECT_DIR / "tables" / "splits"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out = out_dir / f"{table.get('table_id', locator)}_part{part}of{parts}.png"
+    if out.exists() and out.stat().st_mtime >= image_path.stat().st_mtime:
+        return out
+    with Image.open(image_path) as image:
+        top = round((part - 1) * image.height / parts)
+        bottom = round(part * image.height / parts)
+        overlap = 12 if part > 1 else 0
+        crop = image.crop((0, max(0, top - overlap), image.width, bottom))
+        crop.save(out)
+    return out
+
+
+def add_split_table_picture(slide, locator: str, part: int, parts: int, x: float, y: float, w: float, h: float) -> None:
+    path = split_table_crop(locator, part, parts)
+    with Image.open(path) as image:
+        aspect = image.width / max(1, image.height)
+    box_aspect = w / max(0.01, h)
+    if box_aspect > aspect:
+        fitted_w = h * aspect
+        ix, iy, iw, ih = x + (w - fitted_w) / 2, y, fitted_w, h
+    else:
+        fitted_h = w / aspect
+        ix, iy, iw, ih = x, y + (h - fitted_h) / 2, w, fitted_h
+    picture = slide.shapes.add_picture(str(path), Inches(ix), Inches(iy), width=Inches(iw), height=Inches(ih))
+    picture.name = f"TableImage:{locator}:part{part}of{parts}"
+
+
 def add_multiple_table_strip(slide, locators: list[str], x: float, y: float, w: float, h: float) -> None:
     count = min(len(locators), 3)
     gap = 0.18
@@ -632,7 +796,7 @@ def render_section(prs: Presentation, chapter: str, summary: str, seq: int, page
     add_textbox(slide, 1.02, 1.00, 1.0, 0.32, f"{seq:02d}", 20, "accent", True, colors=COLORS, component="page_meta")
     add_textbox(slide, 1.02, 1.60, 8.8, 0.62, chapter, 28, "ink", True, colors=COLORS, component="title")
     add_textbox(slide, 1.04, 2.56, 8.8, 0.44, summary, 18, "muted", colors=COLORS, component="body_text")
-    add_emphasis_textbox(
+    add_textbox(
         slide,
         1.04,
         3.34,
@@ -641,12 +805,11 @@ def render_section(prs: Presentation, chapter: str, summary: str, seq: int, page
         "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。",
         16,
         "ink",
-        emphasis_terms=["源表", "控制值", "范围", "目标", "措施", "投资", "验收"],
         colors=COLORS,
         component="body_text",
         max_lines=2,
     )
-    add_emphasis_textbox(
+    add_textbox(
         slide,
         1.04,
         4.18,
@@ -655,7 +818,6 @@ def render_section(prs: Presentation, chapter: str, summary: str, seq: int, page
         "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。",
         15,
         "muted",
-        emphasis_terms=["原始表格", "计算参数", "报告结论"],
         colors=COLORS,
         component="body_text",
         max_lines=2,
@@ -670,11 +832,21 @@ def render_content(prs: Presentation, page: dict[str, Any], page_no: int) -> Non
     bullets = page.get("bullets", [])
     locators = page.get("tables", [])
     layout = page.get("layout", "side_table")
-    control_line = "关键数值保持源表口径，范围、措施和投资可核对。"
     if layout == "wide_table":
         add_numbered_points(slide, bullets, 0.72, 1.30, 11.7, 1.05, 14.2)
-        add_emphasis_textbox(slide, 0.72, 2.36, 11.7, 0.28, control_line, 14, "muted", emphasis_terms=["关键数值", "源表"], colors=COLORS, component="body_text", max_lines=1)
-        add_table_picture(slide, locators[0], 0.72, 2.80, 11.74, 4.10)
+        add_table_picture(slide, locators[0], 0.72, 2.42, 11.74, 4.42)
+    elif layout == "table_split":
+        add_numbered_points(slide, bullets, 0.72, 1.28, 11.7, 0.88, 13.8)
+        add_split_table_picture(
+            slide,
+            locators[0],
+            int(page.get("table_part", 1)),
+            int(page.get("table_parts", 1)),
+            0.62,
+            2.24,
+            12.10,
+            4.92,
+        )
     elif layout == "overview":
         add_numbered_points(slide, bullets, 0.72, 1.38, 5.2, 4.46, 15.2)
         add_multiple_table_strip(slide, locators[:3], 6.18, 1.40, 6.08, 4.92)
@@ -683,8 +855,7 @@ def render_content(prs: Presentation, page: dict[str, Any], page_no: int) -> Non
         add_fill(slide, 0.98, 5.26, 10.5, 0.62, "soft", "line", colors=COLORS)
         add_emphasis_textbox(slide, 1.22, 5.43, 9.8, 0.20, "水土保持设施验收完成后，项目形成措施、投资、效益和资料管理闭环。", 16, "ink", colors=COLORS, component="body_text")
     else:
-        add_numbered_points(slide, bullets, 0.72, 1.42, 4.45, 4.9, 14.5)
-        add_emphasis_textbox(slide, 0.72, 6.18, 4.45, 0.54, control_line, 14, "muted", emphasis_terms=["关键数值", "源表"], colors=COLORS, component="body_text", max_lines=2)
+        add_numbered_points(slide, bullets, 0.72, 1.42, 4.45, 5.25, 14.5)
         if len(locators) == 1:
             add_table_picture(slide, locators[0], 5.42, 1.38, 6.92, 5.45)
         else:
@@ -704,7 +875,7 @@ def render_deck() -> Path:
 
     chapter_lookup = {chapter: (idx, summary) for idx, (chapter, summary) in enumerate(CHAPTERS)}
     rendered_chapters: set[str] = set()
-    for page in PAGES[1:]:
+    for page in expanded_pages()[1:]:
         if page.get("type") == "agenda":
             continue
         chapter = page.get("chapter")
@@ -727,7 +898,7 @@ def render_deck() -> Path:
 def write_notes() -> None:
     NOTES.mkdir(exist_ok=True)
     chunks = []
-    for idx, page in enumerate(PAGES, start=1):
+    for idx, page in enumerate(expanded_pages(), start=1):
         chunks.append(f"# Slide {idx}: {page['title']}")
         for item in page.get("bullets", []):
             chunks.append(f"- {sanitize_visible_text(item)}")

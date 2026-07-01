@@ -39,10 +39,13 @@ INTERNAL_FORBIDDEN_PHRASES = [
     "该表格复杂，无法还原",
     "为避免幻觉",
     "根据系统指令",
+    "关键数值保持源表口径，范围、措施和投资可核对。",
+    "关键数值保持源表口径",
 ]
 
 INTERNAL_FORBIDDEN_PATTERNS = [
     r"\b(?:LLM|OCR|prompt|fallback|agent)\b",
+    r"\bT-?\d{3}\b",
     r"本页用于[^。；;]*[。；;]?",
     r"建议放置[^。；;]*[。；;]?",
     r"这里应该[^。；;]*[。；;]?",

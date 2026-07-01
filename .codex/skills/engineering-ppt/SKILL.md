@@ -479,7 +479,13 @@ Read [release-gates.md](references/release-gates.md) and
 5. native PPTX export
 6. local strict audit with the PPTX, including paragraph structure, visible emphasis, and
    source-table fidelity checks
-7. GitHub upload gate: commit and push this run's relevant project artifacts,
+7. AI model review gate after PPTX export:
+   `scripts\ppt-agent.cmd ai-review "<project>" -Pptx "<file>"`. Treat `error`
+   findings as blocking defects, revise the deck or project builder, rerun strict audit,
+   and rerun AI review until the review passes. If the model call is blocked by missing
+   API credentials, network, or provider failure, keep `qa/ai_review_prompt.md` and
+   report the blocker instead of claiming the deck has been model-reviewed.
+8. GitHub upload gate: commit and push this run's relevant project artifacts,
    contracts, QA records, exports, and local agent-rule changes to `origin`
 
 Commands:
@@ -487,6 +493,7 @@ Commands:
 ```powershell
 scripts\ppt-agent.cmd audit "<project>" -Strict
 scripts\ppt-agent.cmd audit "<project>" -Strict -Pptx "<file>"
+scripts\ppt-agent.cmd ai-review "<project>" -Pptx "<file>"
 ```
 
 Fix every error. Do not call the deck complete merely because a PPTX exists.
