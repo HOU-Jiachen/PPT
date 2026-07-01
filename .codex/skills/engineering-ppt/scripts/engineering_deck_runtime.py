@@ -1123,8 +1123,9 @@ def add_textbox(
         max_lines=max_lines,
     )
     box = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h))
+    box.name = f"{component}_textbox"
     if needs_relayout:
-        box.name = "TextOverflowNeedsRelayout"
+        box.name = f"TextOverflowNeedsRelayout:{component}"
     tf = box.text_frame
     tf.clear()
     tf.word_wrap = True
@@ -1175,8 +1176,9 @@ def add_emphasis_textbox(
     terms = [term for term in raw_terms if term]
     terms = sorted(dict.fromkeys(terms), key=len, reverse=True)
     box = slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h))
+    box.name = f"{component}_emphasis_textbox"
     if needs_relayout:
-        box.name = "TextOverflowNeedsRelayout"
+        box.name = f"TextOverflowNeedsRelayout:{component}"
     tf = box.text_frame
     tf.clear()
     tf.word_wrap = True

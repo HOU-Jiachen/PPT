@@ -2,9 +2,9 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
 
 {
   "project": "东坡大道水土保持方案",
-  "pptx": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\exports\\东坡大道水土保持方案当前agent测试_48页_20260701_105137.pptx",
-  "created_at": "2026-07-01T10:51:53",
-  "slide_count": 48,
+  "pptx": "C:\\Codex\\pptAgent\\ppt\\projects\\东坡大道水土保持方案\\exports\\东坡大道水土保持方案当前agent测试_44页_20260701_111514_review_round1_review_round2.pptx",
+  "created_at": "2026-07-01T11:15:46",
+  "slide_count": 44,
   "release_audit": {
     "errors": 0,
     "warnings": 2,
@@ -38,10 +38,10 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           15,
           16,
           17,
-          18,
-          19,
-          20,
-          21,
+          24,
+          25,
+          26,
+          27,
           28,
           29,
           30,
@@ -49,11 +49,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           32,
           33,
           34,
-          35,
-          36,
-          37,
-          38,
-          39
+          35
         ]
       }
     },
@@ -62,14 +58,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
       "code": "pptx-valid",
       "message": "PPTX package, XML, media, and parser checks passed.",
       "context": {
-        "slides": 48
+        "slides": 44
       }
     }
   ],
   "slides": [
     {
       "page": 1,
-      "visible_text": "黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表汇报 水土保持方案报告表 · 技术汇报 围绕项目范围、防治责任、土石方平衡、水土流失预测、措施体系、投资概算和设施验收展开，保留报告表中的关键控制值、章节结论与源表证据。 黄冈市住房和城市更新局。 01",
+      "visible_text": "黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表汇报。 水土保持方案报告表 · 技术汇报。 围绕项目范围、防治责任、土石方平衡、水土流失预测、措施体系、投资概算和设施验收展开。 黄冈市住房和城市更新局。 01",
       "shape_count": 8,
       "shapes": [
         {
@@ -106,7 +102,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 4",
+          "name": "title_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.065,
@@ -116,14 +112,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表汇报",
+              "text": "黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表汇报。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 5",
+          "name": "subtitle_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.068,
@@ -133,14 +129,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持方案报告表 · 技术汇报",
+              "text": "水土保持方案报告表 · 技术汇报。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 6",
+          "name": "body_text_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.068,
@@ -150,24 +146,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "围绕项目范围、防治责任、土石方平衡、水土流失预测、措施体系、投资概算和设施验收展开，保留报告表中的关键控制值、章节结论与源表证据。",
-              "font_sizes": [
-                16.0,
-                16.0,
-                16.0,
-                16.0,
-                16.0,
-                16.0,
-                16.0,
-                16.0,
-                16.0
-              ],
-              "emphasized_runs": 9
+              "text": "围绕项目范围、防治责任、土石方平衡、水土流失预测、措施体系、投资概算和设施验收展开。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 7",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.068,
@@ -184,7 +170,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.876,
@@ -204,7 +190,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 2,
-      "visible_text": "汇报结构 汇报结构沿报告七个技术章节展开 02 结构按报告章节推进，先确认项目概况与防治责任，再核对评价、预测、措施、投资和验收管理，形成可追溯的技术汇报链条。 01 综合说明与审批依据。 02 项目概况与工程布置。 03 防治责任范围与标准目标。 04 水土保持评价与土石方。 05 水土流失分析与预测。 06 水土保持措施与施工安排。 07 投资概算、效益与管理验收。",
+      "visible_text": "汇报结构。 汇报结构沿报告七个技术章节展开。 02 结构按报告章节推进，先确认项目概况与防治责任，再核对评价、预测、措施、投资和验收管理。 01 综合说明与审批依据。 02 项目概况与工程布置。 03 防治责任范围与标准目标。 04 水土保持评价与土石方。 05 水土流失分析与预测。 06 水土保持措施与施工安排。 07 投资概算、效益与管理验收。",
       "shape_count": 27,
       "shapes": [
         {
@@ -219,7 +205,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -229,14 +215,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "汇报结构",
+              "text": "汇报结构。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -246,14 +232,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "汇报结构沿报告七个技术章节展开",
+              "text": "汇报结构沿报告七个技术章节展开。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -281,7 +267,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 6",
+          "name": "body_text_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.054,
@@ -291,21 +277,9 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "结构按报告章节推进，先确认项目概况与防治责任，再核对评价、预测、措施、投资和验收管理，形成可追溯的技术汇报链条。",
-              "font_sizes": [
-                15.0,
-                15.0,
-                15.0,
-                15.0,
-                15.0,
-                15.0,
-                15.0,
-                15.0,
-                15.0,
-                15.0,
-                15.0
-              ],
-              "emphasized_runs": 11
+              "text": "结构按报告章节推进，先确认项目概况与防治责任，再核对评价、预测、措施、投资和验收管理。",
+              "font_sizes": [],
+              "emphasized_runs": 1
             }
           ]
         },
@@ -321,7 +295,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 8",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.068,
@@ -338,7 +312,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 9",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.113,
@@ -349,10 +323,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": [
             {
               "text": "综合说明与审批依据。",
-              "font_sizes": [
-                15.0
-              ],
-              "emphasized_runs": 1
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -368,7 +340,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 11",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.068,
@@ -385,7 +357,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 12",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.113,
@@ -396,10 +368,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": [
             {
               "text": "项目概况与工程布置。",
-              "font_sizes": [
-                15.0
-              ],
-              "emphasized_runs": 1
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -415,7 +385,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 14",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.068,
@@ -432,7 +402,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 15",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.113,
@@ -443,12 +413,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": [
             {
               "text": "防治责任范围与标准目标。",
-              "font_sizes": [
-                15.0,
-                15.0,
-                15.0
-              ],
-              "emphasized_runs": 3
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -464,7 +430,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 17",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.068,
@@ -481,7 +447,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 18",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.113,
@@ -492,11 +458,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": [
             {
               "text": "水土保持评价与土石方。",
-              "font_sizes": [
-                15.0,
-                15.0
-              ],
-              "emphasized_runs": 2
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -512,7 +475,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 20",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.518,
@@ -529,7 +492,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 21",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.563,
@@ -540,10 +503,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": [
             {
               "text": "水土流失分析与预测。",
-              "font_sizes": [
-                15.0
-              ],
-              "emphasized_runs": 1
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -559,7 +520,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 23",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.518,
@@ -576,7 +537,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 24",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.563,
@@ -587,12 +548,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": [
             {
               "text": "水土保持措施与施工安排。",
-              "font_sizes": [
-                15.0,
-                15.0,
-                15.0
-              ],
-              "emphasized_runs": 3
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -608,7 +565,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 26",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.518,
@@ -625,7 +582,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 27",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.563,
@@ -636,13 +593,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": [
             {
               "text": "投资概算、效益与管理验收。",
-              "font_sizes": [
-                15.0,
-                15.0,
-                15.0,
-                15.0
-              ],
-              "emphasized_runs": 4
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         }
@@ -650,7 +602,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 3,
-      "visible_text": "00 项目总览 全局控制指标先行说明项目范围、预测结果、措施投资和验收闭环。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。 03",
+      "visible_text": "00 项目总览。 全局控制指标先行说明项目范围、预测结果、措施投资和验收闭环。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。 03",
       "shape_count": 8,
       "shapes": [
         {
@@ -676,7 +628,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 3",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.077,
@@ -693,7 +645,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "title_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.077,
@@ -703,14 +655,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "项目总览",
+              "text": "项目总览。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 5",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.078,
@@ -727,7 +679,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 6",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.078,
@@ -737,14 +689,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。",
+              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 7",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.078,
@@ -754,14 +706,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。",
+              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -781,7 +733,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 4,
-      "visible_text": "项目总览 项目范围、预测结果、措施投资和验收管理形成闭环 04 1 项目范围：工程位于黄冈市黄州区城北片区，污水主管网6.2公里，预埋支管2.2公里。 2 预测结果：预测土壤流失总量104.05t，新增土壤流失量94.92t。 3 管理闭环：水土保持总投资26.9211万元，六项效益指标达到报告目标值。",
+      "visible_text": "项目总览。 项目范围、预测结果、措施投资和验收管理形成闭环。 04 1 项目范围：工程位于黄冈市黄州区城北片区，污水主管网6.2公里，预埋支管2.2公里。 2 预测结果：预测土壤流失总量104.05t，新增土壤流失量94.92t。 3 管理闭环：水土保持总投资26.9211万元，六项效益指标达到报告目标值。",
       "shape_count": 14,
       "shapes": [
         {
@@ -796,7 +748,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -806,14 +758,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "项目总览",
+              "text": "项目总览。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -823,20 +775,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "项目范围、预测结果、措施投资和验收管理形成闭环",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 5
+              "text": "项目范围、预测结果、措施投资和验收管理形成闭环。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -875,7 +821,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -892,7 +838,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -926,7 +872,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -943,7 +889,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -977,7 +923,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -994,7 +940,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -1020,7 +966,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 5,
-      "visible_text": "01 综合说明与审批依据 综合表和批复附件共同限定方案范围。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。 05",
+      "visible_text": "01 综合说明与审批依据。 综合表和批复附件共同限定方案范围。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。 05",
       "shape_count": 8,
       "shapes": [
         {
@@ -1046,7 +992,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 3",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.077,
@@ -1063,7 +1009,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "title_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.077,
@@ -1073,14 +1019,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "综合说明与审批依据",
+              "text": "综合说明与审批依据。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 5",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.078,
@@ -1097,7 +1043,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 6",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.078,
@@ -1107,14 +1053,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。",
+              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 7",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.078,
@@ -1124,14 +1070,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。",
+              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -1151,8 +1097,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 6,
-      "visible_text": "综合说明与审批依据 综合报告表明确项目全局控制指标 06 1 建设内容：东坡大道片区改造污水主管网6.2公里，沿线预埋支管2.2公里。 2 责任范围：防治责任范围为34416.00m²，均按管网工程区纳入。 3 投资口径：水土保持总投资26.9211万元，主体已列和方案新增分项计列。",
-      "shape_count": 15,
+      "visible_text": "综合说明与审批依据。 综合报告表明确项目全局控制指标。 06 1 建设内容：东坡大道片区改造污水主管网6.2公里，沿线预埋支管2.2公里。 2 责任范围：防治责任范围为34416.00m²，均按管网工程区纳入。 3 投资口径：水土保持总投资26.9211万元，主体已列和方案新增分项计列。",
+      "shape_count": 14,
       "shapes": [
         {
           "name": "Rectangle 1",
@@ -1166,7 +1112,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -1176,14 +1122,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "综合说明与审批依据",
+              "text": "综合说明与审批依据。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -1193,14 +1139,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "综合报告表明确项目全局控制指标",
+              "text": "综合报告表明确项目全局控制指标。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -1231,19 +1177,19 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "name": "Rectangle 6",
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
-            0.054,
-            0.176,
+            0.069,
+            0.205,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.057,
-            0.182,
+            0.072,
+            0.211,
             0.019,
             0.019
           ],
@@ -1256,23 +1202,23 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.089,
-            0.171,
-            0.842,
-            0.056
+            0.104,
+            0.2,
+            0.79,
+            0.2
           ],
           "text": [
             {
               "text": "建设内容：东坡大道片区改造污水主管网6.2公里，沿线预埋支管2.2公里。",
               "font_sizes": [
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0
+                16.2,
+                16.2,
+                16.2,
+                16.2,
+                16.2
               ],
               "emphasized_runs": 5
             }
@@ -1282,19 +1228,19 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "name": "Rectangle 9",
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
-            0.054,
-            0.215,
+            0.069,
+            0.412,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.057,
-            0.221,
+            0.072,
+            0.418,
             0.019,
             0.019
           ],
@@ -1307,24 +1253,24 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.089,
-            0.21,
-            0.842,
-            0.056
+            0.104,
+            0.407,
+            0.79,
+            0.2
           ],
           "text": [
             {
               "text": "责任范围：防治责任范围为34416.00m²，均按管网工程区纳入。",
               "font_sizes": [
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0
+                16.2,
+                16.2,
+                16.2,
+                16.2,
+                16.2,
+                16.2
               ],
               "emphasized_runs": 6
             }
@@ -1334,19 +1280,19 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "name": "Rectangle 12",
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
-            0.054,
-            0.254,
+            0.069,
+            0.619,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.057,
-            0.26,
+            0.072,
+            0.625,
             0.019,
             0.019
           ],
@@ -1359,284 +1305,31 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.089,
-            0.249,
-            0.842,
-            0.056
+            0.104,
+            0.613,
+            0.79,
+            0.2
           ],
           "text": [
             {
               "text": "投资口径：水土保持总投资26.9211万元，主体已列和方案新增分项计列。",
               "font_sizes": [
-                14.0,
-                14.0,
-                14.0
+                16.2,
+                16.2,
+                16.2
               ],
               "emphasized_runs": 3
             }
           ]
-        },
-        {
-          "name": "TableImage:T004:part1of2",
-          "type": "PICTURE (13)",
-          "bbox_ratio": [
-            0.137,
-            0.299,
-            0.726,
-            0.656
-          ],
-          "picture": true
         }
       ]
     },
     {
       "page": 7,
-      "visible_text": "综合说明与审批依据 综合报告表明确项目全局控制指标（二） 07 1 建设内容：东坡大道片区改造污水主管网6.2公里，沿线预埋支管2.2公里。 2 责任范围：防治责任范围为34416.00m²，均按管网工程区纳入。 3 表内分项：临时。、34416.00",
-      "shape_count": 15,
-      "shapes": [
-        {
-          "name": "Rectangle 1",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 2",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.029,
-            0.66,
-            0.032
-          ],
-          "text": [
-            {
-              "text": "综合说明与审批依据",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 3",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.075,
-            0.855,
-            0.067
-          ],
-          "text": [
-            {
-              "text": "综合报告表明确项目全局控制指标（二）",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.889,
-            0.045,
-            0.041,
-            0.027
-          ],
-          "text": [
-            {
-              "text": "07",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 5",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.035,
-            0.149,
-            0.893,
-            0.003
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 6",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.176,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.182,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "1",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.171,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "建设内容：东坡大道片区改造污水主管网6.2公里，沿线预埋支管2.2公里。",
-              "font_sizes": [
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0
-              ],
-              "emphasized_runs": 5
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 9",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.215,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 10",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.221,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "2",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 11",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.21,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "责任范围：防治责任范围为34416.00m²，均按管网工程区纳入。",
-              "font_sizes": [
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0
-              ],
-              "emphasized_runs": 6
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 12",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.254,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 13",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.26,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "3",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 14",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.249,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "表内分项：临时。、34416.00",
-              "font_sizes": [
-                14.0,
-                14.0
-              ],
-              "emphasized_runs": 2
-            }
-          ]
-        },
-        {
-          "name": "TableImage:T004:part2of2",
-          "type": "PICTURE (13)",
-          "bbox_ratio": [
-            0.143,
-            0.299,
-            0.714,
-            0.656
-          ],
-          "picture": true
-        }
-      ]
-    },
-    {
-      "page": 8,
-      "visible_text": "02 项目概况与工程布置 工程规模、占地、工期和施工组织决定扰动来源。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。 08",
+      "visible_text": "02 项目概况与工程布置。 工程规模、占地、工期和施工组织决定扰动来源。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。 07",
       "shape_count": 8,
       "shapes": [
         {
@@ -1662,7 +1355,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 3",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.077,
@@ -1679,7 +1372,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "title_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.077,
@@ -1689,14 +1382,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "项目概况与工程布置",
+              "text": "项目概况与工程布置。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 5",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.078,
@@ -1713,7 +1406,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 6",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.078,
@@ -1723,14 +1416,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。",
+              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 7",
+          "name": "body_text_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.078,
@@ -1740,14 +1433,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。",
+              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -1757,7 +1450,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "08",
+              "text": "07",
               "font_sizes": [],
               "emphasized_runs": 0
             }
@@ -1766,9 +1459,9 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
       ]
     },
     {
-      "page": 9,
-      "visible_text": "项目概况与工程布置 工程特性表锁定规模、投资、工期和占地 09 1 工程性质：项目为新建污水收集管网工程，建设地点为黄冈市黄州区。 2 投资工期：总投资8024.00万元，土建投资6914.95万元，建设期为13个月。 3 占地构成：总占地3.44hm²，报告按临时占地组织水土保持设计。",
-      "shape_count": 15,
+      "page": 8,
+      "visible_text": "项目概况与工程布置。 工程特性表锁定规模、投资、工期和占地。 08 1 工程性质：项目为新建污水收集管网工程，建设地点为黄冈市黄州区。 2 投资工期：总投资8024.00万元，土建投资6914.95万元，建设期为13个月。 3 占地构成：总占地3.44hm²，报告按临时占地组织水土保持设计。",
+      "shape_count": 14,
       "shapes": [
         {
           "name": "Rectangle 1",
@@ -1782,7 +1475,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -1792,14 +1485,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "项目概况与工程布置",
+              "text": "项目概况与工程布置。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -1809,14 +1502,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "工程特性表锁定规模、投资、工期和占地",
+              "text": "工程特性表锁定规模、投资、工期和占地。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -1826,7 +1519,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "09",
+              "text": "08",
               "font_sizes": [],
               "emphasized_runs": 0
             }
@@ -1847,19 +1540,19 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "name": "Rectangle 6",
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
-            0.054,
-            0.176,
+            0.069,
+            0.205,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.057,
-            0.182,
+            0.072,
+            0.211,
             0.019,
             0.019
           ],
@@ -1872,13 +1565,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.089,
-            0.171,
-            0.842,
-            0.056
+            0.104,
+            0.2,
+            0.79,
+            0.2
           ],
           "text": [
             {
@@ -1892,19 +1585,19 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "name": "Rectangle 9",
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
-            0.054,
-            0.215,
+            0.069,
+            0.412,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.057,
-            0.221,
+            0.072,
+            0.418,
             0.019,
             0.019
           ],
@@ -1917,25 +1610,25 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.089,
-            0.21,
-            0.842,
-            0.056
+            0.104,
+            0.407,
+            0.79,
+            0.2
           ],
           "text": [
             {
               "text": "投资工期：总投资8024.00万元，土建投资6914.95万元，建设期为13个月。",
               "font_sizes": [
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0
+                16.2,
+                16.2,
+                16.2,
+                16.2,
+                16.2,
+                16.2,
+                16.2
               ],
               "emphasized_runs": 7
             }
@@ -1945,19 +1638,19 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "name": "Rectangle 12",
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
-            0.054,
-            0.254,
+            0.069,
+            0.619,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.057,
-            0.26,
+            0.072,
+            0.625,
             0.019,
             0.019
           ],
@@ -1970,42 +1663,162 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.089,
-            0.249,
-            0.842,
-            0.056
+            0.104,
+            0.613,
+            0.79,
+            0.2
           ],
           "text": [
             {
               "text": "占地构成：总占地3.44hm²，报告按临时占地组织水土保持设计。",
               "font_sizes": [
-                14.0,
-                14.0,
-                14.0
+                16.2,
+                16.2,
+                16.2
               ],
               "emphasized_runs": 3
             }
           ]
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "visible_text": "03 防治责任范围与标准目标。 责任范围和一级标准构成后续措施评价基准。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。 09",
+      "shape_count": 8,
+      "shapes": [
+        {
+          "name": "Rectangle 1",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "text": []
         },
         {
-          "name": "TableImage:T008:part1of2",
-          "type": "PICTURE (13)",
+          "name": "Rectangle 2",
+          "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
-            0.047,
-            0.401,
-            0.908,
-            0.451
+            0.054,
+            0.115,
+            0.012,
+            0.643
           ],
-          "picture": true
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.077,
+            0.133,
+            0.075,
+            0.043
+          ],
+          "text": [
+            {
+              "text": "03",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "title_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.077,
+            0.213,
+            0.66,
+            0.083
+          ],
+          "text": [
+            {
+              "text": "防治责任范围与标准目标。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.341,
+            0.66,
+            0.059
+          ],
+          "text": [
+            {
+              "text": "责任范围和一级标准构成后续措施评价基准。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.445,
+            0.705,
+            0.077
+          ],
+          "text": [
+            {
+              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.557,
+            0.675,
+            0.067
+          ],
+          "text": [
+            {
+              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.889,
+            0.909,
+            0.041,
+            0.027
+          ],
+          "text": [
+            {
+              "text": "09",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
         }
       ]
     },
     {
       "page": 10,
-      "visible_text": "项目概况与工程布置 工程特性表锁定规模、投资、工期和占地（二） 10 1 工程性质：项目为新建污水收集管网工程，建设地点为黄冈市黄州区。 2 投资工期：总投资8024.00万元，土建投资6914.95万元，建设期为13个月。 3 表内分项：4、建设地点。、黄冈市黄州区黄州大道。",
+      "visible_text": "防治责任范围与标准目标。 防治责任范围全部纳入管网工程区临时占地。 10 1 范围口径：管网工程区防治责任范围为34416.00m²。 2 用地类型：城镇村道路用地34151.00m²，公园与绿地265.00m²。 3 占地属性：报告表中永久占地为空，责任范围按临时占地纳入。",
       "shape_count": 15,
       "shapes": [
         {
@@ -2020,7 +1833,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -2030,14 +1843,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "项目概况与工程布置",
+              "text": "防治责任范围与标准目标。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -2047,14 +1860,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "工程特性表锁定规模、投资、工期和占地（二）",
+              "text": "防治责任范围全部纳入管网工程区临时占地。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -2086,18 +1899,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.176,
+            0.179,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.182,
+            0.185,
             0.019,
             0.019
           ],
@@ -2110,19 +1923,25 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.171,
+            0.173,
             0.842,
             0.056
           ],
           "text": [
             {
-              "text": "工程性质：项目为新建污水收集管网工程，建设地点为黄冈市黄州区。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "范围口径：管网工程区防治责任范围为34416.00m²。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 5
             }
           ]
         },
@@ -2131,18 +1950,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.215,
+            0.225,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.221,
+            0.231,
             0.019,
             0.019
           ],
@@ -2155,27 +1974,25 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.21,
+            0.22,
             0.842,
             0.056
           ],
           "text": [
             {
-              "text": "投资工期：总投资8024.00万元，土建投资6914.95万元，建设期为13个月。",
+              "text": "用地类型：城镇村道路用地34151.00m²，公园与绿地265.00m²。",
               "font_sizes": [
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0,
-                14.0
+                14.2,
+                14.2,
+                14.2,
+                14.2,
+                14.2
               ],
-              "emphasized_runs": 7
+              "emphasized_runs": 5
             }
           ]
         },
@@ -2184,18 +2001,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.254,
+            0.272,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.26,
+            0.278,
             0.019,
             0.019
           ],
@@ -2208,34 +2025,34 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.249,
+            0.267,
             0.842,
             0.056
           ],
           "text": [
             {
-              "text": "表内分项：4、建设地点。、黄冈市黄州区黄州大道。",
+              "text": "占地属性：报告表中永久占地为空，责任范围按临时占地纳入。",
               "font_sizes": [
-                14.0,
-                14.0,
-                14.0
+                14.2,
+                14.2,
+                14.2
               ],
               "emphasized_runs": 3
             }
           ]
         },
         {
-          "name": "TableImage:T008:part2of2",
+          "name": "TableImage:T006",
           "type": "PICTURE (13)",
           "bbox_ratio": [
-            0.047,
-            0.397,
-            0.908,
-            0.459
+            0.054,
+            0.48,
+            0.881,
+            0.276
           ],
           "picture": true
         }
@@ -2243,138 +2060,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 11,
-      "visible_text": "03 防治责任范围与标准目标 责任范围和一级标准构成后续措施评价基准。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。 11",
-      "shape_count": 8,
-      "shapes": [
-        {
-          "name": "Rectangle 1",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 2",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.115,
-            0.012,
-            0.643
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 3",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.077,
-            0.133,
-            0.075,
-            0.043
-          ],
-          "text": [
-            {
-              "text": "03",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.077,
-            0.213,
-            0.66,
-            0.083
-          ],
-          "text": [
-            {
-              "text": "防治责任范围与标准目标",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 5",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.341,
-            0.66,
-            0.059
-          ],
-          "text": [
-            {
-              "text": "责任范围和一级标准构成后续措施评价基准。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 6",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.445,
-            0.705,
-            0.077
-          ],
-          "text": [
-            {
-              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.557,
-            0.675,
-            0.067
-          ],
-          "text": [
-            {
-              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.889,
-            0.909,
-            0.041,
-            0.027
-          ],
-          "text": [
-            {
-              "text": "11",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "page": 12,
-      "visible_text": "防治责任范围与标准目标 防治责任范围全部纳入管网工程区临时占地 12 1 范围口径：管网工程区防治责任范围为34416.00m²。 2 用地类型：城镇村道路用地34151.00m²，公园与绿地265.00m²。 3 占地属性：报告表中永久占地为空，责任范围按临时占地纳入。",
+      "visible_text": "防治责任范围与标准目标。 防治责任范围全部纳入管网工程区临时占地（二） 11 1 用地类型：城镇村道路用地34151.00m²，公园与绿地265.00m²。 2 占地属性：报告表中永久占地为空，责任范围按临时占地纳入。 3 表内分项：城镇村道路用地。、公园与绿地。",
       "shape_count": 15,
       "shapes": [
         {
@@ -2389,7 +2075,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -2399,14 +2085,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "防治责任范围与标准目标",
+              "text": "防治责任范围与标准目标。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -2416,7 +2102,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "防治责任范围全部纳入管网工程区临时占地",
+              "text": "防治责任范围全部纳入管网工程区临时占地（二）",
               "font_sizes": [
                 23.0,
                 23.0
@@ -2426,7 +2112,243 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.889,
+            0.045,
+            0.041,
+            0.027
+          ],
+          "text": [
+            {
+              "text": "11",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "Rectangle 5",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.035,
+            0.149,
+            0.893,
+            0.003
+          ],
+          "text": []
+        },
+        {
+          "name": "Rectangle 6",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.179,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.185,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "1",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.173,
+            0.842,
+            0.056
+          ],
+          "text": [
+            {
+              "text": "用地类型：城镇村道路用地34151.00m²，公园与绿地265.00m²。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 5
+            }
+          ]
+        },
+        {
+          "name": "Rectangle 9",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.225,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.231,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "2",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.22,
+            0.842,
+            0.056
+          ],
+          "text": [
+            {
+              "text": "占地属性：报告表中永久占地为空，责任范围按临时占地纳入。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
+            }
+          ]
+        },
+        {
+          "name": "Rectangle 12",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.272,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.278,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "3",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.267,
+            0.842,
+            0.056
+          ],
+          "text": [
+            {
+              "text": "表内分项：城镇村道路用地。、公园与绿地。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "TableImage:T013",
+          "type": "PICTURE (13)",
+          "bbox_ratio": [
+            0.054,
+            0.479,
+            0.881,
+            0.276
+          ],
+          "picture": true
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "visible_text": "防治责任范围与标准目标。 六项防治指标采用南方红壤区一级标准。 12 1 标准等级：项目执行南方红壤区建设类项目一级防治标准。 2 治理目标：水土流失治理度设计水平年目标为98% 3 控制目标：土壤流失控制比修正后设计水平年目标为1.0",
+      "shape_count": 15,
+      "shapes": [
+        {
+          "name": "Rectangle 1",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.035,
+            0.029,
+            0.66,
+            0.032
+          ],
+          "text": [
+            {
+              "text": "防治责任范围与标准目标。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "title_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.035,
+            0.075,
+            0.855,
+            0.067
+          ],
+          "text": [
+            {
+              "text": "六项防治指标采用南方红壤区一级标准。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -2465,7 +2387,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -2482,7 +2404,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -2492,15 +2414,9 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "范围口径：管网工程区防治责任范围为34416.00m²。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 5
+              "text": "标准等级：项目执行南方红壤区建设类项目一级防治标准。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -2516,7 +2432,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -2533,7 +2449,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -2543,15 +2459,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "用地类型：城镇村道路用地34151.00m²，公园与绿地265.00m²。",
+              "text": "治理目标：水土流失治理度设计水平年目标为98%",
               "font_sizes": [
+                14.2,
+                14.2,
+                14.2,
                 14.2,
                 14.2,
                 14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 5
+              "emphasized_runs": 8
             }
           ]
         },
@@ -2567,7 +2486,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -2584,7 +2503,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -2594,24 +2513,27 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "占地属性：报告表中永久占地为空，责任范围按临时占地纳入。",
+              "text": "控制目标：土壤流失控制比修正后设计水平年目标为1.0",
               "font_sizes": [
+                14.2,
+                14.2,
+                14.2,
                 14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 3
+              "emphasized_runs": 6
             }
           ]
         },
         {
-          "name": "TableImage:T006",
+          "name": "TableImage:T007",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.48,
+            0.37,
             0.881,
-            0.276
+            0.495
           ],
           "picture": true
         }
@@ -2619,7 +2541,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 13,
-      "visible_text": "防治责任范围与标准目标 防治责任范围全部纳入管网工程区临时占地（二-一） 13 1 用地类型：城镇村道路用地34151.00m²，公园与绿地265.00m²。 2 占地属性：报告表中永久占地为空，责任范围按临时占地纳入。 3 表内分项：城镇村道路用地。、公园与绿地。",
+      "visible_text": "项目概况与工程布置。 表土剥离量按公园与绿地扰动面积计列。 13 1 剥离对象：表土剥离面积为265.00m²，对应公园与绿地扰动区域。 2 剥离参数：表土层厚度0.3m，剥离厚度0.3m。 3 利用途径：表土剥离量79.5m³，后续用于管网工程区绿化覆土。",
       "shape_count": 15,
       "shapes": [
         {
@@ -2634,7 +2556,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -2644,14 +2566,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "防治责任范围与标准目标",
+              "text": "项目概况与工程布置。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -2661,17 +2583,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "防治责任范围全部纳入管网工程区临时占地（二-一）",
-              "font_sizes": [
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 2
+              "text": "表土剥离量按公园与绿地扰动面积计列。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -2710,7 +2629,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -2727,7 +2646,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -2737,7 +2656,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "用地类型：城镇村道路用地34151.00m²，公园与绿地265.00m²。",
+              "text": "剥离对象：表土剥离面积为265.00m²，对应公园与绿地扰动区域。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -2761,7 +2680,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -2778,7 +2697,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -2788,13 +2707,15 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "占地属性：报告表中永久占地为空，责任范围按临时占地纳入。",
+              "text": "剥离参数：表土层厚度0.3m，剥离厚度0.3m。",
               "font_sizes": [
+                14.2,
+                14.2,
                 14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 3
+              "emphasized_runs": 5
             }
           ]
         },
@@ -2810,7 +2731,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -2827,7 +2748,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -2837,20 +2758,26 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "表内分项：城镇村道路用地。、公园与绿地。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "利用途径：表土剥离量79.5m³，后续用于管网工程区绿化覆土。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 5
             }
           ]
         },
         {
-          "name": "TableImage:T013",
+          "name": "TableImage:T014",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.479,
+            0.545,
             0.881,
-            0.276
+            0.146
           ],
           "picture": true
         }
@@ -2858,8 +2785,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 14,
-      "visible_text": "防治责任范围与标准目标 六项防治指标采用南方红壤区一级标准 14 1 标准等级：项目执行南方红壤区建设类项目一级防治标准。 2 治理目标：水土流失治理度设计水平年目标为98% 3 控制目标：土壤流失控制比修正后设计水平年目标为1.0",
-      "shape_count": 15,
+      "visible_text": "04 水土保持评价与土石方。 合规评价、土石方平衡和主体措施共同校核方案基础。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。 14",
+      "shape_count": 8,
       "shapes": [
         {
           "name": "Rectangle 1",
@@ -2873,45 +2800,107 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "Rectangle 2",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.115,
+            0.012,
+            0.643
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.035,
-            0.029,
-            0.66,
-            0.032
+            0.077,
+            0.133,
+            0.075,
+            0.043
           ],
           "text": [
             {
-              "text": "防治责任范围与标准目标",
+              "text": "04",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.035,
-            0.075,
-            0.855,
+            0.077,
+            0.213,
+            0.66,
+            0.083
+          ],
+          "text": [
+            {
+              "text": "水土保持评价与土石方。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.341,
+            0.66,
+            0.059
+          ],
+          "text": [
+            {
+              "text": "合规评价、土石方平衡和主体措施共同校核方案基础。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.445,
+            0.705,
+            0.077
+          ],
+          "text": [
+            {
+              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.557,
+            0.675,
             0.067
           ],
           "text": [
             {
-              "text": "六项防治指标采用南方红壤区一级标准",
+              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
-            0.045,
+            0.909,
             0.041,
             0.027
           ],
@@ -2922,185 +2911,12 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
               "emphasized_runs": 0
             }
           ]
-        },
-        {
-          "name": "Rectangle 5",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.035,
-            0.149,
-            0.893,
-            0.003
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 6",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.179,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.185,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "1",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.173,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "标准等级：项目执行南方红壤区建设类项目一级防治标准。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 9",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.225,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 10",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.231,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "2",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 11",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.22,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "治理目标：水土流失治理度设计水平年目标为98%",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 8
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 12",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.272,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 13",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.278,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "3",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 14",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.267,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "控制目标：土壤流失控制比修正后设计水平年目标为1.0",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 6
-            }
-          ]
-        },
-        {
-          "name": "TableImage:T007",
-          "type": "PICTURE (13)",
-          "bbox_ratio": [
-            0.054,
-            0.37,
-            0.881,
-            0.495
-          ],
-          "picture": true
         }
       ]
     },
     {
       "page": 15,
-      "visible_text": "项目概况与工程布置 表土剥离量按公园与绿地扰动面积计列 15 1 剥离对象：表土剥离面积为265.00m²，对应公园与绿地扰动区域。 2 剥离参数：表土层厚度0.3m，剥离厚度0.3m。 3 利用途径：表土剥离量79.5m³，后续用于管网工程区绿化覆土。",
+      "visible_text": "水土保持评价与土石方。 土石方平衡显示弃方委托消纳、借方外购。 15 1 平衡关系：土石方开挖、回填、借方和弃方按工程分区分项列示。 2 弃方去向：弃方采用委托消纳方式处理。 3 借方来源：借方采用外购方式解决，报告未另列取土场。",
       "shape_count": 15,
       "shapes": [
         {
@@ -3115,7 +2931,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -3125,14 +2941,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "项目概况与工程布置",
+              "text": "水土保持评价与土石方。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -3142,17 +2958,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "表土剥离量按公园与绿地扰动面积计列",
-              "font_sizes": [
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 2
+              "text": "土石方平衡显示弃方委托消纳、借方外购。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -3191,7 +3004,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -3208,7 +3021,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -3218,15 +3031,9 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "剥离对象：表土剥离面积为265.00m²，对应公园与绿地扰动区域。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 5
+              "text": "平衡关系：土石方开挖、回填、借方和弃方按工程分区分项列示。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -3242,7 +3049,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -3259,7 +3066,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -3269,15 +3076,9 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "剥离参数：表土层厚度0.3m，剥离厚度0.3m。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 5
+              "text": "弃方去向：弃方采用委托消纳方式处理。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -3293,7 +3094,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -3310,7 +3111,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -3320,26 +3121,20 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "利用途径：表土剥离量79.5m³，后续用于管网工程区绿化覆土。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 5
+              "text": "借方来源：借方采用外购方式解决，报告未另列取土场。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TableImage:T014",
+          "name": "TableImage:T015",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.545,
+            0.422,
             0.881,
-            0.146
+            0.39
           ],
           "picture": true
         }
@@ -3347,138 +3142,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 16,
-      "visible_text": "04 水土保持评价与土石方 合规评价、土石方平衡和主体措施共同校核方案基础。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。 16",
-      "shape_count": 8,
-      "shapes": [
-        {
-          "name": "Rectangle 1",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 2",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.115,
-            0.012,
-            0.643
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 3",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.077,
-            0.133,
-            0.075,
-            0.043
-          ],
-          "text": [
-            {
-              "text": "04",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.077,
-            0.213,
-            0.66,
-            0.083
-          ],
-          "text": [
-            {
-              "text": "水土保持评价与土石方",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 5",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.341,
-            0.66,
-            0.059
-          ],
-          "text": [
-            {
-              "text": "合规评价、土石方平衡和主体措施共同校核方案基础。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 6",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.445,
-            0.705,
-            0.077
-          ],
-          "text": [
-            {
-              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.557,
-            0.675,
-            0.067
-          ],
-          "text": [
-            {
-              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.889,
-            0.909,
-            0.041,
-            0.027
-          ],
-          "text": [
-            {
-              "text": "16",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "page": 17,
-      "visible_text": "水土保持评价与土石方 土石方平衡显示弃方委托消纳、借方外购 17 1 平衡关系：土石方开挖、回填、借方和弃方按工程分区分项列示。 2 弃方去向：弃方采用委托消纳方式处理。 3 借方来源：借方采用外购方式解决，报告未另列取土场。",
+      "visible_text": "水土保持评价与土石方。 法律和技术标准评价结论均为符合。 16 1 法律条款：水土保持法相关制约性因素逐条评价为符合。 2 技术标准：报告按生产建设项目水土保持技术标准进行符合性分析。 3 长江保护：项目建设与长江保护法相关要求形成一致评价结论。",
       "shape_count": 15,
       "shapes": [
         {
@@ -3493,7 +3157,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -3503,14 +3167,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持评价与土石方",
+              "text": "水土保持评价与土石方。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -3520,14 +3184,248 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "土石方平衡显示弃方委托消纳、借方外购",
+              "text": "法律和技术标准评价结论均为符合。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.889,
+            0.045,
+            0.041,
+            0.027
+          ],
+          "text": [
+            {
+              "text": "16",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "Rectangle 5",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.035,
+            0.149,
+            0.893,
+            0.003
+          ],
+          "text": []
+        },
+        {
+          "name": "Rectangle 6",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.179,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.185,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "1",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.173,
+            0.842,
+            0.056
+          ],
+          "text": [
+            {
+              "text": "法律条款：水土保持法相关制约性因素逐条评价为符合。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "Rectangle 9",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.225,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.231,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "2",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.22,
+            0.842,
+            0.056
+          ],
+          "text": [
+            {
+              "text": "技术标准：报告按生产建设项目水土保持技术标准进行符合性分析。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "Rectangle 12",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.272,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.278,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "3",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.267,
+            0.842,
+            0.056
+          ],
+          "text": [
+            {
+              "text": "长江保护：项目建设与长江保护法相关要求形成一致评价结论。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
+            }
+          ]
+        },
+        {
+          "name": "TableImage:T018",
+          "type": "PICTURE (13)",
+          "bbox_ratio": [
+            0.208,
+            0.323,
+            0.573,
+            0.589
+          ],
+          "picture": true
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "visible_text": "水土保持评价与土石方。 法律和技术标准评价结论均为符合（三） 17 1 长江保护：项目建设与长江保护法相关要求形成一致评价结论。 2 表内分项：第四十九条。 3 表内分项：第六十一条。",
+      "shape_count": 15,
+      "shapes": [
+        {
+          "name": "Rectangle 1",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.035,
+            0.029,
+            0.66,
+            0.032
+          ],
+          "text": [
+            {
+              "text": "水土保持评价与土石方。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "title_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.035,
+            0.075,
+            0.855,
+            0.067
+          ],
+          "text": [
+            {
+              "text": "法律和技术标准评价结论均为符合（三）",
+              "font_sizes": [
+                23.0,
+                23.0,
+                23.0
+              ],
+              "emphasized_runs": 3
+            }
+          ]
+        },
+        {
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -3566,7 +3464,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -3583,7 +3481,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -3593,9 +3491,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "平衡关系：土石方开挖、回填、借方和弃方按工程分区分项列示。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "长江保护：项目建设与长江保护法相关要求形成一致评价结论。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
             }
           ]
         },
@@ -3611,7 +3513,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -3628,7 +3530,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -3638,7 +3540,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "弃方去向：弃方采用委托消纳方式处理。",
+              "text": "表内分项：第四十九条。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
@@ -3656,7 +3558,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -3673,7 +3575,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -3683,20 +3585,20 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "借方来源：借方采用外购方式解决，报告未另列取土场。",
+              "text": "表内分项：第六十一条。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TableImage:T015",
+          "name": "TableImage:T020",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.422,
+            0.45,
             0.881,
-            0.39
+            0.336
           ],
           "picture": true
         }
@@ -3704,7 +3606,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 18,
-      "visible_text": "水土保持评价与土石方 法律和技术标准评价结论均为符合 18 1 法律条款：水土保持法相关制约性因素逐条评价为符合。 2 技术标准：报告按生产建设项目水土保持技术标准进行符合性分析。 3 长江保护：项目建设与长江保护法相关要求形成一致评价结论。",
+      "visible_text": "水土保持评价与土石方。 主体工程已列措施以土地整治和铺种草皮为主。 18 1 工程措施：主体工程已列土地整治，数量按管网工程区计列。 2 植物措施：铺种草皮纳入主体工程已列投资。 3 投资关系：主体已列措施与方案新增措施共同构成防治体系。",
       "shape_count": 15,
       "shapes": [
         {
@@ -3719,7 +3621,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -3729,14 +3631,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持评价与土石方",
+              "text": "水土保持评价与土石方。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -3746,18 +3648,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "法律和技术标准评价结论均为符合",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
+              "text": "主体工程已列措施以土地整治和铺种草皮为主。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -3796,7 +3694,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -3813,7 +3711,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -3823,9 +3721,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "法律条款：水土保持法相关制约性因素逐条评价为符合。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "工程措施：主体工程已列土地整治，数量按管网工程区计列。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
             }
           ]
         },
@@ -3841,7 +3743,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -3858,7 +3760,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -3868,9 +3770,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "技术标准：报告按生产建设项目水土保持技术标准进行符合性分析。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "植物措施：铺种草皮纳入主体工程已列投资。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
             }
           ]
         },
@@ -3886,7 +3792,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -3903,7 +3809,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -3913,24 +3819,26 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "长江保护：项目建设与长江保护法相关要求形成一致评价结论。",
+              "text": "投资关系：主体已列措施与方案新增措施共同构成防治体系。",
               "font_sizes": [
+                14.2,
+                14.2,
                 14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 3
+              "emphasized_runs": 5
             }
           ]
         },
         {
-          "name": "TableImage:T018",
+          "name": "TableImage:T021",
           "type": "PICTURE (13)",
           "bbox_ratio": [
-            0.208,
-            0.323,
-            0.573,
-            0.589
+            0.054,
+            0.424,
+            0.881,
+            0.387
           ],
           "picture": true
         }
@@ -3938,7 +3846,138 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 19,
-      "visible_text": "水土保持评价与土石方 法律和技术标准评价结论均为符合（二-一） 19 1 技术标准：报告按生产建设项目水土保持技术标准进行符合性分析。 2 长江保护：项目建设与长江保护法相关要求形成一致评价结论。 3 表内分项：2、施工组织设计的限制因素。",
+      "visible_text": "05 水土流失分析与预测。 预测范围、侵蚀模数和流失量形成防护强度依据。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。 19",
+      "shape_count": 8,
+      "shapes": [
+        {
+          "name": "Rectangle 1",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "text": []
+        },
+        {
+          "name": "Rectangle 2",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.115,
+            0.012,
+            0.643
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.077,
+            0.133,
+            0.075,
+            0.043
+          ],
+          "text": [
+            {
+              "text": "05",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "title_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.077,
+            0.213,
+            0.66,
+            0.083
+          ],
+          "text": [
+            {
+              "text": "水土流失分析与预测。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.341,
+            0.66,
+            0.059
+          ],
+          "text": [
+            {
+              "text": "预测范围、侵蚀模数和流失量形成防护强度依据。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.445,
+            0.705,
+            0.077
+          ],
+          "text": [
+            {
+              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.557,
+            0.675,
+            0.067
+          ],
+          "text": [
+            {
+              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.889,
+            0.909,
+            0.041,
+            0.027
+          ],
+          "text": [
+            {
+              "text": "19",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "visible_text": "水土流失分析与预测。 预测范围与防治责任范围保持一致。 20 1 预测单元：预测范围为管网工程区，面积与防治责任范围一致。 2 扰动面积：扰动地表面积按34416.00m²纳入预测。 3 时段划分：施工期和自然恢复期分别列示预测参数。",
       "shape_count": 15,
       "shapes": [
         {
@@ -3953,7 +3992,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -3963,14 +4002,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持评价与土石方",
+              "text": "水土流失分析与预测。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -3980,256 +4019,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "法律和技术标准评价结论均为符合（二-一）",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.889,
-            0.045,
-            0.041,
-            0.027
-          ],
-          "text": [
-            {
-              "text": "19",
+              "text": "预测范围与防治责任范围保持一致。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "Rectangle 5",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.035,
-            0.149,
-            0.893,
-            0.003
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 6",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.176,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.182,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "1",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.171,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "技术标准：报告按生产建设项目水土保持技术标准进行符合性分析。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 9",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.215,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 10",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.221,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "2",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 11",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.21,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "长江保护：项目建设与长江保护法相关要求形成一致评价结论。",
-              "font_sizes": [
-                14.0,
-                14.0,
-                14.0
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 12",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.254,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 13",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.26,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "3",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 14",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.249,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "表内分项：2、施工组织设计的限制因素。",
-              "font_sizes": [
-                14.0,
-                14.0,
-                14.0
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "TableImage:T019:part1of2",
-          "type": "PICTURE (13)",
-          "bbox_ratio": [
-            0.113,
-            0.299,
-            0.775,
-            0.656
-          ],
-          "picture": true
-        }
-      ]
-    },
-    {
-      "page": 20,
-      "visible_text": "水土保持评价与土石方 法律和技术标准评价结论均为符合（二-二） 20 1 法律条款：水土保持法相关制约性因素逐条评价为符合。 2 技术标准：报告按生产建设项目水土保持技术标准进行符合性分析。",
-      "shape_count": 12,
-      "shapes": [
-        {
-          "name": "Rectangle 1",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 2",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.029,
-            0.66,
-            0.032
-          ],
-          "text": [
-            {
-              "text": "水土保持评价与土石方",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 3",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.075,
-            0.855,
-            0.067
-          ],
-          "text": [
-            {
-              "text": "法律和技术标准评价结论均为符合（二-二）",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -4261,18 +4058,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.176,
+            0.179,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.182,
+            0.185,
             0.019,
             0.019
           ],
@@ -4285,19 +4082,23 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.171,
+            0.173,
             0.842,
             0.056
           ],
           "text": [
             {
-              "text": "法律条款：水土保持法相关制约性因素逐条评价为符合。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "预测单元：预测范围为管网工程区，面积与防治责任范围一致。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
             }
           ]
         },
@@ -4306,18 +4107,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.235,
+            0.225,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.241,
+            0.231,
             0.019,
             0.019
           ],
@@ -4330,30 +4131,79 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.229,
+            0.22,
             0.842,
             0.056
           ],
           "text": [
             {
-              "text": "技术标准：报告按生产建设项目水土保持技术标准进行符合性分析。",
+              "text": "扰动面积：扰动地表面积按34416.00m²纳入预测。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
+            }
+          ]
+        },
+        {
+          "name": "Rectangle 12",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.272,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.278,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "3",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TableImage:T019:part2of2",
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.267,
+            0.842,
+            0.056
+          ],
+          "text": [
+            {
+              "text": "时段划分：施工期和自然恢复期分别列示预测参数。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "TableImage:T023",
           "type": "PICTURE (13)",
           "bbox_ratio": [
-            0.119,
-            0.299,
-            0.762,
-            0.656
+            0.054,
+            0.479,
+            0.881,
+            0.276
           ],
           "picture": true
         }
@@ -4361,7 +4211,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 21,
-      "visible_text": "水土保持评价与土石方 法律和技术标准评价结论均为符合（三-一） 21 1 长江保护：项目建设与长江保护法相关要求形成一致评价结论。 2 表内分项：第四十九条。 3 表内分项：第六十一条。",
+      "visible_text": "水土流失分析与预测。 预测范围与防治责任范围保持一致（二） 21 1 扰动面积：扰动地表面积按34416.00m²纳入预测。 2 时段划分：施工期和自然恢复期分别列示预测参数。 3 表内分项：公园与绿地。",
       "shape_count": 15,
       "shapes": [
         {
@@ -4376,7 +4226,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -4386,14 +4236,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持评价与土石方",
+              "text": "水土流失分析与预测。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -4403,7 +4253,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "法律和技术标准评价结论均为符合（三-一）",
+              "text": "预测范围与防治责任范围保持一致（二）",
               "font_sizes": [
                 23.0,
                 23.0,
@@ -4414,7 +4264,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -4453,7 +4303,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -4470,7 +4320,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -4480,7 +4330,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "长江保护：项目建设与长江保护法相关要求形成一致评价结论。",
+              "text": "扰动面积：扰动地表面积按34416.00m²纳入预测。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -4502,7 +4352,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -4519,7 +4369,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -4529,7 +4379,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "表内分项：第四十九条。",
+              "text": "时段划分：施工期和自然恢复期分别列示预测参数。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
@@ -4547,7 +4397,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -4564,7 +4414,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -4574,20 +4424,20 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "表内分项：第六十一条。",
+              "text": "表内分项：公园与绿地。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TableImage:T020",
+          "name": "TableImage:T024",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.45,
+            0.475,
             0.881,
-            0.336
+            0.285
           ],
           "picture": true
         }
@@ -4595,8 +4445,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 22,
-      "visible_text": "水土保持评价与土石方 主体工程已列措施以土地整治和铺种草皮为主 22 1 工程措施：主体工程已列土地整治，数量按管网工程区计列。 2 植物措施：铺种草皮纳入主体工程已列投资。 3 投资关系：主体已列措施与方案新增措施共同构成防治体系。",
-      "shape_count": 15,
+      "visible_text": "水土流失分析与预测。 预测范围与防治责任范围保持一致（三） 22 1 时段划分：施工期和自然恢复期分别列示预测参数。 2 表内分项：植被破坏型一般扰动地表。、265.00",
+      "shape_count": 12,
       "shapes": [
         {
           "name": "Rectangle 1",
@@ -4610,7 +4460,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -4620,14 +4470,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持评价与土石方",
+              "text": "水土流失分析与预测。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -4637,7 +4487,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "主体工程已列措施以土地整治和铺种草皮为主",
+              "text": "预测范围与防治责任范围保持一致（三）",
               "font_sizes": [
                 23.0,
                 23.0,
@@ -4648,7 +4498,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -4687,7 +4537,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -4704,17 +4554,205 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
             0.173,
             0.842,
-            0.056
+            0.063
           ],
           "text": [
             {
-              "text": "工程措施：主体工程已列土地整治，数量按管网工程区计列。",
+              "text": "时段划分：施工期和自然恢复期分别列示预测参数。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "Rectangle 9",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.249,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.255,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "2",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.243,
+            0.842,
+            0.063
+          ],
+          "text": [
+            {
+              "text": "表内分项：植被破坏型一般扰动地表。、265.00",
+              "font_sizes": [
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 2
+            }
+          ]
+        },
+        {
+          "name": "TableImage:T025",
+          "type": "PICTURE (13)",
+          "bbox_ratio": [
+            0.054,
+            0.499,
+            0.881,
+            0.237
+          ],
+          "picture": true
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "visible_text": "水土流失分析与预测。 预测范围与防治责任范围保持一致（四） 23 1 预测单元：预测范围为管网工程区，面积与防治责任范围一致。 2 扰动面积：扰动地表面积按34416.00m²纳入预测。",
+      "shape_count": 12,
+      "shapes": [
+        {
+          "name": "Rectangle 1",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.035,
+            0.029,
+            0.66,
+            0.032
+          ],
+          "text": [
+            {
+              "text": "水土流失分析与预测。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "title_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.035,
+            0.075,
+            0.855,
+            0.067
+          ],
+          "text": [
+            {
+              "text": "预测范围与防治责任范围保持一致（四）",
+              "font_sizes": [
+                23.0,
+                23.0,
+                23.0
+              ],
+              "emphasized_runs": 3
+            }
+          ]
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.889,
+            0.045,
+            0.041,
+            0.027
+          ],
+          "text": [
+            {
+              "text": "23",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "Rectangle 5",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.035,
+            0.149,
+            0.893,
+            0.003
+          ],
+          "text": []
+        },
+        {
+          "name": "Rectangle 6",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.179,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.185,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "1",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.173,
+            0.842,
+            0.063
+          ],
+          "text": [
+            {
+              "text": "预测单元：预测范围为管网工程区，面积与防治责任范围一致。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -4729,18 +4767,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.225,
+            0.249,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.231,
+            0.255,
             0.019,
             0.019
           ],
@@ -4753,17 +4791,17 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.22,
+            0.243,
             0.842,
-            0.056
+            0.063
           ],
           "text": [
             {
-              "text": "植物措施：铺种草皮纳入主体工程已列投资。",
+              "text": "扰动面积：扰动地表面积按34416.00m²纳入预测。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -4774,203 +4812,21 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "Rectangle 12",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.272,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 13",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.278,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "3",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 14",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.267,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "投资关系：主体已列措施与方案新增措施共同构成防治体系。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 5
-            }
-          ]
-        },
-        {
-          "name": "TableImage:T021",
+          "name": "TableImage:T026",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.424,
+            0.524,
             0.881,
-            0.387
+            0.186
           ],
           "picture": true
         }
       ]
     },
     {
-      "page": 23,
-      "visible_text": "05 水土流失分析与预测 预测范围、侵蚀模数和流失量形成防护强度依据。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。 23",
-      "shape_count": 8,
-      "shapes": [
-        {
-          "name": "Rectangle 1",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 2",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.115,
-            0.012,
-            0.643
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 3",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.077,
-            0.133,
-            0.075,
-            0.043
-          ],
-          "text": [
-            {
-              "text": "05",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.077,
-            0.213,
-            0.66,
-            0.083
-          ],
-          "text": [
-            {
-              "text": "水土流失分析与预测",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 5",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.341,
-            0.66,
-            0.059
-          ],
-          "text": [
-            {
-              "text": "预测范围、侵蚀模数和流失量形成防护强度依据。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 6",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.445,
-            0.705,
-            0.077
-          ],
-          "text": [
-            {
-              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.557,
-            0.675,
-            0.067
-          ],
-          "text": [
-            {
-              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.889,
-            0.909,
-            0.041,
-            0.027
-          ],
-          "text": [
-            {
-              "text": "23",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
       "page": 24,
-      "visible_text": "水土流失分析与预测 预测范围与防治责任范围保持一致 24 1 预测单元：预测范围为管网工程区，面积与防治责任范围一致。 2 扰动面积：扰动地表面积按34416.00m²纳入预测。 3 时段划分：施工期和自然恢复期分别列示预测参数。",
+      "visible_text": "水土流失分析与预测。 背景土壤侵蚀模数由占地类型加权形成。 24 1 类型参数：城镇村道路用地平均土壤侵蚀模数为260t/(km²·a)。 2 绿地参数：公园与绿地平均土壤侵蚀模数为450t/(km²·a)。 3 加权结果：报告列示背景土壤侵蚀模数为261.46t/(km²·a)。",
       "shape_count": 15,
       "shapes": [
         {
@@ -4985,7 +4841,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -4995,14 +4851,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土流失分析与预测",
+              "text": "水土流失分析与预测。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -5012,18 +4868,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "预测范围与防治责任范围保持一致",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
+              "text": "背景土壤侵蚀模数由占地类型加权形成。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -5062,7 +4914,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -5079,7 +4931,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -5089,7 +4941,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "预测单元：预测范围为管网工程区，面积与防治责任范围一致。",
+              "text": "类型参数：城镇村道路用地平均土壤侵蚀模数为260t/(km²·a)。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -5111,7 +4963,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -5128,7 +4980,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -5138,7 +4990,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "扰动面积：扰动地表面积按34416.00m²纳入预测。",
+              "text": "绿地参数：公园与绿地平均土壤侵蚀模数为450t/(km²·a)。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -5160,7 +5012,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -5177,7 +5029,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -5187,20 +5039,24 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "时段划分：施工期和自然恢复期分别列示预测参数。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "加权结果：报告列示背景土壤侵蚀模数为261.46t/(km²·a)。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
             }
           ]
         },
         {
-          "name": "TableImage:T023",
+          "name": "TableImage:T027",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.479,
+            0.518,
             0.881,
-            0.276
+            0.198
           ],
           "picture": true
         }
@@ -5208,7 +5064,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 25,
-      "visible_text": "水土流失分析与预测 预测范围与防治责任范围保持一致（二-一） 25 1 扰动面积：扰动地表面积按34416.00m²纳入预测。 2 时段划分：施工期和自然恢复期分别列示预测参数。 3 表内分项：公园与绿地。",
+      "visible_text": "水土流失分析与预测。 背景土壤侵蚀模数由占地类型加权形成（二） 25 1 绿地参数：公园与绿地平均土壤侵蚀模数为450t/(km²·a)。 2 加权结果：报告列示背景土壤侵蚀模数为261.46t/(km²·a)。 3 表内分项：城镇村道路用地。、公园与绿地。",
       "shape_count": 15,
       "shapes": [
         {
@@ -5223,7 +5079,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -5233,14 +5089,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土流失分析与预测",
+              "text": "水土流失分析与预测。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -5250,18 +5106,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "预测范围与防治责任范围保持一致（二-一）",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
+              "text": "背景土壤侵蚀模数由占地类型加权形成（二）",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -5300,7 +5152,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -5317,7 +5169,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -5327,7 +5179,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "扰动面积：扰动地表面积按34416.00m²纳入预测。",
+              "text": "绿地参数：公园与绿地平均土壤侵蚀模数为450t/(km²·a)。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -5349,7 +5201,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -5366,7 +5218,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -5376,9 +5228,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "时段划分：施工期和自然恢复期分别列示预测参数。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "加权结果：报告列示背景土壤侵蚀模数为261.46t/(km²·a)。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
             }
           ]
         },
@@ -5394,7 +5250,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -5411,7 +5267,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -5421,20 +5277,20 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "表内分项：公园与绿地。",
+              "text": "表内分项：城镇村道路用地。、公园与绿地。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TableImage:T024",
+          "name": "TableImage:T028",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.475,
+            0.48,
             0.881,
-            0.285
+            0.275
           ],
           "picture": true
         }
@@ -5442,8 +5298,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 26,
-      "visible_text": "水土流失分析与预测 预测范围与防治责任范围保持一致（三-一） 26 1 时段划分：施工期和自然恢复期分别列示预测参数。 2 表内分项：植被破坏型一般扰动地表。、265.00",
-      "shape_count": 12,
+      "visible_text": "水土流失分析与预测。 施工期侵蚀模数显著高于背景值。 26 1 植被破坏型：施工期土壤侵蚀模数为1153.34t/(km²·a)。 2 地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。 3 综合取值：施工期综合取值为3018.60t/(km²·a)。",
+      "shape_count": 15,
       "shapes": [
         {
           "name": "Rectangle 1",
@@ -5457,7 +5313,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -5467,14 +5323,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土流失分析与预测",
+              "text": "水土流失分析与预测。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -5484,18 +5340,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "预测范围与防治责任范围保持一致（三-一）",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
+              "text": "施工期侵蚀模数显著高于背景值。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -5534,7 +5386,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -5551,19 +5403,23 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
             0.173,
             0.842,
-            0.063
+            0.056
           ],
           "text": [
             {
-              "text": "时段划分：施工期和自然恢复期分别列示预测参数。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "植被破坏型：施工期土壤侵蚀模数为1153.34t/(km²·a)。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
             }
           ]
         },
@@ -5572,18 +5428,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.249,
+            0.225,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.255,
+            0.231,
             0.019,
             0.019
           ],
@@ -5596,33 +5452,83 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.243,
+            0.22,
             0.842,
-            0.063
+            0.056
           ],
           "text": [
             {
-              "text": "表内分项：植被破坏型一般扰动地表。、265.00",
+              "text": "地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。",
               "font_sizes": [
+                14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 2
+              "emphasized_runs": 3
             }
           ]
         },
         {
-          "name": "TableImage:T025",
-          "type": "PICTURE (13)",
+          "name": "Rectangle 12",
+          "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.499,
-            0.881,
-            0.237
+            0.272,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.278,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "3",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.267,
+            0.842,
+            0.056
+          ],
+          "text": [
+            {
+              "text": "综合取值：施工期综合取值为3018.60t/(km²·a)。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
+            }
+          ]
+        },
+        {
+          "name": "TableImage:T030",
+          "type": "PICTURE (13)",
+          "bbox_ratio": [
+            0.168,
+            0.323,
+            0.652,
+            0.589
           ],
           "picture": true
         }
@@ -5630,8 +5536,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 27,
-      "visible_text": "水土流失分析与预测 预测范围与防治责任范围保持一致（四-一） 27 1 预测单元：预测范围为管网工程区，面积与防治责任范围一致。 2 扰动面积：扰动地表面积按34416.00m²纳入预测。",
-      "shape_count": 12,
+      "visible_text": "水土流失分析与预测。 施工期侵蚀模数显著高于背景值（二） 27 1 地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。 2 综合取值：施工期综合取值为3018.60t/(km²·a)。 3 表内分项：1.1、降雨侵蚀力因子。、R。",
+      "shape_count": 15,
       "shapes": [
         {
           "name": "Rectangle 1",
@@ -5645,7 +5551,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -5655,14 +5561,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土流失分析与预测",
+              "text": "水土流失分析与预测。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -5672,18 +5578,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "预测范围与防治责任范围保持一致（四-一）",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
+              "text": "施工期侵蚀模数显著高于背景值（二）",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -5722,7 +5624,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -5739,17 +5641,17 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
             0.173,
             0.842,
-            0.063
+            0.056
           ],
           "text": [
             {
-              "text": "预测单元：预测范围为管网工程区，面积与防治责任范围一致。",
+              "text": "地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -5764,18 +5666,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.249,
+            0.225,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.255,
+            0.231,
             0.019,
             0.019
           ],
@@ -5788,17 +5690,17 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.243,
+            0.22,
             0.842,
-            0.063
+            0.056
           ],
           "text": [
             {
-              "text": "扰动面积：扰动地表面积按34416.00m²纳入预测。",
+              "text": "综合取值：施工期综合取值为3018.60t/(km²·a)。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -5809,13 +5711,62 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TableImage:T026",
-          "type": "PICTURE (13)",
+          "name": "Rectangle 12",
+          "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.524,
-            0.881,
-            0.186
+            0.272,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.278,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "3",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.267,
+            0.842,
+            0.056
+          ],
+          "text": [
+            {
+              "text": "表内分项：1.1、降雨侵蚀力因子。、R。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
+            }
+          ]
+        },
+        {
+          "name": "TableImage:T031",
+          "type": "PICTURE (13)",
+          "bbox_ratio": [
+            0.21,
+            0.323,
+            0.568,
+            0.589
           ],
           "picture": true
         }
@@ -5823,7 +5774,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 28,
-      "visible_text": "水土流失分析与预测 背景土壤侵蚀模数由占地类型加权形成 28 1 类型参数：城镇村道路用地平均土壤侵蚀模数为260t/(km²·a)。 2 绿地参数：公园与绿地平均土壤侵蚀模数为450t/(km²·a)。 3 加权结果：报告列示背景土壤侵蚀模数为261.46t/(km²·a)。",
+      "visible_text": "水土流失分析与预测。 施工期侵蚀模数显著高于背景值（三） 28 1 综合取值：施工期综合取值为3018.60t/(km²·a)。 2 表内分项：1.2、土壤可蚀性因子。、K。 3 表内分项：1.3、坡长因子。、Ly。",
       "shape_count": 15,
       "shapes": [
         {
@@ -5838,7 +5789,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -5848,14 +5799,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土流失分析与预测",
+              "text": "水土流失分析与预测。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -5865,14 +5816,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "背景土壤侵蚀模数由占地类型加权形成",
+              "text": "施工期侵蚀模数显著高于背景值（三）",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -5911,7 +5862,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -5928,7 +5879,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -5938,7 +5889,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "类型参数：城镇村道路用地平均土壤侵蚀模数为260t/(km²·a)。",
+              "text": "综合取值：施工期综合取值为3018.60t/(km²·a)。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -5960,7 +5911,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -5977,7 +5928,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -5987,7 +5938,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "绿地参数：公园与绿地平均土壤侵蚀模数为450t/(km²·a)。",
+              "text": "表内分项：1.2、土壤可蚀性因子。、K。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -6009,7 +5960,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -6026,7 +5977,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -6036,7 +5987,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "加权结果：报告列示背景土壤侵蚀模数为261.46t/(km²·a)。",
+              "text": "表内分项：1.3、坡长因子。、Ly。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -6047,13 +5998,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TableImage:T027",
+          "name": "TableImage:T032",
           "type": "PICTURE (13)",
           "bbox_ratio": [
-            0.054,
-            0.518,
-            0.881,
-            0.198
+            0.114,
+            0.323,
+            0.761,
+            0.589
           ],
           "picture": true
         }
@@ -6061,8 +6012,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 29,
-      "visible_text": "水土流失分析与预测 背景土壤侵蚀模数由占地类型加权形成（二-一） 29 1 绿地参数：公园与绿地平均土壤侵蚀模数为450t/(km²·a)。 2 加权结果：报告列示背景土壤侵蚀模数为261.46t/(km²·a)。 3 表内分项：城镇村道路用地。、公园与绿地。",
-      "shape_count": 15,
+      "visible_text": "水土流失分析与预测。 施工期侵蚀模数显著高于背景值（四） 29 1 植被破坏型：施工期土壤侵蚀模数为1153.34t/(km²·a)。 2 地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。",
+      "shape_count": 12,
       "shapes": [
         {
           "name": "Rectangle 1",
@@ -6076,7 +6027,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -6086,14 +6037,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土流失分析与预测",
+              "text": "水土流失分析与预测。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -6103,14 +6054,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "背景土壤侵蚀模数由占地类型加权形成（二-一）",
+              "text": "施工期侵蚀模数显著高于背景值（四）",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -6149,7 +6100,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -6166,17 +6117,17 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
             0.173,
             0.842,
-            0.056
+            0.063
           ],
           "text": [
             {
-              "text": "绿地参数：公园与绿地平均土壤侵蚀模数为450t/(km²·a)。",
+              "text": "植被破坏型：施工期土壤侵蚀模数为1153.34t/(km²·a)。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -6191,18 +6142,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.225,
+            0.249,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.231,
+            0.255,
             0.019,
             0.019
           ],
@@ -6215,17 +6166,17 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.22,
+            0.243,
             0.842,
-            0.056
+            0.063
           ],
           "text": [
             {
-              "text": "加权结果：报告列示背景土壤侵蚀模数为261.46t/(km²·a)。",
+              "text": "地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -6236,58 +6187,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "Rectangle 12",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.272,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 13",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.278,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "3",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 14",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.267,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "表内分项：城镇村道路用地。、公园与绿地。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TableImage:T028",
+          "name": "TableImage:T033",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.48,
+            0.523,
             0.881,
-            0.275
+            0.189
           ],
           "picture": true
         }
@@ -6295,7 +6201,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 30,
-      "visible_text": "水土流失分析与预测 施工期侵蚀模数显著高于背景值 30 1 植被破坏型：施工期土壤侵蚀模数为1153.34t/(km²·a)。 2 地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。 3 综合取值：施工期综合取值为3018.60t/(km²·a)。",
+      "visible_text": "水土流失分析与预测。 预测土壤流失总量104.05t，新增量94.92t。 30 1 预测总量：项目预测土壤流失总量为104.05t。 2 新增量：新增土壤流失量为94.92t。 3 重点时段：施工期是新增水土流失控制重点。",
       "shape_count": 15,
       "shapes": [
         {
@@ -6310,7 +6216,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -6320,14 +6226,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土流失分析与预测",
+              "text": "水土流失分析与预测。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -6337,14 +6243,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "施工期侵蚀模数显著高于背景值",
+              "text": "预测土壤流失总量104.05t，新增量94.92t。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -6383,7 +6289,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -6400,7 +6306,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -6410,7 +6316,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "植被破坏型：施工期土壤侵蚀模数为1153.34t/(km²·a)。",
+              "text": "预测总量：项目预测土壤流失总量为104.05t。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -6432,7 +6338,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -6449,7 +6355,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -6459,7 +6365,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。",
+              "text": "新增量：新增土壤流失量为94.92t。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -6481,7 +6387,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -6498,7 +6404,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -6508,7 +6414,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "综合取值：施工期综合取值为3018.60t/(km²·a)。",
+              "text": "重点时段：施工期是新增水土流失控制重点。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -6519,13 +6425,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TableImage:T030",
+          "name": "TableImage:T034",
           "type": "PICTURE (13)",
           "bbox_ratio": [
-            0.168,
-            0.323,
-            0.652,
-            0.589
+            0.054,
+            0.521,
+            0.881,
+            0.192
           ],
           "picture": true
         }
@@ -6533,8 +6439,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 31,
-      "visible_text": "水土流失分析与预测 施工期侵蚀模数显著高于背景值（二-一） 31 1 地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。 2 综合取值：施工期综合取值为3018.60t/(km²·a)。 3 表内分项：1.1、降雨侵蚀力因子。、R。",
-      "shape_count": 15,
+      "visible_text": "06 水土保持措施与施工安排。 分区措施、工程量和施工窗口形成实施路径。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。 31",
+      "shape_count": 8,
       "shapes": [
         {
           "name": "Rectangle 1",
@@ -6548,45 +6454,107 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "Rectangle 2",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.115,
+            0.012,
+            0.643
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.035,
-            0.029,
-            0.66,
-            0.032
+            0.077,
+            0.133,
+            0.075,
+            0.043
           ],
           "text": [
             {
-              "text": "水土流失分析与预测",
+              "text": "06",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
-            0.035,
-            0.075,
-            0.855,
+            0.077,
+            0.213,
+            0.66,
+            0.083
+          ],
+          "text": [
+            {
+              "text": "水土保持措施与施工安排。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.341,
+            0.66,
+            0.059
+          ],
+          "text": [
+            {
+              "text": "分区措施、工程量和施工窗口形成实施路径。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.445,
+            0.705,
+            0.077
+          ],
+          "text": [
+            {
+              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.557,
+            0.675,
             0.067
           ],
           "text": [
             {
-              "text": "施工期侵蚀模数显著高于背景值（二-一）",
+              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
-            0.045,
+            0.909,
             0.041,
             0.027
           ],
@@ -6597,181 +6565,12 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
               "emphasized_runs": 0
             }
           ]
-        },
-        {
-          "name": "Rectangle 5",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.035,
-            0.149,
-            0.893,
-            0.003
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 6",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.179,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.185,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "1",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.173,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 9",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.225,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 10",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.231,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "2",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 11",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.22,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "综合取值：施工期综合取值为3018.60t/(km²·a)。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 12",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.272,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 13",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.278,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "3",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 14",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.267,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "表内分项：1.1、降雨侵蚀力因子。、R。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "TableImage:T031",
-          "type": "PICTURE (13)",
-          "bbox_ratio": [
-            0.21,
-            0.323,
-            0.568,
-            0.589
-          ],
-          "picture": true
         }
       ]
     },
     {
       "page": 32,
-      "visible_text": "水土流失分析与预测 施工期侵蚀模数显著高于背景值（三-一） 32 1 综合取值：施工期综合取值为3018.60t/(km²·a)。 2 表内分项：1.2、土壤可蚀性因子。、K。 3 表内分项：1.3、坡长因子。、Ly。",
+      "visible_text": "水土保持措施与施工安排。 防治分区为管网工程区，防治面积34416.00m²。 32 1 分区设置：报告将项目区划分为管网工程区。 2 防治面积：管网工程区防治面积为34416.00m²。 3 管理对象：永久占地为空，临时占地承担主要防治任务。",
       "shape_count": 15,
       "shapes": [
         {
@@ -6786,7 +6585,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -6796,14 +6595,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土流失分析与预测",
+              "text": "水土保持措施与施工安排。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -6813,14 +6612,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "施工期侵蚀模数显著高于背景值（三-一）",
+              "text": "防治分区为管网工程区，防治面积34416.00m²。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -6859,7 +6658,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -6876,7 +6675,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -6886,13 +6685,9 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "综合取值：施工期综合取值为3018.60t/(km²·a)。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
+              "text": "分区设置：报告将项目区划分为管网工程区。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -6908,7 +6703,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -6925,7 +6720,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -6935,7 +6730,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "表内分项：1.2、土壤可蚀性因子。、K。",
+              "text": "防治面积：管网工程区防治面积为34416.00m²。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -6957,7 +6752,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -6974,7 +6769,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -6984,24 +6779,20 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "表内分项：1.3、坡长因子。、Ly。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
+              "text": "管理对象：永久占地为空，临时占地承担主要防治任务。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TableImage:T032",
+          "name": "TableImage:T035",
           "type": "PICTURE (13)",
           "bbox_ratio": [
-            0.114,
-            0.323,
-            0.761,
-            0.589
+            0.054,
+            0.502,
+            0.881,
+            0.231
           ],
           "picture": true
         }
@@ -7009,8 +6800,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 33,
-      "visible_text": "水土流失分析与预测 施工期侵蚀模数显著高于背景值（四-一） 33 1 植被破坏型：施工期土壤侵蚀模数为1153.34t/(km²·a)。 2 地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。",
-      "shape_count": 12,
+      "visible_text": "水土保持措施与施工安排。 措施体系覆盖工程、植物和临时三类措施。 33 1 工程措施：主体已有土地整治，方案新增表土剥离和表土回覆。 2 植物措施：主体已有铺种草皮。 3 临时措施：报告列示临时苫盖、高压洗车池和临时排水沉沙措施。",
+      "shape_count": 15,
       "shapes": [
         {
           "name": "Rectangle 1",
@@ -7024,7 +6815,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -7034,14 +6825,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土流失分析与预测",
+              "text": "水土保持措施与施工安排。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -7051,14 +6842,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "施工期侵蚀模数显著高于背景值（四-一）",
+              "text": "措施体系覆盖工程、植物和临时三类措施。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -7097,7 +6888,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -7114,23 +6905,25 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
             0.173,
             0.842,
-            0.063
+            0.056
           ],
           "text": [
             {
-              "text": "植被破坏型：施工期土壤侵蚀模数为1153.34t/(km²·a)。",
+              "text": "工程措施：主体已有土地整治，方案新增表土剥离和表土回覆。",
               "font_sizes": [
+                14.2,
+                14.2,
                 14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 3
+              "emphasized_runs": 5
             }
           ]
         },
@@ -7139,18 +6932,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.249,
+            0.225,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.255,
+            0.231,
             0.019,
             0.019
           ],
@@ -7163,17 +6956,17 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.243,
+            0.22,
             0.842,
-            0.063
+            0.056
           ],
           "text": [
             {
-              "text": "地表翻扰型：施工期土壤侵蚀模数为3032.58t/(km²·a)。",
+              "text": "植物措施：主体已有铺种草皮。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -7184,13 +6977,64 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TableImage:T033",
+          "name": "Rectangle 12",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.272,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.278,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "3",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.267,
+            0.842,
+            0.056
+          ],
+          "text": [
+            {
+              "text": "临时措施：报告列示临时苫盖、高压洗车池和临时排水沉沙措施。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 5
+            }
+          ]
+        },
+        {
+          "name": "TableImage:T036",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.523,
+            0.49,
             0.881,
-            0.189
+            0.255
           ],
           "picture": true
         }
@@ -7198,7 +7042,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 34,
-      "visible_text": "水土流失分析与预测 预测土壤流失总量104.05t，新增量94.92t 34 1 预测总量：项目预测土壤流失总量为104.05t。 2 新增量：新增土壤流失量为94.92t。 3 重点时段：施工期是新增水土流失控制重点。",
+      "visible_text": "水土保持措施与施工安排。 措施体系覆盖工程、植物和临时三类措施（二） 34 1 植物措施：主体已有铺种草皮。 2 临时措施：报告列示临时苫盖、高压洗车池和临时排水沉沙措施。 3 表内分项：表土回覆。、m³。、79.5",
       "shape_count": 15,
       "shapes": [
         {
@@ -7213,7 +7057,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -7223,14 +7067,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土流失分析与预测",
+              "text": "水土保持措施与施工安排。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -7240,7 +7084,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "预测土壤流失总量104.05t，新增量94.92t",
+              "text": "措施体系覆盖工程、植物和临时三类措施（二）",
               "font_sizes": [
                 23.0,
                 23.0,
@@ -7252,7 +7096,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -7291,7 +7135,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -7308,7 +7152,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -7318,7 +7162,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "预测总量：项目预测土壤流失总量为104.05t。",
+              "text": "植物措施：主体已有铺种草皮。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -7340,7 +7184,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -7357,7 +7201,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -7367,13 +7211,15 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "新增量：新增土壤流失量为94.92t。",
+              "text": "临时措施：报告列示临时苫盖、高压洗车池和临时排水沉沙措施。",
               "font_sizes": [
+                14.2,
+                14.2,
                 14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 3
+              "emphasized_runs": 5
             }
           ]
         },
@@ -7389,7 +7235,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -7406,7 +7252,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -7416,24 +7262,23 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "重点时段：施工期是新增水土流失控制重点。",
+              "text": "表内分项：表土回覆。、m³。、79.5",
               "font_sizes": [
-                14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 3
+              "emphasized_runs": 2
             }
           ]
         },
         {
-          "name": "TableImage:T034",
+          "name": "TableImage:T037",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.521,
+            0.427,
             0.881,
-            0.192
+            0.381
           ],
           "picture": true
         }
@@ -7441,138 +7286,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 35,
-      "visible_text": "06 水土保持措施与施工安排 分区措施、工程量和施工窗口形成实施路径。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。 35",
-      "shape_count": 8,
-      "shapes": [
-        {
-          "name": "Rectangle 1",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 2",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.115,
-            0.012,
-            0.643
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 3",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.077,
-            0.133,
-            0.075,
-            0.043
-          ],
-          "text": [
-            {
-              "text": "06",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.077,
-            0.213,
-            0.66,
-            0.083
-          ],
-          "text": [
-            {
-              "text": "水土保持措施与施工安排",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 5",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.341,
-            0.66,
-            0.059
-          ],
-          "text": [
-            {
-              "text": "分区措施、工程量和施工窗口形成实施路径。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 6",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.445,
-            0.705,
-            0.077
-          ],
-          "text": [
-            {
-              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.557,
-            0.675,
-            0.067
-          ],
-          "text": [
-            {
-              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.889,
-            0.909,
-            0.041,
-            0.027
-          ],
-          "text": [
-            {
-              "text": "35",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "page": 36,
-      "visible_text": "水土保持措施与施工安排 防治分区为管网工程区，防治面积34416.00m² 36 1 分区设置：报告将项目区划分为管网工程区。 2 防治面积：管网工程区防治面积为34416.00m²。 3 管理对象：永久占地为空，临时占地承担主要防治任务。",
+      "visible_text": "水土保持措施与施工安排。 措施实施进度嵌入2025—2026年施工窗口。 35 1 工期窗口：水土保持工程施工衔接2025年12月至2026年12月。 2 措施节奏：临时防护、表土措施和植物措施按施工过程分期安排。 3 进度关系：措施实施与主体工程施工时序保持同步。",
       "shape_count": 15,
       "shapes": [
         {
@@ -7587,7 +7301,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -7597,14 +7311,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持措施与施工安排",
+              "text": "水土保持措施与施工安排。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -7614,18 +7328,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "防治分区为管网工程区，防治面积34416.00m²",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
+              "text": "措施实施进度嵌入2025—2026年施工窗口。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -7635,7 +7345,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "36",
+              "text": "35",
               "font_sizes": [],
               "emphasized_runs": 0
             }
@@ -7664,7 +7374,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -7681,7 +7391,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -7691,9 +7401,17 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "分区设置：报告将项目区划分为管网工程区。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "工期窗口：水土保持工程施工衔接2025年12月至2026年12月。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2,
+                14.2,
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 7
             }
           ]
         },
@@ -7709,7 +7427,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -7726,7 +7444,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -7736,13 +7454,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "防治面积：管网工程区防治面积为34416.00m²。",
+              "text": "措施节奏：临时防护、表土措施和植物措施按施工过程分期安排。",
               "font_sizes": [
+                14.2,
+                14.2,
+                14.2,
+                14.2,
+                14.2,
                 14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 3
+              "emphasized_runs": 8
             }
           ]
         },
@@ -7758,7 +7481,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -7775,7 +7498,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -7785,28 +7508,163 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "管理对象：永久占地为空，临时占地承担主要防治任务。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "进度关系：措施实施与主体工程施工时序保持同步。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
             }
           ]
         },
         {
-          "name": "TableImage:T035",
+          "name": "TableImage:T038",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.502,
+            0.396,
             0.881,
-            0.231
+            0.443
           ],
           "picture": true
         }
       ]
     },
     {
+      "page": 36,
+      "visible_text": "07 投资概算、效益与管理验收。 投资、补偿费、效益和验收管理形成闭环。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。 36",
+      "shape_count": 8,
+      "shapes": [
+        {
+          "name": "Rectangle 1",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "text": []
+        },
+        {
+          "name": "Rectangle 2",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.115,
+            0.012,
+            0.643
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.077,
+            0.133,
+            0.075,
+            0.043
+          ],
+          "text": [
+            {
+              "text": "07",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "title_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.077,
+            0.213,
+            0.66,
+            0.083
+          ],
+          "text": [
+            {
+              "text": "投资概算、效益与管理验收。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.341,
+            0.66,
+            0.059
+          ],
+          "text": [
+            {
+              "text": "投资、补偿费、效益和验收管理形成闭环。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.445,
+            0.705,
+            0.077
+          ],
+          "text": [
+            {
+              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "body_text_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.078,
+            0.557,
+            0.675,
+            0.067
+          ],
+          "text": [
+            {
+              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.889,
+            0.909,
+            0.041,
+            0.027
+          ],
+          "text": [
+            {
+              "text": "36",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
       "page": 37,
-      "visible_text": "水土保持措施与施工安排 措施体系覆盖工程、植物和临时三类措施 37 1 工程措施：主体已有土地整治，方案新增表土剥离和表土回覆。 2 植物措施：主体已有铺种草皮。 3 临时措施：报告列示临时苫盖、高压洗车池和临时排水沉沙措施。",
+      "visible_text": "投资概算、效益与管理验收。 水土保持总投资26.9211万元。 37 1 总投资：水土保持总投资为26.9211万元。 2 分项构成：新增投资、主体工程已列投资和独立费用分项计列。 3 费用关系：工程措施、植物措施和临时措施共同进入概算体系。",
       "shape_count": 15,
       "shapes": [
         {
@@ -7821,7 +7679,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -7831,14 +7689,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持措施与施工安排",
+              "text": "投资概算、效益与管理验收。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -7848,18 +7706,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "措施体系覆盖工程、植物和临时三类措施",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
+              "text": "水土保持总投资26.9211万元。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -7891,18 +7745,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.179,
+            0.195,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.185,
+            0.201,
             0.019,
             0.019
           ],
@@ -7915,25 +7769,23 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.173,
-            0.842,
-            0.056
+            0.189,
+            0.299,
+            0.227
           ],
           "text": [
             {
-              "text": "工程措施：主体已有土地整治，方案新增表土剥离和表土回覆。",
+              "text": "总投资：水土保持总投资为26.9211万元。",
               "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2
+                14.5,
+                14.5,
+                14.5
               ],
-              "emphasized_runs": 5
+              "emphasized_runs": 3
             }
           ]
         },
@@ -7942,18 +7794,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.225,
+            0.428,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.231,
+            0.434,
             0.019,
             0.019
           ],
@@ -7966,23 +7818,19 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.22,
-            0.842,
-            0.056
+            0.423,
+            0.299,
+            0.227
           ],
           "text": [
             {
-              "text": "植物措施：主体已有铺种草皮。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
+              "text": "分项构成：新增投资、主体工程已列投资和独立费用分项计列。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -7991,18 +7839,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.272,
+            0.661,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.278,
+            0.667,
             0.019,
             0.019
           ],
@@ -8015,36 +7863,38 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.267,
-            0.842,
-            0.056
+            0.656,
+            0.299,
+            0.227
           ],
           "text": [
             {
-              "text": "临时措施：报告列示临时苫盖、高压洗车池和临时排水沉沙措施。",
+              "text": "费用关系：工程措施、植物措施和临时措施共同进入概算体系。",
               "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2
+                14.5,
+                14.5,
+                14.5,
+                14.5,
+                14.5,
+                14.5,
+                14.5
               ],
-              "emphasized_runs": 5
+              "emphasized_runs": 7
             }
           ]
         },
         {
-          "name": "TableImage:T036",
+          "name": "TableImage:T040",
           "type": "PICTURE (13)",
           "bbox_ratio": [
-            0.054,
-            0.49,
-            0.881,
-            0.255
+            0.407,
+            0.236,
+            0.519,
+            0.622
           ],
           "picture": true
         }
@@ -8052,7 +7902,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 38,
-      "visible_text": "水土保持措施与施工安排 措施体系覆盖工程、植物和临时三类措施（二-一） 38 1 植物措施：主体已有铺种草皮。 2 临时措施：报告列示临时苫盖、高压洗车池和临时排水沉沙措施。 3 表内分项：表土回覆。、m³。、79.5",
+      "visible_text": "投资概算、效益与管理验收。 水土保持总投资26.9211万元（二） 38 1 分项构成：新增投资、主体工程已列投资和独立费用分项计列。 2 费用关系：工程措施、植物措施和临时措施共同进入概算体系。 3 表内分项：（一）、管网工程区。、0.1827",
       "shape_count": 15,
       "shapes": [
         {
@@ -8067,7 +7917,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -8077,14 +7927,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持措施与施工安排",
+              "text": "投资概算、效益与管理验收。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -8094,19 +7944,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "措施体系覆盖工程、植物和临时三类措施（二-一）",
+              "text": "水土保持总投资26.9211万元（二）",
               "font_sizes": [
-                23.0,
                 23.0,
                 23.0,
                 23.0
               ],
-              "emphasized_runs": 4
+              "emphasized_runs": 3
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -8145,7 +7994,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -8162,7 +8011,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -8172,13 +8021,9 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "植物措施：主体已有铺种草皮。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
+              "text": "分项构成：新增投资、主体工程已列投资和独立费用分项计列。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -8194,7 +8039,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -8211,7 +8056,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -8221,15 +8066,17 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "临时措施：报告列示临时苫盖、高压洗车池和临时排水沉沙措施。",
+              "text": "费用关系：工程措施、植物措施和临时措施共同进入概算体系。",
               "font_sizes": [
+                14.2,
+                14.2,
                 14.2,
                 14.2,
                 14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 5
+              "emphasized_runs": 7
             }
           ]
         },
@@ -8245,7 +8092,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -8262,7 +8109,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -8272,7 +8119,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "表内分项：表土回覆。、m³。、79.5",
+              "text": "表内分项：（一）、管网工程区。、0.1827",
               "font_sizes": [
                 14.2,
                 14.2
@@ -8282,13 +8129,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TableImage:T037",
+          "name": "TableImage:T041",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.427,
+            0.439,
             0.881,
-            0.381
+            0.356
           ],
           "picture": true
         }
@@ -8296,8 +8143,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 39,
-      "visible_text": "水土保持措施与施工安排 措施实施进度嵌入2025—2026年施工窗口 39 1 工期窗口：水土保持工程施工衔接2025年12月至2026年12月。 2 措施节奏：临时防护、表土措施和植物措施按施工过程分期安排。 3 进度关系：措施实施与主体工程施工时序保持同步。",
-      "shape_count": 15,
+      "visible_text": "投资概算、效益与管理验收。 水土保持总投资26.9211万元（三） 39 1 费用关系：工程措施、植物措施和临时措施共同进入概算体系。 2 表内分项：1、铺种草皮。、m²。",
+      "shape_count": 12,
       "shapes": [
         {
           "name": "Rectangle 1",
@@ -8311,7 +8158,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -8321,14 +8168,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持措施与施工安排",
+              "text": "投资概算、效益与管理验收。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -8338,21 +8185,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "措施实施进度嵌入2025—2026年施工窗口",
+              "text": "水土保持总投资26.9211万元（三）",
               "font_sizes": [
-                23.0,
-                23.0,
-                23.0,
                 23.0,
                 23.0,
                 23.0
               ],
-              "emphasized_runs": 6
+              "emphasized_runs": 3
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -8391,7 +8235,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -8408,17 +8252,17 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
             0.173,
             0.842,
-            0.056
+            0.063
           ],
           "text": [
             {
-              "text": "工期窗口：水土保持工程施工衔接2025年12月至2026年12月。",
+              "text": "费用关系：工程措施、植物措施和临时措施共同进入概算体系。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -8437,6 +8281,199 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
+            0.249,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.255,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "2",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.243,
+            0.842,
+            0.063
+          ],
+          "text": [
+            {
+              "text": "表内分项：1、铺种草皮。、m²。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
+            }
+          ]
+        },
+        {
+          "name": "TableImage:T042",
+          "type": "PICTURE (13)",
+          "bbox_ratio": [
+            0.054,
+            0.491,
+            0.881,
+            0.252
+          ],
+          "picture": true
+        }
+      ]
+    },
+    {
+      "page": 40,
+      "visible_text": "投资概算、效益与管理验收。 水土保持总投资26.9211万元（四） 40 1 总投资：水土保持总投资为26.9211万元。 2 分项构成：新增投资、主体工程已列投资和独立费用分项计列。 3 表内分项：2、高压洗车机。、台。",
+      "shape_count": 15,
+      "shapes": [
+        {
+          "name": "Rectangle 1",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.035,
+            0.029,
+            0.66,
+            0.032
+          ],
+          "text": [
+            {
+              "text": "投资概算、效益与管理验收。",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "title_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.035,
+            0.075,
+            0.855,
+            0.067
+          ],
+          "text": [
+            {
+              "text": "水土保持总投资26.9211万元（四）",
+              "font_sizes": [
+                23.0,
+                23.0,
+                23.0
+              ],
+              "emphasized_runs": 3
+            }
+          ]
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.889,
+            0.045,
+            0.041,
+            0.027
+          ],
+          "text": [
+            {
+              "text": "40",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "Rectangle 5",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.035,
+            0.149,
+            0.893,
+            0.003
+          ],
+          "text": []
+        },
+        {
+          "name": "Rectangle 6",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
+            0.179,
+            0.026,
+            0.04
+          ],
+          "text": []
+        },
+        {
+          "name": "page_meta_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.057,
+            0.185,
+            0.019,
+            0.019
+          ],
+          "text": [
+            {
+              "text": "1",
+              "font_sizes": [],
+              "emphasized_runs": 0
+            }
+          ]
+        },
+        {
+          "name": "bullet_emphasis_textbox",
+          "type": "TEXT_BOX (17)",
+          "bbox_ratio": [
+            0.089,
+            0.173,
+            0.842,
+            0.056
+          ],
+          "text": [
+            {
+              "text": "总投资：水土保持总投资为26.9211万元。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
+            }
+          ]
+        },
+        {
+          "name": "Rectangle 9",
+          "type": "AUTO_SHAPE (1)",
+          "bbox_ratio": [
+            0.054,
             0.225,
             0.026,
             0.04
@@ -8444,7 +8481,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -8461,7 +8498,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -8471,18 +8508,9 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "措施节奏：临时防护、表土措施和植物措施按施工过程分期安排。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 8
+              "text": "分项构成：新增投资、主体工程已列投资和独立费用分项计列。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
@@ -8498,7 +8526,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -8515,7 +8543,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -8525,7 +8553,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "进度关系：措施实施与主体工程施工时序保持同步。",
+              "text": "表内分项：2、高压洗车机。、台。",
               "font_sizes": [
                 14.2,
                 14.2,
@@ -8536,152 +8564,21 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TableImage:T038",
+          "name": "TableImage:T043",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.396,
+            0.442,
             0.881,
-            0.443
+            0.35
           ],
           "picture": true
         }
       ]
     },
     {
-      "page": 40,
-      "visible_text": "07 投资概算、效益与管理验收 投资、补偿费、效益和验收管理形成闭环。 章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。 后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。 40",
-      "shape_count": 8,
-      "shapes": [
-        {
-          "name": "Rectangle 1",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 2",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.115,
-            0.012,
-            0.643
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 3",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.077,
-            0.133,
-            0.075,
-            0.043
-          ],
-          "text": [
-            {
-              "text": "07",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.077,
-            0.213,
-            0.66,
-            0.083
-          ],
-          "text": [
-            {
-              "text": "投资概算、效益与管理验收",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 5",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.341,
-            0.66,
-            0.059
-          ],
-          "text": [
-            {
-              "text": "投资、补偿费、效益和验收管理形成闭环。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 6",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.445,
-            0.705,
-            0.077
-          ],
-          "text": [
-            {
-              "text": "章节内容保留报告中的源表、控制值和工程关系，并把范围、目标、措施、投资、验收等关键项放在同一叙事链条中。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.078,
-            0.557,
-            0.675,
-            0.067
-          ],
-          "text": [
-            {
-              "text": "后续页面以该章节证据为核心，展示原始表格、计算参数或报告结论，保持技术过程和结论之间的对应关系。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.889,
-            0.909,
-            0.041,
-            0.027
-          ],
-          "text": [
-            {
-              "text": "40",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
       "page": 41,
-      "visible_text": "投资概算、效益与管理验收 水土保持总投资26.9211万元 41 1 总投资：水土保持总投资为26.9211万元。 2 分项构成：新增投资、主体工程已列投资和独立费用分项计列。 3 费用关系：工程措施、植物措施和临时措施共同进入概算体系。",
+      "visible_text": "投资概算、效益与管理验收。 水土保持总投资26.9211万元（五） 41 1 总投资：水土保持总投资为26.9211万元。 2 分项构成：新增投资、主体工程已列投资和独立费用分项计列。 3 表内分项：（五）、水土保持设施验收报告编制。、10.3100",
       "shape_count": 15,
       "shapes": [
         {
@@ -8696,7 +8593,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -8706,14 +8603,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "投资概算、效益与管理验收",
+              "text": "投资概算、效益与管理验收。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -8723,17 +8620,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持总投资26.9211万元",
+              "text": "水土保持总投资26.9211万元（五）",
               "font_sizes": [
+                23.0,
                 23.0,
                 23.0
               ],
-              "emphasized_runs": 2
+              "emphasized_runs": 3
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -8765,18 +8663,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.195,
+            0.179,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.201,
+            0.185,
             0.019,
             0.019
           ],
@@ -8789,21 +8687,21 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.189,
-            0.299,
-            0.227
+            0.173,
+            0.842,
+            0.056
           ],
           "text": [
             {
               "text": "总投资：水土保持总投资为26.9211万元。",
               "font_sizes": [
-                14.5,
-                14.5,
-                14.5
+                14.2,
+                14.2,
+                14.2
               ],
               "emphasized_runs": 3
             }
@@ -8814,18 +8712,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.428,
+            0.225,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.434,
+            0.231,
             0.019,
             0.019
           ],
@@ -8838,13 +8736,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.423,
-            0.299,
-            0.227
+            0.22,
+            0.842,
+            0.056
           ],
           "text": [
             {
@@ -8859,18 +8757,18 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "type": "AUTO_SHAPE (1)",
           "bbox_ratio": [
             0.054,
-            0.661,
+            0.272,
             0.026,
             0.04
           ],
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
-            0.667,
+            0.278,
             0.019,
             0.019
           ],
@@ -8883,38 +8781,33 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
-            0.656,
-            0.299,
-            0.227
+            0.267,
+            0.842,
+            0.056
           ],
           "text": [
             {
-              "text": "费用关系：工程措施、植物措施和临时措施共同进入概算体系。",
+              "text": "表内分项：（五）、水土保持设施验收报告编制。、10.3100",
               "font_sizes": [
-                14.5,
-                14.5,
-                14.5,
-                14.5,
-                14.5,
-                14.5,
-                14.5
+                14.2,
+                14.2
               ],
-              "emphasized_runs": 7
+              "emphasized_runs": 2
             }
           ]
         },
         {
-          "name": "TableImage:T040",
+          "name": "TableImage:T044",
           "type": "PICTURE (13)",
           "bbox_ratio": [
-            0.407,
-            0.236,
-            0.519,
-            0.622
+            0.054,
+            0.436,
+            0.881,
+            0.363
           ],
           "picture": true
         }
@@ -8922,7 +8815,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 42,
-      "visible_text": "投资概算、效益与管理验收 水土保持总投资26.9211万元（二-一） 42 1 分项构成：新增投资、主体工程已列投资和独立费用分项计列。 2 费用关系：工程措施、植物措施和临时措施共同进入概算体系。 3 表内分项：（一）、管网工程区。、0.1827",
+      "visible_text": "投资概算、效益与管理验收。 水土保持补偿费51624元符合免征情形。 42 1 征占面积：补偿费计算面积为34416m²。 2 计费标准：报告列示收费标准为1.5元/m²。 3 计算金额：水土保持补偿费为51624元，并列明免征依据。",
       "shape_count": 15,
       "shapes": [
         {
@@ -8937,7 +8830,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -8947,14 +8840,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "投资概算、效益与管理验收",
+              "text": "投资概算、效益与管理验收。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -8964,18 +8857,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持总投资26.9211万元（二-一）",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
+              "text": "水土保持补偿费51624元符合免征情形。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -9014,7 +8903,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -9031,7 +8920,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -9041,9 +8930,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "分项构成：新增投资、主体工程已列投资和独立费用分项计列。",
-              "font_sizes": [],
-              "emphasized_runs": 0
+              "text": "征占面积：补偿费计算面积为34416m²。",
+              "font_sizes": [
+                14.2,
+                14.2,
+                14.2
+              ],
+              "emphasized_runs": 3
             }
           ]
         },
@@ -9059,7 +8952,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -9076,7 +8969,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -9086,17 +8979,13 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "费用关系：工程措施、植物措施和临时措施共同进入概算体系。",
+              "text": "计费标准：报告列示收费标准为1.5元/m²。",
               "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
                 14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 7
+              "emphasized_runs": 3
             }
           ]
         },
@@ -9112,7 +9001,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -9129,7 +9018,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -9139,23 +9028,24 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "表内分项：（一）、管网工程区。、0.1827",
+              "text": "计算金额：水土保持补偿费为51624元，并列明免征依据。",
               "font_sizes": [
+                14.2,
                 14.2,
                 14.2
               ],
-              "emphasized_runs": 2
+              "emphasized_runs": 3
             }
           ]
         },
         {
-          "name": "TableImage:T041",
+          "name": "TableImage:T045",
           "type": "PICTURE (13)",
           "bbox_ratio": [
             0.054,
-            0.439,
+            0.525,
             0.881,
-            0.356
+            0.185
           ],
           "picture": true
         }
@@ -9163,8 +9053,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
     },
     {
       "page": 43,
-      "visible_text": "投资概算、效益与管理验收 水土保持总投资26.9211万元（三-一） 43 1 费用关系：工程措施、植物措施和临时措施共同进入概算体系。 2 表内分项：1、铺种草皮。、m²。",
-      "shape_count": 12,
+      "visible_text": "投资概算、效益与管理验收。 六项防治效益指标达到报告目标值。 43 1 治理度：水土流失总治理度设计达到值为99.99% 2 控制比：土壤流失控制比设计达到值满足报告目标。 3 效益结论：各项防治效益评估结果均为达标。",
+      "shape_count": 15,
       "shapes": [
         {
           "name": "Rectangle 1",
@@ -9178,7 +9068,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -9188,14 +9078,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "投资概算、效益与管理验收",
+              "text": "投资概算、效益与管理验收。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -9205,18 +9095,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "水土保持总投资26.9211万元（三-一）",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
+              "text": "六项防治效益指标达到报告目标值。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -9255,7 +9141,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -9272,921 +9158,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.173,
-            0.842,
-            0.063
-          ],
-          "text": [
-            {
-              "text": "费用关系：工程措施、植物措施和临时措施共同进入概算体系。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 7
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 9",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.249,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 10",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.255,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "2",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 11",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.243,
-            0.842,
-            0.063
-          ],
-          "text": [
-            {
-              "text": "表内分项：1、铺种草皮。、m²。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "TableImage:T042",
-          "type": "PICTURE (13)",
-          "bbox_ratio": [
-            0.054,
-            0.491,
-            0.881,
-            0.252
-          ],
-          "picture": true
-        }
-      ]
-    },
-    {
-      "page": 44,
-      "visible_text": "投资概算、效益与管理验收 水土保持总投资26.9211万元（四-一） 44 1 总投资：水土保持总投资为26.9211万元。 2 分项构成：新增投资、主体工程已列投资和独立费用分项计列。 3 表内分项：2、高压洗车机。、台。",
-      "shape_count": 15,
-      "shapes": [
-        {
-          "name": "Rectangle 1",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 2",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.029,
-            0.66,
-            0.032
-          ],
-          "text": [
-            {
-              "text": "投资概算、效益与管理验收",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 3",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.075,
-            0.855,
-            0.067
-          ],
-          "text": [
-            {
-              "text": "水土保持总投资26.9211万元（四-一）",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.889,
-            0.045,
-            0.041,
-            0.027
-          ],
-          "text": [
-            {
-              "text": "44",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 5",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.035,
-            0.149,
-            0.893,
-            0.003
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 6",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.179,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.185,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "1",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.173,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "总投资：水土保持总投资为26.9211万元。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 9",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.225,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 10",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.231,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "2",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 11",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.22,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "分项构成：新增投资、主体工程已列投资和独立费用分项计列。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 12",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.272,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 13",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.278,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "3",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 14",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.267,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "表内分项：2、高压洗车机。、台。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "TableImage:T043",
-          "type": "PICTURE (13)",
-          "bbox_ratio": [
-            0.054,
-            0.442,
-            0.881,
-            0.35
-          ],
-          "picture": true
-        }
-      ]
-    },
-    {
-      "page": 45,
-      "visible_text": "投资概算、效益与管理验收 水土保持总投资26.9211万元（五-一） 45 1 总投资：水土保持总投资为26.9211万元。 2 分项构成：新增投资、主体工程已列投资和独立费用分项计列。 3 表内分项：（五）、水土保持设施验收报告编制。、10.3100",
-      "shape_count": 15,
-      "shapes": [
-        {
-          "name": "Rectangle 1",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 2",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.029,
-            0.66,
-            0.032
-          ],
-          "text": [
-            {
-              "text": "投资概算、效益与管理验收",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 3",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.075,
-            0.855,
-            0.067
-          ],
-          "text": [
-            {
-              "text": "水土保持总投资26.9211万元（五-一）",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.889,
-            0.045,
-            0.041,
-            0.027
-          ],
-          "text": [
-            {
-              "text": "45",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 5",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.035,
-            0.149,
-            0.893,
-            0.003
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 6",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.179,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.185,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "1",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.173,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "总投资：水土保持总投资为26.9211万元。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 9",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.225,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 10",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.231,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "2",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 11",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.22,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "分项构成：新增投资、主体工程已列投资和独立费用分项计列。",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 12",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.272,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 13",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.278,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "3",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 14",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.267,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "表内分项：（五）、水土保持设施验收报告编制。、10.3100",
-              "font_sizes": [
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 2
-            }
-          ]
-        },
-        {
-          "name": "TableImage:T044",
-          "type": "PICTURE (13)",
-          "bbox_ratio": [
-            0.054,
-            0.436,
-            0.881,
-            0.363
-          ],
-          "picture": true
-        }
-      ]
-    },
-    {
-      "page": 46,
-      "visible_text": "投资概算、效益与管理验收 水土保持补偿费51624元符合免征情形 46 1 征占面积：补偿费计算面积为34416m²。 2 计费标准：报告列示收费标准为1.5元/m²。 3 计算金额：水土保持补偿费为51624元，并列明免征依据。",
-      "shape_count": 15,
-      "shapes": [
-        {
-          "name": "Rectangle 1",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 2",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.029,
-            0.66,
-            0.032
-          ],
-          "text": [
-            {
-              "text": "投资概算、效益与管理验收",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 3",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.075,
-            0.855,
-            0.067
-          ],
-          "text": [
-            {
-              "text": "水土保持补偿费51624元符合免征情形",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.889,
-            0.045,
-            0.041,
-            0.027
-          ],
-          "text": [
-            {
-              "text": "46",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 5",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.035,
-            0.149,
-            0.893,
-            0.003
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 6",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.179,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.185,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "1",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.173,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "征占面积：补偿费计算面积为34416m²。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 9",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.225,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 10",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.231,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "2",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 11",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.22,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "计费标准：报告列示收费标准为1.5元/m²。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 12",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.272,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 13",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.278,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "3",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 14",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.089,
-            0.267,
-            0.842,
-            0.056
-          ],
-          "text": [
-            {
-              "text": "计算金额：水土保持补偿费为51624元，并列明免征依据。",
-              "font_sizes": [
-                14.2,
-                14.2,
-                14.2
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "TableImage:T045",
-          "type": "PICTURE (13)",
-          "bbox_ratio": [
-            0.054,
-            0.525,
-            0.881,
-            0.185
-          ],
-          "picture": true
-        }
-      ]
-    },
-    {
-      "page": 47,
-      "visible_text": "投资概算、效益与管理验收 六项防治效益指标达到报告目标值 47 1 治理度：水土流失总治理度设计达到值为99.99% 2 控制比：土壤流失控制比设计达到值满足报告目标。 3 效益结论：各项防治效益评估结果均为达标。",
-      "shape_count": 15,
-      "shapes": [
-        {
-          "name": "Rectangle 1",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 2",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.029,
-            0.66,
-            0.032
-          ],
-          "text": [
-            {
-              "text": "投资概算、效益与管理验收",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 3",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.035,
-            0.075,
-            0.855,
-            0.067
-          ],
-          "text": [
-            {
-              "text": "六项防治效益指标达到报告目标值",
-              "font_sizes": [
-                23.0,
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 3
-            }
-          ]
-        },
-        {
-          "name": "TextBox 4",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.889,
-            0.045,
-            0.041,
-            0.027
-          ],
-          "text": [
-            {
-              "text": "47",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "Rectangle 5",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.035,
-            0.149,
-            0.893,
-            0.003
-          ],
-          "text": []
-        },
-        {
-          "name": "Rectangle 6",
-          "type": "AUTO_SHAPE (1)",
-          "bbox_ratio": [
-            0.054,
-            0.179,
-            0.026,
-            0.04
-          ],
-          "text": []
-        },
-        {
-          "name": "TextBox 7",
-          "type": "TEXT_BOX (17)",
-          "bbox_ratio": [
-            0.057,
-            0.185,
-            0.019,
-            0.019
-          ],
-          "text": [
-            {
-              "text": "1",
-              "font_sizes": [],
-              "emphasized_runs": 0
-            }
-          ]
-        },
-        {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -10219,7 +9191,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -10236,7 +9208,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -10268,7 +9240,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.057,
@@ -10285,7 +9257,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.089,
@@ -10319,8 +9291,8 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
       ]
     },
     {
-      "page": 48,
-      "visible_text": "投资概算、效益与管理验收 验收管理落实后形成水土保持闭环 48 1 监理管理：水土保持监理纳入工程建设管理过程。 2 设施验收：水土保持设施验收完成后，工程闭环进入运行阶段。 3 资料管理：报告成果、验收资料和公开要求共同支撑后续管理。 水土保持设施验收完成后，项目形成措施、投资、效益和资料管理闭环。",
+      "page": 44,
+      "visible_text": "投资概算、效益与管理验收。 验收管理落实后形成水土保持闭环。 44 1 监理管理：水土保持监理纳入工程建设管理过程。 2 设施验收：水土保持设施验收完成后，工程闭环进入运行阶段。 3 资料管理：报告成果、验收资料和公开要求共同支撑后续管理。 水土保持设施验收完成后，项目形成措施、投资、效益和资料管理闭环。",
       "shape_count": 16,
       "shapes": [
         {
@@ -10335,7 +9307,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 2",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -10345,14 +9317,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "投资概算、效益与管理验收",
+              "text": "投资概算、效益与管理验收。",
               "font_sizes": [],
               "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 3",
+          "name": "title_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.035,
@@ -10362,17 +9334,14 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "验收管理落实后形成水土保持闭环",
-              "font_sizes": [
-                23.0,
-                23.0
-              ],
-              "emphasized_runs": 2
+              "text": "验收管理落实后形成水土保持闭环。",
+              "font_sizes": [],
+              "emphasized_runs": 0
             }
           ]
         },
         {
-          "name": "TextBox 4",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.889,
@@ -10382,7 +9351,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ],
           "text": [
             {
-              "text": "48",
+              "text": "44",
               "font_sizes": [],
               "emphasized_runs": 0
             }
@@ -10411,7 +9380,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 7",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.077,
@@ -10428,7 +9397,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 8",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.109,
@@ -10456,7 +9425,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 10",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.077,
@@ -10473,7 +9442,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 11",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.109,
@@ -10501,7 +9470,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 13",
+          "name": "page_meta_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.077,
@@ -10518,7 +9487,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           ]
         },
         {
-          "name": "TextBox 14",
+          "name": "bullet_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.109,
@@ -10546,7 +9515,7 @@ You are a senior Chinese engineering-PPT reviewer. Review the following PPTX ext
           "text": []
         },
         {
-          "name": "TextBox 16",
+          "name": "body_text_emphasis_textbox",
           "type": "TEXT_BOX (17)",
           "bbox_ratio": [
             0.092,

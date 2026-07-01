@@ -246,6 +246,8 @@ Visible text rules:
   responsibility/action phrases with bold, accent color, subtle highlight fill, or another
   readable emphasis treatment. Emphasis must clarify the source meaning; do not over-highlight
   decorative words.
+- Do not color-highlight chapter names, chapter-divider titles, or header chapter labels.
+  Visible emphasis is limited to substantive body content.
 - After final font sizing, verify text-box capacity and table-cell capacity; if text does not
   fit at the minimum font size, shorten, enlarge, or split the page.
 
@@ -304,9 +306,10 @@ Local source-preservation overrides:
     ratio and visual format over editability.
   - `hybrid`: source table crop plus 2-4 concise table-grounded conclusions rendered by
     `HybridTableRenderer`.
-  Complex tables, cross-page tables, dense merged headers, diagonal headers, nested tables,
-  unstable PDF tables, and scan/image PDFs must default to `image` or `hybrid`; never force
-  editability when it would break source format.
+  Complex tables, dense merged headers, diagonal headers, nested tables, unstable PDF tables,
+  and scan/image PDFs should default to `image` or `hybrid` only when they remain readable
+  on one slide. Tables that would require cross-page display or text below the readable
+  floor are skipped from visible PPT content and kept only in backend evidence/notes.
 - Render small and medium table models with `scripts/pptx_merged_table_renderer.py` so
   PowerPoint receives real merged cells, not visually simulated blanks. If a merged table
   has too many rows or columns to remain readable, switch to a wide table layout, split the
@@ -319,7 +322,9 @@ Local source-preservation overrides:
   from aspect ratio and figure count instead of a fixed card grid.
 - Center table cell content horizontally and vertically by default unless the source table
   clearly requires another alignment.
-- Split or crop source tables instead of shrinking them.
+- Do not split or crop overlong source tables into cross-page PPT content. If a source table
+  cannot remain readable on one slide, omit the table from visible PPT pages and preserve
+  its locator in backend evidence/quality records.
 - Planned source figures are mandatory evidence. If a planned figure cannot be located or
   embedded, stop and repair the source/media mapping or change the deck plan with a recorded
   reason. Never silently replace a required figure with a generic placeholder.
@@ -477,15 +482,21 @@ Read [release-gates.md](references/release-gates.md) and
 3. render every slide and inspect contact sheet plus full-size pages
 4. local strict audit before export
 5. native PPTX export
-6. local strict audit with the PPTX, including paragraph structure, visible emphasis, and
+6. `PostGenerationReviewPipeline` after PPTX export:
+   `scripts\ppt-agent.cmd post-review "<project>" -Pptx "<file>"`. This runs
+   ContentReview, FormatReview, FactConsistencyReview, VisualReview, emits structured
+   IssueList files, auto-repairs fixable critical/high issues, reruns review for up to
+   three rounds, and writes `qa/review_report.json`. A PPTX is not deliverable until this
+   pipeline has run.
+7. local strict audit with the reviewed PPTX, including paragraph structure, visible emphasis, and
    source-table fidelity checks
-7. AI model review gate after PPTX export:
+8. AI model review gate after PPTX export:
    `scripts\ppt-agent.cmd ai-review "<project>" -Pptx "<file>"`. Treat `error`
    findings as blocking defects, revise the deck or project builder, rerun strict audit,
    and rerun AI review until the review passes. If the model call is blocked by missing
    API credentials, network, or provider failure, keep `qa/ai_review_prompt.md` and
    report the blocker instead of claiming the deck has been model-reviewed.
-8. GitHub upload gate: commit and push this run's relevant project artifacts,
+9. GitHub upload gate: commit and push this run's relevant project artifacts,
    contracts, QA records, exports, and local agent-rule changes to `origin`
 
 Commands:
@@ -493,6 +504,7 @@ Commands:
 ```powershell
 scripts\ppt-agent.cmd audit "<project>" -Strict
 scripts\ppt-agent.cmd audit "<project>" -Strict -Pptx "<file>"
+scripts\ppt-agent.cmd post-review "<project>" -Pptx "<file>"
 scripts\ppt-agent.cmd ai-review "<project>" -Pptx "<file>"
 ```
 

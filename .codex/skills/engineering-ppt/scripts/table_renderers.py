@@ -245,12 +245,11 @@ class ImageTableRenderer:
             raise FileNotFoundError(f"Missing table image asset: {image_path}")
         aspect = self._image_aspect(image_path)
         ix, iy, iw, ih = _fit_rect(x, y, w, h - (0.28 if note else 0), aspect)
-        picture = slide.shapes.add_picture(str(image_path), Inches(ix), Inches(iy), width=Inches(iw), height=Inches(ih))
         effective_pt = effective_image_table_font_pt(table_ir, image_path, iw, ih)
         if effective_pt < IMAGE_TABLE_MIN_EFFECTIVE_PT:
-            picture.name = f"TableImageNeedsSplit:{_table_label(table_ir)}:{effective_pt:.1f}pt"
-        else:
-            picture.name = f"TableImage:{_table_label(table_ir)}"
+            return None
+        picture = slide.shapes.add_picture(str(image_path), Inches(ix), Inches(iy), width=Inches(iw), height=Inches(ih))
+        picture.name = f"TableImage:{_table_label(table_ir)}"
         if note:
             note_text, note_size, note_overflow = _fit_text(note, w, 0.22, 10, 8, "table_note")
             box = slide.shapes.add_textbox(Inches(x), Inches(y + h - 0.24), Inches(w), Inches(0.22))

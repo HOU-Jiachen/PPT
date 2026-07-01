@@ -298,6 +298,21 @@ def init_project(
                 "unsupported_table_number_is_error": True,
                 "image_table_min_effective_pt": 10,
                 "table_image_source_dpi": 220,
+                "skip_tables_requiring_cross_page": True,
+            },
+            "post_generation_review": {
+                "enabled": True,
+                "max_repair_rounds": 3,
+                "issue_list_schema": "structured",
+                "blocking_severities": ["critical", "high"],
+                "review_stages": [
+                    "ContentReview",
+                    "FormatReview",
+                    "FactConsistencyReview",
+                    "VisualReview",
+                    "AutoRepair",
+                ],
+                "report": "qa/review_report.json",
             },
             "duplicate_content": {
                 "enabled": True,

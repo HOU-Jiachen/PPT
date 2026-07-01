@@ -7,7 +7,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from PIL import Image
 from pptx import Presentation
 from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches
@@ -357,41 +356,17 @@ def table_effective_font(locator: str, w: float, h: float) -> float:
     return effective_image_table_font_pt(table, image_path, w, h)
 
 
-def split_part_effective_font(locator: str, parts: int, w: float, h: float) -> float:
-    table = table_for_locator(locator)
-    if table is None:
-        return 0.0
-    image_path = table_image_path(table)
-    if image_path is None:
-        return 0.0
-    with Image.open(image_path) as image:
-        crop_h = max(1, image.height // max(1, parts))
-        original_w_pt = image.width / 220.0 * 72.0
-        original_h_pt = crop_h / 220.0 * 72.0
-    source_font = min(
-        [
-            float(cell.get("style", {}).get("font_size", 10.5))
-            for cell in table.get("cells", [])
-            if str(cell.get("text", "")).strip()
-        ]
-        or [10.5]
-    )
-    scale = min(w * 72.0 / max(original_w_pt, 1.0), h * 72.0 / max(original_h_pt, 1.0))
-    return source_font * scale
-
-
 def required_table_parts(locator: str) -> int:
     if table_effective_font(locator, 12.1, 5.35) >= 10:
         return 1
-    for parts in range(2, 5):
-        if split_part_effective_font(locator, parts, 12.1, 5.15) >= 10:
-            return parts
-    return 4
+    return 0
+
+
+def usable_table_locators(locators: list[str]) -> list[str]:
+    return [locator for locator in locators if required_table_parts(locator) == 1]
 
 
 def best_table_layout(locator: str) -> str:
-    if required_table_parts(locator) > 1:
-        return "table_split"
     wide_score = table_effective_font(locator, 11.74, 4.42)
     side_score = table_effective_font(locator, 6.92, 5.45)
     return "wide_table" if wide_score >= side_score else "side_table"
@@ -432,32 +407,30 @@ def expanded_pages() -> list[dict[str, Any]]:
             continue
         if page.get("type") in {"cover", "agenda", "closing"} or len(locators) <= 1:
             clone = dict(page)
+            display_locators = usable_table_locators(locators)
+            clone["evidence_tables"] = locators
+            clone["tables"] = display_locators
             if len(locators) == 1 and clone.get("layout") not in {"overview", "closing"}:
-                parts = required_table_parts(locators[0])
-                clone["layout"] = "table_split" if parts > 1 else best_table_layout(locators[0])
-                clone["table_parts"] = parts
-                clone["table_part"] = 1
+                clone["layout"] = best_table_layout(display_locators[0]) if display_locators else "text_only"
             pages.append(clone)
-            if len(locators) == 1:
-                for part in range(2, int(pages[-1].get("table_parts", 1)) + 1):
-                    continuation = dict(pages[-1])
-                    continuation["title"] = f"{page['title']}（{chinese_suffix(part)}）"
-                    continuation["table_part"] = part
-                    continuation["bullets"] = continuation_bullets(page, locators[0], 1 + (part - 1) * 3)
-                    pages.append(continuation)
             continue
         for index, locator in enumerate(locators, start=1):
-            parts = required_table_parts(locator)
-            for part in range(1, parts + 1):
-                clone = dict(page)
-                clone["tables"] = [locator]
-                clone["layout"] = "table_split" if parts > 1 else best_table_layout(locator)
-                clone["table_parts"] = parts
-                clone["table_part"] = part
-                if index > 1 or part > 1:
-                    clone["title"] = f"{page['title']}（{chinese_suffix(index)}-{chinese_suffix(part)}）"
-                clone["bullets"] = continuation_bullets(page, locator, index + (part - 1) * 3)
-                pages.append(clone)
+            if required_table_parts(locator) != 1:
+                continue
+            clone = dict(page)
+            clone["evidence_tables"] = locators
+            clone["tables"] = [locator]
+            clone["layout"] = best_table_layout(locator)
+            if index > 1:
+                clone["title"] = f"{page['title']}（{chinese_suffix(index)}）"
+            clone["bullets"] = continuation_bullets(page, locator, index)
+            pages.append(clone)
+        if not any(required_table_parts(locator) == 1 for locator in locators):
+            clone = dict(page)
+            clone["evidence_tables"] = locators
+            clone["tables"] = []
+            clone["layout"] = "text_only"
+            pages.append(clone)
     return pages
 
 
@@ -653,7 +626,7 @@ def slide_bg(slide) -> None:
 
 
 def add_header(slide, title: str, chapter: str, page_no: int) -> None:
-    add_textbox(slide, 0.46, 0.22, 8.8, 0.24, chapter, 10, "accent", True, colors=COLORS, component="page_meta")
+    add_textbox(slide, 0.46, 0.22, 8.8, 0.24, chapter, 10, "muted", True, colors=COLORS, component="page_meta")
     add_emphasis_textbox(slide, 0.46, 0.56, 11.4, 0.50, title, 23, "ink", colors=COLORS, component="title", bold=True)
     add_textbox(slide, 11.85, 0.34, 0.55, 0.20, f"{page_no:02d}", 9, "muted", True, align=PP_ALIGN.RIGHT, colors=COLORS, component="page_meta")
     add_fill(slide, 0.46, 1.12, 11.9, 0.02, "accent", "accent", colors=COLORS)
@@ -688,42 +661,6 @@ def add_table_picture(slide, locator: str, x: float, y: float, w: float, h: floa
         return
     render_mode = mode or "image"
     add_ir_table(slide, PROJECT_DIR, locator, x, y, w, h, mode=render_mode, colors=COLORS)
-
-
-def split_table_crop(locator: str, part: int, parts: int) -> Path:
-    table = table_for_locator(locator)
-    if table is None:
-        raise ValueError(f"Unknown table locator: {locator}")
-    image_path = table_image_path(table)
-    if image_path is None:
-        raise FileNotFoundError(f"Missing table image for {locator}")
-    out_dir = PROJECT_DIR / "tables" / "splits"
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out = out_dir / f"{table.get('table_id', locator)}_part{part}of{parts}.png"
-    if out.exists() and out.stat().st_mtime >= image_path.stat().st_mtime:
-        return out
-    with Image.open(image_path) as image:
-        top = round((part - 1) * image.height / parts)
-        bottom = round(part * image.height / parts)
-        overlap = 12 if part > 1 else 0
-        crop = image.crop((0, max(0, top - overlap), image.width, bottom))
-        crop.save(out)
-    return out
-
-
-def add_split_table_picture(slide, locator: str, part: int, parts: int, x: float, y: float, w: float, h: float) -> None:
-    path = split_table_crop(locator, part, parts)
-    with Image.open(path) as image:
-        aspect = image.width / max(1, image.height)
-    box_aspect = w / max(0.01, h)
-    if box_aspect > aspect:
-        fitted_w = h * aspect
-        ix, iy, iw, ih = x + (w - fitted_w) / 2, y, fitted_w, h
-    else:
-        fitted_h = w / aspect
-        ix, iy, iw, ih = x, y + (h - fitted_h) / 2, w, fitted_h
-    picture = slide.shapes.add_picture(str(path), Inches(ix), Inches(iy), width=Inches(iw), height=Inches(ih))
-    picture.name = f"TableImage:{locator}:part{part}of{parts}"
 
 
 def add_multiple_table_strip(slide, locators: list[str], x: float, y: float, w: float, h: float) -> None:
@@ -786,7 +723,7 @@ def render_agenda(prs: Presentation, page_no: int) -> None:
         y = 1.94 + row * 0.96
         add_fill(slide, x, y, col_w, 0.74, "paper", "line", colors=COLORS)
         add_textbox(slide, x + 0.18, y + 0.19, 0.45, 0.18, f"{idx:02d}", 15, "accent", True, colors=COLORS, component="page_meta")
-        add_emphasis_textbox(slide, x + 0.78, y + 0.14, col_w - 1.0, 0.24, chapter, 15, "ink", emphasis_terms=["水土保持", "责任", "措施", "投资", "验收"], bold=True, colors=COLORS, component="body_text")
+        add_textbox(slide, x + 0.78, y + 0.14, col_w - 1.0, 0.24, chapter, 15, "ink", True, colors=COLORS, component="body_text")
 
 
 def render_section(prs: Presentation, chapter: str, summary: str, seq: int, page_no: int) -> None:
@@ -835,21 +772,12 @@ def render_content(prs: Presentation, page: dict[str, Any], page_no: int) -> Non
     if layout == "wide_table":
         add_numbered_points(slide, bullets, 0.72, 1.30, 11.7, 1.05, 14.2)
         add_table_picture(slide, locators[0], 0.72, 2.42, 11.74, 4.42)
-    elif layout == "table_split":
-        add_numbered_points(slide, bullets, 0.72, 1.28, 11.7, 0.88, 13.8)
-        add_split_table_picture(
-            slide,
-            locators[0],
-            int(page.get("table_part", 1)),
-            int(page.get("table_parts", 1)),
-            0.62,
-            2.24,
-            12.10,
-            4.92,
-        )
     elif layout == "overview":
         add_numbered_points(slide, bullets, 0.72, 1.38, 5.2, 4.46, 15.2)
-        add_multiple_table_strip(slide, locators[:3], 6.18, 1.40, 6.08, 4.92)
+        if locators:
+            add_multiple_table_strip(slide, locators[:3], 6.18, 1.40, 6.08, 4.92)
+    elif layout == "text_only":
+        add_numbered_points(slide, bullets, 0.92, 1.50, 11.0, 4.65, 16.2)
     elif layout == "closing":
         add_numbered_points(slide, bullets, 0.98, 1.58, 7.9, 3.25, 17)
         add_fill(slide, 0.98, 5.26, 10.5, 0.62, "soft", "line", colors=COLORS)

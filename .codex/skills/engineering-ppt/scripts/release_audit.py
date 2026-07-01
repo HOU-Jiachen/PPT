@@ -1753,7 +1753,7 @@ def audit_pptx_image_table_readability(
             if effective_pt < minimum:
                 audit.error(
                     "pptx-image-table-font-too-small",
-                    "Source table crop is displayed below the readable table-text floor; enlarge it or split it onto a new slide.",
+                    "Source table crop is displayed below the readable table-text floor; enlarge it on one slide or omit the overlong table from visible PPT content.",
                     page=slide_index,
                     table=table.get("locator") or table.get("table_id"),
                     effective_font_size=round(effective_pt, 2),
@@ -1773,6 +1773,8 @@ def is_structural_pptx_slide(all_text: str) -> bool:
     if "章节内容保留报告中的源表" in text and "后续页面以该章节证据为核心" in text:
         return True
     if "工程评审汇报" in text and "专项勘察" in text and "依据报告章节" in text:
+        return True
+    if "水土保持方案报告表" in text and "技术汇报" in text:
         return True
     return False
 

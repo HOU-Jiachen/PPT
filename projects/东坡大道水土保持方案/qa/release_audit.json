@@ -8,11 +8,11 @@
   "metadata": {
     "project": "projects/东坡大道水土保持方案",
     "strict": true,
-    "planned_slides": 40,
-    "expected_pptx_slides": 48,
+    "planned_slides": 36,
+    "expected_pptx_slides": 44,
     "svg_slides": 0,
     "content_units": 385,
-    "pptx": "projects/东坡大道水土保持方案/exports/东坡大道水土保持方案当前agent测试_48页_20260701_105137.pptx"
+    "pptx": "projects/东坡大道水土保持方案/exports/东坡大道水土保持方案当前agent测试_44页_20260701_111514_review_round1_review_round2.pptx"
   },
   "findings": [
     {
@@ -41,10 +41,10 @@
           15,
           16,
           17,
-          18,
-          19,
-          20,
-          21,
+          24,
+          25,
+          26,
+          27,
           28,
           29,
           30,
@@ -52,11 +52,7 @@
           32,
           33,
           34,
-          35,
-          36,
-          37,
-          38,
-          39
+          35
         ]
       }
     },
@@ -65,7 +61,7 @@
       "code": "pptx-valid",
       "message": "PPTX package, XML, media, and parser checks passed.",
       "context": {
-        "slides": 48
+        "slides": 44
       }
     }
   ]

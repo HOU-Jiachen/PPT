@@ -80,42 +80,7 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-05-T004",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "综合报告表明确项目全局控制指标（二）",
-      "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T004",
-      "catalog_ids": [
-        "c5707cce:T004"
-      ],
-      "verification_status": "verified",
-      "exact_text": "项目 概况。",
-      "values": [
-        {
-          "value": "6.2公里",
-          "unit": "",
-          "time_basis": "source"
-        },
-        {
-          "value": "2.2公里",
-          "unit": "",
-          "time_basis": "source"
-        },
-        {
-          "value": "34416.00m²",
-          "unit": "",
-          "time_basis": "source"
-        },
-        {
-          "value": "34416.00",
-          "unit": "",
-          "time_basis": "source"
-        }
-      ],
-      "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
-    },
-    {
-      "id": "E-06-T008",
+      "id": "E-05-T008",
       "kind": "ORIGINAL_TABLE",
       "summary": "工程特性表锁定规模、投资、工期和占地。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
@@ -150,51 +115,17 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-07-T008",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "工程特性表锁定规模、投资、工期和占地（二）",
-      "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T008",
-      "catalog_ids": [
-        "c5707cce:T008"
-      ],
-      "verification_status": "verified",
-      "exact_text": "一、项目的基本情况 1",
-      "values": [
-        {
-          "value": "8024.00万元",
-          "unit": "",
-          "time_basis": "source"
-        },
-        {
-          "value": "6914.95万元",
-          "unit": "",
-          "time_basis": "source"
-        },
-        {
-          "value": "13个月",
-          "unit": "",
-          "time_basis": "source"
-        },
-        {
-          "value": "4",
-          "unit": "",
-          "time_basis": "source"
-        }
-      ],
-      "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
-    },
-    {
-      "id": "E-08-T006",
+      "id": "E-06-T006-T013",
       "kind": "ORIGINAL_TABLE",
       "summary": "防治责任范围全部纳入管网工程区临时占地。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T006",
+      "source_locator": "T006, T013",
       "catalog_ids": [
-        "c5707cce:T006"
+        "c5707cce:T006",
+        "c5707cce:T013"
       ],
       "verification_status": "verified",
-      "exact_text": "分区。",
+      "exact_text": "分区。 分区。",
       "values": [
         {
           "value": "34416.00m²",
@@ -215,16 +146,17 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-09-T013",
+      "id": "E-07-T006-T013",
       "kind": "ORIGINAL_TABLE",
-      "summary": "防治责任范围全部纳入管网工程区临时占地（二-一）",
+      "summary": "防治责任范围全部纳入管网工程区临时占地（二）",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T013",
+      "source_locator": "T006, T013",
       "catalog_ids": [
+        "c5707cce:T006",
         "c5707cce:T013"
       ],
       "verification_status": "verified",
-      "exact_text": "分区。",
+      "exact_text": "分区。 分区。",
       "values": [
         {
           "value": "34151.00m²",
@@ -240,7 +172,7 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-10-T007",
+      "id": "E-08-T007",
       "kind": "ORIGINAL_TABLE",
       "summary": "六项防治指标采用南方红壤区一级标准。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
@@ -265,7 +197,7 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-11-T014",
+      "id": "E-09-T014",
       "kind": "ORIGINAL_TABLE",
       "summary": "表土剥离量按公园与绿地扰动面积计列。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
@@ -300,7 +232,7 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-12-T015",
+      "id": "E-10-T015",
       "kind": "ORIGINAL_TABLE",
       "summary": "土石方平衡显示弃方委托消纳、借方外购。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
@@ -314,63 +246,39 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-13-T018",
+      "id": "E-11-T018-T019-T020",
       "kind": "ORIGINAL_TABLE",
       "summary": "法律和技术标准评价结论均为符合。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T018",
+      "source_locator": "T018, T019, T020",
       "catalog_ids": [
-        "c5707cce:T018"
-      ],
-      "verification_status": "verified",
-      "exact_text": "序号。",
-      "values": [],
-      "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
-    },
-    {
-      "id": "E-14-T019",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "法律和技术标准评价结论均为符合（二-一）",
-      "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T019",
-      "catalog_ids": [
-        "c5707cce:T019"
-      ],
-      "verification_status": "verified",
-      "exact_text": "序号。",
-      "values": [],
-      "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
-    },
-    {
-      "id": "E-15-T019",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "法律和技术标准评价结论均为符合（二-二）",
-      "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T019",
-      "catalog_ids": [
-        "c5707cce:T019"
-      ],
-      "verification_status": "verified",
-      "exact_text": "序号。",
-      "values": [],
-      "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
-    },
-    {
-      "id": "E-16-T020",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "法律和技术标准评价结论均为符合（三-一）",
-      "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T020",
-      "catalog_ids": [
+        "c5707cce:T018",
+        "c5707cce:T019",
         "c5707cce:T020"
       ],
       "verification_status": "verified",
-      "exact_text": "条款。",
+      "exact_text": "序号。 序号。 条款。",
       "values": [],
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-17-T021",
+      "id": "E-12-T018-T019-T020",
+      "kind": "ORIGINAL_TABLE",
+      "summary": "法律和技术标准评价结论均为符合（三）",
+      "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
+      "source_locator": "T018, T019, T020",
+      "catalog_ids": [
+        "c5707cce:T018",
+        "c5707cce:T019",
+        "c5707cce:T020"
+      ],
+      "verification_status": "verified",
+      "exact_text": "序号。 序号。 条款。",
+      "values": [],
+      "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
+    },
+    {
+      "id": "E-13-T021",
       "kind": "ORIGINAL_TABLE",
       "summary": "主体工程已列措施以土地整治和铺种草皮为主。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
@@ -384,13 +292,16 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-18-T023",
+      "id": "E-14-T023-T024-T025",
       "kind": "ORIGINAL_TABLE",
       "summary": "预测范围与防治责任范围保持一致。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T023",
+      "source_locator": "T023, T024, T025, T026",
       "catalog_ids": [
-        "c5707cce:T023"
+        "c5707cce:T023",
+        "c5707cce:T024",
+        "c5707cce:T025",
+        "c5707cce:T026"
       ],
       "verification_status": "verified",
       "exact_text": "项目组成。",
@@ -404,87 +315,43 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-19-T024",
+      "id": "E-15-T023-T024-T025",
       "kind": "ORIGINAL_TABLE",
-      "summary": "预测范围与防治责任范围保持一致（二-一）",
+      "summary": "预测范围与防治责任范围保持一致（二）",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T024",
+      "source_locator": "T023, T024, T025, T026",
       "catalog_ids": [
-        "c5707cce:T024"
-      ],
-      "verification_status": "verified",
-      "exact_text": "项目组成；占地类型；合计；公共管理与公共服务用地；公园与绿地；管网工程区；265.00；265.00 合计；265.00；265.00",
-      "values": [
-        {
-          "value": "34416.00m²",
-          "unit": "",
-          "time_basis": "source"
-        },
-        {
-          "value": "265.00",
-          "unit": "",
-          "time_basis": "source"
-        },
-        {
-          "value": "265.00",
-          "unit": "",
-          "time_basis": "source"
-        },
-        {
-          "value": "265.00",
-          "unit": "",
-          "time_basis": "source"
-        },
-        {
-          "value": "265.00",
-          "unit": "",
-          "time_basis": "source"
-        }
-      ],
-      "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
-    },
-    {
-      "id": "E-20-T025",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "预测范围与防治责任范围保持一致（三-一）",
-      "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T025",
-      "catalog_ids": [
-        "c5707cce:T025"
-      ],
-      "verification_status": "verified",
-      "exact_text": "水土流失预测分区。",
-      "values": [
-        {
-          "value": "265.00",
-          "unit": "",
-          "time_basis": "source"
-        }
-      ],
-      "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
-    },
-    {
-      "id": "E-21-T026",
-      "kind": "ORIGINAL_TABLE",
-      "summary": "预测范围与防治责任范围保持一致（四-一）",
-      "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T026",
-      "catalog_ids": [
+        "c5707cce:T023",
+        "c5707cce:T024",
+        "c5707cce:T025",
         "c5707cce:T026"
       ],
       "verification_status": "verified",
-      "exact_text": "预测范围；预测面积（m²）；预测时段（a）；施工期；自然恢复期；施工期；自然恢复期 管网工程区；34416.00；265.00；1；2",
+      "exact_text": "项目组成。",
       "values": [
         {
           "value": "34416.00m²",
           "unit": "",
           "time_basis": "source"
-        },
-        {
-          "value": "34416.00",
-          "unit": "",
-          "time_basis": "source"
-        },
+        }
+      ],
+      "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
+    },
+    {
+      "id": "E-16-T023-T024-T025",
+      "kind": "ORIGINAL_TABLE",
+      "summary": "预测范围与防治责任范围保持一致（三）",
+      "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
+      "source_locator": "T023, T024, T025, T026",
+      "catalog_ids": [
+        "c5707cce:T023",
+        "c5707cce:T024",
+        "c5707cce:T025",
+        "c5707cce:T026"
+      ],
+      "verification_status": "verified",
+      "exact_text": "项目组成。",
+      "values": [
         {
           "value": "265.00",
           "unit": "",
@@ -494,16 +361,40 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-22-T027",
+      "id": "E-17-T023-T024-T025",
+      "kind": "ORIGINAL_TABLE",
+      "summary": "预测范围与防治责任范围保持一致（四）",
+      "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
+      "source_locator": "T023, T024, T025, T026",
+      "catalog_ids": [
+        "c5707cce:T023",
+        "c5707cce:T024",
+        "c5707cce:T025",
+        "c5707cce:T026"
+      ],
+      "verification_status": "verified",
+      "exact_text": "项目组成。",
+      "values": [
+        {
+          "value": "34416.00m²",
+          "unit": "",
+          "time_basis": "source"
+        }
+      ],
+      "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
+    },
+    {
+      "id": "E-18-T027-T028",
       "kind": "CALCULATION",
       "summary": "背景土壤侵蚀模数由占地类型加权形成。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T027",
+      "source_locator": "T027, T028",
       "catalog_ids": [
-        "c5707cce:T027"
+        "c5707cce:T027",
+        "c5707cce:T028"
       ],
       "verification_status": "verified",
-      "exact_text": "序号。",
+      "exact_text": "序号。 预测分区。",
       "values": [
         {
           "value": "260t",
@@ -532,16 +423,17 @@
       }
     },
     {
-      "id": "E-23-T028",
+      "id": "E-19-T027-T028",
       "kind": "CALCULATION",
-      "summary": "背景土壤侵蚀模数由占地类型加权形成（二-一）",
+      "summary": "背景土壤侵蚀模数由占地类型加权形成（二）",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T028",
+      "source_locator": "T027, T028",
       "catalog_ids": [
+        "c5707cce:T027",
         "c5707cce:T028"
       ],
       "verification_status": "verified",
-      "exact_text": "预测分区。",
+      "exact_text": "序号。 预测分区。",
       "values": [
         {
           "value": "450t",
@@ -565,16 +457,19 @@
       }
     },
     {
-      "id": "E-24-T030",
+      "id": "E-20-T030-T031-T032",
       "kind": "CALCULATION",
       "summary": "施工期侵蚀模数显著高于背景值。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T030",
+      "source_locator": "T030, T031, T032, T033",
       "catalog_ids": [
-        "c5707cce:T030"
+        "c5707cce:T030",
+        "c5707cce:T031",
+        "c5707cce:T032",
+        "c5707cce:T033"
       ],
       "verification_status": "verified",
-      "exact_text": "序号。",
+      "exact_text": "序号。 序号。 序号。 分区；本项目土壤侵蚀模数取值（t/km²·a）；施工期；自然恢复期 管网工程区；3018.60；322.11",
       "values": [
         {
           "value": "1153.34t",
@@ -590,6 +485,16 @@
           "value": "3018.60t",
           "unit": "",
           "time_basis": "source"
+        },
+        {
+          "value": "3018.60",
+          "unit": "",
+          "time_basis": "source"
+        },
+        {
+          "value": "322.11",
+          "unit": "",
+          "time_basis": "source"
         }
       ],
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。",
@@ -602,16 +507,19 @@
       }
     },
     {
-      "id": "E-25-T031",
+      "id": "E-21-T030-T031-T032",
       "kind": "CALCULATION",
-      "summary": "施工期侵蚀模数显著高于背景值（二-一）",
+      "summary": "施工期侵蚀模数显著高于背景值（二）",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T031",
+      "source_locator": "T030, T031, T032, T033",
       "catalog_ids": [
-        "c5707cce:T031"
+        "c5707cce:T030",
+        "c5707cce:T031",
+        "c5707cce:T032",
+        "c5707cce:T033"
       ],
       "verification_status": "verified",
-      "exact_text": "序号。",
+      "exact_text": "序号。 序号。 序号。 分区；本项目土壤侵蚀模数取值（t/km²·a）；施工期；自然恢复期 管网工程区；3018.60；322.11",
       "values": [
         {
           "value": "3032.58t",
@@ -627,6 +535,16 @@
           "value": "1.1",
           "unit": "",
           "time_basis": "source"
+        },
+        {
+          "value": "3018.60",
+          "unit": "",
+          "time_basis": "source"
+        },
+        {
+          "value": "322.11",
+          "unit": "",
+          "time_basis": "source"
         }
       ],
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。",
@@ -639,16 +557,19 @@
       }
     },
     {
-      "id": "E-26-T032",
+      "id": "E-22-T030-T031-T032",
       "kind": "CALCULATION",
-      "summary": "施工期侵蚀模数显著高于背景值（三-一）",
+      "summary": "施工期侵蚀模数显著高于背景值（三）",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T032",
+      "source_locator": "T030, T031, T032, T033",
       "catalog_ids": [
-        "c5707cce:T032"
+        "c5707cce:T030",
+        "c5707cce:T031",
+        "c5707cce:T032",
+        "c5707cce:T033"
       ],
       "verification_status": "verified",
-      "exact_text": "序号。",
+      "exact_text": "序号。 序号。 序号。 分区；本项目土壤侵蚀模数取值（t/km²·a）；施工期；自然恢复期 管网工程区；3018.60；322.11",
       "values": [
         {
           "value": "3018.60t",
@@ -664,6 +585,16 @@
           "value": "1.3",
           "unit": "",
           "time_basis": "source"
+        },
+        {
+          "value": "3018.60",
+          "unit": "",
+          "time_basis": "source"
+        },
+        {
+          "value": "322.11",
+          "unit": "",
+          "time_basis": "source"
         }
       ],
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。",
@@ -676,16 +607,19 @@
       }
     },
     {
-      "id": "E-27-T033",
+      "id": "E-23-T030-T031-T032",
       "kind": "CALCULATION",
-      "summary": "施工期侵蚀模数显著高于背景值（四-一）",
+      "summary": "施工期侵蚀模数显著高于背景值（四）",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T033",
+      "source_locator": "T030, T031, T032, T033",
       "catalog_ids": [
+        "c5707cce:T030",
+        "c5707cce:T031",
+        "c5707cce:T032",
         "c5707cce:T033"
       ],
       "verification_status": "verified",
-      "exact_text": "分区；本项目土壤侵蚀模数取值（t/km²·a）；施工期；自然恢复期 管网工程区；3018.60；322.11",
+      "exact_text": "序号。 序号。 序号。 分区；本项目土壤侵蚀模数取值（t/km²·a）；施工期；自然恢复期 管网工程区；3018.60；322.11",
       "values": [
         {
           "value": "1153.34t",
@@ -718,7 +652,7 @@
       }
     },
     {
-      "id": "E-28-T034",
+      "id": "E-24-T034",
       "kind": "ORIGINAL_TABLE",
       "summary": "预测土壤流失总量104.05t，新增量94.92t。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
@@ -743,7 +677,7 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-29-T035",
+      "id": "E-25-T035",
       "kind": "ORIGINAL_TABLE",
       "summary": "防治分区为管网工程区，防治面积34416.00m²。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
@@ -773,30 +707,32 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-30-T036",
+      "id": "E-26-T036-T037",
       "kind": "ORIGINAL_TABLE",
       "summary": "措施体系覆盖工程、植物和临时三类措施。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T036",
+      "source_locator": "T036, T037",
       "catalog_ids": [
-        "c5707cce:T036"
+        "c5707cce:T036",
+        "c5707cce:T037"
       ],
       "verification_status": "verified",
-      "exact_text": "防治分区。",
+      "exact_text": "防治分区。 项目组成。",
       "values": [],
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-31-T037",
+      "id": "E-27-T036-T037",
       "kind": "ORIGINAL_TABLE",
-      "summary": "措施体系覆盖工程、植物和临时三类措施（二-一）",
+      "summary": "措施体系覆盖工程、植物和临时三类措施（二）",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T037",
+      "source_locator": "T036, T037",
       "catalog_ids": [
+        "c5707cce:T036",
         "c5707cce:T037"
       ],
       "verification_status": "verified",
-      "exact_text": "项目组成。",
+      "exact_text": "防治分区。 项目组成。",
       "values": [
         {
           "value": "79.5",
@@ -807,7 +743,7 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-32-T038",
+      "id": "E-28-T038",
       "kind": "ORIGINAL_TABLE",
       "summary": "措施实施进度嵌入2025—2026年施工窗口。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
@@ -842,16 +778,20 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-33-T040",
+      "id": "E-29-T040-T041-T042",
       "kind": "ORIGINAL_TABLE",
       "summary": "水土保持总投资26.9211万元。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T040",
+      "source_locator": "T040, T041, T042, T043, T044",
       "catalog_ids": [
-        "c5707cce:T040"
+        "c5707cce:T040",
+        "c5707cce:T041",
+        "c5707cce:T042",
+        "c5707cce:T043",
+        "c5707cce:T044"
       ],
       "verification_status": "verified",
-      "exact_text": "编号。",
+      "exact_text": "编号。 项目区或措施名称。 项目区或措施名称。 项目区或措施名称。 工程或费用名称。",
       "values": [
         {
           "value": "26.9211万元",
@@ -862,16 +802,20 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-34-T041",
+      "id": "E-30-T040-T041-T042",
       "kind": "ORIGINAL_TABLE",
-      "summary": "水土保持总投资26.9211万元（二-一）",
+      "summary": "水土保持总投资26.9211万元（二）",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T041",
+      "source_locator": "T040, T041, T042, T043, T044",
       "catalog_ids": [
-        "c5707cce:T041"
+        "c5707cce:T040",
+        "c5707cce:T041",
+        "c5707cce:T042",
+        "c5707cce:T043",
+        "c5707cce:T044"
       ],
       "verification_status": "verified",
-      "exact_text": "项目区或措施名称。",
+      "exact_text": "编号。 项目区或措施名称。 项目区或措施名称。 项目区或措施名称。 工程或费用名称。",
       "values": [
         {
           "value": "0.1827",
@@ -882,30 +826,38 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-35-T042",
+      "id": "E-31-T040-T041-T042",
       "kind": "ORIGINAL_TABLE",
-      "summary": "水土保持总投资26.9211万元（三-一）",
+      "summary": "水土保持总投资26.9211万元（三）",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T042",
+      "source_locator": "T040, T041, T042, T043, T044",
       "catalog_ids": [
-        "c5707cce:T042"
+        "c5707cce:T040",
+        "c5707cce:T041",
+        "c5707cce:T042",
+        "c5707cce:T043",
+        "c5707cce:T044"
       ],
       "verification_status": "verified",
-      "exact_text": "项目区或措施名称。",
+      "exact_text": "编号。 项目区或措施名称。 项目区或措施名称。 项目区或措施名称。 工程或费用名称。",
       "values": [],
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-36-T043",
+      "id": "E-32-T040-T041-T042",
       "kind": "ORIGINAL_TABLE",
-      "summary": "水土保持总投资26.9211万元（四-一）",
+      "summary": "水土保持总投资26.9211万元（四）",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T043",
+      "source_locator": "T040, T041, T042, T043, T044",
       "catalog_ids": [
-        "c5707cce:T043"
+        "c5707cce:T040",
+        "c5707cce:T041",
+        "c5707cce:T042",
+        "c5707cce:T043",
+        "c5707cce:T044"
       ],
       "verification_status": "verified",
-      "exact_text": "项目区或措施名称。",
+      "exact_text": "编号。 项目区或措施名称。 项目区或措施名称。 项目区或措施名称。 工程或费用名称。",
       "values": [
         {
           "value": "26.9211万元",
@@ -916,16 +868,20 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-37-T044",
+      "id": "E-33-T040-T041-T042",
       "kind": "ORIGINAL_TABLE",
-      "summary": "水土保持总投资26.9211万元（五-一）",
+      "summary": "水土保持总投资26.9211万元（五）",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
-      "source_locator": "T044",
+      "source_locator": "T040, T041, T042, T043, T044",
       "catalog_ids": [
+        "c5707cce:T040",
+        "c5707cce:T041",
+        "c5707cce:T042",
+        "c5707cce:T043",
         "c5707cce:T044"
       ],
       "verification_status": "verified",
-      "exact_text": "工程或费用名称。",
+      "exact_text": "编号。 项目区或措施名称。 项目区或措施名称。 项目区或措施名称。 工程或费用名称。",
       "values": [
         {
           "value": "26.9211万元",
@@ -941,7 +897,7 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-38-T045",
+      "id": "E-34-T045",
       "kind": "ORIGINAL_TABLE",
       "summary": "水土保持补偿费51624元符合免征情形。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
@@ -971,7 +927,7 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-39-T048",
+      "id": "E-35-T048",
       "kind": "ORIGINAL_TABLE",
       "summary": "六项防治效益指标达到报告目标值。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",
@@ -991,7 +947,7 @@
       "notes": "当前构建器由项目源目录、Table IR 和报告内容盘点生成。"
     },
     {
-      "id": "E-40-T048",
+      "id": "E-36-T048",
       "kind": "RECOMMENDATION",
       "summary": "验收管理落实后形成水土保持闭环。",
       "source_file": "中地环科-黄冈市东坡大道片区污水收集管网建设工程水土保持方案报告表-20260108.docx",

@@ -36,7 +36,12 @@ Run the following gates in order. A later success never cancels an earlier failu
     source-boundary wording, OCR/LLM/fallback/agent process terms, or planning phrases
     such as `本页用于`, `建议放置`, and `这里应该`; long report-style sentences must be
     compressed or moved to speaker notes.
-10e. AI model review after PPTX export: run `ppt-agent ai-review` on the exported PPTX.
+10e. Post-generation review and auto-repair: run `ppt-agent post-review` on the exported
+    PPTX before delivery. It must produce structured `issue_list_round_*.json` files,
+    auto-repair fixable critical/high issues, rerun review up to three times, and write
+    `qa/review_report.json`. Critical issues cannot pass. High issues must be fixed or
+    the offending content must be removed.
+10f. AI model review after PPTX export: run `ppt-agent ai-review` on the exported PPTX.
     Findings with severity `error` block release until the deck or project builder is
     revised and strict audit plus AI review are rerun.
 11. Chart verification: required for every data-driven chart.
@@ -85,6 +90,8 @@ Run the following gates in order. A later success never cancels an earlier failu
 - complex source table reconstructed by the LLM or via Markdown instead of rendered from
   Table IR as native/image/hybrid
 - image/hybrid table inserted with distorted aspect ratio or without a source-derived crop
+- overlong source table inserted as cross-page PPT content instead of being omitted from
+  visible slides and recorded in backend evidence/quality notes
 - DOCX table-heavy deck rendered without a `docx_table_models.json` structure pass or
   without native merged-cell rendering for small/medium source tables that fit the slide
 - sparse page containing neither adequate explanation nor substantive source evidence

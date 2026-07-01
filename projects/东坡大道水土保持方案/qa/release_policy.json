@@ -258,7 +258,25 @@
     "native_merge_required_for_merged_small_tables": true,
     "unsupported_table_number_is_error": true,
     "image_table_min_effective_pt": 10,
-    "table_image_source_dpi": 220
+    "table_image_source_dpi": 220,
+    "skip_tables_requiring_cross_page": true
+  },
+  "post_generation_review": {
+    "enabled": true,
+    "max_repair_rounds": 3,
+    "issue_list_schema": "structured",
+    "blocking_severities": [
+      "critical",
+      "high"
+    ],
+    "review_stages": [
+      "ContentReview",
+      "FormatReview",
+      "FactConsistencyReview",
+      "VisualReview",
+      "AutoRepair"
+    ],
+    "report": "qa/review_report.json"
   },
   "duplicate_content": {
     "enabled": true,
